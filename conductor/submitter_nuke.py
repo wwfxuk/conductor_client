@@ -130,16 +130,17 @@ class NukeConductorSubmitter(submitter.ConductorSubmitter):
     def generateTasksData(self):
         '''
         Return a list of tasks data.  Each item in the list represents one
-        task of work that will be created. Each task dictionary has the following
-        keys:
-            command: The command for the task to execute
+        task of work that will be created. Each task dictionary has the
+        following keys:
 
-            frames: [optional], helps to bind/display the relationship between a
-                     task and the frames that the task is operating on.  Because
-                     a task can be any arbitrary command, the notion of "frames"
-                     may not be relevant and can be left empty.
+        - ``"command"``: The command for the task to execute
+        - ``"frames"``: *optional*, helps to bind/display the relationship
+          between a task and the frames that the task is operating on.
 
-        Example(two tasks):
+          Because a task can be any arbitrary command, the notion of "frames"
+          may not be relevant and can be left empty.
+
+        Example(two tasks)::
 
             # Task 0
             [{"command": "nuke-render --view main -X AFWrite.write_exr -F 1-1x1 \"/tmp/my_nuke_file.nk\""

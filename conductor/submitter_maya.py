@@ -10,13 +10,7 @@ import sys
 import traceback
 import uuid
 import Qt
-from Qt import QtGui, QtCore, QtWidgets
-
-# For backwards compatibility
-if Qt.__binding__ in ('PySide'):
-    from shiboken import wrapInstance
-else:
-    from shiboken2 import wrapInstance
+from Qt import QtCompat, QtGui, QtCore, QtWidgets
 
 
 try:
@@ -199,23 +193,17 @@ class MayaConductorSubmitter(submitter.ConductorSubmitter):
     def generateTasksData(self):
         '''
         Return a list of tasks data.  Each item in the list represents one
-        task of work that will be created.
+        task of work that will be created. Each task dictionary has the
+        following keys:
 
-        Each task dictionary has the following
-        keys:
-            command: The command for the task to execute
+        - ``"command"``: The command for the task to execute
+        - ``"frames"``: *optional*, helps to bind/display the relationship
+          between a task and the frames that the task is operating on.
 
-            frames: [optional], helps to bind/display the relationship between a
-                     task and the frames that the task is operating on.  Because
-                     a task can be any arbitrary command, the notion of "frames"
-                     may not be relevant and can be left empty.
+          Because a task can be any arbitrary command, the notion of "frames"
+          may not be relevant and can be left empty.
 
-        Eventually we may want to populate this with *everything* a task needs
-        (offloading it from the Job entity). This would allow more per-task flexiblity (such as differing environments,
-        files, etc).  Just general containment in general.
-
-
-        Example(two tasks):
+        Example(two tasks)::
 
             # Task 0
             [ {"command": "Render -s 1 -e 1 -rl renderlayer1 \"maya_filepath.ma\""
@@ -600,4 +588,4 @@ def get_maya_window():
     Return the Qt instance of Maya's MainWindow
     '''
     mainWindowPtr = OpenMayaUI.MQtUtil.mainWindow()
-    return wrapInstance(long(mainWindowPtr), QtWidgets.QMainWindow)
+    return QtCompat.wrapInstance(long(mainWindowPtr), QtWidgets.QMainWindow)

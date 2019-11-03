@@ -85,8 +85,8 @@ class MD5Worker(worker.ThreadWorker):
 
 class MD5OutputWorker(worker.ThreadWorker):
     '''
-    This worker will batch the computed md5's into self.batch_size chunks.
-    It will send a partial batch after waiting self.wait_time seconds
+    This worker will batch the computed md5's into ``self.batch_size`` chunks.
+    It will send a partial batch after waiting ``self.wait_time`` seconds
     '''
 
     def __init__(self, *args, **kwargs):
@@ -179,27 +179,33 @@ class HttpBatchWorker(worker.ThreadWorker):
         return self.make_request(job)
 
 
-'''
-This worker subscribes to a queue of (path,signed_upload_url) pairs.
-
-For each item on the queue, it determines the size (in bytes) of the files to be
-uploaded, and aggregates the total size for all uploads.
-
-It then places the triplet (filepath, upload_url, byte_size) onto the out_queue
-
-The bytes_to_upload arg is used to hold the aggregated size of all files that need
-to be uploaded. Note: This is stored as an [int] in order to pass it by
-reference, as it needs to be accessed and reset by the caller.
-'''
 
 
 class FileStatWorker(worker.ThreadWorker):
+    '''
+    This worker subscribes to a queue of (path,signed_upload_url) pairs.
+
+    For each item on the queue, it determines the size (in bytes) of the files to be
+    uploaded, and aggregates the total size for all uploads.
+
+    It then places the triplet (filepath, upload_url, byte_size) onto the out_queue
+
+    The bytes_to_upload arg is used to hold the aggregated size of all files that need
+    to be uploaded.
+
+    Note:
+        This is stored as an ``int`` in order to pass it by
+        reference, as it needs to be accessed and reset by the caller.
+    '''
+
     def __init__(self, *args, **kwargs):
         super(FileStatWorker, self).__init__(*args, **kwargs)
 
     def do_work(self, job, thread_int):
         '''
-        Job is a dict of filepath: signed_upload_url pairs.
+        Args:
+            job (dict[str, str]): filepath, signed_upload_url pairs.
+
         The FileStatWorker iterates through the dict.
         For each item, it aggregates the filesize in bytes, and passes each
         pair as a tuple to the UploadWorker queue.
@@ -384,15 +390,17 @@ class Uploader(object):
         This method estimates the time that is remaining, given the elapsed time
         and percent complete.
 
-        It uses the following formula:
+        It uses the following formula::
 
-        let;
-          t0 = elapsed time
-          P = percent complete (0 <= n <= 1)
+            let;
+            t0 = elapsed time
+            P = percent complete (0 <= n <= 1)
 
-        time_remaining = (t0 - t0 * P) / P
+            time_remaining = (t0 - t0 * P) / P
 
-        which is derived from percent_complete = elapsed_time / (elapsed_time + time_remaining)
+        Which is derived from::
+
+            percent_complete = elapsed_time / (elapsed_time + time_remaining)
         '''
         if not percent_complete:
             return -1
@@ -687,10 +695,12 @@ def run_uploader(args):
 
 def get_file_info(filepath):
     '''
-    For the given filepath return the following information in a dictionary:
-        "filepath": filepath (str)
-        "modtime": modification time (datetime.datetime)
-        "size": filesize in bytes (int)
+    For the given filepath return the following information in a dictionary
+    with:
+
+    - "filepath": filepath (str)
+    - "modtime": modification time (datetime.datetime)
+    - "size": filesize in bytes (int)
 
     '''
     assert os.path.isfile(filepath), "Filepath does not exist: %s" % filepath
@@ -718,20 +728,21 @@ def resolve_args(args):
 def resolve_arg(arg_name, args, config):
     '''
     Helper function to resolve the value of an argument.
+
     The order of resolution is:
+
     1. Check whether the user explicitly specified the argument when calling/
        instantiating the class. If so, then use it, otherwise...
-    2. Attempt to read it from the config.yml. Note that the config also queries
-       environment variables to populate itself with values.
+    2. Attempt to read it from the ``config.yml``. Note that the config also
+       queries environment variables to populate itself with values.
        If the value is in the config then use it, otherwise...
-    3. return None
-
+    3. return ``None``.
     '''
     # Attempt to read the value from the args
     value = args.get(arg_name)
-    # If the arg is not None, it indicates that the arg was explicity
+    # If the arg is not None, it indicates that the arg was explicitly
     # specified by the caller/user, and it's value should be used
-    if value != None:
+    if value is not None:
         return value
     # Otherwise use the value in the config if it's there, otherwise default to None
     return config.get(arg_name)

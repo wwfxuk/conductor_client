@@ -8,12 +8,13 @@ from conductor.lib import common
 
 def merge_package_environments(packages, base_env=None):
     '''
-    For the given conductor software packages, resolve and merge their environements
-    int one single dictionary.
+    For the given conductor software packages, resolve and merge their
+    environments int one single dictionary.
 
     Merge policies:
-        append: appends values, separated by colons
-        exclusive: indicates that
+
+    - "append": appends values, separated by colons
+    - "exclusive": indicates that
     '''
     env = dict(base_env or {})  # Make a copy of the dict. Don't want to alter original
     for package in packages:
@@ -46,12 +47,13 @@ def merge_package_environments(packages, base_env=None):
 
 def merge_package_environment(package_environment, base_env=None):
     '''
-    For the given conductor software packages, resolve and merge their environments
-    int one single dictionary.
+    For the given conductor software packages, resolve and merge their
+    environments int one single dictionary.
 
     Merge policies:
-        append: appends values, separated by colons
-        exclusive: indicates that
+
+    - "append": appends values, separated by colons
+    - "exclusive": indicates that
     '''
     env = dict(base_env or {})  # Make a copy of the dict. Don't want to alter original
 
@@ -177,19 +179,23 @@ class ProductInfo(object):
     '''
     A class for retrieving version information for a given piece of software.
     This is a baseclass that is intended to be overridden for each piece
-    of software this is supported.
+    of software this is supported.::
 
-     # This is package for Maya
-      {'product': 'Maya'
-       'version': "Autodesk Maya 2015 SP4"
-       'plugin_host_product': '',
-       'plugin_host_version': ''},
+        # This is package for Maya
+        {
+            'product': 'Maya'
+            'version': "Autodesk Maya 2015 SP4"
+            'plugin_host_product': '',
+            'plugin_host_version': ''
+        },
 
-     # This is a package for Arnold for Maya
-      {'product': 'Arnold for Maya',
-       'version': '1.1.1.1'
-       'plugin_host_product': 'Maya',
-       'plugin_host_version': '2015'}
+        # This is a package for Arnold for Maya
+        {
+            'product': 'Arnold for Maya',
+            'version': '1.1.1.1'
+            'plugin_host_product': 'Maya',
+            'plugin_host_version': '2015'
+        }
     '''
 
     @classmethod

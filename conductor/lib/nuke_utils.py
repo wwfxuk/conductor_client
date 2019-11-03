@@ -26,7 +26,7 @@ def get_plugins():
     TODO:(lws) WIP - there has to be better way of doing this.
 
     Return the plugins from the current Nuke session. This is a list of filepaths
-    to each nuke plugin. ugly
+    to each nuke plugin. ugly::
 
         ['/home/nuke/tools/customCG_Neutralize.gizmo',
         '/home/nuke/tools/customCG_deNeutralize.gizmo',
@@ -91,19 +91,27 @@ def collect_dependencies(write_nodes, views, dependency_knobs=None):
     For the given Write nodes, traverse up their hierarchy to query any nodes
     for dependency filepaths and return them.
 
-    Note that a path value found in a node/knob may contain tcl expressions that this function
-    will resolve, e.g. a path value of:
+    Note that a path value found in a node/knob may contain tcl expressions
+    that this function will resolve, e.g. a path value of::
+
         "[python {nuke.script_directory()}]/[value seq]/[value shot]/cat.####.jpg"
-    may resolve to:
+
+    May resolve to::
+
         "/tmp/conductor/nuke/010/010_250/cat.%04d.jpg
 
-    write_nodes: a list of Write nodes (their node names) for which to collect
-                 dependencies for.
+    Args:
+        write_nodes (list[nuke.Node]):
+            A list of Write nodes (their node names) for which to collect
+            dependencies for.
+        dependency_knobs (dict):
+            A dictionary of nuke node types (and their knob names) for
+            which to query for dependency paths, e.g.::
 
-    dependency_knobs: A dictionary of nuke node types (and their knob names) for
-                      which to query for dependency paths, e.g.
-                            {'Read':['file'],
-                             'DeepRead':['file']}
+                {
+                    'Read':['file'],
+                    'DeepRead':['file']
+                }
 
     '''
     dependency_knobs = dependency_knobs or {}
@@ -142,17 +150,19 @@ def resolve_knob_path(knob):
     Resolve the knob value of any TCL expression and/or relative path
     Note that this does *not* resolve any frame number expressions.
 
-    args:
-        knob: any File_Knob object
+    example paths::
 
-    return: str. the resolved path value
-
-    example paths:
         '[python {nuke.script_directory()}]/../images/sequences/02/image.%04d.jpg'
         '../images/sequences/[value this.name]/image.%04d.jpg'
         '../images/sequences/03/image.%04d.jpg'
         '../images/sequences/../sequences/03/image.%04d.jpg'
         ''
+
+    Args:
+        knob (nuke.File_Knob): File_Knob object
+
+    Returns:
+        str: The resolved path value
     '''
     raw_value = knob.value()
     logger.debug("Resolving tcl expressions (if any) on %s value: %r", knob.fullyQualifiedName(), raw_value)
@@ -177,17 +187,21 @@ def resolve_knob_path(knob):
 
 def get_node_dependencies(node, types=(), collected_deps=()):
     '''
-    Recursively traverse (upwards) the given node's node-graph, aggregating a list
-    of all of its contributing nodes.
+    Recursively traverse (upwards) the given node's node-graph, aggregating a
+    list of all of its contributing nodes.
 
-    node: any nuke node object
-    types: tuple of nuke node types (strings) to restrict the returned nodes to.
-    collected_deps: tuple. This should not be used by the caller.  A running-record
-         of the dependencies that have been collected thus  far (at any given
-         point in the recursion process).
+    Args:
+        node (nuke.Node):
+            Any nuke node object
+        types (tuple[str]):
+            Nuke node types (strings) to restrict the returned nodes to.
+        collected_deps (tuple):
+            **This should not be used by the caller**.
+            A running-record of the dependencies that have been collected thus
+            far (at any given point in the recursion process).
 
-     return: tuple of Nuke node objects
-
+    Returns:
+        tuple[nuke.Node]: Nuke node objects
     '''
 
     # Handle "Group" nodes as special case because (because it's a collection of of nodes.
@@ -288,7 +302,8 @@ class NukeInfo(package_utils.ProductInfo):
     '''
     A class for retrieving version information about the current maya session.
 
-    Will ultimately produce something like this
+    Will ultimately produce something like this::
+
         {'product': 'nuke',
          'vendor': 'The Foundry',
          'version': '9.0v7'
@@ -354,7 +369,7 @@ class NukeInfo(package_utils.ProductInfo):
     @classmethod
     def get_build_version(cls):
         '''
-        Return the minor version of the product, e.g. 
+        Return the minor version of the product, e.g.
 
             "SP4"
         '''

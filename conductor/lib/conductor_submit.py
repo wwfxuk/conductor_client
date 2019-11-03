@@ -25,11 +25,18 @@ logger = logging.getLogger(__name__)
 
 
 class Submit(object):
-    """ Conductor Submission
+    """Conductor Submission
+
     Command Line Usage:
+
+    .. code-block:: bash
+
         $ python conductor_submit.py --upload_file /path/to/upload_file.txt --frames 1001-1100 --cmd
 
     Help:
+
+    .. code-block:: bash
+
         $ python conductor_submit.py -h
     """
     metadata_types = types.StringTypes
@@ -55,11 +62,11 @@ class Submit(object):
            should not be configured to give a default value when the user has
            not specified them).
 
-       2. If the user has not provided the argument, and if inherit_config is
-          True, then use the value found in the config.
+        2. If the user has not provided the argument, and if inherit_config is
+           True, then use the value found in the config.
 
-       3. If inherit_config is False or the the value in the config doesn't
-          exist, then default to an empty or non-True value.
+        3. If inherit_config is False or the the value in the config doesn't
+           exist, then default to an empty or non-True value.
 
         '''
 
@@ -161,38 +168,48 @@ class Submit(object):
     @classmethod
     def resolve_arg(cls, args, arg_name, default, combine_config=False):
         '''
-        Helper function to resolve the value of an argument.  The general premise
-        is as follows:
-        If an argument value was provided then use it.  However, if the combine_config,
-        bool is True, then we want to combine that value with the value found in
-        the config.  This only works with argument types which can be combined,
-        such as lists or dictionaries. In terms of which value trumps the other,
-        the argument value will always trump the config value. For example,
-        if the config declared a dictionary value, and the argument also provided
-        a dictionary value, they would both be combined, however, the argument
-        value will replace any keys that clash with keys from the config value.
+        Helper function to resolve the value of an argument.
 
-        If the argument nor the config have a value, then use the provided default value
+        The general premise is as follows:
 
+        - If an argument value was provided then use it.
+        - However, if the ``combine_config`` bool is ``True``, then we want to
+          combine that value with the value found in the config.
 
-        combine_config: bool. Indicates whether to combine the argument value
-                        with the config value. This will only ever occur if
-                        both values are present.
+        This only works with argument types which can be combined,
+        such as lists or dictionaries.
 
+        In terms of which value trumps the other, the argument value will
+        always trump the config value.
 
+        For example, if the config declared a dictionary value, and the
+        argument also provided a dictionary value, they would both be combined,
+        however, the argument value will replace any keys that clash with keys
+        from the config value.
+
+        If the argument nor the config have a value, then use the provided
+        default value
 
         The order of resolution is:
-        1. Check whether the user explicitly specified the argument when calling/
-           instantiating the class.  This is indicated by whether the argument's
-           value is set to None or not. If the value is not None, then use it (
-           combining it with the config value if appropriate)
 
-        2. If the specified argument does not have value (i.e. it's None), then
-           use the value found in the config.
+        1. Check whether the user explicitly specified the argument when
+           calling/instantiating the class.  This is indicated by whether
+           the argument's value is set to ``None`` or not.
 
-        3. If the config does not define the expected argument then use the default
-           argument
+           If the value is not ``None``, then use it
+           (combining it with the config value if appropriate)
 
+        2. If the specified argument does not have value (i.e. it's ``None``),
+           then use the value found in the config.
+
+        3. If the config does not define the expected argument then use the
+           default argument.
+
+        Args:
+            combine_config (bool):
+                Indicates whether to combine the argument value
+                with the config value. This will only ever occur if
+                both values are present.
         '''
 
         # Map a combine operation by type
@@ -334,11 +351,15 @@ class Submit(object):
     def send_job(self, upload_files, upload_size):
         '''
         Construct args for two different cases:
-            - upload_only
-            - running an actual command (cmd)
 
+        - upload_only
+        - running an actual command (cmd)
 
-        upload_files: dict, where they key is the filepath, and the value is the md5. e.g.
+        Args:
+            upload_files (dict):
+                Where they key is the filepath, and the value is the md5.
+                e.g. ::
+
                     {"/batman/v06/batman_v006_high.abc": "oFUgxKUUOFIHJ9HEvaRwgg==",
                     "/batman/v06/batman_v006_high.png": "s9y36AyAR5cYoMg0Vx1tzw=="}
 
@@ -423,9 +444,10 @@ class Submit(object):
     def main(self):
         '''
         Submitting a job happens in a few stages:
-            1. Gather depedencies and parameters for the job
-            2. Upload dependencies to cloud storage (requires md5s of dependencies)
-            3. Submit job to conductor (listing the dependencies and their corresponding md5s)
+
+        1. Gather depedencies and parameters for the job
+        2. Upload dependencies to cloud storage (requires md5s of dependencies)
+        3. Submit job to conductor (listing the dependencies and their corresponding md5s)
 
         In order to give flexibility to customers (because a customer may consist
         of a single user or a large team of users), there are two options avaiable

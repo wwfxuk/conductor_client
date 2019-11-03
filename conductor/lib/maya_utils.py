@@ -67,41 +67,43 @@ def get_plugin_versions():
     '''
     Query maya for all of it's plugins and their  versions.
 
-    return a dictionary such as:
-        {'AbcExport': '1.0',
-         'AbcImport': '1.0',
-         'BifrostMain': '1.0',
-         'HoldOut': '1.0',
-         'MayaMuscle': '2.00 (Build: 004)',
-         'Mayatomr': '2015.0 - 3.12.1.18 ',
-         'Substance': '1.11143',
-         'autoLoader': '1.0',
-         'bifrostshellnode': '2015',
-         'bifrostvisplugin': '3.0',
-         'cgfxShader': 'cgfxShader 4.5 for Maya 2015.0 (Apr  9 2015)',
-         'fbxmaya': '2015.1',
-         'glmCrowd': '4.1.3[21f4d33]-2015/08/25',
-         'gpuCache': '1.0',
-         'iDeform': '1.0',
-         'ik2Bsolver': '2.5',
-         'ikSpringSolver': '1.0',
-         'matrixNodes': '1.0',
-         'mayaCharacterization': '5',
-         'mayaHIK': '1.0_HIK_2014.2',
-         'modelingToolkit': 'Unknown',
-         'modelingToolkitStd': '0.0.0.0',
-         'quatNodes': '1.0',
-         'relax_node': 'Unknown',
-         'retargeterNodes': '1.0',
-         'rotateHelper': '1.0',
-         'sceneAssembly': '1.0',
-         'shaderFXPlugin': '1.0',
-         'skinningDecomposition': '1.0',
-         'spReticleLoc': '2.0',
-         'tiffFloatReader': '8.0',
-         'vrayformaya': '3.00.01',
-         'xgenMR': '1.0',
-         'xgenToolkit': '1.0'}
+    Returns:
+        dict: such as::
+
+            {'AbcExport': '1.0',
+            'AbcImport': '1.0',
+            'BifrostMain': '1.0',
+            'HoldOut': '1.0',
+            'MayaMuscle': '2.00 (Build: 004)',
+            'Mayatomr': '2015.0 - 3.12.1.18 ',
+            'Substance': '1.11143',
+            'autoLoader': '1.0',
+            'bifrostshellnode': '2015',
+            'bifrostvisplugin': '3.0',
+            'cgfxShader': 'cgfxShader 4.5 for Maya 2015.0 (Apr  9 2015)',
+            'fbxmaya': '2015.1',
+            'glmCrowd': '4.1.3[21f4d33]-2015/08/25',
+            'gpuCache': '1.0',
+            'iDeform': '1.0',
+            'ik2Bsolver': '2.5',
+            'ikSpringSolver': '1.0',
+            'matrixNodes': '1.0',
+            'mayaCharacterization': '5',
+            'mayaHIK': '1.0_HIK_2014.2',
+            'modelingToolkit': 'Unknown',
+            'modelingToolkitStd': '0.0.0.0',
+            'quatNodes': '1.0',
+            'relax_node': 'Unknown',
+            'retargeterNodes': '1.0',
+            'rotateHelper': '1.0',
+            'sceneAssembly': '1.0',
+            'shaderFXPlugin': '1.0',
+            'skinningDecomposition': '1.0',
+            'spReticleLoc': '2.0',
+            'tiffFloatReader': '8.0',
+            'vrayformaya': '3.00.01',
+            'xgenMR': '1.0',
+            'xgenToolkit': '1.0'}
 
     '''
     plugin_versions = {}
@@ -135,50 +137,59 @@ def get_maya_scene_filepath():
 
 def get_image_dirpath():
     '''
-    TODO: (lws)  Need to break up the logic on a per-plugin/renderer basis.
-
     This is high level function that "figures out"  the proper "output directory"
-    for the conductor job being submitted.  As of now, the output directory is
-    used for two separate purposes (which desperately need to be separated at some point).
+    for the conductor job being submitted.
 
-    1. Dictates the directory to search for rendered images on ther render node
+    To Do:
+        (lws)  Need to break up the logic on a per-plugin/renderer basis.
+
+    As of now, the output directory is used for two separate purposes
+    (which desperately need to be separated at some point).
+
+    1. Dictates the directory to search for rendered images on the render node
        when the render task completes.  If the rendered images cannot be found
        recursively within the given output path then the images will not get
-       transferred to gcs, and therefore the task will have no frames to download.
+       transferred to GCS, and therefore the task will have no frames to
+       download.
 
     2. Dictates the default directory that the client downloader will download
-       the task's frames to.  Note that the client downloader can manually override
-       the download directory when evoking the downloader command manually
-       (as opposed to running it in daemon mode).
+       the task's frames to.  Note that the client downloader can manually
+       override the download directory when evoking the downloader command
+       manually (as opposed to running it in daemon mode).
 
 
     On a simple level, the output directory should be the directory in which
-    maya renders its images to. However, this is directory is not straight forward process to derive.
-    For starters, the "output directory" is not necessarily flat; it may contain
-    nested directories (such as for render layers, etc) that were created by the
-    rendering process. This is not actually a problem, but something to consider.
-    Those nested directories will be represented/recreated when the resulting
-    images are downloaded by the client.  But the important piece to note is that
-    the output directory should be the "lowest" (longest) directory possible,
-    while encompassing all rendered images from that task.
+    maya renders its images to. However, this is directory is not straight
+    forward process to derive.
 
-    The other part of the complexity, is that there are multiple places in maya
-    to dictate where the "output directory" is (and I can't pretend to know every
-    possible way of achieving this). As of now, these are the known factors:
+    For starters, the "output directory" is not necessarily flat; it may
+    contain nested directories (such as for render layers, etc) that were
+    created by the rendering process. This is not actually a problem, but
+    something to consider.
+
+    Those nested directories will be represented/recreated when the resulting
+    images are downloaded by the client.  But the important piece to note is
+    that the output directory should be the "lowest" (longest) directory
+    possible, while encompassing all rendered images from that task.
+
+    The other part of the complexity, is that there are multiple places in Maya
+    to dictate where the "output directory" is (and I can't pretend to know
+    every possible way of achieving this). As of now, these are the known
+    factors:
 
     1. The Workspace's "image" directory is the default location for renders.
        (I'm not sure if this is even true).
 
     2. However, this can be essentially overridden within the global render
        settings if one were to populate "File Name Prefix" field with an
-       absolute path. (perhaps there's another way to override the output directory
-       but this is what I've observed thus far).
+       absolute path. (perhaps there's another way to override the output
+       directory but this is what I've observed thus far).
 
-    3. Each renderer (such as vray or maya software) has a different node/attribute
-       to set the File Name Prefix field.  So it's important to know which
-       renderer is active in order to query the proper node for its data.
-       As other renderers are added/supported by conductor, those nodes will need
-       to be considered when querying for data.
+    3. Each renderer (such as vray or maya software) has a different
+       node/attribute to set the File Name Prefix field.  So it's important to
+       know which renderer is active in order to query the proper node for its
+       data. As other renderers are added/supported by conductor, those nodes
+       will need to be considered when querying for data.
 
      '''
 
@@ -205,11 +216,16 @@ def get_active_renderer():
 
 def get_renderer_info(renderer_name=None):
     '''
-    renderer_name: str. e.g. "vray" or "arnold"
 
-    {"renderer_name": "vray",
-     "plugin_name": "vrayformaya",
-     "plugin_version": 3.00.01'}
+    Args:
+        renderer_name (str): e.g. "vray" or "arnold"
+
+    Returns:
+        dict: For example::
+
+            {"renderer_name": "vray",
+            "plugin_name": "vrayformaya",
+            "plugin_version": 3.00.01'}
 
     '''
     if not renderer_name:
@@ -233,14 +249,16 @@ def get_renderer_plugin(renderer_name):
     '''
     For the given renderer name, return the renderer's plugin name
 
-    Attempt to find the corellation between the renderer name and the plugin name
-    by asking maya for it's active renderer's global render settings node,
-    and then asking what node type that is, and then asking which plugin provides
-    the node type.
+    Attempt to find the correlation between the renderer name and the plugin
+    name by asking maya for it's active renderer's global render settings node,
+    and then asking what node type that is, and then asking which plugin
+    provides the node type.
 
-    # THIS DOESN'T ALWAYS WORK! For some reason the "vraysettings" node isn't
-    # always listed as one of the global render settings nodes.  So we resort
-    # to a hard mapping of needed
+    Warning:
+        **THIS DOESN'T ALWAYS WORK!**
+
+        For some reason the "vraysettings" node isn't always listed as one of
+        the global render settings nodes. So we resort to a hard mapping.
     '''
     # Mapping of render name to plugin name
     renderer_plugin_map = {"vray": "vrayformaya",
@@ -272,13 +290,16 @@ def get_renderer_globals_node(renderer_name):
     '''
     For the given renderer name, return the name of its renderer globals node.
 
-    #TODO:(lws)
-    Note that if more than one node is found, raise an exception.  This is to
-    simplify things for now, but may need to support multiple nodes later.
+    To Do:
+        (lws) Note that if more than one node is found, raise an exception.
+        This is to simplify things for now, but may need to support multiple
+        nodes later.
 
-    renderer_name: str. e.g. "vray" or "arnold"
+    Args:
+        renderer_name (str): e.g. "vray" or "arnold"
 
-    return: str. e.g. "defaultRenderGlobals"
+    Returns:
+        str: e.g. "defaultRenderGlobals"
     '''
     if not renderer_exists(renderer_name):
         logger.debug("Renderer does not exist: %s", renderer_name)
@@ -298,7 +319,8 @@ def renderer_exists(renderer_name):
     '''
     Return True if the given renderer (name) can be found in the maya session
 
-    renderer_name: str. e.g. "vray" or "arnold"
+    Args:
+        renderer_name (str): e.g. "vray" or "arnold"
     '''
     return renderer_name in (cmds.renderer(q=True, namesOfAvailableRenderers=True) or [])
 
@@ -331,28 +353,37 @@ def get_render_file_prefix():
 
 def derive_prefix_directory(file_prefix):
     '''
-    This is a super hack that makes many assumptions.  It's purpose is to determine
-    the top level render output directory.  Normally one could query the workspace's
-    "images" directory to get this information, but in cases where the render
-    file prefix specifies an absolute path(thereby overriding the workspace's
-    specified directory), we must honor that prefix path.  The problem is that
-    prefix path can contain variables, such as <Scene> or <RenderLayer>, which
-    could be specific to whichever render layer is currently being rendered. So
-    we need to navigate to highest common directory across all render layers.
+    This is a super hack that makes many assumptions.  It's purpose is to
+    determine the top level render output directory.  Normally one could query
+    the workspace's "images" directory to get this information, but in cases
+    where the render file prefix specifies an absolute path(thereby overriding
+    the workspace's specified directory), we must honor that prefix path.
 
-    So if this is the prefix:
+    The problem is that prefix path can contain variables, such as ``<Scene>``
+    or ``<RenderLayer>``, which could be specific to whichever render layer is
+    currently being rendered. So we need to navigate to highest common
+    directory across all render layers.
+
+    So if this is the prefix::
+
         "/shot_105/v076/<Layer>/105_light_<RenderLayer>_v076"
-    ...then this is directory we want to return:
+
+    ...then this is directory we want to return::
+
         "/shot_105/v076"
 
-    However, there may not be *any* variables used. So if this is the prefix:
+    However, there may not be *any* variables used. So if this is the prefix::
+
         "/shot_105/v076/105_light_v076"
-    ...then this is directory we want to return (same as before):
+
+    ...then this is directory we want to return (same as before)::
+
         "/shot_105/v076"
 
-    Note that the provided file_prefix is expected to be absolute path
+    Note that the provided ``file_prefix`` is expected to be absolute path
 
-    variables are such as:
+    variables are such as::
+
         <Scene>
         <RenderLayer>
         <Camera>
@@ -407,14 +438,20 @@ def get_workspace_image_dirpath():
 
 def get_frame_range():
     '''
-    Return the current frame range for the current maya scene.  This consists
-    of both the "playback" start/end frames, as well as the "range" start/end frames.
+    Return the current frame range for the current maya scene.
+
+    This consists of both the "playback" start/end frames, as well as the
+    "range" start/end frames.
 
     Note that only integers are currently support for frames
 
-    return: list of two tuples, where the first tuple is the "playback" start/end
-            frames and the second is the "range" start/end frames,
-            e.g. [(1.0, 24.0), (5.0, 10.0)]
+    Returns:
+        list[tuple]:
+            List of two tuples, where the first tuple is the "playback"
+            start/end frames and the second is the "range" start/end frames,
+            e.g.::
+
+                [(1.0, 24.0), (5.0, 10.0)]
     '''
     # Get the full start/end frame range
     playback_start = cmds.playbackOptions(q=True, animationStartTime=True)
@@ -429,13 +466,20 @@ def get_frame_range():
 @dec_undo
 def get_render_layers_info():
     '''
-    TODO: Does the default render layer name need to be augmented when passed to maya's rendering command?
-    TODO: Should the default render layer be included at all?  And should it be unselected by default?
     Return a list of dictionaries where each dictionary represents data for
-    a a render layer.  Each dictionary provides the following information:
-        - render layer name
-        - whether the render layer is set to renderable
-        - the cameras that the render layer is set to render
+    a a render layer.
+
+    Each dictionary provides the following information:
+
+    - render layer name
+    - whether the render layer is set to renderable
+    - the cameras that the render layer is set to render
+
+    To Do:
+        - Does the default render layer name need to be augmented when passed
+          to Maya's rendering command?
+        - Should the default render layer be included at all?
+          And should it be unselected by default?
 
     Note that this function is wrapped in an undo block because it actually changes
     the state of the maya session (unfortunately). There doesn't appear to be
@@ -475,8 +519,9 @@ def get_render_layers_info():
 def collect_dependencies(node_attrs):
     '''
     Return a list of filepaths that the current maya scene has dependencies on.
-    This is achieved by inspecting maya's nodes.  Use the node_attrs argument
-    to pass in a dictionary
+    This is achieved by inspecting maya's nodes.
+
+    Use the ``node_attrs`` argument to pass in a dictionary
     '''
     assert isinstance(node_attrs, dict), "node_attrs arg must be a dict. Got %s" % type(node_attrs)
 
@@ -662,15 +707,19 @@ def scrape_yeti_node_type(yeti_node, node_type, attr_names, search_paths=()):
     '''
     Scrape the given PgYetiMaya node for all yeti nodes of the given node_type.
 
-    args
-        yeti_node: str. The name of the PyYetiNode to scrape for dependencies.
-        node_type: str. The name of yeti node type to scrape for dependencies.
-        attr_names: list of str. The names of the yeti node's attributes to read for dependencies.
-        search_paths: an optional list of directories to resolved any relative/global
-        files that are found.
+    Args:
+        yeti_node (str):
+            The name of the PyYetiNode to scrape for dependencies.
+        node_type (str):
+            The name of yeti node type to scrape for dependencies.
+        attr_names (list[str]):
+            The names of the yeti node's attributes to read for dependencies.
+        search_paths (list[str]):
+            an optional list of directories to resolved any relative/global
+            files that are found.
 
-    return:
-        A list of filepaths
+    Returns:
+        list[str]: A list of filepaths
     '''
     node_filepaths = []
     for attr_name in attr_names:
@@ -742,7 +791,8 @@ def parse_rib_file(filepath):
     read a binary rib file and output it to ascii.  Aside from that, we're doing crude regex matching
     from the content (no api for interfacing with ribs :( ).
 
-    Regex for attribites suchs as:
+    Regex for attributes such as::
+
         filename
         fileTextureName
     '''
@@ -860,11 +910,13 @@ def _get_ocio_search_path(config_filepath):
     '''
     Get the "search_path" value in the config file.
     Though an OCIO config file is yaml, it may have custom data types (yaml tags) defined within it
-    which can prevent a succesful reading when using a simple yaml.load call. So we try two
+    which can prevent a successful reading when using a simple yaml.load call. So we try two
     different approaches for reading the file:
-        1. Use OpenColorIO api.  This library/tools may not be available on a client's machine.
-        2. Use pyyaml to load the yaml file and use a custom yaml constructor to omit the yaml tags
-           from being read.
+
+    1. Use OpenColorIO api.
+       This library/tools may not be available on a client's machine.
+    2. Use pyyaml to load the yaml file and use a custom yaml constructor to
+       omit the yaml tags from being read.
     '''
     logger.debug("Reading OCIO config from: %s", config_filepath)
     try:
@@ -946,12 +998,15 @@ def get_arnold_settings_node(strict=True):
 
 def _get_one_render_node(node_type, render_settings_nodes, default_name):
     '''
-    helper function to return one node of the given render_settings_nodes.
+    Helper function to return one node of the given ``render_settings_nodes``.
 
-    If more than on node exists, use the one that has the default name. Otherwise
-    throw an exception. This is really just a temporary hack until we can figure
-    out (decisively via an api call) as to which node is the active render node
-    for the maya scene.
+    If more than on node exists, use the one that has the default name.
+    Otherwise throw an exception.
+
+    Warning:
+        This is really just a temporary hack until we can figure out
+        (decisively via an api call) as to which node is the active render node
+        for the Maya scene.
     '''
     if not render_settings_nodes:
         return ""
@@ -984,9 +1039,10 @@ def is_vray_gpu_enabled():
     '''
     Return True if a GPU mode is selected in V-Ray's render settings
     Current potential values set on V-Ray's productionEngine attr are:
-    0 = CPU mode (False)
-    1 = OpenCL mode (False - not supported on Intel/NVIDIA hardware)
-    2 = CUDA mode (True)
+
+    - 0 = CPU mode (False)
+    - 1 = OpenCL mode (False - not supported on Intel/NVIDIA hardware)
+    - 2 = CUDA mode (True)
     '''
     vray_node = get_vray_settings_node(strict=False)
     if vray_node:
@@ -1010,16 +1066,23 @@ def scrape_ass_files(ass_filepaths, node_attrs, plugin_paths=()):
     Read/load the given arnold files with the arnold api, and seek out nodes that have filepaths
     of interest.
 
-    todo(lws): Still need to investigate why this crashes in mayapy when arnold plugins are
-        present (such as yeti or alshaders).
+    To Do:
+        (lws) Still need to investigate why this crashes in mayapy when
+        arnold plugins are present (such as yeti or alshaders).
 
-    node_attrs: dictionary. key is the node type, value is a list of node attributes to query.
+    Args:
+        node_attrs (dict):
+            Key is the node type, value is a list of node attributes to query.
 
-    plugin_paths: tuple of strings. This may be necessary when running outside of maya/interactive,
-        so that nodes for arnold plugins (yeti, etc) can be properly loaded/used.
+        plugin_paths (tuple[str]):
+            This may be necessary when running outside of maya/interactive, so
+            that nodes for arnold plugins (yeti, etc) can be properly
+            loaded/used. e.g.::
 
-        e.g. ("/usr/anderslanglands/alshaders/alShaders-linux-2.0.0b2-ai5.0.1.0/bin",
-              "/usr/peregrinelabs/yeti/Maya2017/Yeti-v2.2.6_Maya2017-linux64/bin")
+                (
+                    "/usr/anderslanglands/alshaders/alShaders-linux-2.0.0b2-ai5.0.1.0/bin",
+                    "/usr/peregrinelabs/yeti/Maya2017/Yeti-v2.2.6_Maya2017-linux64/bin"
+                )
 
     '''
     cmds.loadPlugin("mtoa")
@@ -1050,16 +1113,23 @@ def scrape_ass_file(ass_filepath, node_attrs, plugin_paths=()):
     Read/load the given arnold file with the arnold api, and seek out nodes that have filepaths
     of interest.
 
-    todo(lws): Still need to investigate why this crashes in mayapy when arnold plugins are
-        present (such as yeti or alshaders).
+    To Do:
+        (lws) Still need to investigate why this crashes in mayapy when
+        arnold plugins are present (such as yeti or alshaders).
 
-    node_attrs: dictionary. key is the node type, value is a list of node attributes to query.
+    Args:
+        node_attrs (dict):
+            Key is the node type, value is a list of node attributes to query.
 
-    plugin_paths: tuple of strings. This may be necessary when running outside of maya/interactive,
-        so that nodes for arnold plugins (yeti, etc) can be properly loaded/used.
+        plugin_paths (tuple[str]):
+            This may be necessary when running outside of maya/interactive, so
+            that nodes for arnold plugins (yeti, etc) can be properly
+            loaded/used. e.g.::
 
-        e.g. ("/usr/anderslanglands/alshaders/alShaders-linux-2.0.0b2-ai5.0.1.0/bin",
-              "/usr/peregrinelabs/yeti/Maya2017/Yeti-v2.2.6_Maya2017-linux64/bin")
+                (
+                    "/usr/anderslanglands/alshaders/alShaders-linux-2.0.0b2-ai5.0.1.0/bin",
+                    "/usr/peregrinelabs/yeti/Maya2017/Yeti-v2.2.6_Maya2017-linux64/bin"
+                )
     '''
     cmds.loadPlugin("mtoa")
     try:
@@ -1083,9 +1153,12 @@ def _scrape_ass_file(ass_filepath, node_attrs):
     Read/load the given arnold file with the arnold api, and query the given the node/attrs
     for paths of interest.
 
-    node_attrs: dictionary. key is the node type, value is a list of node attributes to query.
+    Note:
+        This should not be called directly (requires some initialization/cleanup)
 
-    NOTE: this should not be called directly (requires some initialization/cleanup)
+    Args:
+        node_attrs (dict):
+            Key is the node type, value is a list of node attributes to query.
     '''
 
     import arnold
@@ -1150,27 +1223,39 @@ def scrape_arnold_xgen_data_str(string):
 
 def parse_xgen_command(cmd_str):
     '''
-    Parse xgen produceral command/args. Very crude with many assumptions.
+    Parse xgen procedural command/args. Very crude with many assumptions.
 
-    args:
-        cmd_str: str. The string to parse, e.g.
-        '-debug 1 -warning 1 -stats 1  -frame 1.000000  -nameSpace cat_main -file /tmp/cat.xgen -palette cat_xgen_coll -geom /tmp/cat_xgen_coll.abc -patch Paw_R_emitter -description catcuff_xgen_desc -fps 24.000000  -motionSamplesLookup -0.250000 0.250000  -motionSamplesPlacement -0.250000 0.250000  -world 1;0;0;0;0;1;0;0;0;0;1;0;0;0;0;1'
+    Args:
+        cmd_str (str):
+            The string to parse, e.g.::
 
-    return: dict:, e.g.
-        {'debug': '1',
-         'description': 'catcuff_xgen_desc',
-         'file': '/tmp/cat.xgen',
-         'fps': '24.000000',
-         'frame': '1.000000',
-         'geom': '/tmp/cat_xgen_coll.abc',
-         'motionSamplesLookup': ['-0.250000', '0.250000'],
-         'motionSamplesPlacement': ['-0.250000', '0.250000'],
-         'nameSpace': 'cat_main',
-         'palette': 'cat_xgen_coll',
-         'patch': 'Paw_R_emitter',
-         'stats': '1',
-         'warning': '1',
-         'world': '1;0;0;0;0;1;0;0;0;0;1;0;0;0;0;1'}
+                (
+                    '-debug 1 -warning 1 -stats 1  -frame 1.000000 '
+                    '-nameSpace cat_main -file /tmp/cat.xgen '
+                    '-palette cat_xgen_coll -geom /tmp/cat_xgen_coll.abc '
+                    '-patch Paw_R_emitter -description catcuff_xgen_desc '
+                    '-fps 24.000000  -motionSamplesLookup -0.250000 0.250000 '
+                    '-motionSamplesPlacement -0.250000 0.250000 '
+                    '-world 1;0;0;0;0;1;0;0;0;0;1;0;0;0;0;1'
+                )
+
+    Returns:
+        dict: e.g.::
+
+            {'debug': '1',
+            'description': 'catcuff_xgen_desc',
+            'file': '/tmp/cat.xgen',
+            'fps': '24.000000',
+            'frame': '1.000000',
+            'geom': '/tmp/cat_xgen_coll.abc',
+            'motionSamplesLookup': ['-0.250000', '0.250000'],
+            'motionSamplesPlacement': ['-0.250000', '0.250000'],
+            'nameSpace': 'cat_main',
+            'palette': 'cat_xgen_coll',
+            'patch': 'Paw_R_emitter',
+            'stats': '1',
+            'warning': '1',
+            'world': '1;0;0;0;0;1;0;0;0;0;1;0;0;0;0;1'}
 
     '''
     args = collections.defaultdict(list)
@@ -1267,16 +1352,18 @@ def _are_conditions_met(module, attr_conditions):
 
 
 def parse_xgen_file(filepath):
-    '''
-    TODO(LWS): I hope we can get rid of this ASAP if/when xgen provides an api to read .xgen files
+    '''Crude ``.xgen`` file parser for reading palette files.
 
-    Crude .xgen file parser for reading palette files.
+    Todo:
+        (LWS): I hope we can get rid of this ASAP if/when xgen provides an api
+        to read .xgen files
 
-    Return a dictionary where the key is the module type, and the value is a list of modules of that
-    type.  Each module is a dictionary of data, where the key is the property/attribute name, and the
-    value is the raw value of the property.
+    Return a dictionary where the key is the module type, and the value is a
+    list of modules of that type.  Each module is a dictionary of data,
+    where the key is the property/attribute name, and the value is the raw
+    value of the property.
 
-    example input file content:
+    Example input file content::
 
         Palette
             name            robert_xgen_coll
@@ -1286,7 +1373,8 @@ def parse_xgen_file(filepath):
             xgDogTag
             endAttrs
 
-    example output:
+    Example output::
+
        {"Palette": [
            {
               'name': 'robert_xgen_coll',
@@ -1386,7 +1474,8 @@ def get_plugin_info():
     Return the conductor package information for any supported plugins
     that are loaded.
 
-     e.g.
+     e.g.::
+
         {'arnold-maya': u'1.4.2.1',
          'miarmy': u'5.2.25',
          'v-ray-maya': u'3.40.02'}
@@ -1408,12 +1497,13 @@ class MayaInfo(package_utils.ProductInfo):
     '''
     A class for retrieving version information about the current maya session.
 
-    Will ultimately produce something like this
-     # This is package for Maya
-      {'product': 'Maya'
-       'version': "Autodesk Maya 2015 SP4"
-       'host_product': '',
-       'host_version': ''},
+    Will ultimately produce something like this::
+
+        # This is package for Maya
+        {'product': 'Maya'
+        'version': "Autodesk Maya 2015 SP4"
+        'host_product': '',
+        'host_version': ''},
 
     '''
     product = "maya"
@@ -1482,15 +1572,15 @@ class MayaPluginInfo(package_utils.ProductInfo):
     '''
     A class for retrieving version information about a plugin in maya
 
-    Will ultimately produce something like this
+    Will ultimately produce something like this::
 
-     {'product': '<plugin name>',
-      'major_version': u'3',
-      'minor_version': u'00',
-      'release_version': u'01',
-      'build_version': '',
-      'plugin_host_product': 'maya',
-      'plugin_host_version': u'2015'}
+        {'product': '<plugin name>',
+        'major_version': u'3',
+        'minor_version': u'00',
+        'release_version': u'01',
+        'build_version': '',
+        'plugin_host_product': 'maya',
+        'plugin_host_version': u'2015'}
     '''
 
     plugin_name = None
@@ -1530,15 +1620,15 @@ class VrayInfo(MayaPluginInfo):
     '''
     A class for retrieving version information about the vray plugin in maya
 
-    Will ultimately produce something like this
+    Will ultimately produce something like this::
 
-     {'product': 'vrayformaya',
-      'major_version': u'3',
-      'minor_version': u'00',
-      'release_version': u'01',
-      'build_version': '',
-      'plugin_host_product': 'maya',
-      'plugin_host_version': u'2015'}
+        {'product': 'vrayformaya',
+        'major_version': u'3',
+        'minor_version': u'00',
+        'release_version': u'01',
+        'build_version': '',
+        'plugin_host_product': 'maya',
+        'plugin_host_version': u'2015'}
     '''
     plugin_name = "vrayformaya"
 
@@ -1592,15 +1682,15 @@ class ArnoldInfo(MayaPluginInfo):
     '''
     A class for retrieving version information about the arnold plugin in maya
 
-    Will ultimately produce something like this
+    Will ultimately produce something like this::
 
-     {'product': 'mtoa',
-      'major_version': u'1',
-      'minor_version': u'2',
-      'release_version': u'6',
-      'build_version': u'1',
-      'plugin_host_product': 'maya',
-      'plugin_host_version': u'2015'}
+        {'product': 'mtoa',
+        'major_version': u'1',
+        'minor_version': u'2',
+        'release_version': u'6',
+        'build_version': u'1',
+        'plugin_host_product': 'maya',
+        'plugin_host_version': u'2015'}
 
     '''
     plugin_name = "mtoa"
@@ -1626,15 +1716,15 @@ class RendermanInfo(MayaPluginInfo):
     '''
     A class for retrieving version information about the renderman plugin in maya
 
-    Will ultimately produce something like this
+    Will ultimately produce something like this::
 
-     {'product': 'mtoa',
-      'major_version': u'1',
-      'minor_version': u'2',
-      'release_version': u'6',
-      'build_version': u'1',
-      'plugin_host_product': 'maya',
-      'plugin_host_version': u'2015'}
+        {'product': 'mtoa',
+        'major_version': u'1',
+        'minor_version': u'2',
+        'release_version': u'6',
+        'build_version': u'1',
+        'plugin_host_product': 'maya',
+        'plugin_host_version': u'2015'}
 
     '''
     plugin_name = "RenderMan_for_Maya"
@@ -1661,15 +1751,15 @@ class MiarmyBaseInfo(MayaPluginInfo):
 
     A class for retrieving version information about the Miarmy plugin in maya
 
-    Will ultimately produce something like this
+    Will ultimately produce something like this::
 
-     {'product': 'miarmy',
-      'major_version': u'5',
-      'minor_version': u'2',
-      'release_version': u'25',
-      'build_version': u'',
-      'plugin_host_product': 'maya',
-      'plugin_host_version': u'2016'}
+        {'product': 'miarmy',
+        'major_version': u'5',
+        'minor_version': u'2',
+        'release_version': u'25',
+        'build_version': u'',
+        'plugin_host_product': 'maya',
+        'plugin_host_version': u'2016'}
 
     '''
 
@@ -1717,15 +1807,15 @@ class YetiInfo(MayaPluginInfo):
     '''
     A class for retrieving version information about the yeti plugin in maya
 
-    Will ultimately produce something like this
+    Will ultimately produce something like this::
 
-     {"product": "yeti",
-      "major_version": "2",
-      "minor_version": "1",
-      "release_version": "9",
-      "build_version": "",
-      "plugin_host_product": "maya",
-      "plugin_host_version": "2016"}
+        {"product": "yeti",
+        "major_version": "2",
+        "minor_version": "1",
+        "release_version": "9",
+        "build_version": "",
+        "plugin_host_product": "maya",
+        "plugin_host_version": "2016"}
     '''
     plugin_name = "pgYetiMaya"
 

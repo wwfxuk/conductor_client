@@ -43,32 +43,36 @@ logger = logging.getLogger(__name__)
 
 def separate_path(path, no_extension=False):
     '''
-    Seperate the given path into three pieces:
-        1. The directory (if any)
-        2. The base filename (mandatory)
-        3. The file extension (if any)
+    Separate the given path into three pieces:
 
-    For example, given this path:
+    1. The directory (if any)
+    2. The base filename (mandatory)
+    3. The file extension (if any)
+
+    For example, given this path::
+
         "/animals/fuzzy_cat.jpg"
-    return
+
+    return::
+
         "/animals", "fuzzy_cat", ".jpg"
 
     The path argument may be a full filepath (including the directory) or just
     the name of the file.
 
-    Note that there is no way to know with 100% certainty that if a file name has
-    a period in it that the characters that follow that period are the file
+    Note that there is no way to know with 100% certainty that if a file name
+    has a period in it that the characters that follow that period are the file
     extension. By default, this function will assume that all files
     that are passed into it have a file extension, and the extension is
     identified by the last period in the file.  In cases where a file does not
     have a file extension,  this must be indicated to this function by setting
-    the no_extension argument to be True.
+    the ``no_extension`` argument to be ``True``.
 
     An example that illustrates the issue: A file named "2942_image.10312".
     The "10312" could either represent a frame number or an extension. There
     is no way to know for sure. By default, the function will assume that the
-    "10312" is an extension.  Override this behavior by setting the no_extensio
-    arg to True.
+    "10312" is an extension.  Override this behavior by setting the
+    ``no_extension`` arg to ``True``.
     '''
     dirpath, filename = os.path.split(path)
 
@@ -83,10 +87,9 @@ def separate_path(path, no_extension=False):
 def process_dependencies(paths):
     '''
     For the given lists of dependency paths, return a dictionary where the keys
-    are the depenency filepaths and the values are paths, and the values are a
+    are the dependency filepaths and the values are paths, and the values are a
     a string, describing what is wrong with the path (if anything). If the path
-    is valid, the value will be None
-
+    is valid, the value will be ``None``
     '''
     dependencies = {}
     for path in paths:
@@ -117,39 +120,42 @@ def process_upload_filepath(path, strict=True):
     '''
     Process the given path to ensure that the path is valid (exists on disk),
     and return any/all files which the path may represent.
-    For example, if the path is a directory or an image sequence, then explicitly
-    list and return all files that that path represents/contains.
 
+    For example, if the path is a directory or an image sequence, then
+    explicitly list and return all files that that path represents/contains.
 
-    strict: bool. When True and the give path does not exist on disk, raise an
-                  exception.
-                  Note that when this function is given a directory path, and
-                  and it finds any broken symlinks within the directory, the
+    Args:
+        strict (bool):
+            When ``True`` and the give path does not exist on disk, raise an
+            exception.
 
+            Note that when this function is given a directory path, and
+            and it finds any broken symlinks within the directory, the
 
     This function should be able to handle various types of paths:
-        1. Directory path
-        2. File path
-        3. Image sequence path
 
+    1. Directory path
+    2. File path
+    3. Image sequence path
 
     Process the path by doing the following:
 
     1. If the path is  an image sequence notation, "explode" it and return
-        each frame's filepath.  This relies on the file
-        actually being on disk, as the underlying call is to glob.glob(regex).
-        Validate that there is at least one frame on disk for the image sequence.
-        There is no 100% reliable way to know how many frames should actually be
-        part of the image sequence, but we can at least validate that there is
-        a single frame.
+       each frame's filepath.
+
+       This relies on the file actually being on disk, as the underlying call
+       is to ``glob.glob(regex)``.
+
+       Validate that there is at least one frame on disk for the image
+       sequence. There is no 100% reliable way to know how many frames should
+       actually be part of the image sequence, but we can at least validate
+       that there is a single frame.
 
     2. If the path is a directory then recursively add all file/dir paths
-        contained within it
+       contained within it
 
-    3. If the path is a file then ensure that it exists on disk and that it conforms
-       to Conductor's expectations.
-
-
+    3. If the path is a file then ensure that it exists on disk and that it
+       conforms to Conductor's expectations.
 
      '''
 
@@ -220,22 +226,20 @@ def process_upload_filepath(path, strict=True):
 
 def get_common_dirpath(paths):
     '''
-    Find the common directory between all of the filepaths (essentially find the
-    lowest common denominator of all of the given paths).  If thers is no
-    common directory shared between the paths, return None
+    Find the common directory between all of the filepaths (essentially find
+    the lowest common denominator of all of the given paths). If theirs is no
+    common directory shared between the paths, return ``None``
 
-    For example, given these three filepaths:
+    For example, given these three filepaths::
+
         '/home/cat/names/fred.txt'
-        '/home/cat/names/sally.txt
-        '/home/cat/games/chase.txt
-    return
-        '/home/cat'
+        '/home/cat/names/sally.txt'
+        '/home/cat/games/chase.txt'
 
+    Return ``'/home/cat'``
 
     Exclude the root symbol ("/" or a lettered drive in the case of windows) as
     a valid common directory.
-
-
     '''
     # Using os.path.commonprefix only gets us so far, as it merely matches as
     # many characters as possible, but doesn't ensure those characters clearly end
@@ -350,12 +354,13 @@ def conform_win_path(filepath):
 def validate_path(filepath):
     '''
     Validate that the given filepath:
-        1. Does not contain colons.  This is docker path limitation
-        2. Starts with a "/".  Otherwise the path cannot be mounted in a linux filesystem
 
-    If the filepath is valid, return None. Otherwise return a message that describes
-    why the filepath is invalid
+    1. Does not contain colons.  This is docker path limitation
+    2. Starts with a "/".  Otherwise the path cannot be mounted in a
+       Linux filesystem
 
+    If the filepath is valid, return ``None``. Otherwise return a message that
+    describes why the filepath is invalid.
     '''
     # Strip the lettered drive portion of the filepath (if there is one).
     # This is only going to affect a path with a lettered drive on Windows filesystem
@@ -387,7 +392,8 @@ def get_files_from_path_expression(path_expression):
     This function relies on what is actually on disk, so only files that are
     found on disk will be returned. If no files are found, return an empty list.
 
-    Supports a variety of path expressions. Here are a few examples:
+    Supports a variety of path expressions. Here are a few examples::
+
         "image.####.exr"   # Hash syntax
         "image.####"       # no extension  - if there is no extension for the file then that must be specified by the no_extension argument
         "image.%04d.exr"   # printf format
@@ -395,7 +401,8 @@ def get_files_from_path_expression(path_expression):
         "image.$F.exr      # Houdini
 
     In addition to matching against the file name/root, this function also matches expressions
-    found against the directory name/path, e.g.
+    found against the directory name/path, e.g.::
+
         /data/shot-###/image.exr
         /data/shot-###/image.####.exr
         /data/shot-###/image.%04d.exr
@@ -452,10 +459,11 @@ def get_tx_paths(filepaths, existing_only=False):
 
 def get_tx_path(filepath, existing_only=False):
     '''
-    For the given filepath, construct a parallel *.tx filepath residing in the same
-    directory (same name, different extension).
-    If existing_only is True, only return the tx filepath if it exists on disk,
-    otherwise return an empty string.
+    For the given filepath, construct a parallel ``*.tx`` filepath residing in
+    the same directory (same name, different extension).
+
+    If ``existing_only`` is True, only return the tx filepath if it exists
+    on disk, otherwise return an empty string.
     '''
     filepath_base, _ = os.path.splitext(filepath)
     tx_filepath = filepath_base + ".tx"
@@ -467,7 +475,7 @@ def get_tx_path(filepath, existing_only=False):
 def strip_drive_letter(filepath):
     '''
     If the given filepath has a drive letter, remove it and return the rest of
-    the path
+    the path::
 
         C:\cat.txt         -->    \cat.txt
         Z:\cat.txt         -->    \cat.txt
@@ -479,8 +487,9 @@ def strip_drive_letter(filepath):
         /cat/c:/dog.txt    -->    /cat/c:/dog.txt
         c:\cat\z:\dog.txt  -->    \cat\z:\dog.txt
 
-    Note that os.path.splitdrive should not be used (anymore), due to a change
-    in behavior that was implemented somewhere between python 2.7.6 vs 2.7.11
+    Note that ``os.path.splitdrive`` should not be used (anymore),
+    due to a change in behavior that was implemented somewhere between
+    Python 2.7.6 vs 2.7.11
     '''
     rx_drive = r'^[a-z]:'
     return re.sub(rx_drive, "", filepath, flags=re.I)
