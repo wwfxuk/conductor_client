@@ -50,7 +50,7 @@ done
 find * -name '*.py' -path "conductor/*" ! -name 'setup.py' -printf "${PYTHON_ONLY_DIR}/%h\n" | xargs mkdir -p
 find "${PYTHON_ONLY_DIR}"/* -type d -exec touch {}/__init__.py \; -printf 'Created %p/__init__.py\n'
 find * -name '*.py' -path "conductor/*" ! -name 'setup.py' -exec cp -fv {} "${PYTHON_ONLY_DIR}"/{} \;
-cp -rv '.travis.yml' "${DOCS_DIR}" "${PYTHON_ONLY_DIR}"
+cp -rv "${DOCS_DIR}" "${PYTHON_ONLY_DIR}"
 
 # -- Generate API docs first with dash so it matches existing folders/files --
 cd "${PYTHON_ONLY_DIR}"
