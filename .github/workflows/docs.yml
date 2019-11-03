@@ -15,3 +15,8 @@ jobs:
 
     - name: Make API docs
       run: docker run --rm -v $(pwd):/repo $(cat docs/docker/ImageID)
+
+    - uses: actions/upload-artifact@master
+      with:
+        name: html-docs
+        path: docs/_build
