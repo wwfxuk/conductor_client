@@ -46,14 +46,6 @@ sudo chown "'${OUTPUT_OWN}'" "'${NEW_DIR}'"/*
 done
 
 
-#
-# FIXES for autodoc
-#
-# Copy fixtures jsons
-mkdir -vp "${PYTHON_ONLY_DIR}/conductor/houdini/lib/fixtures"
-cp conductor/houdini/lib/fixtures/*.json "${PYTHON_ONLY_DIR}/conductor/houdini/lib/fixtures"
-
-
 # Copy only .py files, ensure leading folders have a __init__.py
 find * -name '*.py' -path "conductor/*" ! -name 'setup.py' -printf "${PYTHON_ONLY_DIR}/%h\n" | xargs mkdir -p
 find "${PYTHON_ONLY_DIR}"/* -type d -exec touch {}/__init__.py \; -printf 'Created %p/__init__.py\n'
