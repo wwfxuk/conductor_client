@@ -1,0 +1,17 @@
+name: Documentations
+
+on: [push]
+
+jobs:
+  build:
+    name: Build API Docs
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Docs generator image
+      run: docker build --iidfile=docs/docker/ImageID --rm docs/docker
+
+    - name: Make API docs
+      run: docker run --rm -v $(pwd):/repo $(cat docs/docker/ImageID)
