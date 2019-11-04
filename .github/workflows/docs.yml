@@ -42,5 +42,5 @@ jobs:
         git remote add origin "https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}"
         git checkout -B gh-pages
         git add .
-        git commit -m "Generated from GitHub Action ${GITHUB_ACTION}"
+        git commit -m "Generated from GitHub Action '${GITHUB_ACTION}'" -m "From '${GITHUB_REF}' (${GITHUB_SHA})"
         git push --force origin gh-pages
