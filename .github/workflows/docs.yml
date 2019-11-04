@@ -32,10 +32,13 @@ jobs:
     - uses: actions/download-artifact@master
       with:
         name: html-docs
+        path: .
     - name: Force push gh-pages
       run: |
         find -ls
         git init .
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@${GITHUB_SHA}"
         git remote add origin "https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}"
         git checkout -B gh-pages
         git add .
