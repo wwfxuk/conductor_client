@@ -24,7 +24,7 @@ author = u'Atomic Conductor'
 copyright = u'2019, ' + author
 
 # The short X.Y version. The full version, including alpha/beta/rc tags
-version = release = u'2.9.0'
+version = release = u'2.11.2'
 
 
 # -- General configuration ---------------------------------------------------
