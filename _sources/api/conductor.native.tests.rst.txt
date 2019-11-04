@@ -1,0 +1,23 @@
+conductor.native.tests package
+==============================
+
+Submodules
+----------
+
+.. toctree::
+
+   conductor.native.tests.test_data_block
+   conductor.native.tests.test_expander
+   conductor.native.tests.test_gpath
+   conductor.native.tests.test_gpath_list
+   conductor.native.tests.test_package_environment
+   conductor.native.tests.test_package_tree
+   conductor.native.tests.test_sequence
+
+Module contents
+---------------
+
+.. automodule:: conductor.native.tests
+    :members:
+    :undoc-members:
+    :show-inheritance:

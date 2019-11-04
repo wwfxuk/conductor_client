@@ -1,0 +1,17 @@
+conductor.clarisse.scripts package
+==================================
+
+Submodules
+----------
+
+.. toctree::
+
+   conductor.clarisse.scripts.ct_prep
+
+Module contents
+---------------
+
+.. automodule:: conductor.clarisse.scripts
+    :members:
+    :undoc-members:
+    :show-inheritance:

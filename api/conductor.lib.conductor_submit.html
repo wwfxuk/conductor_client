@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.lib.conductor_submit module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.lib.downloader module" href="conductor.lib.downloader.html" />
+    <link rel="prev" title="conductor.lib.common module" href="conductor.lib.common.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.auth.html">conductor.lib.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.lsseq.html">conductor.lib.lsseq package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.wizard.html">conductor.lib.wizard package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.api_client.html">conductor.lib.api_client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.client_db.html">conductor.lib.client_db module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.common.html">conductor.lib.common module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductor.lib.conductor_submit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader.html">conductor.lib.downloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader2.html">conductor.lib.downloader2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.exceptions.html">conductor.lib.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.file_utils.html">conductor.lib.file_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.loggeria.html">conductor.lib.loggeria module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.maya_utils.html">conductor.lib.maya_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.nuke_utils.html">conductor.lib.nuke_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.package_utils.html">conductor.lib.package_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.pyside_utils.html">conductor.lib.pyside_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader.html">conductor.lib.uploader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader_v2.html">conductor.lib.uploader_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.version_check.html">conductor.lib.version_check module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.worker.html">conductor.lib.worker module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.lib.html">conductor.lib package</a> &raquo;</li>
+        
+      <li>conductor.lib.conductor_submit module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.lib.conductor_submit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.lib.conductor_submit">
+<span id="conductor-lib-conductor-submit-module"></span><h1>conductor.lib.conductor_submit module<a class="headerlink" href="#module-conductor.lib.conductor_submit" title="Permalink to this headline">¶</a></h1>
+<p>Command Line General Submitter for sending jobs and uploads to Conductor</p>
+<dl class="exception">
+<dt id="conductor.lib.conductor_submit.BadArgumentError">
+<em class="property">exception </em><code class="descclassname">conductor.lib.conductor_submit.</code><code class="descname">BadArgumentError</code><a class="headerlink" href="#conductor.lib.conductor_submit.BadArgumentError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">exceptions.ValueError</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.conductor_submit.Submit">
+<em class="property">class </em><code class="descclassname">conductor.lib.conductor_submit.</code><code class="descname">Submit</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.Submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Conductor Submission</p>
+<p>Command Line Usage:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python conductor_submit.py --upload_file /path/to/upload_file.txt --frames <span class="m">1001</span>-1100 --cmd
+</pre></div>
+</div>
+<p>Help:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python conductor_submit.py -h
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="conductor.lib.conductor_submit.Submit.cast_metadata">
+<em class="property">classmethod </em><code class="descname">cast_metadata</code><span class="sig-paren">(</span><em>metadata</em>, <em>strict=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.Submit.cast_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that the data types in the given metadata are of the proper type
+(str or unicode). If strict is False, automatically cast (and warn)
+any values which do not conform.  If strict is True, do not cast values,
+simply raise an exception.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.conductor_submit.Submit.cast_metadata_value">
+<em class="property">classmethod </em><code class="descname">cast_metadata_value</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.Submit.cast_metadata_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempt to cast the given value to a unicode string</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.conductor_submit.Submit.consume_args">
+<code class="descname">consume_args</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.Submit.consume_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Consume” the give arguments (which have been parsed by argparse).
+For arguments that have not been specified by the user via the command
+line, default to reasonable values.
+If inherit_config is True, then default unspecified arguments to those
+values found in the config.yml file.</p>
+<ol class="arabic simple">
+<li>Use the argument provided by the user via the command line.  Note that
+this may be a non-True value, such as False or 0.  So the only way
+to know whether the argument was provided by the user is to check
+whether is value is not None (which implies that argparse arguments
+should not be configured to give a default value when the user has
+not specified them).</li>
+<li>If the user has not provided the argument, and if inherit_config is
+True, then use the value found in the config.</li>
+<li>If inherit_config is False or the the value in the config doesn’t
+exist, then default to an empty or non-True value.</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.conductor_submit.Submit.get_upload_files">
+<code class="descname">get_upload_files</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.Submit.get_upload_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve the “upload_paths” and “upload_file” arguments to return a single list
+of paths.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.conductor_submit.Submit.main">
+<code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.Submit.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submitting a job happens in a few stages:</p>
+<ol class="arabic simple">
+<li>Gather depedencies and parameters for the job</li>
+<li>Upload dependencies to cloud storage (requires md5s of dependencies)</li>
+<li>Submit job to conductor (listing the dependencies and their corresponding md5s)</li>
+</ol>
+<p>In order to give flexibility to customers (because a customer may consist
+of a single user or a large team of users), there are two options avaiable
+that can dicate how these job submission stages are executed.
+In a simple single-user case, a user’s machine can doe all three
+of the job submission stages.  Simple.  We call this local_upload=True.</p>
+<p>However, when there are multiple users, there may be a desire to funnel
+the “heavier” job submission duties (such as md5 checking and dependency
+uploading) onto one dedicated machine (so as not to bog down
+the artist’s machine). This is called local_upload=False. This results
+in stage 1 being performed on the artist’s machine (dependency gathering), while
+handing over stage 2 and 3 to an uploader daemon.  This is achieved by
+the artist submitting a “partial” job, which only lists the dependencies
+that it requires (omitting the md5 hashes). In turn, the uploader daemon
+listens for these partial jobs, and acts upon them, by reading each job’s
+listed dependencies (the filepaths that were recorded during the “partial”
+job submission).  The uploader then  md5 checks each dependency file from it’s local
+disk, then uploads the file to cloud storage (if necesseary), and finally “completes”
+the partial job submission by providing the full mapping dictionary of
+each dependency filepath and it’s corresponing md5 hash. Once the job
+submission is completed, conductor can start acting on the job (executing
+tasks, etc).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.conductor_submit.Submit.metadata_types">
+<code class="descname">metadata_types</code><em class="property"> = (&lt;type 'str'&gt;, &lt;type 'unicode'&gt;)</em><a class="headerlink" href="#conductor.lib.conductor_submit.Submit.metadata_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="conductor.lib.conductor_submit.Submit.parse_upload_file">
+<em class="property">static </em><code class="descname">parse_upload_file</code><span class="sig-paren">(</span><em>upload_filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.Submit.parse_upload_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the given filepath for all listed paths (one per line)</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.conductor_submit.Submit.resolve_arg">
+<em class="property">classmethod </em><code class="descname">resolve_arg</code><span class="sig-paren">(</span><em>args</em>, <em>arg_name</em>, <em>default</em>, <em>combine_config=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.Submit.resolve_arg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function to resolve the value of an argument.</p>
+<p>The general premise is as follows:</p>
+<ul class="simple">
+<li>If an argument value was provided then use it.</li>
+<li>However, if the <code class="docutils literal notranslate"><span class="pre">combine_config</span></code> bool is <code class="docutils literal notranslate"><span class="pre">True</span></code>, then we want to
+combine that value with the value found in the config.</li>
+</ul>
+<p>This only works with argument types which can be combined,
+such as lists or dictionaries.</p>
+<p>In terms of which value trumps the other, the argument value will
+always trump the config value.</p>
+<p>For example, if the config declared a dictionary value, and the
+argument also provided a dictionary value, they would both be combined,
+however, the argument value will replace any keys that clash with keys
+from the config value.</p>
+<p>If the argument nor the config have a value, then use the provided
+default value</p>
+<p>The order of resolution is:</p>
+<ol class="arabic">
+<li><p class="first">Check whether the user explicitly specified the argument when
+calling/instantiating the class.  This is indicated by whether
+the argument’s value is set to <code class="docutils literal notranslate"><span class="pre">None</span></code> or not.</p>
+<p>If the value is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, then use it
+(combining it with the config value if appropriate)</p>
+</li>
+<li><p class="first">If the specified argument does not have value (i.e. it’s <code class="docutils literal notranslate"><span class="pre">None</span></code>),
+then use the value found in the config.</p>
+</li>
+<li><p class="first">If the config does not define the expected argument then use the
+default argument.</p>
+</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>combine_config</strong> (<em>bool</em>) – Indicates whether to combine the argument value
+with the config value. This will only ever occur if
+both values are present.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.conductor_submit.Submit.send_job">
+<code class="descname">send_job</code><span class="sig-paren">(</span><em>upload_files</em>, <em>upload_size</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.Submit.send_job" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct args for two different cases:</p>
+<ul class="simple">
+<li>upload_only</li>
+<li>running an actual command (cmd)</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>upload_files</strong> (<em>dict</em>) – <p>Where they key is the filepath, and the value is the md5.
+e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;/batman/v06/batman_v006_high.abc&quot;</span><span class="p">:</span> <span class="s2">&quot;oFUgxKUUOFIHJ9HEvaRwgg==&quot;</span><span class="p">,</span>
+<span class="s2">&quot;/batman/v06/batman_v006_high.png&quot;</span><span class="p">:</span> <span class="s2">&quot;s9y36AyAR5cYoMg0Vx1tzw==&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.conductor_submit.Submit.validate_args">
+<code class="descname">validate_args</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.Submit.validate_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that the combination of arguments don’t result in an invalid job/request</p>
+<p># TODO: (lws)  Clean this shit up. Too complex. indicates poor design IMO.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.conductor_submit.run_submit">
+<code class="descclassname">conductor.lib.conductor_submit.</code><code class="descname">run_submit</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.run_submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.conductor_submit.set_logging">
+<code class="descclassname">conductor.lib.conductor_submit.</code><code class="descname">set_logging</code><span class="sig-paren">(</span><em>level=None</em>, <em>log_dirpath=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.conductor_submit.set_logging" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.lib.downloader.html" class="btn btn-neutral float-right" title="conductor.lib.downloader module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.lib.common.html" class="btn btn-neutral float-left" title="conductor.lib.common module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

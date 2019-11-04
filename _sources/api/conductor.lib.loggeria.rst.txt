@@ -1,0 +1,7 @@
+conductor.lib.loggeria module
+=============================
+
+.. automodule:: conductor.lib.loggeria
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,17 @@
+conductor.lib.auth package
+==========================
+
+Submodules
+----------
+
+.. toctree::
+
+   conductor.lib.auth.server
+
+Module contents
+---------------
+
+.. automodule:: conductor.lib.auth
+    :members:
+    :undoc-members:
+    :show-inheritance:

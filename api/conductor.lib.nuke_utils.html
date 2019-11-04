@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.lib.nuke_utils module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.lib.package_utils module" href="conductor.lib.package_utils.html" />
+    <link rel="prev" title="conductor.lib.maya_utils module" href="conductor.lib.maya_utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.auth.html">conductor.lib.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.lsseq.html">conductor.lib.lsseq package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.wizard.html">conductor.lib.wizard package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.api_client.html">conductor.lib.api_client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.client_db.html">conductor.lib.client_db module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.common.html">conductor.lib.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.conductor_submit.html">conductor.lib.conductor_submit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader.html">conductor.lib.downloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader2.html">conductor.lib.downloader2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.exceptions.html">conductor.lib.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.file_utils.html">conductor.lib.file_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.loggeria.html">conductor.lib.loggeria module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.maya_utils.html">conductor.lib.maya_utils module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductor.lib.nuke_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.package_utils.html">conductor.lib.package_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.pyside_utils.html">conductor.lib.pyside_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader.html">conductor.lib.uploader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader_v2.html">conductor.lib.uploader_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.version_check.html">conductor.lib.version_check module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.worker.html">conductor.lib.worker module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.lib.html">conductor.lib package</a> &raquo;</li>
+        
+      <li>conductor.lib.nuke_utils module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.lib.nuke_utils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.lib.nuke_utils">
+<span id="conductor-lib-nuke-utils-module"></span><h1>conductor.lib.nuke_utils module<a class="headerlink" href="#module-conductor.lib.nuke_utils" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="conductor.lib.nuke_utils.NukeInfo">
+<em class="property">class </em><code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">NukeInfo</code><a class="headerlink" href="#conductor.lib.nuke_utils.NukeInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="conductor.lib.package_utils.html#conductor.lib.package_utils.ProductInfo" title="conductor.lib.package_utils.ProductInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.package_utils.ProductInfo</span></code></a></p>
+<p>A class for retrieving version information about the current maya session.</p>
+<p>Will ultimately produce something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="s1">&#39;nuke&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;vendor&#39;</span><span class="p">:</span> <span class="s1">&#39;The Foundry&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;9.0v7&#39;</span>
+ <span class="s1">&#39;major_version&#39;</span><span class="p">:</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;minor_version&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;release_version&#39;</span><span class="p">:</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;build_version&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;host_product&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;host_product_version&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="conductor.lib.nuke_utils.NukeInfo.get_build_version">
+<em class="property">classmethod </em><code class="descname">get_build_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.NukeInfo.get_build_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minor version of the product, e.g.</p>
+<blockquote>
+<div>“SP4”</div></blockquote>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.nuke_utils.NukeInfo.get_major_version">
+<em class="property">classmethod </em><code class="descname">get_major_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.NukeInfo.get_major_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the major version of the product, e.g.</p>
+<blockquote>
+<div>“9”</div></blockquote>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.nuke_utils.NukeInfo.get_minor_version">
+<em class="property">classmethod </em><code class="descname">get_minor_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.NukeInfo.get_minor_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minor version of the product, e.g.</p>
+<blockquote>
+<div>“”</div></blockquote>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.nuke_utils.NukeInfo.get_product">
+<em class="property">classmethod </em><code class="descname">get_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.NukeInfo.get_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the product, e.g.</p>
+<blockquote>
+<div>“nuke”</div></blockquote>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.nuke_utils.NukeInfo.get_release_version">
+<em class="property">classmethod </em><code class="descname">get_release_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.NukeInfo.get_release_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minor version of the product, e.g.</p>
+<blockquote>
+<div>“SP4”</div></blockquote>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.nuke_utils.NukeInfo.get_vendor">
+<em class="property">classmethod </em><code class="descname">get_vendor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.NukeInfo.get_vendor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Product vendor name, e.g. “Autodesk”</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.nuke_utils.NukeInfo.get_version">
+<em class="property">classmethod </em><code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.NukeInfo.get_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the product version, e.g.</p>
+<blockquote>
+<div>“9.0v7”</div></blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.nuke_utils.NukeInfo.product">
+<code class="descname">product</code><em class="property"> = 'nuke'</em><a class="headerlink" href="#conductor.lib.nuke_utils.NukeInfo.product" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.check_script_modified">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">check_script_modified</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.check_script_modified" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the scene’s been modified, and error out if it has been</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.collect_dependencies">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">collect_dependencies</code><span class="sig-paren">(</span><em>write_nodes</em>, <em>views</em>, <em>dependency_knobs=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.collect_dependencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given Write nodes, traverse up their hierarchy to query any nodes
+for dependency filepaths and return them.</p>
+<p>Note that a path value found in a node/knob may contain tcl expressions
+that this function will resolve, e.g. a path value of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;[python {nuke.script_directory()}]/[value seq]/[value shot]/cat.####.jpg&quot;</span>
+</pre></div>
+</div>
+<p>May resolve to:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;/tmp/conductor/nuke/010/010_250/cat.</span><span class="si">%04d</span><span class="s2">.jpg</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>write_nodes</strong> (<em>list</em><em>[</em><em>nuke.Node</em><em>]</em>) – A list of Write nodes (their node names) for which to collect
+dependencies for.</li>
+<li><strong>dependency_knobs</strong> (<em>dict</em>) – <p>A dictionary of nuke node types (and their knob names) for
+which to query for dependency paths, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;Read&#39;</span><span class="p">:[</span><span class="s1">&#39;file&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;DeepRead&#39;</span><span class="p">:[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.get_all_write_nodes">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">get_all_write_nodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.get_all_write_nodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of all Write and Deep Write nodes that exist in the current
+Nuke script.  The dictionary key is the node name, and the value (bool) indicates
+whether the node is currently selected or not.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.get_frame_range">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">get_frame_range</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.get_frame_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the frame range found in Nuke’s Project settings.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.get_image_dirpath">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">get_image_dirpath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.get_image_dirpath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.get_node_dependencies">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">get_node_dependencies</code><span class="sig-paren">(</span><em>node</em>, <em>types=()</em>, <em>collected_deps=()</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.get_node_dependencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursively traverse (upwards) the given node’s node-graph, aggregating a
+list of all of its contributing nodes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>node</strong> (<em>nuke.Node</em>) – Any nuke node object</li>
+<li><strong>types</strong> (<em>tuple</em><em>[</em><em>str</em><em>]</em>) – Nuke node types (strings) to restrict the returned nodes to.</li>
+<li><strong>collected_deps</strong> (<em>tuple</em>) – <strong>This should not be used by the caller</strong>.
+A running-record of the dependencies that have been collected thus
+far (at any given point in the recursion process).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Nuke node objects</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple[nuke.Node]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.get_nuke_script_filepath">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">get_nuke_script_filepath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.get_nuke_script_filepath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.get_nuke_version">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">get_nuke_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.get_nuke_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the full version string of the currently running nuke session.
+e.g. “9.0v5”</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.get_plugins">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">get_plugins</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.get_plugins" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO:(lws) WIP - there has to be better way of doing this.</p>
+<p>Return the plugins from the current Nuke session. This is a list of filepaths
+to each nuke plugin. ugly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;/home/nuke/tools/customCG_Neutralize.gizmo&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/tools/customCG_deNeutralize.gizmo&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/tools/customCameraShake.gizmo&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/tools/customChromaticAbberation.gizmo&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/tools/customGlint.gizmo&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/tools/customGrain.gizmo&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/tools/customHaze.gizmo&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/tools/custom_OutputCrop.gizmo&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/tools/gizmos/default_viewer.gizmo&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/tools/nuke/init.py&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/nuke/linux64/Nuke9.0/GeoPoints.so&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/nuke/linux64/Nuke9.0/LD_3DE4_Anamorphic_Degree_6.so&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/nuke/linux64/Nuke9.0/OpticalFlares.so&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/nuke/linux64/Nuke9.0/pgBokeh.so&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/nuke/linux64/Nuke9.0/render&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/nuke/linux64/Nuke9.0/starpro.key&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/.nuke/MTTF&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/.nuke/ScriptEditorHistory.xml&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/.nuke/layout1.xml&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/.nuke/preferences8.0.nk&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/.nuke/recent_files&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/.nuke/uistate.ini&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/nuke/.nuke/user.9-0.hrox&#39;</span><span class="p">,</span>
+<span class="s1">&#39;/home/neatvideo/neat_video_ofx/NeatVideo.ofx.bundle/Contents/Linux-x86-64/NeatVideo.ofx&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.get_plugins_info">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">get_plugins_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.get_plugins_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.get_views">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">get_views</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.get_views" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of the views that are available in the scene.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.get_write_node_filepath">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">get_write_node_filepath</code><span class="sig-paren">(</span><em>node_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.get_write_node_filepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given Write/Deepwrite node (name), return it’s output filepath (“file” attr)
+If the node does not exist or it’s not a write/deepwrite node, raise an exception</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.resolve_knob_path">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">resolve_knob_path</code><span class="sig-paren">(</span><em>knob</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.resolve_knob_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve the knob value of any TCL expression and/or relative path
+Note that this does <em>not</em> resolve any frame number expressions.</p>
+<p>example paths:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;[python {nuke.script_directory()}]/../images/sequences/02/image.</span><span class="si">%04d</span><span class="s1">.jpg&#39;</span>
+<span class="s1">&#39;../images/sequences/[value this.name]/image.</span><span class="si">%04d</span><span class="s1">.jpg&#39;</span>
+<span class="s1">&#39;../images/sequences/03/image.</span><span class="si">%04d</span><span class="s1">.jpg&#39;</span>
+<span class="s1">&#39;../images/sequences/../sequences/03/image.</span><span class="si">%04d</span><span class="s1">.jpg&#39;</span>
+<span class="s1">&#39;&#39;</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>knob</strong> (<em>nuke.File_Knob</em>) – File_Knob object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The resolved path value</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.nuke_utils.save_current_nuke_script">
+<code class="descclassname">conductor.lib.nuke_utils.</code><code class="descname">save_current_nuke_script</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.nuke_utils.save_current_nuke_script" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the current script</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.lib.package_utils.html" class="btn btn-neutral float-right" title="conductor.lib.package_utils module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.lib.maya_utils.html" class="btn btn-neutral float-left" title="conductor.lib.maya_utils module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

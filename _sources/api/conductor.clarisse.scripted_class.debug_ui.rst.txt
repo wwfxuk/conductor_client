@@ -1,0 +1,7 @@
+conductor.clarisse.scripted\_class.debug\_ui module
+===================================================
+
+.. automodule:: conductor.clarisse.scripted_class.debug_ui
+    :members:
+    :undoc-members:
+    :show-inheritance:

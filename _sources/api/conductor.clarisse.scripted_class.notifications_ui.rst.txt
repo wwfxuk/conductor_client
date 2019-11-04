@@ -1,0 +1,7 @@
+conductor.clarisse.scripted\_class.notifications\_ui module
+===========================================================
+
+.. automodule:: conductor.clarisse.scripted_class.notifications_ui
+    :members:
+    :undoc-members:
+    :show-inheritance:

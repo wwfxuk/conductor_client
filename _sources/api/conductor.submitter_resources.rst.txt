@@ -1,0 +1,7 @@
+conductor.submitter\_resources module
+=====================================
+
+.. automodule:: conductor.submitter_resources
+    :members:
+    :undoc-members:
+    :show-inheritance:

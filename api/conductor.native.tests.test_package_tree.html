@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.native.tests.test_package_tree module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.native.tests.test_sequence module" href="conductor.native.tests.test_sequence.html" />
+    <link rel="prev" title="conductor.native.tests.test_package_environment module" href="conductor.native.tests.test_package_environment.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.native.html">conductor.native package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.native.lib.html">conductor.native.lib package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="conductor.native.tests.html">conductor.native.tests package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_data_block.html">conductor.native.tests.test_data_block module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_expander.html">conductor.native.tests.test_expander module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_gpath.html">conductor.native.tests.test_gpath module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_gpath_list.html">conductor.native.tests.test_gpath_list module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_package_environment.html">conductor.native.tests.test_package_environment module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">conductor.native.tests.test_package_tree module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_sequence.html">conductor.native.tests.test_sequence module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.native.html">conductor.native package</a> &raquo;</li>
+        
+          <li><a href="conductor.native.tests.html">conductor.native.tests package</a> &raquo;</li>
+        
+      <li>conductor.native.tests.test_package_tree module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.native.tests.test_package_tree.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.native.tests.test_package_tree">
+<span id="conductor-native-tests-test-package-tree-module"></span><h1>conductor.native.tests.test_package_tree module<a class="headerlink" href="#module-conductor.native.tests.test_package_tree" title="Permalink to this headline">¶</a></h1>
+<p>test package_tree</p>
+<p>isort:skip_file</p>
+<dl class="class">
+<dt id="conductor.native.tests.test_package_tree.FindByNameTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_package_tree.</code><code class="descname">FindByNameTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.FindByNameTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.FindByNameTest.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.FindByNameTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.FindByNameTest.test_dont_find_plugin_level_when_limited">
+<code class="descname">test_dont_find_plugin_level_when_limited</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.FindByNameTest.test_dont_find_plugin_level_when_limited" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.FindByNameTest.test_find_plugin_level">
+<code class="descname">test_find_plugin_level</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.FindByNameTest.test_find_plugin_level" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.FindByNameTest.test_find_plugin_level_high_limit">
+<code class="descname">test_find_plugin_level_high_limit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.FindByNameTest.test_find_plugin_level_high_limit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.FindByNameTest.test_find_root">
+<code class="descname">test_find_root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.FindByNameTest.test_find_root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.FindByNameTest.test_find_root_when_limit_1">
+<code class="descname">test_find_root_when_limit_1</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.FindByNameTest.test_find_root_when_limit_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_package_tree.RemoveUnreachableTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_package_tree.</code><code class="descname">RemoveUnreachableTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.RemoveUnreachableTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_many_valid_trees_unchanged">
+<code class="descname">test_many_valid_trees_unchanged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_many_valid_trees_unchanged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_multiple_invalid_tree_culled">
+<code class="descname">test_multiple_invalid_tree_culled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_multiple_invalid_tree_culled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_random_input_order">
+<code class="descname">test_random_input_order</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_random_input_order" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_single_invalid_tree_culled_below">
+<code class="descname">test_single_invalid_tree_culled_below</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_single_invalid_tree_culled_below" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_single_invalid_tree_culled_leaf">
+<code class="descname">test_single_invalid_tree_culled_leaf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_single_invalid_tree_culled_leaf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_single_valid_tree_unchanged">
+<code class="descname">test_single_valid_tree_unchanged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.RemoveUnreachableTest.test_single_valid_tree_unchanged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataFindByKeysTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_package_tree.</code><code class="descname">SoftwareDataFindByKeysTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataFindByKeysTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataFindByKeysTest.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataFindByKeysTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataFindByKeysTest.test_find_host_by_keys">
+<code class="descname">test_find_host_by_keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataFindByKeysTest.test_find_host_by_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataFindByKeysTest.test_find_leaf_by_keys">
+<code class="descname">test_find_leaf_by_keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataFindByKeysTest.test_find_leaf_by_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataFindByKeysTest.test_find_nonexistent_package_returns_none">
+<code class="descname">test_find_nonexistent_package_returns_none</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataFindByKeysTest.test_find_nonexistent_package_returns_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_package_tree.</code><code class="descname">SoftwareDataFindByPathTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest.test_find_empty_path_return_none">
+<code class="descname">test_find_empty_path_return_none</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest.test_find_empty_path_return_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest.test_find_leaf_path">
+<code class="descname">test_find_leaf_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest.test_find_leaf_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest.test_find_nonexistent_path_return_none">
+<code class="descname">test_find_nonexistent_path_return_none</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest.test_find_nonexistent_path_return_none" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest.test_find_root_path">
+<code class="descname">test_find_root_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataFindByPathTest.test_find_root_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataGetAllPathsTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_package_tree.</code><code class="descname">SoftwareDataGetAllPathsTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataGetAllPathsTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataGetAllPathsTest.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataGetAllPathsTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataGetAllPathsTest.test_get_all_paths_to_leaf">
+<code class="descname">test_get_all_paths_to_leaf</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataGetAllPathsTest.test_get_all_paths_to_leaf" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataGetAllPathsTest.test_get_all_paths_to_nonexistent">
+<code class="descname">test_get_all_paths_to_nonexistent</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataGetAllPathsTest.test_get_all_paths_to_nonexistent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataGetAllPathsTest.test_get_all_paths_to_root">
+<code class="descname">test_get_all_paths_to_root</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataGetAllPathsTest.test_get_all_paths_to_root" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataInitTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_package_tree.</code><code class="descname">SoftwareDataInitTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataInitTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataInitTest.setUp">
+<code class="descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataInitTest.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataInitTest.test_init_with_no_product">
+<code class="descname">test_init_with_no_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataInitTest.test_init_with_no_product" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataInitTest.test_init_with_product">
+<code class="descname">test_init_with_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataInitTest.test_init_with_product" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataInitTest.test_init_with_sub_product">
+<code class="descname">test_init_with_sub_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataInitTest.test_init_with_sub_product" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.SoftwareDataInitTest.test_smoke">
+<code class="descname">test_smoke</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.SoftwareDataInitTest.test_smoke" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_package_tree.ToNameTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_package_tree.</code><code class="descname">ToNameTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.ToNameTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.ToNameTest.test_major_minor">
+<code class="descname">test_major_minor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.ToNameTest.test_major_minor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.ToNameTest.test_major_minor_release">
+<code class="descname">test_major_minor_release</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.ToNameTest.test_major_minor_release" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.ToNameTest.test_major_minor_release_build">
+<code class="descname">test_major_minor_release_build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.ToNameTest.test_major_minor_release_build" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_package_tree.ToNameTest.test_major_only">
+<code class="descname">test_major_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_package_tree.ToNameTest.test_major_only" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.native.tests.test_sequence.html" class="btn btn-neutral float-right" title="conductor.native.tests.test_sequence module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.native.tests.test_package_environment.html" class="btn btn-neutral float-left" title="conductor.native.tests.test_package_environment module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+conductor.native.lib.sequence module
+====================================
+
+.. automodule:: conductor.native.lib.sequence
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+conductor.lib.uploader\_v2 module
+=================================
+
+.. automodule:: conductor.lib.uploader_v2
+    :members:
+    :undoc-members:
+    :show-inheritance:

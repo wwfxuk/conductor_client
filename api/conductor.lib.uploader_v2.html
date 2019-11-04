@@ -1,0 +1,598 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.lib.uploader_v2 module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.lib.version_check module" href="conductor.lib.version_check.html" />
+    <link rel="prev" title="conductor.lib.uploader module" href="conductor.lib.uploader.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.auth.html">conductor.lib.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.lsseq.html">conductor.lib.lsseq package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.wizard.html">conductor.lib.wizard package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.api_client.html">conductor.lib.api_client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.client_db.html">conductor.lib.client_db module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.common.html">conductor.lib.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.conductor_submit.html">conductor.lib.conductor_submit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader.html">conductor.lib.downloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader2.html">conductor.lib.downloader2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.exceptions.html">conductor.lib.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.file_utils.html">conductor.lib.file_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.loggeria.html">conductor.lib.loggeria module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.maya_utils.html">conductor.lib.maya_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.nuke_utils.html">conductor.lib.nuke_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.package_utils.html">conductor.lib.package_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.pyside_utils.html">conductor.lib.pyside_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader.html">conductor.lib.uploader module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductor.lib.uploader_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.version_check.html">conductor.lib.version_check module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.worker.html">conductor.lib.worker module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.lib.html">conductor.lib package</a> &raquo;</li>
+        
+      <li>conductor.lib.uploader_v2 module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.lib.uploader_v2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.lib.uploader_v2">
+<span id="conductor-lib-uploader-v2-module"></span><h1>conductor.lib.uploader_v2 module<a class="headerlink" href="#module-conductor.lib.uploader_v2" title="Permalink to this headline">¶</a></h1>
+<p>Uploader daemon v2</p>
+<dl class="class">
+<dt id="conductor.lib.uploader_v2.Backend">
+<em class="property">class </em><code class="descclassname">conductor.lib.uploader_v2.</code><code class="descname">Backend</code><a class="headerlink" href="#conductor.lib.uploader_v2.Backend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface to backend (FileIO service)</p>
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.bearer_token">
+<em class="property">classmethod </em><code class="descname">bearer_token</code><span class="sig-paren">(</span><em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.bearer_token" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.fail">
+<em class="property">classmethod </em><code class="descname">fail</code><span class="sig-paren">(</span><em>upload</em>, <em>location=None</em>, <em>bytes_downloaded=0</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.fail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell backend about upload failure</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.fail_unsigned">
+<em class="property">classmethod </em><code class="descname">fail_unsigned</code><span class="sig-paren">(</span><em>upload</em>, <em>location=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.fail_unsigned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell backend about upload failure</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.finish">
+<em class="property">classmethod </em><code class="descname">finish</code><span class="sig-paren">(</span><em>upload</em>, <em>location=None</em>, <em>bytes_downloaded=0</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.finish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell backend about upload success</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of items</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.headers">
+<em class="property">classmethod </em><code class="descname">headers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.headers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="conductor.lib.uploader_v2.Backend.make_url">
+<em class="property">static </em><code class="descname">make_url</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.make_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.next">
+<em class="property">classmethod </em><code class="descname">next</code><span class="sig-paren">(</span><em>account</em>, <em>project=None</em>, <em>location=None</em>, <em>number=1</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the next download (dict), or None if there isn’t one.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.post">
+<em class="property">classmethod </em><code class="descname">post</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call requests put</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.put">
+<em class="property">classmethod </em><code class="descname">put</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.put" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call requests put</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.put_file">
+<em class="property">classmethod </em><code class="descname">put_file</code><span class="sig-paren">(</span><em>filegen</em>, <em>signed_url</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.put_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upload a file (streaming) into GCS</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.sign">
+<em class="property">classmethod </em><code class="descname">sign</code><span class="sig-paren">(</span><em>upload</em>, <em>location=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.sign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sign an upload payload</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.uploader_v2.Backend.touch">
+<em class="property">classmethod </em><code class="descname">touch</code><span class="sig-paren">(</span><em>upload</em>, <em>location=None</em>, <em>bytes_downloaded=0</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Backend.touch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update backend with upload status</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.uploader_v2.FileGenerator">
+<em class="property">class </em><code class="descclassname">conductor.lib.uploader_v2.</code><code class="descname">FileGenerator</code><span class="sig-paren">(</span><em>upload_file</em>, <em>chunk_size=1048576</em>, <em>event_handler=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.FileGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Since requests.put() can take a generator as the data param in order to
+allow for streaming uploads, this class can be used to create a generator
+from a filepath. Optionally, it can take a function/callable class
+instance as an event handler. The handler will be called when each chunk
+of the file is read.</p>
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.FileGenerator.next">
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.FileGenerator.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generator implementation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.FileGenerator.progress_event">
+<code class="descname">progress_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.FileGenerator.progress_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fire callback</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.FileGenerator.stop_event">
+<code class="descname">stop_event</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.FileGenerator.stop_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fire callback</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.uploader_v2.Uploader">
+<em class="property">class </em><code class="descclassname">conductor.lib.uploader_v2.</code><code class="descname">Uploader</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Uploader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Main Uploader process.</p>
+<ul class="simple">
+<li>Launch workers</li>
+<li>keep run states etc.</li>
+</ul>
+<dl class="attribute">
+<dt id="conductor.lib.uploader_v2.Uploader.RESULTS_MAX">
+<code class="descname">RESULTS_MAX</code><em class="property"> = 256</em><a class="headerlink" href="#conductor.lib.uploader_v2.Uploader.RESULTS_MAX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.uploader_v2.Uploader.STATE_RUNNING">
+<code class="descname">STATE_RUNNING</code><em class="property"> = 'running'</em><a class="headerlink" href="#conductor.lib.uploader_v2.Uploader.STATE_RUNNING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.uploader_v2.Uploader.STATE_STOPPING">
+<code class="descname">STATE_STOPPING</code><em class="property"> = 'stopping'</em><a class="headerlink" href="#conductor.lib.uploader_v2.Uploader.STATE_STOPPING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.Uploader.create_log_history">
+<code class="descname">create_log_history</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Uploader.create_log_history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.Uploader.log_uptime">
+<code class="descname">log_uptime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Uploader.log_uptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the amount of time that the uploader has been running,
+e.g “0:01:28”</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.Uploader.sigint_handler">
+<code class="descname">sigint_handler</code><span class="sig-paren">(</span><em>sig</em>, <em>frm</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Uploader.sigint_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the SIGINT signal (i.e. the KeyboardInterrupt
+python exception).</p>
+<p>This simply calls the Downloader’s stop_daemon method.</p>
+<p>Note that when registering this function as the signint handler,
+this function gets called by ALL child processes as well.  Because
+of this, we check which process is calling it, and only execute it
+if it’s the main (parent) process.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.Uploader.start_daemon">
+<code class="descname">start_daemon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Uploader.start_daemon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the downloader daemon. Create all child worker processes, start
+them, and join them. This is blocking function and will not exit until
+all workers have exited their process.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.Uploader.stop_daemon">
+<code class="descname">stop_daemon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.Uploader.stop_daemon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the downloader daemon and exit the application.</p>
+<ol class="arabic simple">
+<li>change the run_state value of each worker’s shared object value.
+This will trigger each worker’s stop/cleanup behaviors.</li>
+<li>Exit the application runtime by raising an exception (we must break
+out of the join that occurred in the start_daemon method).</li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.uploader_v2.UploaderWorker">
+<em class="property">class </em><code class="descclassname">conductor.lib.uploader_v2.</code><code class="descname">UploaderWorker</code><span class="sig-paren">(</span><em>run_state</em>, <em>results_queue</em>, <em>account=None</em>, <em>location=None</em>, <em>project=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">multiprocessing.process.Process</span></code></p>
+<p>Worker process for uploads.</p>
+<p>It’s job is to periodically ask the server for an upload object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="sa">u</span><span class="s1">&#39;account&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;testaccountdomain&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;bytes_transferred&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;filepath&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;/home/testers/Nuke/Nuke/nuke_test/img/sword_gas-l.png&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;filesize&#39;</span><span class="p">:</span> <span class="mi">1234</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;gcs_url&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;https://storage.googleapis.com/..snip..&quot;,</span>
+ <span class="sa">u</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;bd55f770c8e0566e272243d7555cf506&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;jid&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;md5&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;vVX3cMjgVm4nIkPXVVz1Bg==&#39;</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;priority&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;total_size&#39;</span><span class="p">:</span> <span class="mi">12934</span><span class="p">,</span>
+ <span class="sa">u</span><span class="s1">&#39;ulid&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;5273391011463168&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>It will then create an <code class="docutils literal notranslate"><span class="pre">FileGenerator()</span></code> object from the filepath,
+registering the <code class="docutils literal notranslate"><span class="pre">self.event_handler()</span></code> method as the callback to be
+fired for each chunk uploaded to GCS.</p>
+<p>It knows how to handle success and failure events from the upload stream.</p>
+<p>On success, will will clean up any state and go back to asking for the
+next upload.</p>
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.file_md5">
+<code class="descname">file_md5</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.file_md5" title="Permalink to this definition">¶</a></dt>
+<dd><p>make an md5 sum of a file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.handle_finish">
+<code class="descname">handle_finish</code><span class="sig-paren">(</span><em>result</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.handle_finish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback for finish/success</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.handle_potential_upload">
+<code class="descname">handle_potential_upload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.handle_potential_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process an upload json object</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.handle_put_error">
+<code class="descname">handle_put_error</code><span class="sig-paren">(</span><em>err</em>, <em>fileobj</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.handle_put_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback for upload error</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.handle_put_progress">
+<code class="descname">handle_put_progress</code><span class="sig-paren">(</span><em>filegen</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.handle_put_progress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback for upload progress</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.handle_put_success">
+<code class="descname">handle_put_success</code><span class="sig-paren">(</span><em>filegen</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.handle_put_success" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback for finish/success</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.handle_upload_event">
+<code class="descname">handle_upload_event</code><span class="sig-paren">(</span><em>filegen</em>, <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.handle_upload_event" title="Permalink to this definition">¶</a></dt>
+<dd><p>Callback for uploads</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.log">
+<code class="descname">log</code><span class="sig-paren">(</span><em>message</em>, <em>level=10</em>, <em>fields=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a formatted log message from passed in data, automatically
+add process info, and call LOGGER with result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.maybe_touch">
+<code class="descname">maybe_touch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.maybe_touch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.maybe_upload">
+<code class="descname">maybe_upload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.maybe_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upload a file if md5 matches expectation.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.md5_for_current_upload">
+<code class="descname">md5_for_current_upload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.md5_for_current_upload" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.next_upload">
+<code class="descname">next_upload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.next_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next upload</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.put_upload">
+<code class="descname">put_upload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.put_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put the upload into GCS</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset state</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to be run in sub-process; can be overridden in sub-class</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call at the end of shutdown</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.touch">
+<code class="descname">touch</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.touch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.uploader_v2.UploaderWorker.wait">
+<code class="descname">wait</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.UploaderWorker.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p>sleep for <code class="docutils literal notranslate"><span class="pre">WORKER_SLEEP_DURATION</span></code></p>
+<p>Instead of doing one long sleep call, we make a loop of many
+short sleep calls. This gives the opportunity to check the
+running state, and exit the sleep process if necessary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.uploader_v2.resolve_arg">
+<code class="descclassname">conductor.lib.uploader_v2.</code><code class="descname">resolve_arg</code><span class="sig-paren">(</span><em>arg_name</em>, <em>args</em>, <em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.resolve_arg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function to resolve the value of an argument.</p>
+<p>The order of resolution is:</p>
+<ol class="arabic simple">
+<li>Check whether the user explicitly specified the argument when calling/
+instantiating the class. If so, then use it, otherwise…</li>
+<li>Attempt to read it from the <code class="docutils literal notranslate"><span class="pre">config.yml</span></code>. Note that the config also
+queries environment variables to populate itself with values.
+If the value is in the config then use it, otherwise…</li>
+<li>return <code class="docutils literal notranslate"><span class="pre">None</span></code></li>
+</ol>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.uploader_v2.resolve_args">
+<code class="descclassname">conductor.lib.uploader_v2.</code><code class="descname">resolve_args</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.resolve_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve all arguments, reconsiling differences between command line args
+and config.yml args.  See resolve_arg function.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.uploader_v2.run_uploader">
+<code class="descclassname">conductor.lib.uploader_v2.</code><code class="descname">run_uploader</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.run_uploader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the uploader process. This process will run indefinitely, polling
+the Conductor cloud app for files that need to be uploaded.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.uploader_v2.set_logging">
+<code class="descclassname">conductor.lib.uploader_v2.</code><code class="descname">set_logging</code><span class="sig-paren">(</span><em>level=None</em>, <em>log_dirpath=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.uploader_v2.set_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set logging level and path.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.lib.version_check.html" class="btn btn-neutral float-right" title="conductor.lib.version_check module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.lib.uploader.html" class="btn btn-neutral float-left" title="conductor.lib.uploader module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

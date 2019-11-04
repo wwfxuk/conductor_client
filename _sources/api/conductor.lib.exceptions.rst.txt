@@ -1,0 +1,7 @@
+conductor.lib.exceptions module
+===============================
+
+.. automodule:: conductor.lib.exceptions
+    :members:
+    :undoc-members:
+    :show-inheritance:

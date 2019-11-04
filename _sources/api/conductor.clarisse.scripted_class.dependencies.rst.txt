@@ -1,0 +1,7 @@
+conductor.clarisse.scripted\_class.dependencies module
+======================================================
+
+.. automodule:: conductor.clarisse.scripted_class.dependencies
+    :members:
+    :undoc-members:
+    :show-inheritance:

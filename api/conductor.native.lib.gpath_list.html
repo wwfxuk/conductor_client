@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.native.lib.gpath_list module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.native.lib.package_environment module" href="conductor.native.lib.package_environment.html" />
+    <link rel="prev" title="conductor.native.lib.gpath module" href="conductor.native.lib.gpath.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.native.html">conductor.native package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="conductor.native.lib.html">conductor.native.lib package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.lib.mocks.html">conductor.native.lib.mocks package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.lib.data_block.html">conductor.native.lib.data_block module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.lib.expander.html">conductor.native.lib.expander module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.lib.gpath.html">conductor.native.lib.gpath module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">conductor.native.lib.gpath_list module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.lib.package_environment.html">conductor.native.lib.package_environment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.lib.package_tree.html">conductor.native.lib.package_tree module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.lib.sequence.html">conductor.native.lib.sequence module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.native.tests.html">conductor.native.tests package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.native.html">conductor.native package</a> &raquo;</li>
+        
+          <li><a href="conductor.native.lib.html">conductor.native.lib package</a> &raquo;</li>
+        
+      <li>conductor.native.lib.gpath_list module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.native.lib.gpath_list.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.native.lib.gpath_list">
+<span id="conductor-native-lib-gpath-list-module"></span><h1>conductor.native.lib.gpath_list module<a class="headerlink" href="#module-conductor.native.lib.gpath_list" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="conductor.native.lib.gpath_list.PathList">
+<em class="property">class </em><code class="descclassname">conductor.native.lib.gpath_list.</code><code class="descname">PathList</code><a class="headerlink" href="#conductor.native.lib.gpath_list.PathList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A list of files with lazy deduplication.</p>
+<p>Every time the private entrylist is accessed with an accessor such
+as len or iter, the _clean flag is checked. If it’s dirty we
+deduplicate and set it clean. It becomes dirty again if files are
+added. Since adding a single directory can cause many contained
+files to be removed during deduplication, we set the next iterator
+to zero.</p>
+<dl class="method">
+<dt id="conductor.native.lib.gpath_list.PathList.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>*paths</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.lib.gpath_list.PathList.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add one or more files.</p>
+<p>Duplicate files and directories that contain other files may be
+added and no deduplication will happen at this time.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.lib.gpath_list.PathList.common_path">
+<code class="descname">common_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.lib.gpath_list.PathList.common_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the common path among entries.</p>
+<p>This is useful for determining output directory when many
+renders are rendering to different places.</p>
+<p>In the case where
+only single path exists, it is not possible to tell from its
+name whether it is a file or directory. We don’t want this
+method to touch the filesystem, that should be someone else’s
+problem. A trailing slash would be a hint, but the absence of a
+trailing slash does not mean its a regular file. Therefore, in
+the case of a single file we return it AS-IS and the caller can
+then stat to find out for sure.</p>
+<p>If no files exist return None.</p>
+<p>If the filesystem root is the common path, return root path, which is
+not entirely correct on windows with drive letters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.lib.gpath_list.PathList.glob">
+<code class="descname">glob</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.lib.gpath_list.PathList.glob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Glob expansion for entries containing globbable characters.</p>
+<p>We don’t simply glob every entry since that would remove entries
+that don’t yet exist. And we can’t just rely on zero glob
+results because it may have been a legitimate zero result if it
+was globbable but matched nothing. So we test for glob
+characters (<a href="#id1"><span class="problematic" id="id2">*</span></a><a href="#id3"><span class="problematic" id="id4">|</span></a>?|[) to determine whether to attempt a glob.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.lib.gpath_list.PathList.next">
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.lib.gpath_list.PathList.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the next element.</p>
+<p>Deduplicate just in time.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.native.lib.package_environment.html" class="btn btn-neutral float-right" title="conductor.native.lib.package_environment module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.native.lib.gpath.html" class="btn btn-neutral float-left" title="conductor.native.lib.gpath module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+conductor.lib.conductor\_submit module
+======================================
+
+.. automodule:: conductor.lib.conductor_submit
+    :members:
+    :undoc-members:
+    :show-inheritance:

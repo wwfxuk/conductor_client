@@ -1,0 +1,7 @@
+conductor.clarisse.clarisse\_config module
+==========================================
+
+.. automodule:: conductor.clarisse.clarisse_config
+    :members:
+    :undoc-members:
+    :show-inheritance:

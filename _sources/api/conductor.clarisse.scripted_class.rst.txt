@@ -1,0 +1,34 @@
+conductor.clarisse.scripted\_class package
+==========================================
+
+Submodules
+----------
+
+.. toctree::
+
+   conductor.clarisse.scripted_class.attr_docs
+   conductor.clarisse.scripted_class.clarisse_version_ui
+   conductor.clarisse.scripted_class.conductor_job
+   conductor.clarisse.scripted_class.debug_ui
+   conductor.clarisse.scripted_class.dependencies
+   conductor.clarisse.scripted_class.environment_ui
+   conductor.clarisse.scripted_class.extra_uploads_ui
+   conductor.clarisse.scripted_class.frames_ui
+   conductor.clarisse.scripted_class.instances_ui
+   conductor.clarisse.scripted_class.job
+   conductor.clarisse.scripted_class.missing_files_ui
+   conductor.clarisse.scripted_class.notifications_ui
+   conductor.clarisse.scripted_class.preview_ui
+   conductor.clarisse.scripted_class.projects_ui
+   conductor.clarisse.scripted_class.refresh
+   conductor.clarisse.scripted_class.submission
+   conductor.clarisse.scripted_class.submit_actions
+   conductor.clarisse.scripted_class.task
+
+Module contents
+---------------
+
+.. automodule:: conductor.clarisse.scripted_class
+    :members:
+    :undoc-members:
+    :show-inheritance:

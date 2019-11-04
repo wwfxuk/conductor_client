@@ -1,0 +1,1216 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.lib.pyside_utils module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.lib.uploader module" href="conductor.lib.uploader.html" />
+    <link rel="prev" title="conductor.lib.package_utils module" href="conductor.lib.package_utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.auth.html">conductor.lib.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.lsseq.html">conductor.lib.lsseq package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.wizard.html">conductor.lib.wizard package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.api_client.html">conductor.lib.api_client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.client_db.html">conductor.lib.client_db module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.common.html">conductor.lib.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.conductor_submit.html">conductor.lib.conductor_submit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader.html">conductor.lib.downloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader2.html">conductor.lib.downloader2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.exceptions.html">conductor.lib.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.file_utils.html">conductor.lib.file_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.loggeria.html">conductor.lib.loggeria module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.maya_utils.html">conductor.lib.maya_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.nuke_utils.html">conductor.lib.nuke_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.package_utils.html">conductor.lib.package_utils module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductor.lib.pyside_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader.html">conductor.lib.uploader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader_v2.html">conductor.lib.uploader_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.version_check.html">conductor.lib.version_check module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.worker.html">conductor.lib.worker module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.lib.html">conductor.lib package</a> &raquo;</li>
+        
+      <li>conductor.lib.pyside_utils module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.lib.pyside_utils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.lib.pyside_utils">
+<span id="conductor-lib-pyside-utils-module"></span><h1>conductor.lib.pyside_utils module<a class="headerlink" href="#module-conductor.lib.pyside_utils" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="conductor.lib.pyside_utils.CheckBoxTreeWidget">
+<em class="property">class </em><code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">CheckBoxTreeWidget</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.CheckBoxTreeWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>This is a QTreeWidget that has been modified to</p>
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.CheckBoxTreeWidget.addTopLevelCheckboxItem">
+<code class="descname">addTopLevelCheckboxItem</code><span class="sig-paren">(</span><em>tree_item</em>, <em>is_checked=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.CheckBoxTreeWidget.addTopLevelCheckboxItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the given QTreeWidgetItem as a top level widget and add a checkbox
+to it.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.pyside_utils.CheckBoxTreeWidget.checkbox_column_idx">
+<code class="descname">checkbox_column_idx</code><em class="property"> = 0</em><a class="headerlink" href="#conductor.lib.pyside_utils.CheckBoxTreeWidget.checkbox_column_idx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.CheckBoxTreeWidget.contextMenuEvent">
+<code class="descname">contextMenuEvent</code><span class="sig-paren">(</span><em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.CheckBoxTreeWidget.contextMenuEvent" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.pyside_utils.CheckBoxTreeWidget.icon_filepath_checked">
+<code class="descname">icon_filepath_checked</code><em class="property"> = ''</em><a class="headerlink" href="#conductor.lib.pyside_utils.CheckBoxTreeWidget.icon_filepath_checked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.pyside_utils.CheckBoxTreeWidget.icon_filepath_checked_disabled">
+<code class="descname">icon_filepath_checked_disabled</code><em class="property"> = ''</em><a class="headerlink" href="#conductor.lib.pyside_utils.CheckBoxTreeWidget.icon_filepath_checked_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.pyside_utils.CheckBoxTreeWidget.icon_filepath_unchecked">
+<code class="descname">icon_filepath_unchecked</code><em class="property"> = ''</em><a class="headerlink" href="#conductor.lib.pyside_utils.CheckBoxTreeWidget.icon_filepath_unchecked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.pyside_utils.CheckBoxTreeWidget.icon_filepath_unchecked_disabled">
+<code class="descname">icon_filepath_unchecked_disabled</code><em class="property"> = ''</em><a class="headerlink" href="#conductor.lib.pyside_utils.CheckBoxTreeWidget.icon_filepath_unchecked_disabled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.CheckBoxTreeWidget.initializeUi">
+<code class="descname">initializeUi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.CheckBoxTreeWidget.initializeUi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.CheckBoxTreeWidget.setCheckboxStyleSheet">
+<code class="descname">setCheckboxStyleSheet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.CheckBoxTreeWidget.setCheckboxStyleSheet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.pyside_utils.FilePrefs">
+<em class="property">class </em><code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">FilePrefs</code><span class="sig-paren">(</span><em>company_name</em>, <em>application_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.pyside_utils.UserPrefs" title="conductor.lib.pyside_utils.UserPrefs"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.pyside_utils.UserPrefs</span></code></a></p>
+<p>This class facilicates the saving/loading of user preferences from/to disk
+while providing a structured scope to save that preference to.  A scope is
+either global or file-specific.  Scopes are achieved by using QtSettings’
+“groups” (i.e. namespaces).  All scopes of settings are written to the same
+preference file.  An example use-case for these scopes is when a user
+wants preferences to be saved for a particular file that they have opened at
+the moment.  Or a user might want preferences to be applied regardless of
+what file is opened at the moment.</p>
+<dl class="attribute">
+<dt id="conductor.lib.pyside_utils.FilePrefs.GROUP_FILE_PREFS">
+<code class="descname">GROUP_FILE_PREFS</code><em class="property"> = 'file/prefs'</em><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.GROUP_FILE_PREFS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.pyside_utils.FilePrefs.GROUP_GLOBAL_PREFS">
+<code class="descname">GROUP_GLOBAL_PREFS</code><em class="property"> = 'global/prefs'</em><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.GROUP_GLOBAL_PREFS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.clearFilePrefs">
+<code class="descname">clearFilePrefs</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.clearFilePrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all of the preferences found in the given filepath’s group/namespace</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.clearGlobalPrefs">
+<code class="descname">clearGlobalPrefs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.clearGlobalPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all of the preferences found in the global group/namespace</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.getFilePref">
+<code class="descname">getFilePref</code><span class="sig-paren">(</span><em>filepath</em>, <em>pref_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.getFilePref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the user preferences for the given preference for the given file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.getFilePrefs">
+<code class="descname">getFilePrefs</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.getFilePrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of all user preferences for the given file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.getGlobalPref">
+<code class="descname">getGlobalPref</code><span class="sig-paren">(</span><em>pref_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.getGlobalPref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for given global preference</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pref_name</strong> (<em>str</em>) – The name of the preference to return a value for,
+e.g. “frame_range”</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.getGlobalPrefs">
+<code class="descname">getGlobalPrefs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.getGlobalPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of all global preferences</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.getPref">
+<code class="descname">getPref</code><span class="sig-paren">(</span><em>pref_name</em>, <em>filepath=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.getPref" title="Permalink to this definition">¶</a></dt>
+<dd><p>High level convenience function that will return the preference value
+for either a global or file-specific preference.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pref_name</strong> (<em>str</em>) – The name of the preference to return a value for, e.g.
+“frame_range”</li>
+<li><strong>filepath</strong> (<em>str</em>) – The name of the file to return the preference value for.
+If the filepath is not provided, then the global preference
+will be searched for.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.getPrefs">
+<code class="descname">getPrefs</code><span class="sig-paren">(</span><em>filepath=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.getPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>High level convenience function that will return a dictionary of either
+file-specific preferences</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filepath</strong> (<em>str</em>) – The name of the file to return the preference values for. If
+the filepath is not provided, then the global preferences will
+be returned.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.setFilePref">
+<code class="descname">setFilePref</code><span class="sig-paren">(</span><em>filepath</em>, <em>pref_name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.setFilePref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given preference to the given value for the given file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pref_name</strong> (<em>str</em>) – The name of the preference to set a value for,
+e.g. “frame_range”</li>
+<li><strong>value</strong> (<em>object</em>) – The value to save for the preference, e.g. “1001-1040”</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.setFilePrefs">
+<code class="descname">setFilePrefs</code><span class="sig-paren">(</span><em>filepath</em>, <em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.setFilePrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the the given preference values for the given file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>str</em>) – The name of the file to set the preference value for.
+If the filepath is not provided, then a global preference will
+be set.</li>
+<li><strong>values</strong> (<em>dict</em><em>[</em><em>str</em><em>]</em>) – Mapping of preference names to their new values.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.setGlobalPref">
+<code class="descname">setGlobalPref</code><span class="sig-paren">(</span><em>pref_name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.setGlobalPref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value for given global preference</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pref_name</strong> (<em>str</em>) – The name of the preference to return a value for,
+e.g. “frame_range”</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.setGlobalPrefs">
+<code class="descname">setGlobalPrefs</code><span class="sig-paren">(</span><em>values</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.setGlobalPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the the given values to the global preferences</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>value</strong> (<em>dict</em><em>[</em><em>str</em><em>]</em>) – Mapping of preference names to their new values.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.setPref">
+<code class="descname">setPref</code><span class="sig-paren">(</span><em>pref_name</em>, <em>value</em>, <em>filepath=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.setPref" title="Permalink to this definition">¶</a></dt>
+<dd><p>High level convenience function that will set the preference value
+for either a global or file-specific preference.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pref_name</strong> (<em>str</em>) – The name of the preference to set a value for,
+e.g. “frame_range”</li>
+<li><strong>value</strong> (<em>object</em>) – The value to save for the preference, e.g. “1001-1040”</li>
+<li><strong>filepath</strong> (<em>str</em>) – The name of the file to set the preference value for.
+If the filepath is not provided, then a global preference will
+be set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.FilePrefs.setPrefs">
+<code class="descname">setPrefs</code><span class="sig-paren">(</span><em>values</em>, <em>filepath=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.FilePrefs.setPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>High level convenience function that will set the given preference
+values for either global or file-specific scope.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pref_name</strong> (<em>str</em>) – The name of the preference to set a value for,
+e.g. “frame_range”</li>
+<li><strong>value</strong> (<em>dict</em><em>[</em><em>str</em><em>]</em>) – Mapping of preference names to their new values.</li>
+<li><strong>filepath</strong> (<em>str</em>) – The name of the file to set the preference value for.
+If the filepath is not provided, then a global preference will
+be set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs">
+<em class="property">class </em><code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">UiFilePrefs</code><span class="sig-paren">(</span><em>company_name</em>, <em>application_name</em>, <em>file_widgets=()</em>, <em>global_widgets=()</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.pyside_utils.FilePrefs" title="conductor.lib.pyside_utils.FilePrefs"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.pyside_utils.FilePrefs</span></code></a></p>
+<p>Extends the parent class to allow the state of the UI’s widget to be recorded,
+and then restored at a later point.</p>
+<p>Because this class must read widget values and write those values to a text
+file and conversely, read those values from a text file and apply them back
+to the widgets, there needs to be binding/mapping of getters/setters so
+that different widget types can properly read/set the values from/to the
+preferences file.  This binding class must be provided upon instantiation.</p>
+<p>This class adds two more scopes (groups) to it’s parent classes’:</p>
+<ul class="simple">
+<li>“global/widgets”. Group for storing global widget preferences</li>
+<li>“file/widgets”. Group for storing file-specific widget preferences</li>
+</ul>
+<dl class="attribute">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.GROUP_FILE_WIDGETS">
+<code class="descname">GROUP_FILE_WIDGETS</code><em class="property"> = 'file/widgets'</em><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.GROUP_FILE_WIDGETS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.GROUP_GLOBAL_WIDGETS">
+<code class="descname">GROUP_GLOBAL_WIDGETS</code><em class="property"> = 'global/widgets'</em><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.GROUP_GLOBAL_WIDGETS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.clearFilePrefs">
+<code class="descname">clearFilePrefs</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.clearFilePrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all of the preferences found in the given filepath’s group/namespace</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.clearGlobalPrefs">
+<code class="descname">clearGlobalPrefs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.clearGlobalPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all of the preferences found in the global group/namespace</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.getFileWidgetPref">
+<code class="descname">getFileWidgetPref</code><span class="sig-paren">(</span><em>filepath</em>, <em>widget_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.getFileWidgetPref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the preference for the given widget name for the given file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>str</em>) – The file path to get preferences for.</li>
+<li><strong>widget_name</strong> (<em>str</em>) – The name of the widget object, e.g. “ui_frames_lnedt”</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.getFileWidgetPrefs">
+<code class="descname">getFileWidgetPrefs</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.getFileWidgetPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all widget preferences for the given file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filepath</strong> (<em>str</em>) – The file path to get preferences for.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.getGlobalWidgetPref">
+<code class="descname">getGlobalWidgetPref</code><span class="sig-paren">(</span><em>widget_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.getGlobalWidgetPref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the global preference value for the given widget name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>widget_name</strong> (<em>str</em>) – The name of the widget object, e.g. “ui_frames_lnedt”</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.getGlobalWidgetPrefs">
+<code class="descname">getGlobalWidgetPrefs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.getGlobalWidgetPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the all global widget preferences</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.getPref">
+<code class="descname">getPref</code><span class="sig-paren">(</span><em>pref_name</em>, <em>filepath=None</em>, <em>is_widget=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.getPref" title="Permalink to this definition">¶</a></dt>
+<dd><p>High level convenience function that returns the value for the given
+preference name. If a filepath is given, return  the preference stored
+for that specific file, otherwise return the global value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pref_name</strong> (<em>str</em>) – The name of the preference, such as “Dont_bug_me”,</li>
+<li><strong>filepath</strong> (<em>str</em>) – The name of the file to return the preference value for.</li>
+<li><strong>is_widget</strong> (<em>bool</em>) – Indicates that the pref_name is widget_name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The value of the preference, e.g “yes”, “no”, “true”, “false”.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.getPrefs">
+<code class="descname">getPrefs</code><span class="sig-paren">(</span><em>filepath=None</em>, <em>is_widget=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.getPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>High level convenience function that will return a dictionary of either
+file-specific preferences or global preferences.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filepath</strong> (<em>str</em>) – The name of the file to return the preference values for.
+If the filepath is not provided, then the global preferences
+will be returned.</li>
+<li><strong>is_widget</strong> (<em>bool</em>) – Indicates that the pref_name is widget_name.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Values of the preferences.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">dict</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.getWidgetByName">
+<code class="descname">getWidgetByName</code><span class="sig-paren">(</span><em>widget_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.getWidgetByName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the widget object that has the given widget object name.
+Raise an exception if it cannot be found.  Only widgets that have been
+provided upon this class’s instantiation will be searched.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.loadFileWidgetPrefs">
+<code class="descname">loadFileWidgetPrefs</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.loadFileWidgetPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load/apply any user prefs for the given file (read from the qt prefs file).
+The prefs file is located/created via the company_name and application_name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filepath</strong> (<em>str</em>) – File path for the currently opened file to load widget
+preferences for.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.loadGlobalWidgetPrefs">
+<code class="descname">loadGlobalWidgetPrefs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.loadGlobalWidgetPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load/apply any global user prefs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.saveFileWidgetPrefs">
+<code class="descname">saveFileWidgetPrefs</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.saveFileWidgetPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save widget settings for the given file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.saveGlobalWidgetPrefs">
+<code class="descname">saveGlobalWidgetPrefs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.saveGlobalWidgetPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save user widget settings to the global prefs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.setFileWidgetPref">
+<code class="descname">setFileWidgetPref</code><span class="sig-paren">(</span><em>filepath</em>, <em>widget_name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.setFileWidgetPref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record the given value for the given widget (name) for the given file
+path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>str</em>) – The file path to save preferences for.</li>
+<li><strong>widget_name</strong> (<em>str</em>) – The name of the widget object, e.g. “ui_frames_lnedt”</li>
+<li><strong>value</strong> (<em>object</em>) – The value to record for the widget, .e.g “1001x2”</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.setFileWidgetPrefs">
+<code class="descname">setFileWidgetPrefs</code><span class="sig-paren">(</span><em>filepath</em>, <em>widget_values</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.setFileWidgetPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record the given widget values for the given filepath</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>widget_values</strong> (<em>dict</em><em>[</em><em>str</em><em>]</em>) – Widget names mapped to their values.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.setGlobalWidgetPref">
+<code class="descname">setGlobalWidgetPref</code><span class="sig-paren">(</span><em>widget_name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.setGlobalWidgetPref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record the given value for the given widget (name) to the global
+preferences</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>widget_name</strong> (<em>str</em>) – The name of the widget object, e.g. “ui_frames_lnedt”</li>
+<li><strong>value</strong> (<em>object</em>) – The value to record for the widget, e.g. “1001x2”</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.setGlobalWidgetPrefs">
+<code class="descname">setGlobalWidgetPrefs</code><span class="sig-paren">(</span><em>widget_values</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.setGlobalWidgetPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Record the given widget values to the global preferences</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>widget_values</strong> (<em>dict</em><em>[</em><em>str</em><em>]</em>) – Widget names mapped to their values.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.setPref">
+<code class="descname">setPref</code><span class="sig-paren">(</span><em>pref_name</em>, <em>value</em>, <em>filepath=None</em>, <em>is_widget=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.setPref" title="Permalink to this definition">¶</a></dt>
+<dd><p>High level convenience function that will set the preference value
+for either a global preference or  file-specific preference.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pref_name</strong> (<em>str</em>) – The name of the preference to set a value for,
+e.g. “frame_range”</li>
+<li><strong>value</strong> (<em>object</em>) – The value to save for the preference, e.g. “1001-1040”.</li>
+<li><strong>filepath</strong> (<em>str</em>) – The name of the file to set the preference value for.
+If the filepath is not provided, then a global preference will
+be set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.setPrefs">
+<code class="descname">setPrefs</code><span class="sig-paren">(</span><em>values</em>, <em>filepath=None</em>, <em>is_widget=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.setPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>High level convenience function that will set the given preference values
+for either the global scope or a file-specific scope.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>values</strong> (<em>dict</em><em>[</em><em>str</em><em>]</em>) – Mapping of preference names to their new values.</li>
+<li><strong>filepath</strong> (<em>str</em>) – The name of the file to set the preference values for.
+If the filepath is not provided, then the values will be set
+for the global prefs.</li>
+<li><strong>is_widget</strong> (<em>bool</em>) – Indicates whether the preference if for a QWidget or not.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.pyside_utils.UiFilePrefs.widget_mapper">
+<code class="descname">widget_mapper</code><a class="headerlink" href="#conductor.lib.pyside_utils.UiFilePrefs.widget_mapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#conductor.lib.pyside_utils.WidgetGettrSettr" title="conductor.lib.pyside_utils.WidgetGettrSettr"><code class="xref py py-class docutils literal notranslate"><span class="pre">WidgetGettrSettr</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.pyside_utils.UiLoader">
+<em class="property">class </em><code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">UiLoader</code><span class="sig-paren">(</span><em>baseinstance</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiLoader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>Load a Qt Designer <code class="docutils literal notranslate"><span class="pre">.ui</span></code> file and returns an instance of the
+user interface.</p>
+<dl class="docutils">
+<dt>To Do:</dt>
+<dd>Re-write docs/comments for this class</dd>
+</dl>
+<p>This was taken almost 100% verbatim from a stack overflow example.</p>
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UiLoader.createWidget">
+<code class="descname">createWidget</code><span class="sig-paren">(</span><em>class_name</em>, <em>parent=None</em>, <em>name=''</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiLoader.createWidget" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.UiLoader.loadUi">
+<em class="property">classmethod </em><code class="descname">loadUi</code><span class="sig-paren">(</span><em>uifile</em>, <em>baseinstance=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UiLoader.loadUi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a Qt Designer .ui file and returns an instance of the user interface.</p>
+<p>uifile: the file name or file-like object containing the .ui file.
+baseinstance: the optional instance of the Qt base class. If specified then the user interface is created in it. Otherwise a new instance of the base class is automatically created.
+Return type: the QWidget sub-class that implements the user interface.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.pyside_utils.UserPrefs">
+<em class="property">class </em><code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">UserPrefs</code><span class="sig-paren">(</span><em>company_name</em>, <em>application_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base level helper-class to faciliate saving/loading user preferences to/from
+disk.</p>
+<dl class="attribute">
+<dt id="conductor.lib.pyside_utils.UserPrefs.ENCODER">
+<code class="descname">ENCODER</code><em class="property"> = '^||^'</em><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs.ENCODER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.UserPrefs.castToBool">
+<em class="property">classmethod </em><code class="descname">castToBool</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs.castToBool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cast the given value to a bool (if it’s considered a “bool” type).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UserPrefs.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>A convenience method to QSetting’s clear method. Deletes preferences</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UserPrefs.clearGroup">
+<code class="descname">clearGroup</code><span class="sig-paren">(</span><em>group</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs.clearGroup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all keys/values from given group</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.UserPrefs.encodeGroupName">
+<em class="property">classmethod </em><code class="descname">encodeGroupName</code><span class="sig-paren">(</span><em>group_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs.encodeGroupName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unfortunately qsettings uses the “/” as a special character to indicate
+nested keys in a group name.  We may  want to use forward slashes
+in our keys (such as a filepath), so we swap out the forward slash with
+different set of characters (i.e. “encode” the “/” to something else)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UserPrefs.getSettingsFilepath">
+<code class="descname">getSettingsFilepath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs.getSettingsFilepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the filepath to the QSettings file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UserPrefs.getValue">
+<code class="descname">getValue</code><span class="sig-paren">(</span><em>key</em>, <em>group=None</em>, <em>cast_bools=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs.getValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for the given key. If a group is given, search the group
+for the key and return its value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str</em>) – The name of the preference to return a value for.</li>
+<li><strong>group</strong> (<em>str</em>) – The preference group/namespace to search for the preference.
+If not specified, will use the default/root namespace</li>
+<li><strong>cast_bools</strong> (<em>bool</em>) – Cast any “true” or “false” values to python bools</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UserPrefs.getValues">
+<code class="descname">getValues</code><span class="sig-paren">(</span><em>group=None</em>, <em>cast_bools=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs.getValues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all preference values found in the given preference group. If no
+a preference group is specified, use the default/root preference group.
+Return a dictionary, where the key is the preference name, and the value
+is the preference value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str</em>) – The name of the preference to return a value for.</li>
+<li><strong>group</strong> (<em>str</em>) – The preference group/namespace to search for the preference.
+If not specified, will use the default/root namespace</li>
+<li><strong>cast_bools</strong> (<em>bool</em>) – Cast any “true” or “false” values to python bools</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UserPrefs.setValue">
+<code class="descname">setValue</code><span class="sig-paren">(</span><em>key</em>, <em>value</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs.setValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the value for the given preference in the given preference group.
+If no preference group is specified, set the value in the default/root
+preference group.</p>
+<p>Note that if a python bool is given as a value, QSettings automatically
+converts this to a lowercase string version of it (“false”, “true”).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str</em>) – The name of the preference to set a value for.</li>
+<li><strong>value</strong> (<em>str or</em>) – The value to set the preference to.</li>
+<li><strong>group</strong> (<em>str</em>) – The preference group/namespace to set the preference for
+If not specified, will use the default/root namespace.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UserPrefs.setValues">
+<code class="descname">setValues</code><span class="sig-paren">(</span><em>values</em>, <em>group=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs.setValues" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given preference values in the given preference group. If no
+a preference group is specified, use the default/root preference group.
+Return a dictionary, where the key is the preference name, and the
+value is the preference value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>str</em>) – The name of the preference to set a value for.</li>
+<li><strong>group</strong> (<em>str</em>) – The preference group/namespace to search for the preference.
+If not specified, will use the default/root namespace</li>
+<li><strong>cast_bools</strong> (<em>bool</em>) – Cast any “true” or “false” values to python bools</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.pyside_utils.UserPrefs.sync">
+<code class="descname">sync</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.UserPrefs.sync" title="Permalink to this definition">¶</a></dt>
+<dd><p>A convenience method to QSetting’s synch method.  Syncs pref data from memory
+to disk and visa versa.  This doesn’t <em>have</em> to be called, but QT doesn’t
+write the settings to disk <em>everytime</em> a change is made…so this is a
+way to ensure that it does at critical moments.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr">
+<em class="property">class </em><code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">WidgetGettrSettr</code><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Provides  getter/setter functionality for QWidgets, making it easier to read/load
+widget values.  This is particularly useful when needing to record a widget’s
+value for user preferences, and conversely, reapplying those settings back
+to the widget.</p>
+<p>Every widget type must be mapped to a getter and setter method.</p>
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.getCheckBoxValue">
+<em class="property">classmethod </em><code class="descname">getCheckBoxValue</code><span class="sig-paren">(</span><em>checkbox</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.getCheckBoxValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define getter function for QCheckbox widgets</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.getComboBoxValue">
+<em class="property">classmethod </em><code class="descname">getComboBoxValue</code><span class="sig-paren">(</span><em>combobox</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.getComboBoxValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define getter function for <code class="docutils literal notranslate"><span class="pre">QCombobobox</span></code> widgets
+Store the text in the combobox (rather than the current index).  This
+allows the ordering of the items to change while maintaining the correct
+preference behavior</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.getGettrMap">
+<em class="property">classmethod </em><code class="descname">getGettrMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.getGettrMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary mapping of “getter” functions that provide a mapping
+between a Widget type and a function that can read a value from that
+widget type (i.e. read a human entered value from the widget).</p>
+<p>This dictionary should be expanded as needed, when other widget types
+are required for reading/loading data to/from.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.getLineeditValue">
+<em class="property">classmethod </em><code class="descname">getLineeditValue</code><span class="sig-paren">(</span><em>lineedit</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.getLineeditValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define getter function for QLineEdit widgets</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.getRadioButtonValue">
+<em class="property">classmethod </em><code class="descname">getRadioButtonValue</code><span class="sig-paren">(</span><em>radiobutton</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.getRadioButtonValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define getter function for QRadioButton widgets</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.getSettrMap">
+<em class="property">classmethod </em><code class="descname">getSettrMap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.getSettrMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary mapping of “setter” functions that provide a mapping
+between a Widget type and a function that can write a value to that
+widget type (i.e populat the widget with that value).</p>
+<p>This dictionary should be expanded as needed, when other widget types
+are required for reading/loading data to/from.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.getSpinboxValue">
+<em class="property">classmethod </em><code class="descname">getSpinboxValue</code><span class="sig-paren">(</span><em>spinbox</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.getSpinboxValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define getter function for QSpinBox widgets</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.getWidgetValue">
+<em class="property">classmethod </em><code class="descname">getWidgetValue</code><span class="sig-paren">(</span><em>widget</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.getWidgetValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value for the given widget object.  Because a widget can be
+of any class, and every widget class has different methods for retrieving
+its values, this function uses a mapping of different getter functions
+for each widget type.  More widget types may need to be added to this
+mapping in the future.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.setCheckBoxValue">
+<em class="property">classmethod </em><code class="descname">setCheckBoxValue</code><span class="sig-paren">(</span><em>checkbox</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.setCheckBoxValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define setter function for QCheckbox widgets
+Since the value comes from qsettings (which casts bools to strings and
+lowercase), we  have to do a little processing.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.setComboBoxValue">
+<em class="property">classmethod </em><code class="descname">setComboBoxValue</code><span class="sig-paren">(</span><em>combobox</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.setComboBoxValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define setter function for QComobobox widgets</p>
+<p>Find the given text value in the combobox items.  If no items contain
+the text, the index will be set to -1 (blank).  This makes sense, as
+it will tell the user that their preference value is no longer valid, and
+to select something different.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.setLineEditValue">
+<em class="property">classmethod </em><code class="descname">setLineEditValue</code><span class="sig-paren">(</span><em>lineedit</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.setLineEditValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define setter function for QLineEdit widgets</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.setRadioButtonValue">
+<em class="property">classmethod </em><code class="descname">setRadioButtonValue</code><span class="sig-paren">(</span><em>radiobutton</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.setRadioButtonValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define setter function for QRadioButton widgets.
+Since the value comes from qsettings (which casts bools to strings and
+lowercase), we  have to do a little processing.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.setSpinboxValue">
+<em class="property">classmethod </em><code class="descname">setSpinboxValue</code><span class="sig-paren">(</span><em>spinbox</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.setSpinboxValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define setter function for QSpinBox widgets</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.pyside_utils.WidgetGettrSettr.setWidgetValue">
+<em class="property">classmethod </em><code class="descname">setWidgetValue</code><span class="sig-paren">(</span><em>widget</em>, <em>widget_value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.WidgetGettrSettr.setWidgetValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the given value on the widget object  Because a widget can be
+of any class, and every widget class has different methods for setting
+its values, this function uses a mapping of different setter functions
+for each widget type. see <code class="docutils literal notranslate"><span class="pre">cls.getGettrMap</span></code></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>widget</strong> (<em>QWidget</em>) – QWidget derivative (must have a getter/setter mapping in
+<code class="docutils literal notranslate"><span class="pre">cls.getSettrMap</span></code>)</li>
+<li><strong>widget_value</strong> – The value to populate the widget with.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.pyside_utils.get_all_tree_items">
+<code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">get_all_tree_items</code><span class="sig-paren">(</span><em>tree_widget</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.get_all_tree_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given QTreeWidget, return all of its QTreeWidgetItems.  This is
+an exhaustive, recursive search, capturing all top level as well as child
+QTreeWidgetItems.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.pyside_utils.get_qt_check_flag">
+<code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">get_qt_check_flag</code><span class="sig-paren">(</span><em>is_checked</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.get_qt_check_flag" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.pyside_utils.get_top_level_items">
+<code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">get_top_level_items</code><span class="sig-paren">(</span><em>tree_widget</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.get_top_level_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given QTreeWidget, return all top level QTreeItems</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.pyside_utils.get_widgets_by_property">
+<code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">get_widgets_by_property</code><span class="sig-paren">(</span><em>widget</em>, <em>property_name</em>, <em>match_value=False</em>, <em>property_value=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.get_widgets_by_property" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given widget, return all child widgets (and potentially the original widget),
+which have a property of the given <code class="docutils literal notranslate"><span class="pre">property_name</span></code>.
+Optionally, return only those widgets whose given property matches the given
+<code class="docutils literal notranslate"><span class="pre">property_value</span></code></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.pyside_utils.launch_error_box">
+<code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">launch_error_box</code><span class="sig-paren">(</span><em>title</em>, <em>message</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.launch_error_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches a QErrorMessage dialog box with the given title and message.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.pyside_utils.launch_message_box">
+<code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">launch_message_box</code><span class="sig-paren">(</span><em>title</em>, <em>message</em>, <em>is_richtext=False</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.launch_message_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launches a very basic message dialog box with the given title and message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>is_richtext</strong> (<em>bool</em>) – If True, will set the given as RichText.
+This will also allow the text to support hyperlink behavior.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.pyside_utils.launch_yes_no_cancel_dialog">
+<code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">launch_yes_no_cancel_dialog</code><span class="sig-paren">(</span><em>title</em>, <em>message</em>, <em>show_not_again_checkbox=True</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.launch_yes_no_cancel_dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch a dialog box that has “yes”, “no” and “cancel” buttons.
+Optionally display a checkbox that asks whether to show this dialog box again.
+This is different from the Yes/No style of dialog since it offers three choices.
+As a consequence, the return code needs to return one of three statuses.
+return the result of this dialog (0/1/2) for ‘Yes’/’No’/’Cancel’ respectively, and
+whether the user checked the “Don’t ask again” checkbox (True/False).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.pyside_utils.launch_yes_no_dialog">
+<code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">launch_yes_no_dialog</code><span class="sig-paren">(</span><em>title</em>, <em>message</em>, <em>show_not_again_checkbox=True</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.launch_yes_no_dialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch a dialog box that has “yes” and “no” buttons.
+Optionally display a checkbox that asks whether to show this dialog box again.
+return the result of this dialog (True/False) and whether the user checked on
+the “Don’t ask again” checkbox (True/False).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.pyside_utils.wait_cursor">
+<code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">wait_cursor</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.wait_cursor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps the decorated function so that while it is running, the mouse
+cursor changes to waiting icon.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.pyside_utils.wait_message">
+<code class="descclassname">conductor.lib.pyside_utils.</code><code class="descname">wait_message</code><span class="sig-paren">(</span><em>title</em>, <em>message</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.pyside_utils.wait_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wraps the decorated method so that while it runs, a dialog box will
+be displayed with the given message and title</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.lib.uploader.html" class="btn btn-neutral float-right" title="conductor.lib.uploader module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.lib.package_utils.html" class="btn btn-neutral float-left" title="conductor.lib.package_utils module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

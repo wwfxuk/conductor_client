@@ -1,0 +1,7 @@
+conductor.tools.update module
+=============================
+
+.. automodule:: conductor.tools.update
+    :members:
+    :undoc-members:
+    :show-inheritance:

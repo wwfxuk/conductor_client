@@ -1,0 +1,620 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.lib.common module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.lib.conductor_submit module" href="conductor.lib.conductor_submit.html" />
+    <link rel="prev" title="conductor.lib.client_db module" href="conductor.lib.client_db.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.auth.html">conductor.lib.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.lsseq.html">conductor.lib.lsseq package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.wizard.html">conductor.lib.wizard package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.api_client.html">conductor.lib.api_client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.client_db.html">conductor.lib.client_db module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductor.lib.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.conductor_submit.html">conductor.lib.conductor_submit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader.html">conductor.lib.downloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader2.html">conductor.lib.downloader2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.exceptions.html">conductor.lib.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.file_utils.html">conductor.lib.file_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.loggeria.html">conductor.lib.loggeria module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.maya_utils.html">conductor.lib.maya_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.nuke_utils.html">conductor.lib.nuke_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.package_utils.html">conductor.lib.package_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.pyside_utils.html">conductor.lib.pyside_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader.html">conductor.lib.uploader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader_v2.html">conductor.lib.uploader_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.version_check.html">conductor.lib.version_check module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.worker.html">conductor.lib.worker module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.lib.html">conductor.lib package</a> &raquo;</li>
+        
+      <li>conductor.lib.common module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.lib.common.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.lib.common">
+<span id="conductor-lib-common-module"></span><h1>conductor.lib.common module<a class="headerlink" href="#module-conductor.lib.common" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="conductor.lib.common.Config">
+<em class="property">class </em><code class="descclassname">conductor.lib.common.</code><code class="descname">Config</code><a class="headerlink" href="#conductor.lib.common.Config" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="staticmethod">
+<dt id="conductor.lib.common.Config.add_api_settings">
+<em class="property">static </em><code class="descname">add_api_settings</code><span class="sig-paren">(</span><em>settings_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.Config.add_api_settings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="conductor.lib.common.Config.create_default_config">
+<em class="property">static </em><code class="descname">create_default_config</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.Config.create_default_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.common.Config.default_config">
+<code class="descname">default_config</code><em class="property"> = {'api_key_path': '/tmp/tmp.n2nDCGieiQ/auth/conductor_api_key', 'api_url': 'https://api.conductortech.com', 'auth_url': 'https://dashboard.conductortech.com', 'base_url': 'atomic-light-001.appspot.com', 'local_upload': True, 'log_level': 'INFO', 'md5_caching': True, 'priority': 5, 'thread_count': 4, 'url': 'https://atomic-light-001.appspot.com'}</em><a class="headerlink" href="#conductor.lib.common.Config.default_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.common.Config.default_config_locations">
+<code class="descname">default_config_locations</code><em class="property"> = {'darwin': '/root/Application Support/Conductor/config.yml', 'linux2': '/root/.conductor/config.yml', 'win32': 'Conductor Technologies/Conductor/config.yml'}</em><a class="headerlink" href="#conductor.lib.common.Config.default_config_locations" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.common.Config.get_config_file_paths">
+<code class="descname">get_config_file_paths</code><span class="sig-paren">(</span><em>config_file=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.Config.get_config_file_paths" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.common.Config.get_environment_config">
+<code class="descname">get_environment_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.Config.get_environment_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Look for any environment settings that start with <code class="docutils literal notranslate"><span class="pre">CONDUCTOR_</span></code>.</p>
+<p>Cast any variables to <code class="docutils literal notranslate"><span class="pre">bool</span></code> if necessary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.common.Config.get_user_config">
+<code class="descname">get_user_config</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.Config.get_user_config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.common.Config.required_keys">
+<code class="descname">required_keys</code><em class="property"> = []</em><a class="headerlink" href="#conductor.lib.common.Config.required_keys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="conductor.lib.common.Config.validate_api_key">
+<em class="property">static </em><code class="descname">validate_api_key</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.Config.validate_api_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load the API Key (if it exists)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>config</strong> – client configuration object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.common.Config.verify_required_params">
+<code class="descname">verify_required_params</code><span class="sig-paren">(</span><em>config</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.Config.verify_required_params" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.common.DecRetry">
+<em class="property">class </em><code class="descclassname">conductor.lib.common.</code><code class="descname">DecRetry</code><span class="sig-paren">(</span><em>retry_exceptions=&lt;type 'exceptions.Exception'&gt;</em>, <em>skip_exceptions=()</em>, <em>tries=8</em>, <em>static_sleep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.DecRetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Decorator that retries the decorated function using an exponential backoff
+sleep.</p>
+<dl class="attribute">
+<dt id="conductor.lib.common.DecRetry.retry_exceptions">
+<code class="descname">retry_exceptions</code><a class="headerlink" href="#conductor.lib.common.DecRetry.retry_exceptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>An Exception class (or a tuple of Exception classes) that
+this decorator will catch/retry.  All other exceptions that
+occur will NOT be retried. By default, all exceptions are
+caught (due to the default arguemnt of Exception)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Class or tuple[Class]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.common.DecRetry.skip_exceptions">
+<code class="descname">skip_exceptions</code><a class="headerlink" href="#conductor.lib.common.DecRetry.skip_exceptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>An Exception class (or a tuple of Exception classes) that
+this decorator will NOT catch/retry.  This will take precedence
+over the retry_exceptions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">Class or tuple[Class]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.common.DecRetry.tries">
+<code class="descname">tries</code><a class="headerlink" href="#conductor.lib.common.DecRetry.tries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of times to try (not retry) before raising</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.common.DecRetry.static_sleep">
+<code class="descname">static_sleep</code><a class="headerlink" href="#conductor.lib.common.DecRetry.static_sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>The amount of seconds to sleep before retrying. When set to
+None, the sleep time will use exponential backoff. See below.</p>
+</dd></dl>
+
+<p>This retry function not only incorporates exponential backoff, but also
+“jitter”.  see <a class="reference external" href="http://www.awsarchitectureblog.com/2015/03/backoff.html">http://www.awsarchitectureblog.com/2015/03/backoff.html</a>.
+Instead of merely increasing the backoff time exponentially (determininstically),
+there is a randomness added that will set the sleeptime anywhere between
+0 and the full exponential backoff time length.</p>
+<dl class="method">
+<dt id="conductor.lib.common.DecRetry.sleep">
+<code class="descname">sleep</code><span class="sig-paren">(</span><em>seconds</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.DecRetry.sleep" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.common.ExceptionAction">
+<em class="property">class </em><code class="descclassname">conductor.lib.common.</code><code class="descname">ExceptionAction</code><span class="sig-paren">(</span><em>raise_=True</em>, <em>omitted_exceptions=()</em>, <em>disable_var=''</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.ExceptionAction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This is a base class to be used for constructing decorators that take a
+specific action when the decorated method/function raises an exception.</p>
+<p>For example, it can send a message or record data to a database before
+the exception is raised, and then (optionally) raise the exception.
+Optionally specify particular exceptions (classes) to be omitted from
+taking action on (though still raise the exception)</p>
+<dl class="attribute">
+<dt id="conductor.lib.common.ExceptionAction.disable_var">
+<code class="descname">disable_var</code><a class="headerlink" href="#conductor.lib.common.ExceptionAction.disable_var" title="Permalink to this definition">¶</a></dt>
+<dd><p>An environment variable name, which if found in the runtime
+environment will disable the action from being taken. This
+can be useful when a developer is actively developing and
+does not want the decorator to take action.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.common.ExceptionAction.take_action">
+<code class="descname">take_action</code><span class="sig-paren">(</span><em>e</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.ExceptionAction.take_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overide this method to do something useful before raising the exception.</p>
+<p>e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;sending error message to mom: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exc</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.common.ExceptionLogger">
+<em class="property">class </em><code class="descclassname">conductor.lib.common.</code><code class="descname">ExceptionLogger</code><span class="sig-paren">(</span><em>message=''</em>, <em>log_traceback=True</em>, <em>log_level=30</em>, <em>raise_=False</em>, <em>omitted_exceptions=()</em>, <em>disable_var=''</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.ExceptionLogger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.common.ExceptionAction" title="conductor.lib.common.ExceptionAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.common.ExceptionAction</span></code></a></p>
+<p>DECORATOR
+If the decorated function raises an exception, this decorator can log
+the exception and continue (suppressing the actual exception.  A message
+may be prepended to the exception message.</p>
+<p>example output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">broken_function</span><span class="p">()</span>
+<span class="go"># Warning: conductor.lib.common : My prependend message</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;/usr/local/lschlosser/code/conductor_client/conductor/lib/common.py&quot;</span>, line <span class="m">85</span>, in <span class="n">decorater_function</span>
+    <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+  File <span class="nb">&quot;&lt;maya console&gt;&quot;</span>, line <span class="m">4</span>, in <span class="n">broken_function</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">integer division or modulo by zero</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="conductor.lib.common.ExceptionLogger.take_action">
+<code class="descname">take_action</code><span class="sig-paren">(</span><em>error</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.ExceptionLogger.take_action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log out the message</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.base_dir">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">base_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.base_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the top level directory for the local Conductor repository.</p>
+<p>This is derived by traversing up directories from this current script.</p>
+<p>Note that due to symkinks, we can’t use os.path.realpath on <code class="docutils literal notranslate"><span class="pre">__file__</span></code>
+because <code class="docutils literal notranslate"><span class="pre">__file__</span></code> may be a symlinked path and would return the directory
+for the “real” file (as opposed to the directory of the symlinked file
+(<code class="docutils literal notranslate"><span class="pre">__file__</span></code>))</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.dec_catch_exception">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">dec_catch_exception</code><span class="sig-paren">(</span><em>raise_=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.dec_catch_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>DECORATOR
+Wraps the decorated function/method so that if the function raises an
+exception, the exception will be caught, it’s message will be printed, and
+optionally the function will return (suppressing the exception) .</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.dec_timer_exit">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">dec_timer_exit</code><span class="sig-paren">(</span><em>log_level=20</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.dec_timer_exit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.generate_md5">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">generate_md5</code><span class="sig-paren">(</span><em>filepath</em>, <em>base_64=False</em>, <em>blocksize=65536</em>, <em>poll_seconds=None</em>, <em>callback=None</em>, <em>log_level=20</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.generate_md5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate and return md5 hash (base64) for the given filepath</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filepath</strong> (<em>str</em>) – The file path to generate an md5 hash for.</li>
+<li><strong>base_64</strong> (<em>bool</em>) – whether or not to return a base64 string.</li>
+<li><strong>poll_seconds</strong> (<em>int</em>) – The number of seconds to wait between logging out to the
+console when md5 hashing (particularly a large file which
+may take a while)</li>
+<li><strong>log_level</strong> (<em>logging.level</em>) – The log level that should be used when logging messages.</li>
+<li><strong>callback</strong> (<em>callable</em>) – A callable that is called during the md5 hashing process.
+It’s called every time a block of data has been hashed
+(see <code class="docutils literal notranslate"><span class="pre">blocksize</span></code> arg).
+The callable receives the following arguments:
+- <code class="docutils literal notranslate"><span class="pre">filepath</span></code>: see above
+- <code class="docutils literal notranslate"><span class="pre">file_size</span></code>: the total size of the file (in bytes)
+- <code class="docutils literal notranslate"><span class="pre">bytes_processed</span></code>: the amount of bytes that has currently been hashed
+- <code class="docutils literal notranslate"><span class="pre">log_level</span></code>: see above</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.get_base64_md5">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">get_base64_md5</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.get_base64_md5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.get_conductor_gpu_configs">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">get_conductor_gpu_configs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.get_conductor_gpu_configs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of available GPU configs from the resources.yml file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.get_human_bytes">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">get_human_bytes</code><span class="sig-paren">(</span><em>bytes_</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.get_human_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given bytes (integer), convert and return a “human friendly:
+representation of that data size.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.get_human_duration">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">get_human_duration</code><span class="sig-paren">(</span><em>seconds</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.get_human_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert the given seconds (float) into a human friendly unit</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.get_human_timestamp">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">get_human_timestamp</code><span class="sig-paren">(</span><em>seconds_since_epoch</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.get_human_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert the given seconds since epoch (float)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.get_md5">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">get_md5</code><span class="sig-paren">(</span><em>file_path</em>, <em>blocksize=65536</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.get_md5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.get_package_ids">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">get_package_ids</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.get_package_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of available instances types from the resources.yml file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.get_progress_percentage">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">get_progress_percentage</code><span class="sig-paren">(</span><em>current</em>, <em>total</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.get_progress_percentage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return  a string percentage, e.g. “80%” given current bytes (int) and total
+bytes (int)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.load_resources_file">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">load_resources_file</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.load_resources_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the resource yaml file as a dict.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">$CONDUCTOR_RESOURCES_PATH</span></code> environment variable is set,
+then use it to find load the resource file from.
+Otherwise look for it in the default location.</p>
+<dl class="docutils">
+<dt>To Do:</dt>
+<dd>(lws) the resource filepath should also be able to be dictated in the
+config But can’t check that here because this module (<code class="docutils literal notranslate"><span class="pre">common.py</span></code>)
+should not have any imports from the conductor package,
+i.e. this module creates the config, and therefore cannot be reliant
+on the config.</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.load_yaml">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">load_yaml</code><span class="sig-paren">(</span><em>filepath</em>, <em>safe=True</em>, <em>omit_tags=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.load_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper class that loads the given yaml filepath into a python object.</p>
+<p>This function is somewhat complex(and ugly) because it must create it’s own
+functions and classes.</p>
+<p>The reason it must create it’s own <code class="docutils literal notranslate"><span class="pre">Loader</span></code> class is because when adding
+a custom constructor, that constructor remains loaded (and imbedded in the
+PyYaml’s native <code class="docutils literal notranslate"><span class="pre">Loader</span></code> class) for the duration of the python session.</p>
+<p>This could lead to disastrous behavior for customers that may be using the
+same session to do additional python work (think inside of Maya).</p>
+<p>So instead of using PyYaml’s <code class="docutils literal notranslate"><span class="pre">Loader</span></code> classes directly, we subclass our
+own so that we can dispose of it when we’re done.</p>
+<p>This all could have been avoided if PyYaml also provided a
+“remove_multi_constructor” function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>safe</strong> (<em>bool</em>) – When <code class="docutils literal notranslate"><span class="pre">True</span></code>, will use yaml’s <code class="docutils literal notranslate"><span class="pre">safe_loader</span></code>.</li>
+<li><strong>omit_tags</strong> (<em>bool</em>) – When <code class="docutils literal notranslate"><span class="pre">True</span></code>, will skip any yaml tags in the file. This can be
+useful when you want to read a yaml file but don’t have all
+of the necessary yaml tag constructors to do so.  All tags in the
+file will be given a value of <code class="docutils literal notranslate"><span class="pre">u'&lt;TAG</span> <span class="pre">OMITTED&gt;'</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.on_windows">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">on_windows</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.on_windows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the current system is a Windows platform</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.register_sigint_signal_handler">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">register_sigint_signal_handler</code><span class="sig-paren">(</span><em>signal_handler=&lt;function signal_handler&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.register_sigint_signal_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.run">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">run</code><span class="sig-paren">(</span><em>cmd</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.run" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.common.signal_handler">
+<code class="descclassname">conductor.lib.common.</code><code class="descname">signal_handler</code><span class="sig-paren">(</span><em>sig_number</em>, <em>stack_frame</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.common.signal_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.lib.conductor_submit.html" class="btn btn-neutral float-right" title="conductor.lib.conductor_submit module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.lib.client_db.html" class="btn btn-neutral float-left" title="conductor.lib.client_db module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

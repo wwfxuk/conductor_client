@@ -1,0 +1,7 @@
+conductor.native.tests.test\_sequence module
+============================================
+
+.. automodule:: conductor.native.tests.test_sequence
+    :members:
+    :undoc-members:
+    :show-inheritance:

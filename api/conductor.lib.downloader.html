@@ -1,0 +1,596 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.lib.downloader module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.lib.downloader2 module" href="conductor.lib.downloader2.html" />
+    <link rel="prev" title="conductor.lib.conductor_submit module" href="conductor.lib.conductor_submit.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.auth.html">conductor.lib.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.lsseq.html">conductor.lib.lsseq package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.wizard.html">conductor.lib.wizard package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.api_client.html">conductor.lib.api_client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.client_db.html">conductor.lib.client_db module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.common.html">conductor.lib.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.conductor_submit.html">conductor.lib.conductor_submit module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductor.lib.downloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader2.html">conductor.lib.downloader2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.exceptions.html">conductor.lib.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.file_utils.html">conductor.lib.file_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.loggeria.html">conductor.lib.loggeria module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.maya_utils.html">conductor.lib.maya_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.nuke_utils.html">conductor.lib.nuke_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.package_utils.html">conductor.lib.package_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.pyside_utils.html">conductor.lib.pyside_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader.html">conductor.lib.uploader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader_v2.html">conductor.lib.uploader_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.version_check.html">conductor.lib.version_check module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.worker.html">conductor.lib.worker module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.lib.html">conductor.lib package</a> &raquo;</li>
+        
+      <li>conductor.lib.downloader module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.lib.downloader.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.lib.downloader">
+<span id="conductor-lib-downloader-module"></span><h1>conductor.lib.downloader module<a class="headerlink" href="#module-conductor.lib.downloader" title="Permalink to this headline">¶</a></h1>
+<p>Command Line Process to run downloads.</p>
+<dl class="class">
+<dt id="conductor.lib.downloader.Backend">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader.</code><code class="descname">Backend</code><a class="headerlink" href="#conductor.lib.downloader.Backend" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="classmethod">
+<dt id="conductor.lib.downloader.Backend.fail">
+<em class="property">classmethod </em><code class="descname">fail</code><span class="sig-paren">(</span><em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Backend.fail" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.downloader.Backend.finish">
+<em class="property">classmethod </em><code class="descname">finish</code><span class="sig-paren">(</span><em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Backend.finish" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.downloader.Backend.get">
+<em class="property">classmethod </em><code class="descname">get</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Backend.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of items</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.downloader.Backend.headers">
+<em class="property">classmethod </em><code class="descname">headers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Backend.headers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="conductor.lib.downloader.Backend.make_url">
+<em class="property">static </em><code class="descname">make_url</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Backend.make_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>TODO: get rid of this hardcoding!!!</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.downloader.Backend.next">
+<em class="property">classmethod </em><code class="descname">next</code><span class="sig-paren">(</span><em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Backend.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the next download (dict), or None if there isn’t one.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.downloader.Backend.post">
+<em class="property">classmethod </em><code class="descname">post</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Backend.post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.downloader.Backend.put">
+<em class="property">classmethod </em><code class="descname">put</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Backend.put" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.downloader.Backend.touch">
+<em class="property">classmethod </em><code class="descname">touch</code><span class="sig-paren">(</span><em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Backend.touch" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.downloader.Counter">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader.</code><code class="descname">Counter</code><span class="sig-paren">(</span><em>value=0</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Counter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Acts as a mutable integer variable, so that adding/subtracting can be
+done to the same object (retaining pointers to same object/varaiable in memory)</p>
+<p>Use the .value attribute to read/write values from/to</p>
+<dl class="attribute">
+<dt id="conductor.lib.downloader.Counter.value">
+<code class="descname">value</code><a class="headerlink" href="#conductor.lib.downloader.Counter.value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.downloader.DecAuthorize">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader.</code><code class="descname">DecAuthorize</code><a class="headerlink" href="#conductor.lib.downloader.DecAuthorize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Decorator that adds an authentication header to the wrapped function’s
+“headers” argument. Automatically renews tokens when encountering 401 errors
+and retries the function</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.downloader.DecDownloaderRetry">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader.</code><code class="descname">DecDownloaderRetry</code><span class="sig-paren">(</span><em>run_value</em>, <em>retry_exceptions=&lt;type 'exceptions.Exception'&gt;</em>, <em>skip_exceptions=()</em>, <em>tries=8</em>, <em>static_sleep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.DecDownloaderRetry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="conductor.lib.common.html#conductor.lib.common.DecRetry" title="conductor.lib.common.DecRetry"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.common.DecRetry</span></code></a></p>
+<p>Some Docs.</p>
+<dl class="method">
+<dt id="conductor.lib.downloader.DecDownloaderRetry.sleep">
+<code class="descname">sleep</code><span class="sig-paren">(</span><em>seconds</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.DecDownloaderRetry.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>sleep for the given number of seconds.</p>
+<p>Instead of doing one long sleep call, we make a loop of many short sleep
+calls. This gives the opportunity to check the running state, and exit
+the sleep process if necessary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.downloader.DownloadWorker">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader.</code><code class="descname">DownloadWorker</code><span class="sig-paren">(</span><em>run_state</em>, <em>result_queue</em>, <em>account</em>, <em>log_interval=5</em>, <em>output_dir=None</em>, <em>project=None</em>, <em>location=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.DownloadWorker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">multiprocessing.process.Process</span></code></p>
+<p>A multiprocessing.Process worker class that is responsible for:</p>
+<ul class="simple">
+<li>Ask the downloader service for the next download in the queue.</li>
+<li>stream the downloadable file to disk (or check whether it already exists).</li>
+<li>periodically report progress to the service.</li>
+<li>record the results of each file download and log out history summaries</li>
+<li>notify service of file completion and failure (when possible)</li>
+</ul>
+<p>The parent/calling process uses a process-safe multiprocessing.Array object
+to communicate to this process when needing to shutdown/cleanup/exit.</p>
+<p>Available state values:</p>
+<ul class="simple">
+<li>“running”: All systems go.</li>
+<li>“stopping”: Stop everything and cleanup.</li>
+</ul>
+<p>The DownloadWorker process has a child thread of it’s own (TouchWorker),
+which is responsible for communicating the progress of the current file
+download to the conductor backend.  It, too, uses the a
+<code class="docutils literal notranslate"><span class="pre">multiprocessing.Array</span></code> object to control signal when it should be
+stopped or not.</p>
+<dl class="method">
+<dt id="conductor.lib.downloader.DownloadWorker.download">
+<code class="descname">download</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.DownloadWorker.download" title="Permalink to this definition">¶</a></dt>
+<dd><p>The “outer” download function that wraps the “real” download function
+in retries (decorator) and md5 verification.  All exceptions that are
+encountered will be automatically retried…except for DownloaderExit</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader.DownloadWorker.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.DownloadWorker.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overloaded method that is called by the inherited start() method.</p>
+<p>This serves as the outer/upper wrapper function which is responsible
+for:</p>
+<ol class="arabic simple">
+<li>Creating and starting any child workers of its own
+(<code class="docutils literal notranslate"><span class="pre">TouchWorker</span></code>, etc).</li>
+<li>Calling the “inner” run function to continually query for and
+download files that are pending download.</li>
+<li>Monitoring the <code class="docutils literal notranslate"><span class="pre">run_state</span></code> value to determine whether to exit the
+loop or not.</li>
+<li>Catching all unexpected exceptions and preventing the process from
+dying</li>
+<li>Catching any <code class="docutils literal notranslate"><span class="pre">DownloaderExit</span></code> exceptions to break out of the while
+loop</li>
+<li>Calling the <code class="docutils literal notranslate"><span class="pre">_stop</span></code> method to properly stop any/all child
+processes/threads.</li>
+</ol>
+<p>In order to shutdown the Downloader in general, it’s important that
+this method is exited properly (reaches the end of the method).
+i.e. don’t allow any exceptions to be raised.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.downloader.Downloader">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader.</code><code class="descname">Downloader</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Downloader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Top-level Downloader class that maintains all worker processes/threads and
+terminates them using shared state objects (signaled via SIGINT -KeyboardInterrupt).</p>
+<p>Below is the structure of the Downloader and all of it’s child process/threads:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Downloader</span>                    <span class="c1"># Main process</span>
+    <span class="o">|</span>
+    <span class="o">|</span><span class="n">_DownloadWorker</span><span class="o">-</span><span class="mi">1</span>        <span class="c1"># Process</span>
+    <span class="o">|</span>    <span class="o">|</span><span class="n">_TouchWorker</span><span class="o">-</span><span class="mi">1</span>      <span class="c1"># Thread</span>
+    <span class="o">|</span>
+    <span class="o">|</span><span class="n">_DownloadWorker</span><span class="o">-</span><span class="mi">2</span>        <span class="c1"># Process</span>
+    <span class="o">|</span>    <span class="o">|</span><span class="n">_TouchWorker</span><span class="o">-</span><span class="mi">2</span>      <span class="c1"># Thread</span>
+    <span class="o">|</span>
+    <span class="o">|</span><span class="n">_DownloadWorker</span><span class="o">-</span><span class="n">N</span>        <span class="c1"># Process</span>
+    <span class="o">|</span>    <span class="o">|</span><span class="n">_TouchWorker</span><span class="o">-</span><span class="n">N</span>      <span class="c1"># Thread</span>
+    <span class="o">|</span>
+    <span class="o">|</span><span class="n">_HistoryWorker</span>           <span class="c1"># Process</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>For the sake of the brevity we’ll refer to “threads” as “processes” for
+the rest of this documentation</p>
+<p>In order to shutdown these child processes, each process (including their
+own child processes has a corresponding multiprocessing.Array object that
+the parent uses to signal the child to shutdown.  Though processes can be
+terminated by having each one simply throwing an exception, we want to make
+sure that each process terminates cleanly (releasing resources and
+signaling to their own child processes). Therefore, every child process
+should only exit by returning from it’s “run” method
+(don’t raise an exception!).</p>
+<p>Also, every parent should “join” any of it’s child processes before exiting
+itself.  This ensures that all children processes have indeed terminated
+properly. Otherwise this could lead to “zombie” processes (no parents).</p>
+<p>Life-cycle of a Process:</p>
+<ol class="arabic simple">
+<li>A process (<code class="docutils literal notranslate"><span class="pre">Process1</span></code>) is started by parent process (<code class="docutils literal notranslate"><span class="pre">Parent1</span></code>).
+<code class="docutils literal notranslate"><span class="pre">Parent1</span></code> retains a shared object to signal run-state change to
+<code class="docutils literal notranslate"><span class="pre">Process1</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Process1</span></code> creates and starts it’s own child process (<code class="docutils literal notranslate"><span class="pre">Child1</span></code>)</li>
+<li><code class="docutils literal notranslate"><span class="pre">Process1</span></code> runs indefinitely (looping within it’s “run” method),
+constantly checking the status of it’s run-state object.</li>
+<li>A <code class="docutils literal notranslate"><span class="pre">KeyboardInterupt</span></code> (SIGINT) is triggered by the user, and is handled
+by <code class="docutils literal notranslate"><span class="pre">Parent1</span></code>.  <code class="docutils literal notranslate"><span class="pre">Parent1</span></code> signals to <code class="docutils literal notranslate"><span class="pre">Process1</span></code> to shutdown
+(by changing the value of the run-state object).</li>
+<li><code class="docutils literal notranslate"><span class="pre">Process1</span></code> detects that the run-state value has changed, and calls it’s
+own “_stop” method.</li>
+<li>The stop method changes the run-state object for the <code class="docutils literal notranslate"><span class="pre">Child1</span></code> process,
+(triggering <code class="docutils literal notranslate"><span class="pre">Child1</span></code> to go through the same shutdown logic (step 5)</li>
+<li>Before returning from the “run” method, <code class="docutils literal notranslate"><span class="pre">Process1</span></code> “joins” the
+<code class="docutils literal notranslate"><span class="pre">Child1</span></code> process so that it blocks (and waits for <code class="docutils literal notranslate"><span class="pre">Child1</span></code> to exit).</li>
+</ol>
+<p>The parent/calling process uses a process-safe <code class="docutils literal notranslate"><span class="pre">multiprocessing.Array</span></code>
+object to communicate to this process when needing to
+shutdown/cleanup/exit.</p>
+<p>Available state values:</p>
+<ul class="simple">
+<li>“running”: All systems go.</li>
+<li>“stopping”: Stop everything and cleanup.</li>
+</ul>
+<p>The DownloadWorker process has a child thread of it’s own (TouchWorker),
+which is responsible for communicating the progress of the current file
+download to the conductor backend.  It, too, uses the a
+<code class="docutils literal notranslate"><span class="pre">multiprocessing.Array</span></code> object to control signal when it should be
+stopped or not.</p>
+<dl class="attribute">
+<dt id="conductor.lib.downloader.Downloader.RESULTS_MAX">
+<code class="descname">RESULTS_MAX</code><em class="property"> = 256</em><a class="headerlink" href="#conductor.lib.downloader.Downloader.RESULTS_MAX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader.Downloader.STATE_RUNNING">
+<code class="descname">STATE_RUNNING</code><em class="property"> = 'running'</em><a class="headerlink" href="#conductor.lib.downloader.Downloader.STATE_RUNNING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader.Downloader.STATE_STOPPING">
+<code class="descname">STATE_STOPPING</code><em class="property"> = 'stopping'</em><a class="headerlink" href="#conductor.lib.downloader.Downloader.STATE_STOPPING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader.Downloader.log_uptime">
+<code class="descname">log_uptime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Downloader.log_uptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the amount of time that the uploader has been running, e.g “0:01:28”</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader.Downloader.sigint_handler">
+<code class="descname">sigint_handler</code><span class="sig-paren">(</span><em>sig</em>, <em>frm</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Downloader.sigint_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the SIGINT signal (i.e. the KeyboardInterrupt python exception).</p>
+<p>This simply calls the Downloader’s stop_daemon method.</p>
+<p>Note that when registering this function as the signint handler, this function
+gets called by ALL child processes as well.  Because of this, we check
+which process is calling it, and only execute it if it’s the main (parent)
+process.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader.Downloader.start_daemon">
+<code class="descname">start_daemon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Downloader.start_daemon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the downloader daemon. Create all child worker processes, start
+them, and join them. This is blocking function and will not exit until
+all workers have exited their prococess.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader.Downloader.stop_daemon">
+<code class="descname">stop_daemon</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.Downloader.stop_daemon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the downloader daemon and exit the application.</p>
+<ol class="arabic simple">
+<li>change the run_state value of each worker’s shared object value.
+This will trigger each worker’s stop/cleanup behaviors.</li>
+<li>Exit the application runtime by raising an exception (we must break
+out of the join that occurred in the start_daemon method).</li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.downloader.HistoryWorker">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader.</code><code class="descname">HistoryWorker</code><span class="sig-paren">(</span><em>run_state</em>, <em>results_queue</em>, <em>print_interval=10</em>, <em>history_max=100</em>, <em>worker_type='download'</em>, <em>column_names=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.HistoryWorker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">multiprocessing.process.Process</span></code></p>
+<p>A process that periodically print/logs the “history” of the last x files
+that have been downloaded/uploaded.</p>
+<dl class="method">
+<dt id="conductor.lib.downloader.HistoryWorker.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.HistoryWorker.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start and return a thread that is responsible for pinging the app for
+files to transfer (and populating the queue)</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.downloader.TouchWorker">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader.</code><code class="descname">TouchWorker</code><span class="sig-paren">(</span><em>run_state</em>, <em>progress_queue</em>, <em>interval=10</em>, <em>process_name=''</em>, <em>account=None</em>, <em>project=None</em>, <em>location=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.TouchWorker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">threading.Thread</span></code></p>
+<p>A Thread that periodically reports/”touches” file progress to the Conductor
+backend. Aside from reporting the byte progress of a file, it also serves
+as a “heartbeat” for a file download, indicating to the backend that the file
+is still in progress and to not consider it a stranded/dead file download.</p>
+<p>The frequency of the reporting is dictated by two things:</p>
+<ol class="arabic simple">
+<li>The self._interval variable (seconds). A potential “touch” will occur
+every _interval seconds</li>
+<li>However, the touch will only be executed  if there is data in the
+progress_queue. If there is no data in the progress queue then a “touch”
+will not not be issued. The progress queue should have constant data
+streaming through it (either when md5 hashing or downloading the file).
+If there is no data getting put into it, then it means that the DownloadWorker
+has hung on that file for some reason.  Eventually the backend will
+“reset” that download because it will not have been touched after a
+few minutes.</li>
+</ol>
+<dl class="method">
+<dt id="conductor.lib.downloader.TouchWorker.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.TouchWorker.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perpetually report the file progress to the app for a given interval.</p>
+<p>Report on the last entry found in the progress queue. If there are no entries,
+then do not report anything. We want the backend to reset any “stranded”/”stuck”
+downloads, so only report progress when there IS progress. Progress entries
+only get added to the queue when a file download is being actively hashed
+or downloaded.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader.empty_queue">
+<code class="descclassname">conductor.lib.downloader.</code><code class="descname">empty_queue</code><span class="sig-paren">(</span><em>queue</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.empty_queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove and return all items from the given Queue object</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader.make_auth_header">
+<code class="descclassname">conductor.lib.downloader.</code><code class="descname">make_auth_header</code><span class="sig-paren">(</span><em>bearer_token</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.make_auth_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and return a dictionary which contains the authorization token info</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader.run_downloader">
+<code class="descclassname">conductor.lib.downloader.</code><code class="descname">run_downloader</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.run_downloader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the downloader with the given arguments.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader.safe_mkdirs">
+<code class="descclassname">conductor.lib.downloader.</code><code class="descname">safe_mkdirs</code><span class="sig-paren">(</span><em>dirpath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.safe_mkdirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the given directory.  If it already exists, suppress the exception.
+This function is useful when handling concurrency issues where it’s not
+possible to reliably check whether a directory exists before creating it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader.set_logging">
+<code class="descclassname">conductor.lib.downloader.</code><code class="descname">set_logging</code><span class="sig-paren">(</span><em>level=None</em>, <em>log_dirpath=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader.set_logging" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.lib.downloader2.html" class="btn btn-neutral float-right" title="conductor.lib.downloader2 module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.lib.conductor_submit.html" class="btn btn-neutral float-left" title="conductor.lib.conductor_submit module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

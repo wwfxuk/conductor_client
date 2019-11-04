@@ -1,0 +1,7 @@
+conductor.submitter module
+==========================
+
+.. automodule:: conductor.submitter
+    :members:
+    :undoc-members:
+    :show-inheritance:

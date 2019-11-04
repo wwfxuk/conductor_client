@@ -1,0 +1,7 @@
+conductor.submitter\_nuke module
+================================
+
+.. automodule:: conductor.submitter_nuke
+    :members:
+    :undoc-members:
+    :show-inheritance:

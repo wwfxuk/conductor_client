@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.lib.worker module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.native package" href="conductor.native.html" />
+    <link rel="prev" title="conductor.lib.version_check module" href="conductor.lib.version_check.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.auth.html">conductor.lib.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.lsseq.html">conductor.lib.lsseq package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.wizard.html">conductor.lib.wizard package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.api_client.html">conductor.lib.api_client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.client_db.html">conductor.lib.client_db module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.common.html">conductor.lib.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.conductor_submit.html">conductor.lib.conductor_submit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader.html">conductor.lib.downloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader2.html">conductor.lib.downloader2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.exceptions.html">conductor.lib.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.file_utils.html">conductor.lib.file_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.loggeria.html">conductor.lib.loggeria module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.maya_utils.html">conductor.lib.maya_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.nuke_utils.html">conductor.lib.nuke_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.package_utils.html">conductor.lib.package_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.pyside_utils.html">conductor.lib.pyside_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader.html">conductor.lib.uploader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader_v2.html">conductor.lib.uploader_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.version_check.html">conductor.lib.version_check module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductor.lib.worker module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.lib.html">conductor.lib package</a> &raquo;</li>
+        
+      <li>conductor.lib.worker module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.lib.worker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.lib.worker">
+<span id="conductor-lib-worker-module"></span><h1>conductor.lib.worker module<a class="headerlink" href="#module-conductor.lib.worker" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="conductor.lib.worker.JobManager">
+<em class="property">class </em><code class="descclassname">conductor.lib.worker.</code><code class="descname">JobManager</code><span class="sig-paren">(</span><em>job_description</em>, <em>reporter_description=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="conductor.lib.worker.JobManager.add_task">
+<code class="descname">add_task</code><span class="sig-paren">(</span><em>task</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager.add_task" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.JobManager.drain_queues">
+<code class="descname">drain_queues</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager.drain_queues" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.JobManager.error_handler_target">
+<code class="descname">error_handler_target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager.error_handler_target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.JobManager.join">
+<code class="descname">join</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager.join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block until all work is complete</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.JobManager.kill_reporters">
+<code class="descname">kill_reporters</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager.kill_reporters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.JobManager.kill_workers">
+<code class="descname">kill_workers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager.kill_workers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.JobManager.mark_all_tasks_complete">
+<code class="descname">mark_all_tasks_complete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager.mark_all_tasks_complete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.JobManager.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.JobManager.start_error_handler">
+<code class="descname">start_error_handler</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager.start_error_handler" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.JobManager.stop_work">
+<code class="descname">stop_work</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager.stop_work" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.JobManager.worker_queue_status_text">
+<code class="descname">worker_queue_status_text</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.JobManager.worker_queue_status_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.worker.MetricStore">
+<em class="property">class </em><code class="descclassname">conductor.lib.worker.</code><code class="descname">MetricStore</code><a class="headerlink" href="#conductor.lib.worker.MetricStore" title="Permalink to this definition">¶</a></dt>
+<dd><p>This provides a thread-safe integer store that can be used by workers to
+share atomic counters.</p>
+<p>Note: writes are eventually consistent</p>
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.append">
+<code class="descname">append</code><span class="sig-paren">(</span><em>list_name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.do_append">
+<code class="descname">do_append</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.do_append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.do_increment">
+<code class="descname">do_increment</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.do_increment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.do_set_dict">
+<code class="descname">do_set_dict</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.do_set_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>variable</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.get_dict">
+<code class="descname">get_dict</code><span class="sig-paren">(</span><em>dict_name</em>, <em>key=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.get_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.get_list">
+<code class="descname">get_list</code><span class="sig-paren">(</span><em>list_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.get_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.increment">
+<code class="descname">increment</code><span class="sig-paren">(</span><em>variable</em>, <em>step_size=1</em>, <em>filename=''</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.increment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.join">
+<code class="descname">join</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.set_dict">
+<code class="descname">set_dict</code><span class="sig-paren">(</span><em>dict_name</em>, <em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.set_dict" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>needs to be single-threaded for atomic updates</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.MetricStore.target">
+<code class="descname">target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.MetricStore.target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.worker.Reporter">
+<em class="property">class </em><code class="descclassname">conductor.lib.worker.</code><code class="descname">Reporter</code><span class="sig-paren">(</span><em>metric_store=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.Reporter" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="conductor.lib.worker.Reporter.kill">
+<code class="descname">kill</code><span class="sig-paren">(</span><em>block=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.Reporter.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.Reporter.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.Reporter.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.Reporter.target">
+<code class="descname">target</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.Reporter.target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="conductor.lib.worker.Reporter.working">
+<em class="property">static </em><code class="descname">working</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.Reporter.working" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.worker.ThreadWorker">
+<em class="property">class </em><code class="descclassname">conductor.lib.worker.</code><code class="descname">ThreadWorker</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.ThreadWorker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Abstract worker class.</p>
+<p>The class defines the basic function and data structures that all workers need.</p>
+<dl class="docutils">
+<dt>To Do:</dt>
+<dd>Move this into it’s own lib</dd>
+</dl>
+<dl class="staticmethod">
+<dt id="conductor.lib.worker.ThreadWorker.PoisonPill">
+<em class="property">static </em><code class="descname">PoisonPill</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.ThreadWorker.PoisonPill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.ThreadWorker.check_for_poison_pill">
+<code class="descname">check_for_poison_pill</code><span class="sig-paren">(</span><em>job</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.ThreadWorker.check_for_poison_pill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.ThreadWorker.do_work">
+<code class="descname">do_work</code><span class="sig-paren">(</span><em>job</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.ThreadWorker.do_work" title="Permalink to this definition">¶</a></dt>
+<dd><p>This needs to be implemented for each worker type. The work task from
+the in_queue is passed as the job argument.</p>
+<p>Returns the result to be passed to the out_queue</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.ThreadWorker.join">
+<code class="descname">join</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.ThreadWorker.join" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.ThreadWorker.kill">
+<code class="descname">kill</code><span class="sig-paren">(</span><em>block=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.ThreadWorker.kill" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.ThreadWorker.mark_done">
+<code class="descname">mark_done</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.ThreadWorker.mark_done" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.ThreadWorker.put_job">
+<code class="descname">put_job</code><span class="sig-paren">(</span><em>job</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.ThreadWorker.put_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.ThreadWorker.start">
+<code class="descname">start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.ThreadWorker.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start number_of_threads threads.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.worker.ThreadWorker.target">
+<code class="descname">target</code><span class="sig-paren">(</span><em>thread_int</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.worker.ThreadWorker.target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="conductor.lib.worker.logger">
+<code class="descclassname">conductor.lib.worker.</code><code class="descname">logger</code><em class="property"> = &lt;logging.Logger object&gt;</em><a class="headerlink" href="#conductor.lib.worker.logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is used to signal to workers if work should continue or not</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.native.html" class="btn btn-neutral float-right" title="conductor.native package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.lib.version_check.html" class="btn btn-neutral float-left" title="conductor.lib.version_check module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

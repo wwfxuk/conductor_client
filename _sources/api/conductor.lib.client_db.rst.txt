@@ -1,0 +1,7 @@
+conductor.lib.client\_db module
+===============================
+
+.. automodule:: conductor.lib.client_db
+    :members:
+    :undoc-members:
+    :show-inheritance:

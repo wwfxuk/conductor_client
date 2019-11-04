@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.submitter_nuke module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.submitter_resources module" href="conductor.submitter_resources.html" />
+    <link rel="prev" title="conductor.submitter_maya_resources module" href="conductor.submitter_maya_resources.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+      <li>conductor.submitter_nuke module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.submitter_nuke.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.submitter_nuke">
+<span id="conductor-submitter-nuke-module"></span><h1>conductor.submitter_nuke module<a class="headerlink" href="#module-conductor.submitter_nuke" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter">
+<em class="property">class </em><code class="descclassname">conductor.submitter_nuke.</code><code class="descname">NukeConductorSubmitter</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="conductor.submitter.html#conductor.submitter.ConductorSubmitter" title="conductor.submitter.ConductorSubmitter"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.submitter.ConductorSubmitter</span></code></a></p>
+<p>The class is PySide front-end for submitting Nuke renders to Conductor.
+To launch the UI, simply call self.runUI method.</p>
+<p>This class serves as an implemenation example of how one might write a front
+end for a Conductor submitter for Nuke.  This class is designed to be ripped
+apart of subclassed to suit the specific needs of a studio’s pipeline.
+Have fun :)</p>
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.applyDefaultSettings">
+<code class="descname">applyDefaultSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.applyDefaultSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI to default settings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.checkSaveBeforeSubmission">
+<code class="descname">checkSaveBeforeSubmission</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.checkSaveBeforeSubmission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if script has unsaved changes and prompt user if they’d like to
+save it before continuing</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.collectDependencies">
+<code class="descname">collectDependencies</code><span class="sig-paren">(</span><em>write_nodes</em>, <em>views</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.collectDependencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given write nodes, return a list of filepaths that these write
+nodes rely upon (external file dependencies)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.createUI">
+<code class="descname">createUI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.createUI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create UI widgets and make.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.generateConductorArgs">
+<code class="descname">generateConductorArgs</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.generateConductorArgs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method from the base class to provide conductor arguments that
+are specific for Nuke.  See the base class’ docstring for more details.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.generateTasksData">
+<code class="descname">generateTasksData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.generateTasksData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of tasks data.  Each item in the list represents one
+task of work that will be created. Each task dictionary has the
+following keys:</p>
+<ul>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;command&quot;</span></code>: The command for the task to execute</p>
+</li>
+<li><p class="first"><code class="docutils literal notranslate"><span class="pre">&quot;frames&quot;</span></code>: <em>optional</em>, helps to bind/display the relationship
+between a task and the frames that the task is operating on.</p>
+<p>Because a task can be any arbitrary command, the notion of “frames”
+may not be relevant and can be left empty.</p>
+</li>
+</ul>
+<p>Example(two tasks):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Task 0</span>
+<span class="p">[{</span><span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;nuke-render --view main -X AFWrite.write_exr -F 1-1x1 &quot;</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">my_nuke_file</span><span class="o">.</span><span class="n">nk</span><span class="s2">&quot;&quot;</span>
+  <span class="s2">&quot;frames&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">},</span>
+<span class="c1"># Task 1</span>
+ <span class="p">{</span><span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;nuke-render --view main -X AFWrite.write_exr -F 10-20x2 &quot;</span><span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">my_nuke_file</span><span class="o">.</span><span class="n">nk</span><span class="s2">&quot;&quot;</span>
+  <span class="s2">&quot;frames&quot;</span><span class="p">:</span> <span class="s2">&quot;10-20x2&quot;</span><span class="p">}]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.getExtendedWidget">
+<code class="descname">getExtendedWidget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.getExtendedWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method extends the Conductor UI by providing a single PySide
+widget that will be added to the UI. The widget may be any class object
+derived from QWidget.</p>
+<p>In order to do so, subclass this class and override this method to
+return the desired widget object.  This widget will be inserted between
+the Frame Range area and the  Submit button. See illustration below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">____________________</span>
+<span class="o">|</span>     <span class="n">Conductor</span>      <span class="o">|</span>
+<span class="o">|--------------------|</span>
+<span class="o">|</span>  <span class="n">Frame</span> <span class="n">Range</span> <span class="n">Area</span>  <span class="o">|</span>
+<span class="o">|--------------------|</span>
+<span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|</span>  <span class="o">&lt;</span><span class="n">EXTENDED</span> <span class="n">WIDGET</span><span class="o">&gt;</span> <span class="o">|</span>   <span class="o">&lt;--</span> <span class="n">your</span> <span class="n">extended</span> <span class="n">widget</span> <span class="n">goes</span> <span class="n">here</span><span class="o">.</span>
+<span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|--------------------|</span>
+<span class="o">|</span>   <span class="n">submit</span> <span class="n">button</span>    <span class="o">|</span>
+<span class="o">|</span><span class="n">____________________</span><span class="o">|</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.getHostProductInfo">
+<code class="descname">getHostProductInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.getHostProductInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.getJobTitle">
+<code class="descname">getJobTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.getJobTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate and return the title to be given to the job.  This is the title
+that will be displayed in the webUI.</p>
+<p>Construct the job title by using the software name (Nuke), followed by
+the filename of nuke file (excluding directory path), followed by the
+write nodes being rendered.  If all of the write nodes in the nuke
+file are being rendered then don’t list any of them.</p>
+<p>Nuke - &lt;nuke scriptname&gt; - &lt;writenodes&gt;</p>
+<p>example: “Nuke - my_nuke_script.nk - beauty, shadow, spec”</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.getOutputPath">
+<code class="descname">getOutputPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.getOutputPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>From the selected Write nodes (in the UI), query their output paths
+and derive common directory which they all share (somewhere in their
+directory tree).  Return a two-item tuple, containing the output path, and
+a list of the write node’s output paths</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.getPluginsProductInfo">
+<code class="descname">getPluginsProductInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.getPluginsProductInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.getSourceFilepath">
+<code class="descname">getSourceFilepath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.getSourceFilepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the currently opened nuke script</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.product">
+<code class="descname">product</code><em class="property"> = 'nuke'</em><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.product" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.runConductorSubmission">
+<code class="descname">runConductorSubmission</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.runConductorSubmission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate a Conductor Submit object with the given conductor_args
+(dict), and execute it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.runPreSubmission">
+<code class="descname">runPreSubmission</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.runPreSubmission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override the base class (which is an empty stub method) so that a
+validation pre-process can be run.  If validation fails, then indicate
+that the the submission process should be aborted.</p>
+<p>We also collect dependencies (and asds) at this point and pass that
+data along…
+In order to validate the submission, dependencies must be collected
+and inspected. Because we don’t want to unnessarily collect dependencies
+again (after validation succeeds), we also pass the depenencies along
+in the returned dictionary (so that we don’t need to collect them again).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeConductorSubmitter.runValidation">
+<code class="descname">runValidation</code><span class="sig-paren">(</span><em>raw_data</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeConductorSubmitter.runValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is an added method (i.e. not a base class override), that allows
+validation to occur when a user presses the “Submit” button. If the
+validation fails, a notification dialog appears to the user, halting
+the submission process.</p>
+<p>Validate that the data being submitted is…valid.</p>
+<ol class="arabic simple">
+<li>Dependencies</li>
+<li>Output dir</li>
+</ol>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.submitter_nuke.NukeWidget">
+<em class="property">class </em><code class="descclassname">conductor.submitter_nuke.</code><code class="descname">NukeWidget</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeWidget.getSelectedViews">
+<code class="descname">getSelectedViews</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeWidget.getSelectedViews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the names of the views that are selected in the UI</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeWidget.getSelectedWriteNodes">
+<code class="descname">getSelectedWriteNodes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeWidget.getSelectedWriteNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the names of the write nodes that are selected in the UI</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeWidget.getUploadOnlyBool">
+<code class="descname">getUploadOnlyBool</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeWidget.getUploadOnlyBool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the “Upload Only” checkbox is checked on or off.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeWidget.populateViews">
+<code class="descname">populateViews</code><span class="sig-paren">(</span><em>views</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeWidget.populateViews" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate each view into the UI QTreeWidget.
+All views will be selected by default</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeWidget.populateWriteNodes">
+<code class="descname">populateWriteNodes</code><span class="sig-paren">(</span><em>write_nodes</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeWidget.populateWriteNodes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate each Write and Deep Write node into the UI QTreeWidget.
+Any write nodes that are currently selected in nuke by the user will be
+also be selected in UI. Note that only write nodes that are selected in
+the UI will be rendered when submitting to Conductor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter_nuke.NukeWidget.refreshUi">
+<code class="descname">refreshUi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter_nuke.NukeWidget.refreshUi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="conductor.submitter_nuke.logger">
+<code class="descclassname">conductor.submitter_nuke.</code><code class="descname">logger</code><em class="property"> = &lt;logging.Logger object&gt;</em><a class="headerlink" href="#conductor.submitter_nuke.logger" title="Permalink to this definition">¶</a></dt>
+<dd><ol class="arabic simple">
+<li>implement pyside inheritance for Nuke’s window interface</li>
+<li>Validate that at least one write node is selected</li>
+<li>Test file pathing on Windows. Especially file_utils manipulations.</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">TODO</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.submitter_resources.html" class="btn btn-neutral float-right" title="conductor.submitter_resources module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.submitter_maya_resources.html" class="btn btn-neutral float-left" title="conductor.submitter_maya_resources module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

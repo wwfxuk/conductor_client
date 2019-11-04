@@ -1,0 +1,7 @@
+conductor.native.lib.package\_tree module
+=========================================
+
+.. automodule:: conductor.native.lib.package_tree
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+conductor.lib.lsseq.seqLister module
+====================================
+
+.. automodule:: conductor.lib.lsseq.seqLister
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+conductor.lib.downloader2 module
+================================
+
+.. automodule:: conductor.lib.downloader2
+    :members:
+    :undoc-members:
+    :show-inheritance:

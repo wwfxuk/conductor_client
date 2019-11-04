@@ -1,0 +1,7 @@
+conductor.native.lib.package\_environment module
+================================================
+
+.. automodule:: conductor.native.lib.package_environment
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.clarisse.scripted_class.submit_actions module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.clarisse.scripted_class.task module" href="conductor.clarisse.scripted_class.task.html" />
+    <link rel="prev" title="conductor.clarisse.scripted_class.submission module" href="conductor.clarisse.scripted_class.submission.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="conductor.clarisse.scripted_class.html">conductor.clarisse.scripted_class package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.attr_docs.html">conductor.clarisse.scripted_class.attr_docs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.clarisse_version_ui.html">conductor.clarisse.scripted_class.clarisse_version_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.conductor_job.html">conductor.clarisse.scripted_class.conductor_job module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.debug_ui.html">conductor.clarisse.scripted_class.debug_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.dependencies.html">conductor.clarisse.scripted_class.dependencies module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.environment_ui.html">conductor.clarisse.scripted_class.environment_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.extra_uploads_ui.html">conductor.clarisse.scripted_class.extra_uploads_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.frames_ui.html">conductor.clarisse.scripted_class.frames_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.instances_ui.html">conductor.clarisse.scripted_class.instances_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.job.html">conductor.clarisse.scripted_class.job module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.missing_files_ui.html">conductor.clarisse.scripted_class.missing_files_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.notifications_ui.html">conductor.clarisse.scripted_class.notifications_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.preview_ui.html">conductor.clarisse.scripted_class.preview_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.projects_ui.html">conductor.clarisse.scripted_class.projects_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.refresh.html">conductor.clarisse.scripted_class.refresh module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.submission.html">conductor.clarisse.scripted_class.submission module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">conductor.clarisse.scripted_class.submit_actions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.task.html">conductor.clarisse.scripted_class.task module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.clarisse.scripts.html">conductor.clarisse.scripts package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.clarisse.clarisse_config.html">conductor.clarisse.clarisse_config module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.clarisse.reloader.html">conductor.clarisse.reloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.clarisse.startup.html">conductor.clarisse.startup module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.clarisse.utils.html">conductor.clarisse.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.clarisse.html">conductor.clarisse package</a> &raquo;</li>
+        
+          <li><a href="conductor.clarisse.scripted_class.html">conductor.clarisse.scripted_class package</a> &raquo;</li>
+        
+      <li>conductor.clarisse.scripted_class.submit_actions module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.clarisse.scripted_class.submit_actions.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.clarisse.scripted_class.submit_actions">
+<span id="conductor-clarisse-scripted-class-submit-actions-module"></span><h1>conductor.clarisse.scripted_class.submit_actions module<a class="headerlink" href="#module-conductor.clarisse.scripted_class.submit_actions" title="Permalink to this headline">¶</a></h1>
+<p>Handle button presses to submit and preview jobs.</p>
+<p>Preview, open a window containing the submission script JSON, and
+eventually also the structure of the submission and the JSON objects
+that will be sent to Conductor.</p>
+<p>Submit, send jobs straight to Conductor.</p>
+<dl class="function">
+<dt id="conductor.clarisse.scripted_class.submit_actions.check_need_save">
+<code class="descclassname">conductor.clarisse.scripted_class.submit_actions.</code><code class="descname">check_need_save</code><span class="sig-paren">(</span><em>node</em>, <em>which</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.submit_actions.check_need_save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the current project is modified and proposed to save it.</p>
+<p>If user chooses to save, then save it and return the filename along
+with an enum response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>node</strong> (<a class="reference internal" href="conductor.clarisse.scripted_class.conductor_job.html#conductor.clarisse.scripted_class.conductor_job.ConductorJob" title="conductor.clarisse.scripted_class.conductor_job.ConductorJob"><em>ConductorJob</em></a>) – </li>
+<li><strong>which</strong> (<em>Enum</em>) – Why we are checking.
+SUBMIT_DIRECT, PREVIEW_FIRST, WRITE_PACKAGE_ONLY</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">SAVE_STATE_UNMODIFIED
+SAVE_STATE_CANCELLED
+SAVE_STATE_SAVED
+SAVE_STATE_NO
+SAVE_STATE_DONT_CARE</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple(Enum, Filename)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.clarisse.scripted_class.submit_actions.preview">
+<code class="descclassname">conductor.clarisse.scripted_class.submit_actions.</code><code class="descname">preview</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.submit_actions.preview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate and show the script in a panel.</p>
+<p>Submission can be invoked from the preview panel.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.clarisse.scripted_class.submit_actions.submit">
+<code class="descclassname">conductor.clarisse.scripted_class.submit_actions.</code><code class="descname">submit</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.submit_actions.submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate and submit directly.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.clarisse.scripted_class.task.html" class="btn btn-neutral float-right" title="conductor.clarisse.scripted_class.task module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.clarisse.scripted_class.submission.html" class="btn btn-neutral float-left" title="conductor.clarisse.scripted_class.submission module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

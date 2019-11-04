@@ -1,0 +1,786 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.native.tests.test_sequence module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.tools package" href="conductor.tools.html" />
+    <link rel="prev" title="conductor.native.tests.test_package_tree module" href="conductor.native.tests.test_package_tree.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.native.html">conductor.native package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.native.lib.html">conductor.native.lib package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="conductor.native.tests.html">conductor.native.tests package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_data_block.html">conductor.native.tests.test_data_block module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_expander.html">conductor.native.tests.test_expander module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_gpath.html">conductor.native.tests.test_gpath module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_gpath_list.html">conductor.native.tests.test_gpath_list module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_package_environment.html">conductor.native.tests.test_package_environment module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.native.tests.test_package_tree.html">conductor.native.tests.test_package_tree module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">conductor.native.tests.test_sequence module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.native.html">conductor.native package</a> &raquo;</li>
+        
+          <li><a href="conductor.native.tests.html">conductor.native.tests package</a> &raquo;</li>
+        
+      <li>conductor.native.tests.test_sequence module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.native.tests.test_sequence.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.native.tests.test_sequence">
+<span id="conductor-native-tests-test-sequence-module"></span><h1>conductor.native.tests.test_sequence module<a class="headerlink" href="#module-conductor.native.tests.test_sequence" title="Permalink to this headline">¶</a></h1>
+<p>test sequence</p>
+<p>isort:skip_file</p>
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.ChunksTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">ChunksTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ChunksTest.test_best_chunk_size">
+<code class="descname">test_best_chunk_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest.test_best_chunk_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ChunksTest.test_chunk_count">
+<code class="descname">test_chunk_count</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest.test_chunk_count" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ChunksTest.test_chunk_size">
+<code class="descname">test_chunk_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest.test_chunk_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ChunksTest.test_chunk_size_setter">
+<code class="descname">test_chunk_size_setter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest.test_chunk_size_setter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ChunksTest.test_clamp_chunk_size">
+<code class="descname">test_clamp_chunk_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest.test_clamp_chunk_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ChunksTest.test_create_chunks_cycle">
+<code class="descname">test_create_chunks_cycle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest.test_create_chunks_cycle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ChunksTest.test_create_chunks_linear">
+<code class="descname">test_create_chunks_linear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest.test_create_chunks_linear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ChunksTest.test_no_chunk_size">
+<code class="descname">test_no_chunk_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest.test_no_chunk_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ChunksTest.test_progression_count_all_progressions">
+<code class="descname">test_progression_count_all_progressions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest.test_progression_count_all_progressions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ChunksTest.test_progression_count_with_chunk_size">
+<code class="descname">test_progression_count_with_chunk_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest.test_progression_count_with_chunk_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ChunksTest.test_progression_count_without_chunk_size">
+<code class="descname">test_progression_count_without_chunk_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ChunksTest.test_progression_count_without_chunk_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.ExpandFilenameTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">ExpandFilenameTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ExpandFilenameTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ExpandFilenameTest.test_expand_many_captures">
+<code class="descname">test_expand_many_captures</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ExpandFilenameTest.test_expand_many_captures" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ExpandFilenameTest.test_expand_padded_hash">
+<code class="descname">test_expand_padded_hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ExpandFilenameTest.test_expand_padded_hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ExpandFilenameTest.test_expand_result_same_length">
+<code class="descname">test_expand_result_same_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ExpandFilenameTest.test_expand_result_same_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ExpandFilenameTest.test_expand_single_hash">
+<code class="descname">test_expand_single_hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ExpandFilenameTest.test_expand_single_hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ExpandFilenameTest.test_invalid_template_raises">
+<code class="descname">test_invalid_template_raises</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ExpandFilenameTest.test_invalid_template_raises" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.IntersectionTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">IntersectionTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.IntersectionTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.IntersectionTest.test_does_intersect">
+<code class="descname">test_does_intersect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.IntersectionTest.test_does_intersect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.IntersectionTest.test_does_not_intersect">
+<code class="descname">test_does_not_intersect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.IntersectionTest.test_does_not_intersect" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.OffsetTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">OffsetTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.OffsetTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.OffsetTest.test_offset_negative_value">
+<code class="descname">test_offset_negative_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.OffsetTest.test_offset_negative_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.OffsetTest.test_offset_positive_value">
+<code class="descname">test_offset_positive_value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.OffsetTest.test_offset_positive_value" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.OffsetTest.test_offset_sequence_has_same_chunk_size">
+<code class="descname">test_offset_sequence_has_same_chunk_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.OffsetTest.test_offset_sequence_has_same_chunk_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.OffsetTest.test_offset_sequence_has_same_chunk_strategy">
+<code class="descname">test_offset_sequence_has_same_chunk_strategy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.OffsetTest.test_offset_sequence_has_same_chunk_strategy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.OffsetTest.test_raises_if_result_negative">
+<code class="descname">test_raises_if_result_negative</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.OffsetTest.test_raises_if_result_negative" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.PermutationsTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">PermutationsTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.PermutationsTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.PermutationsTest.test_one_substitution">
+<code class="descname">test_one_substitution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.PermutationsTest.test_one_substitution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.PermutationsTest.test_three_substitutions">
+<code class="descname">test_three_substitutions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.PermutationsTest.test_three_substitutions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.PermutationsTest.test_two_the_same_substitution">
+<code class="descname">test_two_the_same_substitution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.PermutationsTest.test_two_the_same_substitution" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">ProgressionsTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_empty">
+<code class="descname">test_empty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_empty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_from_range">
+<code class="descname">test_from_range</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_from_range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_order">
+<code class="descname">test_order</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_order" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_progression_at_end">
+<code class="descname">test_progression_at_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_progression_at_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_progression_at_start">
+<code class="descname">test_progression_at_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_progression_at_start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_range_max_16">
+<code class="descname">test_range_max_16</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_range_max_16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_range_max_2">
+<code class="descname">test_range_max_2</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_range_max_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_range_max_size_one">
+<code class="descname">test_range_max_size_one</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_range_max_size_one" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_seq_to_limited_length_progressions">
+<code class="descname">test_seq_to_limited_length_progressions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_seq_to_limited_length_progressions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_seq_to_longest_progressions">
+<code class="descname">test_seq_to_longest_progressions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_seq_to_longest_progressions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_single">
+<code class="descname">test_single</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_single" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ProgressionsTest.test_two">
+<code class="descname">test_two</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ProgressionsTest.test_two" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">ResolveDollarTimeVarsTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest.test_resolve_many_matches">
+<code class="descname">test_resolve_many_matches</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest.test_resolve_many_matches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest.test_resolve_many_templates_to_many_filenames">
+<code class="descname">test_resolve_many_templates_to_many_filenames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest.test_resolve_many_templates_to_many_filenames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest.test_resolve_no_match_leaves_untouched">
+<code class="descname">test_resolve_no_match_leaves_untouched</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest.test_resolve_no_match_leaves_untouched" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest.test_resolve_one_file_no_padding">
+<code class="descname">test_resolve_one_file_no_padding</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest.test_resolve_one_file_no_padding" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest.test_resolve_one_template_to_many_filenames">
+<code class="descname">test_resolve_one_template_to_many_filenames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveDollarTimeVarsTest.test_resolve_one_template_to_many_filenames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.ResolveFormatTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">ResolveFormatTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveFormatTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ResolveFormatTest.test_resolve_many_matches">
+<code class="descname">test_resolve_many_matches</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveFormatTest.test_resolve_many_matches" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ResolveFormatTest.test_resolve_many_templates_to_many_filenames">
+<code class="descname">test_resolve_many_templates_to_many_filenames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveFormatTest.test_resolve_many_templates_to_many_filenames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ResolveFormatTest.test_resolve_no_match_leaves_untouched">
+<code class="descname">test_resolve_no_match_leaves_untouched</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveFormatTest.test_resolve_no_match_leaves_untouched" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ResolveFormatTest.test_resolve_one_file_no_padding">
+<code class="descname">test_resolve_one_file_no_padding</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveFormatTest.test_resolve_one_file_no_padding" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ResolveFormatTest.test_resolve_one_template_to_many_filenames">
+<code class="descname">test_resolve_one_template_to_many_filenames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ResolveFormatTest.test_resolve_one_template_to_many_filenames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryFailTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">SequenceFactoryFailTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryFailTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_bad_spec">
+<code class="descname">test_bad_spec</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_bad_spec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_bad_spec_step">
+<code class="descname">test_bad_spec_step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_bad_spec_step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_negative_end">
+<code class="descname">test_negative_end</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_negative_end" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_negative_end_str">
+<code class="descname">test_negative_end_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_negative_end_str" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_negative_number">
+<code class="descname">test_negative_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_negative_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_negative_step">
+<code class="descname">test_negative_step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryFailTest.test_negative_step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">SequenceFactoryTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryTest.test_frame_spec_is_not_progression">
+<code class="descname">test_frame_spec_is_not_progression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryTest.test_frame_spec_is_not_progression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryTest.test_is_progression_method">
+<code class="descname">test_is_progression_method</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryTest.test_is_progression_method" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryTest.test_list_sequence_is_not_progression">
+<code class="descname">test_list_sequence_is_not_progression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryTest.test_list_sequence_is_not_progression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryTest.test_progressive_list_is_progression">
+<code class="descname">test_progressive_list_is_progression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryTest.test_progressive_list_is_progression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryTest.test_range_is_progression">
+<code class="descname">test_range_is_progression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryTest.test_range_is_progression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryTest.test_range_step_is_progression">
+<code class="descname">test_range_step_is_progression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryTest.test_range_step_is_progression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryTest.test_range_string_is_progression">
+<code class="descname">test_range_string_is_progression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryTest.test_range_string_is_progression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryTest.test_single_number_is_progression">
+<code class="descname">test_single_number_is_progression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryTest.test_single_number_is_progression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceFactoryTest.test_single_number_string_is_progression">
+<code class="descname">test_single_number_string_is_progression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceFactoryTest.test_single_number_string_is_progression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.SequenceIterator">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">SequenceIterator</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceIterator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceIterator.test_iterator_sorted_no_dups">
+<code class="descname">test_iterator_sorted_no_dups</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceIterator.test_iterator_sorted_no_dups" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.SequenceToStringTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">SequenceToStringTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceToStringTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceToStringTest.test_progression_range">
+<code class="descname">test_progression_range</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceToStringTest.test_progression_range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceToStringTest.test_progression_range_step">
+<code class="descname">test_progression_range_step</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceToStringTest.test_progression_range_step" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceToStringTest.test_progression_range_step_round_down">
+<code class="descname">test_progression_range_step_round_down</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceToStringTest.test_progression_range_step_round_down" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceToStringTest.test_progression_single">
+<code class="descname">test_progression_single</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceToStringTest.test_progression_single" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceToStringTest.test_repr_from_progression">
+<code class="descname">test_repr_from_progression</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceToStringTest.test_repr_from_progression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceToStringTest.test_repr_from_sequence">
+<code class="descname">test_repr_from_sequence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceToStringTest.test_repr_from_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceToStringTest.test_sequence">
+<code class="descname">test_sequence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceToStringTest.test_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.SequenceValidator">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">SequenceValidator</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceValidator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceValidator.test_is_valid_method_bad_type">
+<code class="descname">test_is_valid_method_bad_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceValidator.test_is_valid_method_bad_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceValidator.test_is_valid_method_false">
+<code class="descname">test_is_valid_method_false</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceValidator.test_is_valid_method_false" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SequenceValidator.test_is_valid_method_true">
+<code class="descname">test_is_valid_method_true</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SequenceValidator.test_is_valid_method_true" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.StartEndStepValuesTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">StartEndStepValuesTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.StartEndStepValuesTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_from_start_end_ints">
+<code class="descname">test_create_from_start_end_ints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_from_start_end_ints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_from_start_end_strings">
+<code class="descname">test_create_from_start_end_strings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_from_start_end_strings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_from_start_end_strings_backwards">
+<code class="descname">test_create_from_start_end_strings_backwards</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_from_start_end_strings_backwards" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_from_start_only">
+<code class="descname">test_create_from_start_only</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_from_start_only" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_with_start_string">
+<code class="descname">test_create_with_start_string</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_with_start_string" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_with_step_ints">
+<code class="descname">test_create_with_step_ints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_with_step_ints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_with_step_strings">
+<code class="descname">test_create_with_step_strings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.StartEndStepValuesTest.test_create_with_step_strings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.SubsampleTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">SubsampleTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SubsampleTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.SubsampleTest.test_counts_from_1_to_10">
+<code class="descname">test_counts_from_1_to_10</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.SubsampleTest.test_counts_from_1_to_10" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.ToCustomSpecTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">ToCustomSpecTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ToCustomSpecTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ToCustomSpecTest.test_complex_add_spaces">
+<code class="descname">test_complex_add_spaces</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ToCustomSpecTest.test_complex_add_spaces" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ToCustomSpecTest.test_spec_complex">
+<code class="descname">test_spec_complex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ToCustomSpecTest.test_spec_complex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ToCustomSpecTest.test_spec_range">
+<code class="descname">test_spec_range</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ToCustomSpecTest.test_spec_range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ToCustomSpecTest.test_spec_single_number">
+<code class="descname">test_spec_single_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ToCustomSpecTest.test_spec_single_number" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.ToCustomSpecTest.test_spec_step_range">
+<code class="descname">test_spec_step_range</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.ToCustomSpecTest.test_spec_step_range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.native.tests.test_sequence.UnionTest">
+<em class="property">class </em><code class="descclassname">conductor.native.tests.test_sequence.</code><code class="descname">UnionTest</code><span class="sig-paren">(</span><em>methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.UnionTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.UnionTest.test_creates_union_from_other_sequence">
+<code class="descname">test_creates_union_from_other_sequence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.UnionTest.test_creates_union_from_other_sequence" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.native.tests.test_sequence.UnionTest.test_creates_union_from_range">
+<code class="descname">test_creates_union_from_range</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.native.tests.test_sequence.UnionTest.test_creates_union_from_range" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.tools.html" class="btn btn-neutral float-right" title="conductor.tools package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.native.tests.test_package_tree.html" class="btn btn-neutral float-left" title="conductor.native.tests.test_package_tree module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

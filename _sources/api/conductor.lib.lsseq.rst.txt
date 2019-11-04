@@ -1,0 +1,17 @@
+conductor.lib.lsseq package
+===========================
+
+Submodules
+----------
+
+.. toctree::
+
+   conductor.lib.lsseq.seqLister
+
+Module contents
+---------------
+
+.. automodule:: conductor.lib.lsseq
+    :members:
+    :undoc-members:
+    :show-inheritance:

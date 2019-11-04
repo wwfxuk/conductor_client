@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.lib.downloader2 module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.lib.exceptions module" href="conductor.lib.exceptions.html" />
+    <link rel="prev" title="conductor.lib.downloader module" href="conductor.lib.downloader.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.auth.html">conductor.lib.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.lsseq.html">conductor.lib.lsseq package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.wizard.html">conductor.lib.wizard package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.api_client.html">conductor.lib.api_client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.client_db.html">conductor.lib.client_db module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.common.html">conductor.lib.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.conductor_submit.html">conductor.lib.conductor_submit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader.html">conductor.lib.downloader module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductor.lib.downloader2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.exceptions.html">conductor.lib.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.file_utils.html">conductor.lib.file_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.loggeria.html">conductor.lib.loggeria module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.maya_utils.html">conductor.lib.maya_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.nuke_utils.html">conductor.lib.nuke_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.package_utils.html">conductor.lib.package_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.pyside_utils.html">conductor.lib.pyside_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader.html">conductor.lib.uploader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader_v2.html">conductor.lib.uploader_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.version_check.html">conductor.lib.version_check module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.worker.html">conductor.lib.worker module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.lib.html">conductor.lib package</a> &raquo;</li>
+        
+      <li>conductor.lib.downloader2 module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.lib.downloader2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.lib.downloader2">
+<span id="conductor-lib-downloader2-module"></span><h1>conductor.lib.downloader2 module<a class="headerlink" href="#module-conductor.lib.downloader2" title="Permalink to this headline">¶</a></h1>
+<p>Command Line Process to run downloads.</p>
+<dl class="class">
+<dt id="conductor.lib.downloader2.Downloader">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader2.</code><code class="descname">Downloader</code><span class="sig-paren">(</span><em>thread_count=None</em>, <em>location=None</em>, <em>output_dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A Downloader daemon which downloads completed frames from finished tasks.</p>
+<p>Each task has an associated Download entity that represents all
+images/files that were produced from that task. A task may have more than
+file to download.</p>
+<ol class="arabic simple">
+<li>Query the app for the “next” download to download.  The app will return
+the Download that it deems most appropriate (probably of the lowest jobid).
+Note the app will automatically change the status of that Download entity
+to “downloading”.  This is probably a terrible model (but it’s what I’m
+inheriting).  Note that there is cron job that resets Download entities
+that are in state of Downloading but have not “dialed home” after x amount
+of time.</li>
+<li>Place this Download in the queue to be downloaded.</li>
+<li>Spawn threads to actively take “work” (Downloads) from the queue.</li>
+<li>Each thread is responsible for downloading the Download that it took
+from the queue.</li>
+<li>Each thread is responsible for updating the app of it’s downloading
+status: “downloading”, etc</li>
+<li>Each thread is responsible for catching their own exceptions and placing
+the Download back into the queue</li>
+<li>Because the downloader is threaded, it makes communication/tracking of
+data more difficult.  In order to facilitate this, ThreadState objects
+are shared across threads to read/write data to. This allows download
+progress to be communicated from multiple threads into a single object,
+which can then be read from a single process and “summarized”.</li>
+</ol>
+<p>A <code class="docutils literal notranslate"><span class="pre">TaskDownloadState.files</span></code> = <code class="docutils literal notranslate"><span class="pre">[FileDownloadState,</span> <span class="pre">FileDownloadState]</span></code>.</p>
+<p>To complicate matters further, if the downloader is killed (via keyboard,
+etc), the it should clean up after itself.  So we need to catch the
+<code class="docutils literal notranslate"><span class="pre">SIGINT</span> <span class="pre">EXIT</span></code> signal at any point in the code and handle it gracefully.</p>
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.add_to_history">
+<code class="descname">add_to_history</code><span class="sig-paren">(</span><em>file_download_state</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.add_to_history" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.construct_active_downloads_summary">
+<code class="descname">construct_active_downloads_summary</code><span class="sig-paren">(</span><em>task_download_states</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.construct_active_downloads_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#### ACTIVE DOWNLOADS #####</span>
+
+<span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">004</span> <span class="o">-</span> <span class="mi">80</span><span class="o">%</span> <span class="p">(</span><span class="mi">200</span><span class="o">/</span><span class="mi">234</span><span class="n">MB</span><span class="p">)</span>  <span class="o">-</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">beauty</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">0005.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">0005.</span><span class="n">exr</span>
+
+
+
+<span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">003</span> <span class="o">-</span> <span class="mi">20</span><span class="o">%</span>  <span class="p">(</span><span class="mi">20</span><span class="o">/</span><span class="mi">234</span><span class="n">MB</span><span class="p">)</span> <span class="o">-</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">2</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01142.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01074.</span><span class="n">exr</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.construct_file_downloads_history_summary">
+<code class="descname">construct_file_downloads_history_summary</code><span class="sig-paren">(</span><em>file_download_history</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.construct_file_downloads_history_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#### DOWNLOAD HISTORY #####</span>
+
+
+<span class="mi">6227709558521856</span> <span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">001</span> <span class="mi">20</span><span class="n">MB</span>  <span class="n">CACHED</span> <span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">light_v001</span><span class="o">/</span><span class="n">beauty</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">0005.</span><span class="n">exr</span>  <span class="o">&lt;</span><span class="n">timestamp</span><span class="o">&gt;</span>
+<span class="mi">7095580349853434</span> <span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">002</span> <span class="mi">10</span><span class="n">MB</span>  <span class="n">DL</span>     <span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">spider_fly01</span><span class="o">/</span><span class="n">beauty</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">0005.</span><span class="n">exr</span>  <span class="o">&lt;</span><span class="n">timestamp</span><span class="o">&gt;</span>
+<span class="mi">5343402947290140</span> <span class="n">Job</span> <span class="mi">08284</span> <span class="n">Task</span> <span class="mi">001</span> <span class="mi">5</span><span class="n">MB</span>   <span class="n">DL</span>     <span class="o">/</span><span class="n">work</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">light_v002</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">light_002</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">0005.</span><span class="n">exr</span>  <span class="o">&lt;</span><span class="n">timestamp</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.download_file">
+<code class="descname">download_file</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.download_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given file information, download the file to disk.  Check whether
+the file already exists and matches the expected md5 before downloading.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.downloader2.Downloader.download_jobs">
+<em class="property">classmethod </em><code class="descname">download_jobs</code><span class="sig-paren">(</span><em>job_ids</em>, <em>task_id=None</em>, <em>thread_count=None</em>, <em>output_dir=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.download_jobs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the downloader for explicit jobs, and terminate afterwards.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.Downloader.download_progess_polling">
+<code class="descname">download_progess_polling</code><em class="property"> = 2</em><a class="headerlink" href="#conductor.lib.downloader2.Downloader.download_progess_polling" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.download_target">
+<code class="descname">download_target</code><span class="sig-paren">(</span><em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.download_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called in a new thread (and many threads may be
+executing this at a single time). This function is responsible for
+downloading a single Download (essentially an entity in Datastore which
+represents the output data from a single Task).  This may consist of
+many files.</p>
+<p>This function pulls one Download from the pending queue and attempts
+to download it.  If it fails, it places it back on the queue.</p>
+<p>The function also spawns a child thread that is responsible for
+constantly updating the app with the status of the Download, such as:</p>
+<ul>
+<li><p class="first">status (e.g. “pending”, “downloading”, “downloaded”)</p>
+</li>
+<li><p class="first">bytes transferred (the total amount of bytes that have been
+transferred for the Download).</p>
+<p>Note that these bytes encompass all of the bytes that have been
+transferred for ALL of the files that are part of the Download
+(as opposed to only a single file)</p>
+</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>task_download_state</strong> – <p>A class, serving as global mutable object, which allows
+this thread to report data about its Download state,
+so that other threads can read and output that data.
+This object is persistant for each thread, and is used
+over and over again, everytime time this function is called,
+for each Task that a thread downloads.</p>
+<p>It’s important that the state information is wiped clean
+(reset) every time a new task begins.
+This is the responsibility of this function</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.Downloader.endpoint_downloads_job">
+<code class="descname">endpoint_downloads_job</code><em class="property"> = '/downloads/%s'</em><a class="headerlink" href="#conductor.lib.downloader2.Downloader.endpoint_downloads_job" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.Downloader.endpoint_downloads_next">
+<code class="descname">endpoint_downloads_next</code><em class="property"> = '/downloads/next'</em><a class="headerlink" href="#conductor.lib.downloader2.Downloader.endpoint_downloads_next" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.Downloader.endpoint_downloads_status">
+<code class="descname">endpoint_downloads_status</code><em class="property"> = '/downloads/status'</em><a class="headerlink" href="#conductor.lib.downloader2.Downloader.endpoint_downloads_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.get_jobs_downloads">
+<code class="descname">get_jobs_downloads</code><span class="sig-paren">(</span><em>job_ids</em>, <em>task_id</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.get_jobs_downloads" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.get_next_downloads">
+<code class="descname">get_next_downloads</code><span class="sig-paren">(</span><em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.get_next_downloads" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.Downloader.history_queue_max">
+<code class="descname">history_queue_max</code><em class="property"> = 100</em><a class="headerlink" href="#conductor.lib.downloader2.Downloader.history_queue_max" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.Downloader.md5_progess_polling">
+<code class="descname">md5_progess_polling</code><em class="property"> = 2</em><a class="headerlink" href="#conductor.lib.downloader2.Downloader.md5_progess_polling" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.nap">
+<code class="descname">nap</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.nap" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.Downloader.naptime">
+<code class="descname">naptime</code><em class="property"> = 15</em><a class="headerlink" href="#conductor.lib.downloader2.Downloader.naptime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.print_summary">
+<code class="descname">print_summary</code><span class="sig-paren">(</span><em>thread_states</em>, <em>interval</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.print_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print summary of download threads.</p>
+<ul class="simple">
+<li>Total threads running</li>
+<li>Thread names</li>
+<li>Total download threads</li>
+<li>Last 20 files downloaded</li>
+<li>Last 20 tasks downloaded</li>
+<li>Last 20 Downloads downloaded</li>
+<li>Currently downloading jobs</li>
+<li>Currently downloading files</li>
+<li>Currently downloading Downloads</li>
+</ul>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">####### SUMMARY #########################</span>
+<span class="n">Active</span> <span class="n">Thread</span> <span class="n">Count</span><span class="p">:</span> <span class="mi">14</span>
+
+<span class="n">Threads</span><span class="p">:</span>
+    <span class="n">ErrorThread</span>
+    <span class="n">MainThread</span>
+    <span class="n">MetricStore</span>
+    <span class="n">ProgressThread</span>
+    <span class="n">ProgressThread</span>
+    <span class="n">ProgressThread</span>
+    <span class="n">ProgressThread</span>
+    <span class="n">ProgressThread</span>
+    <span class="n">ProgressThread</span>
+    <span class="n">QueueThread</span>
+    <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">Thread</span><span class="o">-</span><span class="mi">2</span>
+    <span class="n">Thread</span><span class="o">-</span><span class="mi">3</span>
+    <span class="n">Thread</span><span class="o">-</span><span class="mi">4</span>
+    <span class="n">Thread</span><span class="o">-</span><span class="mi">5</span>
+
+
+<span class="c1">#### ACTIVE DOWNLOADS #####</span>
+
+<span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">004</span> <span class="o">-</span> <span class="mi">80</span><span class="o">%</span> <span class="p">(</span><span class="mi">200</span><span class="o">/</span><span class="mi">234</span><span class="n">MB</span><span class="p">)</span>  <span class="o">-</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">1</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">beauty</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">0005.</span><span class="n">exr</span>  <span class="n">HASHING</span> <span class="n">EXISTING</span> <span class="n">FILE</span>     <span class="mi">80</span><span class="o">%</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">0005.</span><span class="n">exr</span>    <span class="n">DOWLOADING</span> <span class="mi">20</span><span class="o">%</span>
+
+
+
+<span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">003</span> <span class="o">-</span> <span class="mi">20</span><span class="o">%</span>  <span class="p">(</span><span class="mi">20</span><span class="o">/</span><span class="mi">234</span><span class="n">MB</span><span class="p">)</span> <span class="o">-</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">2</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01142.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01074.</span><span class="n">exr</span>
+
+
+<span class="c1">#### PENDING DOWNLOADS #####</span>
+    <span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">006</span>
+    <span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">007</span>
+    <span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">008</span>
+    <span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">009</span>
+
+
+
+
+<span class="c1">#### HISTORY ####</span>
+
+<span class="n">Last</span> <span class="mi">20</span> <span class="n">files</span> <span class="n">downloaded</span><span class="p">:</span>
+
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01142.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01074.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01038.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01111.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01087.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01143.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01095.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01156.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01016.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01039.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01130.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01030.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01015.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01138.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01063.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01006.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01065.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01096.</span><span class="n">exr</span>
+    <span class="o">/</span><span class="n">Volumes</span><span class="o">/</span><span class="n">af</span><span class="o">/</span><span class="n">show</span><span class="o">/</span><span class="n">wash</span><span class="o">/</span><span class="n">shots</span><span class="o">/</span><span class="n">MJ</span><span class="o">/</span><span class="n">MJ_0080</span><span class="o">/</span><span class="n">sandbox</span><span class="o">/</span><span class="n">jfunk</span><span class="o">/</span><span class="n">katana</span><span class="o">/</span><span class="n">renders</span><span class="o">/</span><span class="n">MJ_0080_light_v001</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">/</span><span class="n">deep_lidar</span><span class="o">.</span><span class="n">deep</span><span class="o">.</span><span class="mf">01055.</span><span class="n">exr</span>
+
+<span class="n">Last</span> <span class="mi">20</span> <span class="n">tasks</span> <span class="n">downloaded</span>
+    <span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">004</span> <span class="p">(</span><span class="n">Download</span> <span class="mi">3492394234</span><span class="p">)</span>
+    <span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">002</span> <span class="p">(</span><span class="n">Download</span> <span class="mi">3492394234</span><span class="p">)</span>
+    <span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">003</span> <span class="p">(</span><span class="n">Download</span> <span class="mi">3492394234</span><span class="p">)</span>
+    <span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">001</span> <span class="p">(</span><span class="n">Download</span> <span class="mi">3492394234</span><span class="p">)</span>
+    <span class="n">Job</span> <span class="mi">08285</span> <span class="n">Task</span> <span class="mi">000</span> <span class="p">(</span><span class="n">Download</span> <span class="mi">3492394234</span><span class="p">)</span>
+    <span class="n">Job</span> <span class="mi">08284</span> <span class="n">Task</span> <span class="mi">065</span> <span class="p">(</span><span class="n">Download</span> <span class="mi">3492394234</span><span class="p">)</span>
+    <span class="n">Job</span> <span class="mi">08283</span> <span class="n">Task</span> <span class="mi">064</span> <span class="p">(</span><span class="n">Download</span> <span class="mi">3492394234</span><span class="p">)</span>
+    <span class="n">Job</span> <span class="mi">08283</span> <span class="n">Task</span> <span class="mi">063</span> <span class="p">(</span><span class="n">Download</span> <span class="mi">3492394234</span><span class="p">)</span>
+    <span class="n">Job</span> <span class="mi">08282</span> <span class="n">Task</span> <span class="mi">032</span> <span class="p">(</span><span class="n">Download</span> <span class="mi">3492394234</span><span class="p">)</span>
+    <span class="n">Job</span> <span class="mi">08282</span> <span class="n">Task</span> <span class="mi">025</span> <span class="p">(</span><span class="n">Download</span> <span class="mi">3492394234</span><span class="p">)</span>
+    <span class="n">Job</span> <span class="mi">08282</span> <span class="n">Task</span> <span class="mi">001</span> <span class="p">(</span><span class="n">Download</span> <span class="mi">3492394234</span><span class="p">)</span>
+
+<span class="c1">####################</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.print_uptime">
+<code class="descname">print_uptime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.print_uptime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the amount of time that the uploader has been running, e.g “0:01:28”</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.queue_target">
+<code class="descname">queue_target</code><span class="sig-paren">(</span><em>pending_queue</em>, <em>downloading_queue</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.queue_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill the download queue by quering the app for the “next” Download.
+Only fill the queue to have as many items as there are threads.</p>
+<p>Perpetually run this this function until the daemon has been terminated</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.report_download_status">
+<code class="descname">report_download_status</code><span class="sig-paren">(</span><em>task_download_state</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.report_download_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.reporter_target">
+<code class="descname">reporter_target</code><span class="sig-paren">(</span><em>task_download_state</em>, <em>downloader_thread</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.reporter_target" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.start">
+<code class="descname">start</code><span class="sig-paren">(</span><em>job_ids=None</em>, <em>task_id=None</em>, <em>summary_interval=10</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.start" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.downloader2.Downloader.start_daemon">
+<em class="property">classmethod </em><code class="descname">start_daemon</code><span class="sig-paren">(</span><em>thread_count=None</em>, <em>location=None</em>, <em>output_dir=None</em>, <em>summary_interval=10</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.start_daemon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the downloader as a daemon</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.start_download_threads">
+<code class="descname">start_download_threads</code><span class="sig-paren">(</span><em>downloading_queue</em>, <em>pending_queue</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.start_download_threads" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.start_queue_thread">
+<code class="descname">start_queue_thread</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.start_queue_thread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start and return a thread that is responsible for pinging the app for
+Downloads to download (and populating the queue)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.start_reporter_thread">
+<code class="descname">start_reporter_thread</code><span class="sig-paren">(</span><em>download_data</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.start_reporter_thread" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.Downloader.start_summary_thread">
+<code class="descname">start_summary_thread</code><span class="sig-paren">(</span><em>thread_states</em>, <em>interval</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.Downloader.start_summary_thread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start and return a thread that is responsible for pinging the app for
+Downloads to download (and populating the queue)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.Downloader.start_time">
+<code class="descname">start_time</code><em class="property"> = None</em><a class="headerlink" href="#conductor.lib.downloader2.Downloader.start_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.downloader2.FileDownloadState">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader2.</code><code class="descname">FileDownloadState</code><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.downloader2.ThreadState" title="conductor.lib.downloader2.ThreadState"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.downloader2.ThreadState</span></code></a></p>
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.STATE_COMPLETE">
+<code class="descname">STATE_COMPLETE</code><em class="property"> = 'COMPLETE'</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.STATE_COMPLETE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.STATE_DOWNLOADING">
+<code class="descname">STATE_DOWNLOADING</code><em class="property"> = 'DOWNLOADING'</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.STATE_DOWNLOADING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.STATE_HASHING_EXISTING_FILE">
+<code class="descname">STATE_HASHING_EXISTING_FILE</code><em class="property"> = 'HASHING EXISTING FILE'</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.STATE_HASHING_EXISTING_FILE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.STATE_PREPARING_DIRECTORY">
+<code class="descname">STATE_PREPARING_DIRECTORY</code><em class="property"> = 'PREPARING DIRECTORY'</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.STATE_PREPARING_DIRECTORY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.STATE_QUEUED">
+<code class="descname">STATE_QUEUED</code><em class="property"> = 'QUEUED'</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.STATE_QUEUED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.bytes_downloaded">
+<code class="descname">bytes_downloaded</code><em class="property"> = 0</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.bytes_downloaded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.download_id">
+<code class="descname">download_id</code><em class="property"> = ''</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.download_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.file_info">
+<code class="descname">file_info</code><em class="property"> = None</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.file_info" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.filepath">
+<code class="descname">filepath</code><em class="property"> = None</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.filepath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.FileDownloadState.get_duration">
+<code class="descname">get_duration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.get_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the amount of time in seconds</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.hash_progress">
+<code class="descname">hash_progress</code><em class="property"> = 0</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.hash_progress" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.status">
+<code class="descname">status</code><em class="property"> = 'QUEUED'</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.thread_name">
+<code class="descname">thread_name</code><em class="property"> = ''</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.thread_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.time_completed">
+<code class="descname">time_completed</code><em class="property"> = None</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.time_completed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.time_started">
+<code class="descname">time_started</code><em class="property"> = None</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.time_started" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.FileDownloadState.use_existing">
+<code class="descname">use_existing</code><em class="property"> = False</em><a class="headerlink" href="#conductor.lib.downloader2.FileDownloadState.use_existing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.downloader2.HistoryTableStr">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader2.</code><code class="descname">HistoryTableStr</code><span class="sig-paren">(</span><em>data</em>, <em>column_names</em>, <em>title=''</em>, <em>footer=''</em>, <em>upper_headers=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.HistoryTableStr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="conductor.lib.loggeria.html#conductor.lib.loggeria.TableStr" title="conductor.lib.loggeria.TableStr"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.loggeria.TableStr</span></code></a></p>
+<dl class="method">
+<dt id="conductor.lib.downloader2.HistoryTableStr.human_bytes">
+<code class="descname">human_bytes</code><span class="sig-paren">(</span><em>bytes_</em>, <em>ljust=0</em>, <em>rjust=0</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.HistoryTableStr.human_bytes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.HistoryTableStr.human_time">
+<code class="descname">human_time</code><span class="sig-paren">(</span><em>timestamp</em>, <em>ljust=0</em>, <em>rjust=0</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.HistoryTableStr.human_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.downloader2.TaskDownloadState">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader2.</code><code class="descname">TaskDownloadState</code><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.downloader2.ThreadState" title="conductor.lib.downloader2.ThreadState"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.downloader2.ThreadState</span></code></a></p>
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.TaskDownloadState.ENTITY_STATES">
+<code class="descname">ENTITY_STATES</code><em class="property"> = {'COMPLETE': 'downloaded', 'DOWNLOADING': 'downloading', 'ERROR': 'pending', 'HASHING EXISTING FILE': 'downloading', 'PREPARING DIRECTORY': 'downloading', 'QUEUED': 'downloading'}</em><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.ENTITY_STATES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.TaskDownloadState.STATE_COMPLETE">
+<code class="descname">STATE_COMPLETE</code><em class="property"> = 'COMPLETE'</em><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.STATE_COMPLETE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.TaskDownloadState.STATE_DOWNLOADING">
+<code class="descname">STATE_DOWNLOADING</code><em class="property"> = 'DOWNLOADING'</em><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.STATE_DOWNLOADING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.TaskDownloadState.STATE_ERROR">
+<code class="descname">STATE_ERROR</code><em class="property"> = 'ERROR'</em><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.STATE_ERROR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.TaskDownloadState.STATE_HASHING_EXISTING_FILE">
+<code class="descname">STATE_HASHING_EXISTING_FILE</code><em class="property"> = 'HASHING EXISTING FILE'</em><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.STATE_HASHING_EXISTING_FILE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.TaskDownloadState.STATE_PREPARING_DIRECTORY">
+<code class="descname">STATE_PREPARING_DIRECTORY</code><em class="property"> = 'PREPARING DIRECTORY'</em><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.STATE_PREPARING_DIRECTORY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.downloader2.TaskDownloadState.STATE_QUEUED">
+<code class="descname">STATE_QUEUED</code><em class="property"> = 'QUEUED'</em><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.STATE_QUEUED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.TaskDownloadState.get_bytes_downloaded">
+<code class="descname">get_bytes_downloaded</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.get_bytes_downloaded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.TaskDownloadState.get_duration">
+<code class="descname">get_duration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.get_duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the amount of time in seconds</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.TaskDownloadState.get_entity_status">
+<code class="descname">get_entity_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.get_entity_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return corresponding entity status for the TaskDownloadState’s current status</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.TaskDownloadState.initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><em>task_download</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset/initialize the properties</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.TaskDownloadState.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.downloader2.TaskDownloadState.reset_bytes_downloaded">
+<code class="descname">reset_bytes_downloaded</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.TaskDownloadState.reset_bytes_downloaded" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.downloader2.ThreadState">
+<em class="property">class </em><code class="descclassname">conductor.lib.downloader2.</code><code class="descname">ThreadState</code><a class="headerlink" href="#conductor.lib.downloader2.ThreadState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Use a class as mutable datatype so that it can be used across threads</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader2.chmod">
+<code class="descclassname">conductor.lib.downloader2.</code><code class="descname">chmod</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.chmod" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader2.dec_random_exception">
+<code class="descclassname">conductor.lib.downloader2.</code><code class="descname">dec_random_exception</code><span class="sig-paren">(</span><em>percentage_chance</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.dec_random_exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>DECORATOR for creating random exceptions for the wrapped function.
+This is used for simulating errors to test downloader recovery behavior/robustness</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader2.delete_file">
+<code class="descclassname">conductor.lib.downloader2.</code><code class="descname">delete_file</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.delete_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader2.download_file">
+<code class="descclassname">conductor.lib.downloader2.</code><code class="descname">download_file</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.download_file" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>state</strong> (<em>class</em>) – A class with <code class="docutils literal notranslate"><span class="pre">.bytes_downloaded</span></code> property.
+Reflects the amount of bytes that have currently
+been downloaded. This can be used by other threads to report
+“progress”.  Note that this must be a mutable object (hence
+a class), so that this function, as well as other threads
+will read/write to the same object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader2.prepare_dest_dirpath">
+<code class="descclassname">conductor.lib.downloader2.</code><code class="descname">prepare_dest_dirpath</code><span class="sig-paren">(</span><em>dir_path</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.prepare_dest_dirpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare the destination directory, ensureing that it exists and it has
+open permission.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader2.random_exeption">
+<code class="descclassname">conductor.lib.downloader2.</code><code class="descname">random_exeption</code><span class="sig-paren">(</span><em>percentage_chance</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.random_exeption" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader2.report_error">
+<code class="descclassname">conductor.lib.downloader2.</code><code class="descname">report_error</code><span class="sig-paren">(</span><em>self</em>, <em>download_id</em>, <em>error_message</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.report_error" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader2.run_downloader">
+<code class="descclassname">conductor.lib.downloader2.</code><code class="descname">run_downloader</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.run_downloader" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the downloader. If a job id(s) were given, exit the downloader upon
+completion.  Otherwise, run the downloader indefinitely (daemon mode), polling
+the Conductor cloud app for files that need to be downloaded.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader2.safe_mkdirs">
+<code class="descclassname">conductor.lib.downloader2.</code><code class="descname">safe_mkdirs</code><span class="sig-paren">(</span><em>dirpath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.safe_mkdirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the given directory.  If it already exists, suppress the exception.
+This function is useful when handling concurrency issues where it’s not
+possible to reliably check whether a directory exists before creating it.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.downloader2.set_logging">
+<code class="descclassname">conductor.lib.downloader2.</code><code class="descname">set_logging</code><span class="sig-paren">(</span><em>level=None</em>, <em>log_dirpath=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.downloader2.set_logging" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.lib.exceptions.html" class="btn btn-neutral float-right" title="conductor.lib.exceptions module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.lib.downloader.html" class="btn btn-neutral float-left" title="conductor.lib.downloader module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

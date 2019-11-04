@@ -1,0 +1,7 @@
+conductor.submitter\_maya\_resources module
+===========================================
+
+.. automodule:: conductor.submitter_maya_resources
+    :members:
+    :undoc-members:
+    :show-inheritance:

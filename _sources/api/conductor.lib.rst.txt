@@ -1,0 +1,42 @@
+conductor.lib package
+=====================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    conductor.lib.auth
+    conductor.lib.lsseq
+    conductor.lib.wizard
+
+Submodules
+----------
+
+.. toctree::
+
+   conductor.lib.api_client
+   conductor.lib.client_db
+   conductor.lib.common
+   conductor.lib.conductor_submit
+   conductor.lib.downloader
+   conductor.lib.downloader2
+   conductor.lib.exceptions
+   conductor.lib.file_utils
+   conductor.lib.loggeria
+   conductor.lib.maya_utils
+   conductor.lib.nuke_utils
+   conductor.lib.package_utils
+   conductor.lib.pyside_utils
+   conductor.lib.uploader
+   conductor.lib.uploader_v2
+   conductor.lib.version_check
+   conductor.lib.worker
+
+Module contents
+---------------
+
+.. automodule:: conductor.lib
+    :members:
+    :undoc-members:
+    :show-inheritance:

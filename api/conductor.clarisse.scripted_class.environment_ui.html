@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.clarisse.scripted_class.environment_ui module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.clarisse.scripted_class.extra_uploads_ui module" href="conductor.clarisse.scripted_class.extra_uploads_ui.html" />
+    <link rel="prev" title="conductor.clarisse.scripted_class.dependencies module" href="conductor.clarisse.scripted_class.dependencies.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="conductor.clarisse.scripted_class.html">conductor.clarisse.scripted_class package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.attr_docs.html">conductor.clarisse.scripted_class.attr_docs module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.clarisse_version_ui.html">conductor.clarisse.scripted_class.clarisse_version_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.conductor_job.html">conductor.clarisse.scripted_class.conductor_job module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.debug_ui.html">conductor.clarisse.scripted_class.debug_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.dependencies.html">conductor.clarisse.scripted_class.dependencies module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">conductor.clarisse.scripted_class.environment_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.extra_uploads_ui.html">conductor.clarisse.scripted_class.extra_uploads_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.frames_ui.html">conductor.clarisse.scripted_class.frames_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.instances_ui.html">conductor.clarisse.scripted_class.instances_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.job.html">conductor.clarisse.scripted_class.job module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.missing_files_ui.html">conductor.clarisse.scripted_class.missing_files_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.notifications_ui.html">conductor.clarisse.scripted_class.notifications_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.preview_ui.html">conductor.clarisse.scripted_class.preview_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.projects_ui.html">conductor.clarisse.scripted_class.projects_ui module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.refresh.html">conductor.clarisse.scripted_class.refresh module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.submission.html">conductor.clarisse.scripted_class.submission module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.submit_actions.html">conductor.clarisse.scripted_class.submit_actions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="conductor.clarisse.scripted_class.task.html">conductor.clarisse.scripted_class.task module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.clarisse.scripts.html">conductor.clarisse.scripts package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.clarisse.clarisse_config.html">conductor.clarisse.clarisse_config module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.clarisse.reloader.html">conductor.clarisse.reloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.clarisse.startup.html">conductor.clarisse.startup module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.clarisse.utils.html">conductor.clarisse.utils module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.clarisse.html">conductor.clarisse package</a> &raquo;</li>
+        
+          <li><a href="conductor.clarisse.scripted_class.html">conductor.clarisse.scripted_class package</a> &raquo;</li>
+        
+      <li>conductor.clarisse.scripted_class.environment_ui module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.clarisse.scripted_class.environment_ui.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.clarisse.scripted_class.environment_ui">
+<span id="conductor-clarisse-scripted-class-environment-ui-module"></span><h1>conductor.clarisse.scripted_class.environment_ui module<a class="headerlink" href="#module-conductor.clarisse.scripted_class.environment_ui" title="Permalink to this headline">¶</a></h1>
+<p>Provides a window in which to add extra env vars.</p>
+<p>This is required because Clarisse’s attribute editor doesn’t allow
+custom UI to be embedded.</p>
+<dl class="class">
+<dt id="conductor.clarisse.scripted_class.environment_ui.EnvListWidget">
+<em class="property">class </em><code class="descclassname">conductor.clarisse.scripted_class.environment_ui.</code><code class="descname">EnvListWidget</code><span class="sig-paren">(</span><em>parent</em>, <em>y_val</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.EnvListWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>The panel within the window that provides scrollbars.</p>
+<dl class="method">
+<dt id="conductor.clarisse.scripted_class.environment_ui.EnvListWidget.add_entries">
+<code class="descname">add_entries</code><span class="sig-paren">(</span><em>*entries</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.EnvListWidget.add_entries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a line for each entry and hook up the delete button event.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.clarisse.scripted_class.environment_ui.EnvListWidget.on_remove_but">
+<code class="descname">on_remove_but</code><span class="sig-paren">(</span><em>sender</em>, <em>_</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.EnvListWidget.on_remove_but" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove from view.</p>
+<p>We have to keep the item_list in sync.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sender</strong> (<em>GuiButton</em>) – button that sent the event.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.clarisse.scripted_class.environment_ui.EnvWindow">
+<em class="property">class </em><code class="descclassname">conductor.clarisse.scripted_class.environment_ui.</code><code class="descname">EnvWindow</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.EnvWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>The entire window.</p>
+<p>Holds the panel plus buttons to Add, Go, Cancel and so on.</p>
+<dl class="method">
+<dt id="conductor.clarisse.scripted_class.environment_ui.EnvWindow.on_add_but">
+<code class="descname">on_add_but</code><span class="sig-paren">(</span><em>sender</em>, <em>eventid</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.EnvWindow.on_add_but" title="Permalink to this definition">¶</a></dt>
+<dd><p>Responds to add button press by adding an empty entry.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.clarisse.scripted_class.environment_ui.EnvWindow.on_apply_but">
+<code class="descname">on_apply_but</code><span class="sig-paren">(</span><em>sender</em>, <em>eventid</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.EnvWindow.on_apply_but" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves values on the attribute and keep the window visible.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.clarisse.scripted_class.environment_ui.EnvWindow.on_close_but">
+<code class="descname">on_close_but</code><span class="sig-paren">(</span><em>sender</em>, <em>eventid</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.EnvWindow.on_close_but" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hides only.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.clarisse.scripted_class.environment_ui.EnvWindow.on_go_but">
+<code class="descname">on_go_but</code><span class="sig-paren">(</span><em>sender</em>, <em>eventid</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.EnvWindow.on_go_but" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves values on the attribute and hide(destroy) the window.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.clarisse.scripted_class.environment_ui.VarWidget">
+<em class="property">class </em><code class="descclassname">conductor.clarisse.scripted_class.environment_ui.</code><code class="descname">VarWidget</code><span class="sig-paren">(</span><em>parent</em>, <em>y_val</em>, <em>entry</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.VarWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>This is a line item containing UI for one env var.</p>
+<p>An env var has a merge policy (exclusive or append), so we have a checkbox
+for that. And we have a button to delete the line. We inherit because
+GuiWidget::get_child_items is broken and we have to have a way to store the
+children.</p>
+<dl class="method">
+<dt id="conductor.clarisse.scripted_class.environment_ui.VarWidget.index">
+<code class="descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.VarWidget.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the index of this widget in the list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The index, derived from it’s y pos so that we don’t have to
+maintain another variable each time a line is added or deleted.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.clarisse.scripted_class.environment_ui.VarWidget.set_y_index">
+<code class="descname">set_y_index</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.VarWidget.set_y_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjust this widget’s height based on its list position.</p>
+<blockquote>
+<div>Notice here we can’t simply set the height of the container.</div></blockquote>
+<p>Widgets locations are relative to the window, not their direct
+parent. In fact the only reason to set the parent’s position is
+OCD.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> (<em>int</em>) – index in the list of widgets.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.clarisse.scripted_class.environment_ui.VarWidget.to_json">
+<code class="descname">to_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.VarWidget.to_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serialize for storage in the node’s attribute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The entry as json</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.clarisse.scripted_class.environment_ui.build">
+<code class="descclassname">conductor.clarisse.scripted_class.environment_ui.</code><code class="descname">build</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.clarisse.scripted_class.environment_ui.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the window.</p>
+<p>Populate it with existing entries from the extra_env attribute. The
+window is shown in modal mode so we don’t keep losing the damn thing
+behind other stuff.</p>
+<p>Listen for events until the window is hidden.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.clarisse.scripted_class.extra_uploads_ui.html" class="btn btn-neutral float-right" title="conductor.clarisse.scripted_class.extra_uploads_ui module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.clarisse.scripted_class.dependencies.html" class="btn btn-neutral float-left" title="conductor.clarisse.scripted_class.dependencies module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

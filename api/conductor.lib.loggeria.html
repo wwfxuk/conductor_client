@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.lib.loggeria module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.lib.maya_utils module" href="conductor.lib.maya_utils.html" />
+    <link rel="prev" title="conductor.lib.file_utils module" href="conductor.lib.file_utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.auth.html">conductor.lib.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.lsseq.html">conductor.lib.lsseq package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.wizard.html">conductor.lib.wizard package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.api_client.html">conductor.lib.api_client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.client_db.html">conductor.lib.client_db module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.common.html">conductor.lib.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.conductor_submit.html">conductor.lib.conductor_submit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader.html">conductor.lib.downloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader2.html">conductor.lib.downloader2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.exceptions.html">conductor.lib.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.file_utils.html">conductor.lib.file_utils module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductor.lib.loggeria module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.maya_utils.html">conductor.lib.maya_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.nuke_utils.html">conductor.lib.nuke_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.package_utils.html">conductor.lib.package_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.pyside_utils.html">conductor.lib.pyside_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader.html">conductor.lib.uploader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader_v2.html">conductor.lib.uploader_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.version_check.html">conductor.lib.version_check module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.worker.html">conductor.lib.worker module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.lib.html">conductor.lib package</a> &raquo;</li>
+        
+      <li>conductor.lib.loggeria module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.lib.loggeria.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.lib.loggeria">
+<span id="conductor-lib-loggeria-module"></span><h1>conductor.lib.loggeria module<a class="headerlink" href="#module-conductor.lib.loggeria" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="conductor.lib.loggeria.LogLevelFilter">
+<em class="property">class </em><code class="descclassname">conductor.lib.loggeria.</code><code class="descname">LogLevelFilter</code><span class="sig-paren">(</span><em>name=''</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.LogLevelFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Filter</span></code></p>
+<p>Filter log messages based on level.</p>
+<p>By default, the logger sends everything to stderr. This is a problem
+in Clarisse at least, because stderr prints RED in the log panel and
+pops up a floating window to display what it thinks is an error.
+Customers get worried. To alleviate this we make 2 handlers, one for
+stdout and one for stderr, and we route the appropriate log records
+to each. This filter only allows warning, info, and debug records
+and will be used by the handler that logs to stdout. The stderr
+handler doesn’t need a filter as it simply has it’s level set for
+error and critical records only.</p>
+<dl class="method">
+<dt id="conductor.lib.loggeria.LogLevelFilter.filter">
+<code class="descname">filter</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.LogLevelFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if the specified record is to be logged.</p>
+<p>Is the specified record to be logged? Returns 0 for no, nonzero for
+yes. If deemed appropriate, the record may be modified in-place.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.loggeria.MPFileHandler">
+<em class="property">class </em><code class="descclassname">conductor.lib.loggeria.</code><code class="descname">MPFileHandler</code><span class="sig-paren">(</span><em>filename</em>, <em>when='h'</em>, <em>interval=1</em>, <em>backupCount=0</em>, <em>encoding=None</em>, <em>delay=0</em>, <em>utc=0</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.MPFileHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">logging.Handler</span></code></p>
+<p>Multiprocess-safe Rotating File Handler.</p>
+<p>Copied from: <a class="reference external" href="http://stackoverflow.com/questions/641420/how-should-i-log-while-using-multiprocessing-in-python">http://stackoverflow.com/questions/641420/how-should-i-log-while-using-multiprocessing-in-python</a></p>
+<dl class="method">
+<dt id="conductor.lib.loggeria.MPFileHandler.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.MPFileHandler.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tidy up any resources used by the handler.</p>
+<p>This version removes the handler from an internal map of handlers,
+_handlers, which is used for handler lookup by name. Subclasses
+should ensure that this gets called from overridden close()
+methods.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.loggeria.MPFileHandler.emit">
+<code class="descname">emit</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.MPFileHandler.emit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Do whatever it takes to actually log the specified logging record.</p>
+<p>This version is intended to be implemented by subclasses and so
+raises a NotImplementedError.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.loggeria.MPFileHandler.receive">
+<code class="descname">receive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.MPFileHandler.receive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.loggeria.MPFileHandler.send">
+<code class="descname">send</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.MPFileHandler.send" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.loggeria.MPFileHandler.setFormatter">
+<code class="descname">setFormatter</code><span class="sig-paren">(</span><em>fmt</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.MPFileHandler.setFormatter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the formatter for this handler.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.loggeria.TableStr">
+<em class="property">class </em><code class="descclassname">conductor.lib.loggeria.</code><code class="descname">TableStr</code><span class="sig-paren">(</span><em>data</em>, <em>column_names</em>, <em>title=''</em>, <em>footer=''</em>, <em>upper_headers=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.TableStr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class to help log/print tables of data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">############## DOWNLOAD HISTORY #################</span>
+</pre></div>
+</div>
+<p>COMPLETED AT         DOWNLOAD ID       JOB    TASK       SIZE  ACTION  DURATION  THREAD     FILEPATH
+2016-01-16 01:12:46  5228833175240704  00208  010    137.51MB  DL      0:00:57   Thread-12  /tmp/conductor_daemon_dl/04/cental/cental.010.exr
+2016-01-16 01:12:42  6032237141164032  00208  004    145.48MB  DL      0:02:24   Thread-2   /tmp/conductor_daemon_dl/04/cental/cental.004.exr
+2016-01-16 01:12:40  5273802288136192  00208  012    140.86MB  DL      0:02:02   Thread-16  /tmp/conductor_daemon_dl/04/cental/cental.012.exr</p>
+<dl class="attribute">
+<dt id="conductor.lib.loggeria.TableStr.cell_modifiers">
+<code class="descname">cell_modifiers</code><em class="property"> = {}</em><a class="headerlink" href="#conductor.lib.loggeria.TableStr.cell_modifiers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.loggeria.TableStr.column_spacer">
+<code class="descname">column_spacer</code><em class="property"> = '  '</em><a class="headerlink" href="#conductor.lib.loggeria.TableStr.column_spacer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.loggeria.TableStr.get_footer">
+<code class="descname">get_footer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.TableStr.get_footer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.loggeria.TableStr.get_title">
+<code class="descname">get_title</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.TableStr.get_title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.loggeria.TableStr.header_modifiers">
+<code class="descname">header_modifiers</code><em class="property"> = {}</em><a class="headerlink" href="#conductor.lib.loggeria.TableStr.header_modifiers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.loggeria.TableStr.make_column_strs">
+<code class="descname">make_column_strs</code><span class="sig-paren">(</span><em>column_name</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.TableStr.make_column_strs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a two dimensial list (list of lists), where the inner lists
+repersent a column of data.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.loggeria.TableStr.make_table_str">
+<code class="descname">make_table_str</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.TableStr.make_table_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and return a final table string that is suitable to
+print/log.</p>
+<p>This is achieved by creating a list of items for each column in the table.
+Once all column lists have been created, they are then joined via a constant
+column space character(s) - self.column_spacer. The rows that are created
+from the columns are then prefixed with given title (self.title) and suffixed
+with the given footer (self.footer)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.loggeria.TableStr.modify_cell">
+<code class="descname">modify_cell</code><span class="sig-paren">(</span><em>column_name</em>, <em>cell_data</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.TableStr.modify_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify and return the given cell data of the given column name.</p>
+<p>This provides an opportunity to adjust what the header should
+consist of.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.loggeria.TableStr.modify_header">
+<code class="descname">modify_header</code><span class="sig-paren">(</span><em>column_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.TableStr.modify_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify and return the given column name.</p>
+<p>This provides an opportunity to adjust what the header should
+consist of.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.loggeria.TableStr.row_spacer">
+<code class="descname">row_spacer</code><em class="property"> = '\n'</em><a class="headerlink" href="#conductor.lib.loggeria.TableStr.row_spacer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.loggeria.create_file_handler">
+<code class="descclassname">conductor.lib.loggeria.</code><code class="descname">create_file_handler</code><span class="sig-paren">(</span><em>filepath</em>, <em>level=None</em>, <em>formatter=None</em>, <em>multiproc=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.create_file_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a file handler object for the given filepath.</p>
+<p>This is a ROTATING file handler, which rotates every day (24 hours)
+and stores up to 7 days of logs at a time (equaling up to as many as
+7 log files at a given time.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.loggeria.get_conductor_logger">
+<code class="descclassname">conductor.lib.loggeria.</code><code class="descname">get_conductor_logger</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.get_conductor_logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the “conductor” package’s logger object.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.loggeria.set_conductor_log_level">
+<code class="descclassname">conductor.lib.loggeria.</code><code class="descname">set_conductor_log_level</code><span class="sig-paren">(</span><em>log_level</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.set_conductor_log_level" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the “conductor” package’s logger to the given log level.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.loggeria.setup_conductor_logging">
+<code class="descclassname">conductor.lib.loggeria.</code><code class="descname">setup_conductor_logging</code><span class="sig-paren">(</span><em>logger_level=20</em>, <em>console_level=None</em>, <em>console_formatter=&lt;logging.Formatter object&gt;</em>, <em>log_filepath=None</em>, <em>file_level=None</em>, <em>file_formatter=&lt;logging.Formatter object&gt;</em>, <em>multiproc=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.loggeria.setup_conductor_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>The is convenience function to help set up logging.</p>
+<p><strong>THIS SHOULD ONLY BE CALLED ONCE</strong> within an execution environment.</p>
+<p>This function does the following:</p>
+<ol class="arabic">
+<li><p class="first">Creates/retrieves the logger object for the “conductor” package</p>
+</li>
+<li><p class="first">Sets that logger’s log level to the given <code class="docutils literal notranslate"><span class="pre">logger_level</span></code> (optional)</p>
+</li>
+<li><p class="first">Creates two console handlers (stderr and stdout) and attaches them to
+the logger object.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Optionally sets that console handler’s log level to the given
+<code class="docutils literal notranslate"><span class="pre">console_level</span></code></li>
+<li>Optionally sets that console handler’s formatter to the the given
+<code class="docutils literal notranslate"><span class="pre">console_formatter</span></code></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">Optionally creates a file handler (if a log filepath is given)</p>
+<ol class="loweralpha simple">
+<li>Optionally sets that file handler’s log level to the given
+<code class="docutils literal notranslate"><span class="pre">file_level</span></code></li>
+<li>Optionally sets that file handler’s formatter to the the given
+<code class="docutils literal notranslate"><span class="pre">file_formatter</span></code></li>
+</ol>
+</li>
+</ol>
+<p class="rubric">Notes</p>
+<p><code class="docutils literal notranslate"><span class="pre">console_formatter</span></code> and <code class="docutils literal notranslate"><span class="pre">file_formatter</span></code> formatters are the
+<code class="docutils literal notranslate"><span class="pre">logging.Formatter</span></code> objects, not just a string such as “DEBUG”.</p>
+<p>This is because you may need more than just a string to define a
+formatter object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>multiproc</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, a custom file handler will be used that handles
+multiprocess logging correctly.
+This file handler creates an additional Process.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.lib.maya_utils.html" class="btn btn-neutral float-right" title="conductor.lib.maya_utils module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.lib.file_utils.html" class="btn btn-neutral float-left" title="conductor.lib.file_utils module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

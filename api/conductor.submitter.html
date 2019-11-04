@@ -1,0 +1,1303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.submitter module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.submitter_maya module" href="conductor.submitter_maya.html" />
+    <link rel="prev" title="conductor.tools.update module" href="conductor.tools.update.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+      <li>conductor.submitter module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.submitter.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.submitter">
+<span id="conductor-submitter-module"></span><h1>conductor.submitter module<a class="headerlink" href="#module-conductor.submitter" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="conductor.submitter.ConductorSubmitter">
+<em class="property">class </em><code class="descclassname">conductor.submitter.</code><code class="descname">ConductorSubmitter</code><span class="sig-paren">(</span><em>parent=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">sphinx.ext.autodoc.importer._MockObject</span></code></p>
+<p>Base class for PySide front-end for submitting jobs to Conductor.</p>
+<p>Intended to be subclassed for each software context that may need a Conductor
+front end e.g. for Maya or Nuke.</p>
+<p>The self.getExtendedWidget method acts as an opportunity for a developer to extend
+the UI to suit his/her needs. See the getExtendedWidgetthe docstring</p>
+<dl class="staticmethod">
+<dt id="conductor.submitter.ConductorSubmitter.addLoggingMenu">
+<em class="property">static </em><code class="descname">addLoggingMenu</code><span class="sig-paren">(</span><em>menu</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.addLoggingMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given menu object, dynamically generate a action item for
+each log level (from the loggeria module).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.addResetPreferencesMenu">
+<code class="descname">addResetPreferencesMenu</code><span class="sig-paren">(</span><em>menu</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.addResetPreferencesMenu" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given menu object, dynamically generate a action item for
+each log level (from the loggeria module).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.applyDefaultSettings">
+<code class="descname">applyDefaultSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.applyDefaultSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI to default settings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.autoDetectPackageIds">
+<code class="descname">autoDetectPackageIds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.autoDetectPackageIds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Of the given packages, return the packages that match.</p>
+<ol class="arabic simple">
+<li>host software</li>
+<li><dl class="first docutils">
+<dt>plugins</dt>
+<dd><ul class="first last">
+<li>renderer</li>
+<li>others</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.autoPopulateJobPackages">
+<code class="descname">autoPopulateJobPackages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.autoPopulateJobPackages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.checkJobSize">
+<code class="descname">checkJobSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.checkJobSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make sure the user is aware they are about submit a large job.</p>
+<p>A large job has more tasks than a threshold.
+We first test the number of frames, because calculating
+the number of tasks is slow. If frames length is below the
+threshold, then there can’t possibly be too many tasks. If
+there are too many tasks, then show the confirmation dialog.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.closeEvent">
+<code class="descname">closeEvent</code><span class="sig-paren">(</span><em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.closeEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>When the Conductor UI is closed, save the user settings.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.submitter.ConductorSubmitter.company_name">
+<code class="descname">company_name</code><em class="property"> = 'Conductor'</em><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.company_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.createJobPackageTreeWidgetItem">
+<code class="descname">createJobPackageTreeWidgetItem</code><span class="sig-paren">(</span><em>package</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.createJobPackageTreeWidgetItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given software package, create a QTreeWidgetItem for it.</p>
+<p>with a text/name that describes it</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="conductor.submitter.ConductorSubmitter.createPackageTreeWidgetItem">
+<em class="property">static </em><code class="descname">createPackageTreeWidgetItem</code><span class="sig-paren">(</span><em>package</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.createPackageTreeWidgetItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given software package, create a QTreeWidgetItem for it.</p>
+<p>with a text/name that describes it</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.createUI">
+<code class="descname">createUI</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.createUI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create UI widgets and make.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.filterPackages">
+<code class="descname">filterPackages</code><span class="sig-paren">(</span><em>show_all_versions=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.filterPackages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.generateConductorArgs">
+<code class="descname">generateConductorArgs</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.generateConductorArgs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary which contains the necessary conductor argument
+names and their values.  This dictionary will ultimately be passed
+directly into a conductor Submit object when instantiating/calling it.</p>
+<p>Generally, the majority of the values that one would
+populate this dictionary with would be found by
+quering this UI, e.g.from the “frames” section of
+ui.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getAutoretryCount">
+<code class="descname">getAutoretryCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getAutoretryCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the UI’s Auto Retry spinbox value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getAutoretryPolicy">
+<code class="descname">getAutoretryPolicy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getAutoretryPolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct/return an autoretry policy if the user as selected to use
+preemptible instances.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getBestPackage">
+<code class="descname">getBestPackage</code><span class="sig-paren">(</span><em>software_info</em>, <em>packages</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getBestPackage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getChunkSize">
+<code class="descname">getChunkSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getChunkSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return UI’s Frame Chunk Size spinbox value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getCustomFrameString">
+<code class="descname">getCustomFrameString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getCustomFrameString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the UI’s custom frame field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getDefaultScoutFrames">
+<code class="descname">getDefaultScoutFrames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getDefaultScoutFrames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the default scout frames for the open scene file.</p>
+<p>This should attempt to return the first, middle, and last frame.</p>
+<p>Logic order:</p>
+<ol class="arabic simple">
+<li>If the “start” and “end” fields are active/populated in the
+submitter UI then use that range to determine first, middle,
+last scout frames</li>
+<li>If the use has specified a custom frame range in the submitter UI,
+Then return None</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getDockerImage">
+<code class="descname">getDockerImage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getDockerImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Docker image name to use on Conductor.</p>
+<p>If there is a docker image in the config.yml file,
+then use it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getEndFrame">
+<code class="descname">getEndFrame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getEndFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return UI’s end frame field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getEnforcedMd5s">
+<code class="descname">getEnforcedMd5s</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getEnforcedMd5s" title="Permalink to this definition">¶</a></dt>
+<dd><p>Note that this is only relevant when local_upload=False.</p>
+<p>Return a dictionary of any filepaths and their corresponding md5 hashes
+that should be verified before uploading to cloud storage.</p>
+<p>When local_upload is False, uploading files to cloud storage is handled
+by an uploader daemon. Because there can be a time delay between when
+a user has pressed “submit” and when the daemon actually goes to upload
+the files to cloud storage, there is the possibility that files have
+actually changes on disk.  For example, a user may submit 3 jobs to
+conductor within 7 seconds of one another, by quickly rotating the camera,
+saving the maya scene on top of itself, and pressing “Submit” (and doing
+this three time).  Though this is probably not a great workflow,
+it’s something that needs to be guarded against.</p>
+<p>This method returns a dictionary of filepaths and and their corresponding
+md5 hashes, which is used by the uploader daemon when uploading the files
+to conductor. The daemon will do its own md5 hash of all files in
+this dictionary, and match it against the md5s that the dictionary provides.
+If the uploader finds a mismatch then it fails the upload process (and
+fails the job).</p>
+<p>Generally there is gray area as to what is considered “acceptable” for
+files being changed from underneath the feet of the artist.  Because a source file (such
+as a maya scene or katana file, for example), has many external dependencies
+(such as texture files, alembic, etc), those depencies could possibly be
+changed on disk by the time the uploader get a chance to upload them to Conductor.
+As a compromise on attempting to create an exact snapshot of the state
+of ALL files on disk (i.e. md5 hashes)that a job requires at the moment
+the artist presses “submit”, Conductor only guarantees exact file integrity
+on the source file (maya/katana file).  That source file’s dependencies
+are NOT guaranteed to match md5s.  In otherwords, a texture file or alembic cache file
+is not md5 checked to ensure it matches the md5 of when the user pressed
+“submit”.  Only the maya file is.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getEnvironment">
+<code class="descname">getEnvironment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getEnvironment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of environment variables to use for the Job’s
+environment.</p>
+<p>Merge any environment settings defined in the config
+with the environment of the packages that the user
+has selected.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getExtendedAdvancedWidget">
+<code class="descname">getExtendedAdvancedWidget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getExtendedAdvancedWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method extends the Conductor UI by providing a single PySide widget
+that will be added to the UI. The widget may be any class object derived
+from QWidget.</p>
+<p>In order to do so, subclass this class and override this method to
+return the desired widget object.  This widget will be inserted at the bottom
+of the “Advanced” tab. See illustration below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">____________________</span>
+<span class="o">|</span>   <span class="n">Advanced</span> <span class="o">&lt;</span><span class="n">tab</span><span class="o">&gt;</span>   <span class="o">|</span>
+<span class="o">|--------------------|</span>
+<span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|--------------------|</span>
+<span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|</span>  <span class="o">&lt;</span><span class="n">EXTENDED</span> <span class="n">WIDGET</span><span class="o">&gt;</span> <span class="o">|</span>   <span class="o">&lt;--</span> <span class="n">your</span> <span class="n">extended</span> <span class="n">advanced</span> <span class="n">widget</span> <span class="n">goes</span> <span class="n">here</span><span class="o">.</span>
+<span class="o">|</span><span class="n">____________________</span><span class="o">|</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getExtendedWidget">
+<code class="descname">getExtendedWidget</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getExtendedWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method extends the Conductor UI by providing a single PySide
+widget that will be added to the UI. The widget may be any class object
+derived from QWidget.</p>
+<p>In order to do so, subclass this class and override this method to
+return the desired widget object.  This widget will be inserted between
+the Frame Range area and the  Submit button. See illustration below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">____________________</span>
+<span class="o">|</span>     <span class="n">Conductor</span>      <span class="o">|</span>
+<span class="o">|--------------------|</span>
+<span class="o">|</span>  <span class="n">Frame</span> <span class="n">Range</span> <span class="n">Area</span>  <span class="o">|</span>
+<span class="o">|--------------------|</span>
+<span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|</span>  <span class="o">&lt;</span><span class="n">EXTENDED</span> <span class="n">WIDGET</span><span class="o">&gt;</span> <span class="o">|</span>   <span class="o">&lt;--</span> <span class="n">your</span> <span class="n">extended</span> <span class="n">widget</span> <span class="n">goes</span> <span class="n">here</span><span class="o">.</span>
+<span class="o">|</span>                    <span class="o">|</span>
+<span class="o">|--------------------|</span>
+<span class="o">|</span>   <span class="n">submit</span> <span class="n">button</span>    <span class="o">|</span>
+<span class="o">|</span><span class="n">____________________</span><span class="o">|</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getForceUploadBool">
+<code class="descname">getForceUploadBool</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getForceUploadBool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the “Force Upload” checkbox is checked on or off.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getFrameRangeString">
+<code class="descname">getFrameRangeString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getFrameRangeString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct the frameRange string for the frames argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getGpuConfig">
+<code class="descname">getGpuConfig</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getGpuConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of GPUs and GPU type that the user has selected
+from the “GPU Acceleration” combobox.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getHostPackageTreeItems">
+<code class="descname">getHostPackageTreeItems</code><span class="sig-paren">(</span><em>host_product_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getHostPackageTreeItems" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getHostProductInfo">
+<code class="descname">getHostProductInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getHostProductInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getInstanceType">
+<code class="descname">getInstanceType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getInstanceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of cores that the user has selected from the
+“Instance Type” combobox.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getJobPackages">
+<code class="descname">getJobPackages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getJobPackages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the package dictionaries for ALL QTreeItems.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="conductor.submitter.ConductorSubmitter.getLocalUpload">
+<em class="property">static </em><code class="descname">getLocalUpload</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getLocalUpload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a bool indicating whether the uploading process should occur
+on this machine or whether it should get offloaded to the uploader
+daemon. If False, uploading will occur on the daemon.</p>
+<p>Simply return the value set in the config.yml.  In
+the future this option may be exposed in the UI</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getMatchingPackage">
+<code class="descname">getMatchingPackage</code><span class="sig-paren">(</span><em>software_info</em>, <em>packages</em>, <em>strict=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getMatchingPackage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getNotifications">
+<code class="descname">getNotifications</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getNotifications" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the UI’s Notification field and split string on commas, returning
+a list of email addresses</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getOutputDir">
+<code class="descname">getOutputDir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getOutputDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the UI’s Output Directory field.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.submitter.ConductorSubmitter.getParentWindow">
+<em class="property">classmethod </em><code class="descname">getParentWindow</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getParentWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a QtWidget object that should act as the parent for the
+submitter window.</p>
+<p>This is oftentime the case when launching the
+submitter within another application such as nuke or
+maya.  In these cases, return the main QtWindow
+object for those applications.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getPluginsProductInfo">
+<code class="descname">getPluginsProductInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getPluginsProductInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getPreemptibleCheckbox">
+<code class="descname">getPreemptibleCheckbox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getPreemptibleCheckbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether or not the “Preemptible” checkbox is checked.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getProject">
+<code class="descname">getProject</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getProject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the UI’s Projectj  field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getScoutFrames">
+<code class="descname">getScoutFrames</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getScoutFrames" title="Permalink to this definition">¶</a></dt>
+<dd><p>If the “Scout Job” checkbox is checked, promput the user to ender
+desired scout frames.</p>
+<p>If the user has submitted scout frames in the past,
+then prepopulate those frames in the dialog box.
+Otherwise generate default scout frames</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getScoutJobCheckbox">
+<code class="descname">getScoutJobCheckbox</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getScoutJobCheckbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the checkbox value for the “Scout Job” checkbox.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getSelectedAvailablePackages">
+<code class="descname">getSelectedAvailablePackages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getSelectedAvailablePackages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the package dictionaries for each QTreeItem that is selected
+by the user.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getSelectedJobPackages">
+<code class="descname">getSelectedJobPackages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getSelectedJobPackages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the package dictionaries for each QTreeItem that is selected
+by the user.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getSoftwarePackageIds">
+<code class="descname">getSoftwarePackageIds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getSoftwarePackageIds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the software packages that the submitted job will have access
+to when running.</p>
+<p>These packages are referred to by their ids. Merge
+the any packages that are defined in the config with
+those that are selected by the user.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getSourceFilepath">
+<code class="descname">getSourceFilepath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getSourceFilepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the filepath for the currently open file.</p>
+<p>This is  the currently opened maya/katana/nuke file,
+etc</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getStartFrame">
+<code class="descname">getStartFrame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getStartFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return UI’s start frame field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getStepFrame">
+<code class="descname">getStepFrame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getStepFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return UI’s step frame spinbox value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getTreeItemPackages">
+<code class="descname">getTreeItemPackages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getTreeItemPackages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getUserPrefsFileWidgets">
+<code class="descname">getUserPrefsFileWidgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getUserPrefsFileWidgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of widget objects that are appropriate for restoring
+their state (values) from a user’s preference file.</p>
+<p>Specifically, these widgets are those which a user’s
+FILE-SPECIFIC should be recorded/loaded for. These
+widgets are identified by a dynamic property that
+has been set on them via Qt Designer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.getUserPrefsGlobalWidgets">
+<code class="descname">getUserPrefsGlobalWidgets</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.getUserPrefsGlobalWidgets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of widget objects that are appropriate for restoring
+their state (values) from a user’s preference file.</p>
+<p>Specifically, these widgets are those which a user’s
+GLOBAL  preferences should be recorded/loaded for.
+These widgets are identified by a dynamic property
+that has been set on them via Qt Designer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.get_package_by_id">
+<code class="descname">get_package_by_id</code><span class="sig-paren">(</span><em>package_id</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.get_package_by_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.introspectSoftwareInfo">
+<code class="descname">introspectSoftwareInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.introspectSoftwareInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.launchScoutFramesDialog">
+<code class="descname">launchScoutFramesDialog</code><span class="sig-paren">(</span><em>default_scout_frames</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.launchScoutFramesDialog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch a dialog box to prompt the user to enter their desired scout
+frames.</p>
+<p>Prepopulate the lineedit field with any scout frames
+that have been submitted previous for the current
+file (read from preferences).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.launch_result_dialog">
+<code class="descname">launch_result_dialog</code><span class="sig-paren">(</span><em>response_code</em>, <em>response</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.launch_result_dialog" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.submitter.ConductorSubmitter.link_color">
+<code class="descname">link_color</code><em class="property"> = 'rgb(200,100,100)'</em><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.link_color" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.loadUserSettings">
+<code class="descname">loadUserSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.loadUserSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read and apply user preferences (widget values, etc)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.on_ui_add_to_job_pbtn_clicked">
+<code class="descname">on_ui_add_to_job_pbtn_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.on_ui_add_to_job_pbtn_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.on_ui_auto_detect_pbtn_clicked">
+<code class="descname">on_ui_auto_detect_pbtn_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.on_ui_auto_detect_pbtn_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.on_ui_choose_output_path_pbtn_clicked">
+<code class="descname">on_ui_choose_output_path_pbtn_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.on_ui_choose_output_path_pbtn_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.on_ui_find_pbtn_clicked">
+<code class="descname">on_ui_find_pbtn_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.on_ui_find_pbtn_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.on_ui_refresh_tbtn_clicked">
+<code class="descname">on_ui_refresh_tbtn_clicked</code><span class="sig-paren">(</span><em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.on_ui_refresh_tbtn_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.on_ui_remove_selected_pbtn_clicked">
+<code class="descname">on_ui_remove_selected_pbtn_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.on_ui_remove_selected_pbtn_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.on_ui_show_all_versions_chkbx_clicked">
+<code class="descname">on_ui_show_all_versions_chkbx_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.on_ui_show_all_versions_chkbx_clicked" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.on_ui_start_end_rdbtn_toggled">
+<code class="descname">on_ui_start_end_rdbtn_toggled</code><span class="sig-paren">(</span><em>on</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.on_ui_start_end_rdbtn_toggled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.on_ui_submit_pbtn_clicked">
+<code class="descname">on_ui_submit_pbtn_clicked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.on_ui_submit_pbtn_clicked" title="Permalink to this definition">¶</a></dt>
+<dd><p>This gets called when the user pressed the “Submit” button in the
+UI.</p>
+<p>Submission Control Flow:</p>
+<blockquote>
+<div><p>Below is the method calling order of when a user presses the
+“submit” button in the UI:</p>
+<ol class="arabic simple">
+<li><code class="docutils literal notranslate"><span class="pre">self.runPreSubmission()</span></code>. Run any pre-submission processes.</li>
+<li><code class="docutils literal notranslate"><span class="pre">self.runConductorSubmission()</span></code>. Run the submission process.</li>
+<li><code class="docutils literal notranslate"><span class="pre">self.runPostSubmission()</span></code>. Run any post-submission processes.</li>
+</ol>
+<p>Each one of these methods has the opportunity to return data, which
+in turn will be available to the next method that is called.
+If that mechanism does not meet all pre/post submission needs,
+then overriding those methods is also an available/appropriate
+methodology.</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.openAvailableTreeMenu">
+<code class="descname">openAvailableTreeMenu</code><span class="sig-paren">(</span><em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.openAvailableTreeMenu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.openJobTreeMenu">
+<code class="descname">openJobTreeMenu</code><span class="sig-paren">(</span><em>position</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.openJobTreeMenu" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.populateGpuCmbx">
+<code class="descname">populateGpuCmbx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.populateGpuCmbx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate the GPU combobox with all of the available GPU types.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.populateInstanceTypeCmbx">
+<code class="descname">populateInstanceTypeCmbx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.populateInstanceTypeCmbx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate the Instance combobox with all of the available instance types</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.populateJobPackages">
+<code class="descname">populateJobPackages</code><span class="sig-paren">(</span><em>auto=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.populateJobPackages" title="Permalink to this definition">¶</a></dt>
+<dd><ol class="arabic simple">
+<li>query the prefs for package ids</li>
+<li>Query the config for package ids and add</li>
+<li>if none, then auto detect</li>
+</ol>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.populateJobSoftwareTrwgt">
+<code class="descname">populateJobSoftwareTrwgt</code><span class="sig-paren">(</span><em>packages</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.populateJobSoftwareTrwgt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.populateProjectCmbx">
+<code class="descname">populateProjectCmbx</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.populateProjectCmbx" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate the project combobox with project names.</p>
+<p>If any projects are specified in the config file,
+then use them. Otherwise query Conductor for all
+projects</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.populateSoftwareVersionsTrWgt">
+<code class="descname">populateSoftwareVersionsTrWgt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.populateSoftwareVersionsTrWgt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate the QTreeWidget with all of the available software
+packages.</p>
+<p>This is a little tricky because packages can be plugins of other packages,
+and we want to represent that relations (via nesting).  We also want
+to group packages that are of the same type (and have them be able to
+expand/collpase that group.</p>
+<p>Here is an example hierarchy:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">maya</span>  <span class="c1"># The group for all maya version packages</span>
+    <span class="o">|</span>
+    <span class="o">|</span><span class="n">_maya</span> <span class="mi">2014</span> <span class="n">SP1</span>  <span class="c1"># The actual package</span>
+            <span class="o">|</span>
+            <span class="o">|</span><span class="n">_vray</span>  <span class="c1"># The group for all vray packages (for maya 2014 SP1)</span>
+                    <span class="o">|</span>
+                    <span class="o">|</span><span class="n">_vray</span> <span class="mf">1.2</span><span class="o">.</span><span class="mi">4</span> <span class="c1"># The actual package</span>
+            <span class="o">|</span>
+            <span class="o">|</span><span class="n">_arnold</span> <span class="c1"># The group for all arnold packages (for maya 2014 sp1)</span>
+                    <span class="o">|</span>
+                    <span class="o">|</span><span class="n">_arnold</span> <span class="mf">2.73</span><span class="o">.</span><span class="mi">1</span> <span class="c1"># The actual package</span>
+    <span class="o">|</span>
+    <span class="o">|</span><span class="n">_maya</span> <span class="mi">2014</span> <span class="n">SP2</span>  <span class="c1"># The actual package</span>
+            <span class="o">|</span>
+            <span class="o">|</span><span class="n">_vray</span>  <span class="c1"># The group for all vray packages (for maya 2014 SP2)</span>
+                    <span class="o">|</span>
+                    <span class="o">|</span><span class="n">_vray</span> <span class="mf">1.2</span><span class="o">.</span><span class="mi">4</span>   <span class="c1"># The actual package</span>
+            <span class="o">|</span>
+            <span class="o">|</span><span class="n">_arnold</span> <span class="c1"># The group for all Arnold packages (for maya 2014 SP2)</span>
+                    <span class="o">|</span>
+                    <span class="o">|</span><span class="n">_arnold</span> <span class="mf">2.73</span><span class="o">.</span><span class="mi">1</span>  <span class="c1"># The actual package</span>
+</pre></div>
+</div>
+<p>A package’s data structure may look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;package_id&quot;</span><span class="p">:</span> <span class="s2">&quot;6b24ca0ea1085ebad536c18307192dce&quot;</span>
+ <span class="s2">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;maya&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;major_version&quot;</span><span class="p">:</span> <span class="s2">&quot;2015&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;minor_version&quot;</span><span class="p">:</span> <span class="s2">&quot;SP3&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;release_version&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;build_version&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;plugin_host_product&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;plugin_host_version&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;plugin_hosts&quot;</span><span class="p">:</span> <span class="p">[],</span>
+ <span class="s2">&quot;plugins&quot;</span><span class="p">:</span> <span class="p">[</span>  <span class="s2">&quot;8ac98ef9362171a889c5ac8dca8a2a47&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;03be394b4f84ec9a0d86e4b6f5f3fe26&quot;</span><span class="p">,</span>
+               <span class="s2">&quot;86779e759adcbbd38e1d058125ace737&quot;</span><span class="p">]}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.populateUi">
+<code class="descname">populateUi</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.populateUi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate the UI with data.</p>
+<p>This data should be global information that is not
+specific to the open file</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.submitter.ConductorSubmitter.product">
+<code class="descname">product</code><em class="property"> = None</em><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.product" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.runConductorSubmission">
+<code class="descname">runConductorSubmission</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.runConductorSubmission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiate a Conductor Submit object with the given conductor_args
+(dict), and execute it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.runPostSubmission">
+<code class="descname">runPostSubmission</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.runPostSubmission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run any post submission processes.</p>
+<p>The “data” argument contains the results of the main
+runConductorSubmission method, so that any results
+can be “inspected” and acted upon if desired.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.runPreSubmission">
+<code class="descname">runPreSubmission</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.runPreSubmission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run any pre submission processes, returning optional data that can
+be passed into the main runConductorSubmission method.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.submitter.ConductorSubmitter.runUi">
+<em class="property">classmethod </em><code class="descname">runUi</code><span class="sig-paren">(</span><em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.runUi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the submitter UI.</p>
+<p>This is intended to be run within a software context
+such as Maya or Nuke (as opposed to a shell).  By
+default, this will show any existing submitter UI
+that had been closed prior by the user (as opposed
+to creating a new instance of the UI). Use the
+force_new flag to force a new instance of it.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.submitter.ConductorSubmitter.runUiStandalone">
+<em class="property">classmethod </em><code class="descname">runUiStandalone</code><span class="sig-paren">(</span><em>**kwds</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.runUiStandalone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Note that this UI class is to be run directly from a python shell,
+e.g. not within another software’s context (such as maya/nuke).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.saveJobPackagesToPrefs">
+<code class="descname">saveJobPackagesToPrefs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.saveJobPackagesToPrefs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.savePreemptiblePref">
+<code class="descname">savePreemptiblePref</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.savePreemptiblePref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the “Preemptible” checkbox user preference for the open
+file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.saveScoutJobPref">
+<code class="descname">saveScoutJobPref</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.saveScoutJobPref" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the “Scout Job” checkbox user preference for the open file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.saveUserSettings">
+<code class="descname">saveUserSettings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.saveUserSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save current widget settings to the user’s preference file.</p>
+<p>These settings are recorded per source file
+(maya/katana/nuke file, etc).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setAutoretryCount">
+<code class="descname">setAutoretryCount</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setAutoretryCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI’s Auto Retry spinbox value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setChunkSize">
+<code class="descname">setChunkSize</code><span class="sig-paren">(</span><em>chunk_size</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setChunkSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI’s Frame Chunk Size spinbox value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setCustomFrameString">
+<code class="descname">setCustomFrameString</code><span class="sig-paren">(</span><em>custom_frame_str</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setCustomFrameString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI’s custom frame field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setEndFrame">
+<code class="descname">setEndFrame</code><span class="sig-paren">(</span><em>end_frame</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setEndFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI’s end frame field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setFrameRange">
+<code class="descname">setFrameRange</code><span class="sig-paren">(</span><em>start</em>, <em>end</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setFrameRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI’s start/end frame fields.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setInstanceType">
+<code class="descname">setInstanceType</code><span class="sig-paren">(</span><em>instance_type</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setInstanceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI’s “Instance Type” combobox, if it is currently available.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setNotifications">
+<code class="descname">setNotifications</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setNotifications" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI’s Notification field to the given value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setOutputDir">
+<code class="descname">setOutputDir</code><span class="sig-paren">(</span><em>dirpath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setOutputDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI’s Output Directory field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setPreemptibleCheckbox">
+<code class="descname">setPreemptibleCheckbox</code><span class="sig-paren">(</span><em>bool_</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setPreemptibleCheckbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the checkbox value for the “Preemptible” checkbox.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setProject">
+<code class="descname">setProject</code><span class="sig-paren">(</span><em>project_str</em>, <em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setProject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI’s Project field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setScoutJobCheckbox">
+<code class="descname">setScoutJobCheckbox</code><span class="sig-paren">(</span><em>bool_</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setScoutJobCheckbox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the checkbox value for the “Scout Job” checkbox.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setStartFrame">
+<code class="descname">setStartFrame</code><span class="sig-paren">(</span><em>start_frame</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setStartFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI’s start frame field.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setStepFrame">
+<code class="descname">setStepFrame</code><span class="sig-paren">(</span><em>step_frame</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setStepFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the UI’s step frame spinbox value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.setupMenuBar">
+<code class="descname">setupMenuBar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.setupMenuBar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup the gui’s menu bar (The top menu bar)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.submitter.ConductorSubmitter.software_packages">
+<code class="descname">software_packages</code><em class="property"> = None</em><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.software_packages" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.ConductorSubmitter.validateJobPackages">
+<code class="descname">validateJobPackages</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.ConductorSubmitter.validateJobPackages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validate that all packages that have been added to the job
+are…valid.</p>
+<p>Return True if so, otherwise launch a dialog box to
+the user.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.submitter.SubmitterPrefs">
+<em class="property">class </em><code class="descclassname">conductor.submitter.</code><code class="descname">SubmitterPrefs</code><span class="sig-paren">(</span><em>company_name</em>, <em>application_name</em>, <em>file_widgets=()</em>, <em>global_widgets=()</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.SubmitterPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="conductor.lib.pyside_utils.html#conductor.lib.pyside_utils.UiFilePrefs" title="conductor.lib.pyside_utils.UiFilePrefs"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.pyside_utils.UiFilePrefs</span></code></a></p>
+<p>A class for interfacing with User preferences for the submitter UI. This
+subclasses adds functionality that is specific to the Conductor submitter.</p>
+<dl class="docutils">
+<dt>Preference names:</dt>
+<dd>scoutframes_str # str. The frames that the user set for scout frames</dd>
+<dt>Things to consider:</dt>
+<dd><ol class="first last arabic simple">
+<li>Because preferences are optional/”superflous” they should NEVER break
+the submitter UI. Therefore all pref reading/writing needs to be
+safegaurded against(i.e. try/except) so that it doesn’t halt usage.</li>
+<li>Because the getting/setting of a preference may fail, be sure to model
+preferences in a way so that they will not result in dangerous behavior
+if they fail. i.e. don’t allow the absense of a preference value cause
+the user to default to doing something dangerous (such as submit a
+high frame/corecount job)</li>
+</ol>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="conductor.submitter.SubmitterPrefs.PREF_JOB_PACKAGES_IDS">
+<code class="descname">PREF_JOB_PACKAGES_IDS</code><em class="property"> = 'job_packages_ids'</em><a class="headerlink" href="#conductor.submitter.SubmitterPrefs.PREF_JOB_PACKAGES_IDS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.submitter.SubmitterPrefs.PREF_SCOUTFRAMES_STR">
+<code class="descname">PREF_SCOUTFRAMES_STR</code><em class="property"> = 'scoutframes_str'</em><a class="headerlink" href="#conductor.submitter.SubmitterPrefs.PREF_SCOUTFRAMES_STR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.SubmitterPrefs.getFileScoutFrames">
+<code class="descname">getFileScoutFrames</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.SubmitterPrefs.getFileScoutFrames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the user settings for:</p>
+<p>the frame/range to use for scout frames</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.SubmitterPrefs.getJobPackagesIds">
+<code class="descname">getJobPackagesIds</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.SubmitterPrefs.getJobPackagesIds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the user settings for:</p>
+<p>the frame/range to use for scout frames</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.SubmitterPrefs.loadSubmitterUserPrefs">
+<code class="descname">loadSubmitterUserPrefs</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.SubmitterPrefs.loadSubmitterUserPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load both the global and file-specific (e.g.nuke/maya file) user
+preferences for the UI widgets. This will reinstate any values on the
+widgets that that were recorded on them from the last time.</p>
+<p>First load the global preferences, then load the
+file-specific prefs which will override and of the
+global prefs</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.SubmitterPrefs.saveSubmitterUserPrefs">
+<code class="descname">saveSubmitterUserPrefs</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.SubmitterPrefs.saveSubmitterUserPrefs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save current widget settings to the user’s preference file.</p>
+<p>These settings are recorded per source file
+(maya/katana/nuke file, etc).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.SubmitterPrefs.setFileScoutFrames">
+<code class="descname">setFileScoutFrames</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.SubmitterPrefs.setFileScoutFrames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the user settings for:</p>
+<p>the frame/range to use for scout frames</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.SubmitterPrefs.setJobPackagesIds">
+<code class="descname">setJobPackagesIds</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.SubmitterPrefs.setJobPackagesIds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the user settings for:</p>
+<p>the frame/range to use for scout frames</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.submitter.TaskFramesGenerator">
+<em class="property">class </em><code class="descclassname">conductor.submitter.</code><code class="descname">TaskFramesGenerator</code><span class="sig-paren">(</span><em>frames</em>, <em>chunk_size=1</em>, <em>uniform_chunk_step=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.TaskFramesGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This base class provides functionality to Job’s command to be suitable
+for execution for a single Task. The general idea is that the submitted job
+command has subsitutable characters (args) that should be populated
+differently for each task (e.g. so that each task renders different frames,
+etc).</p>
+<p>Because every rendering software has it’s own rendering command with differing
+arguments/syntax, this class is intended to be subclassed for each product.</p>
+<p>Specific problems that this class addresses:</p>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>Converting a job’s “frame_range” argument into individual frames so</dt>
+<dd>that each task is allocated unique frame(s) to render.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Reading and applying those frames to the Task’s render command</dt>
+<dd>arguments. The render command syntax may be different for each product.</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Taking into consideration the job’s “chunk_size” argument so that</dt>
+<dd>a single Task can work on multiple frames.  This also includes interpreting
+any “steps” that have been indicated in the job’s “frame_range” argument.</dd>
+</dl>
+</li>
+</ol>
+<p>Note that this class is an iterator so that it can be iterated upon until
+a command for each task has been dispensed. It provides two items upon each
+iteration:</p>
+<ul class="simple">
+<li>A command that has been fully resolved for a task</li>
+<li>a list of frames (ints) that the task will be rendering</li>
+</ul>
+<p>Example usage (using MayaTaskCommand child class):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiate the class with proper args</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cmd_generator</span> <span class="o">=</span> <span class="n">base_utils</span><span class="o">.</span><span class="n">MayaTaskCommand</span><span class="p">(</span><span class="n">command</span><span class="o">=</span><span class="s2">&quot;Render &lt;frame_args&gt; deadpool.ma&quot;</span><span class="p">,</span>
+<span class="o">...</span>                                            <span class="n">frame_range</span> <span class="o">=</span><span class="s2">&quot;1-10x2&quot;</span><span class="p">,</span>
+<span class="o">...</span>                                            <span class="n">frame_padding</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+<span class="o">...</span>                                            <span class="n">chunk_size</span><span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Iterate over the class object, dispensing command and frame data for each task</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">command</span><span class="p">,</span> <span class="n">frames</span> <span class="ow">in</span> <span class="n">cmd_generator</span><span class="p">:</span>
+<span class="o">...</span>     <span class="nb">print</span> <span class="s2">&quot;command:&quot;</span><span class="p">,</span> <span class="n">command</span>
+<span class="o">...</span>     <span class="nb">print</span> <span class="s2">&quot;frames:&quot;</span><span class="p">,</span> <span class="n">frames</span>
+<span class="o">...</span>
+<span class="n">command</span><span class="p">:</span> <span class="n">Render</span> <span class="o">-</span><span class="n">s</span> <span class="mi">1</span> <span class="o">-</span><span class="n">e</span> <span class="mi">3</span> <span class="o">-</span><span class="n">b</span> <span class="mi">2</span> <span class="n">deadpool</span><span class="o">.</span><span class="n">ma</span>
+<span class="n">frames</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">command</span><span class="p">:</span> <span class="n">Render</span> <span class="o">-</span><span class="n">s</span> <span class="mi">5</span> <span class="o">-</span><span class="n">e</span> <span class="mi">7</span> <span class="o">-</span><span class="n">b</span> <span class="mi">2</span> <span class="n">deadpool</span><span class="o">.</span><span class="n">ma</span>
+<span class="n">frames</span><span class="p">:</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">command</span><span class="p">:</span> <span class="n">Render</span> <span class="o">-</span><span class="n">s</span> <span class="mi">9</span> <span class="o">-</span><span class="n">e</span> <span class="mi">9</span> <span class="o">-</span><span class="n">b</span> <span class="mi">1</span> <span class="n">deadpool</span><span class="o">.</span><span class="n">ma</span>
+<span class="n">frames</span><span class="p">:</span> <span class="p">(</span><span class="mi">9</span><span class="p">,)</span>
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="conductor.submitter.TaskFramesGenerator.derive_steps">
+<em class="property">classmethod </em><code class="descname">derive_steps</code><span class="sig-paren">(</span><em>frames</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.TaskFramesGenerator.derive_steps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inspect the list of frames and derive what the “step” is between
+them. If more than one step is found, return the lowest and highest
+steps.</p>
+<p>e.g.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="18%" />
+<col width="61%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">from FRAMES</th>
+<th class="head">to STEPS</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">[1,2,3,4]</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">[1]</span></code></td>
+<td>one step count between frames (1)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">[-1,-3,-5,-7]</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">[2]</span></code></td>
+<td>one step count between frames (2)</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">[1,3,5,17]</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">12]</span></code></td>
+<td>multiple step counts between frames (2, 12)</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">[4]</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">[1]</span></code></td>
+<td>if there isn’t an actual step count, default to 1</td>
+</tr>
+</tbody>
+</table>
+<p>The main functionality taken from: <a class="reference external" href="http://stackoverflow.com/questions/3428769/finding-the-largest-delta-between-two-integers-in-a-list-in-python">http://stackoverflow.com/questions/3428769/finding-the-largest-delta-between-two-integers-in-a-list-in-python</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.TaskFramesGenerator.get_next_frames_chunk">
+<code class="descname">get_next_frames_chunk</code><span class="sig-paren">(</span><em>chunk_size</em>, <em>uniform_chunk_step=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.TaskFramesGenerator.get_next_frames_chunk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return then “next” chunk of frames (that the task will render). This
+may be a list of one frame or several.</p>
+<p>e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># single frame</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="p">,</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># multiple frames</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">101</span><span class="p">]</span> <span class="c1"># multiple frames (No common step. This can be problematic depending on the render command)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>uniform_chunk_step</strong> (<em>bool</em>) – If True, will only return a chunk of frames
+that have a uniform step size between them.</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>more complicated example::</dt>
+<dd>frame_range = “1-5x2,20-25,10-30x5,200,1000”
+chunk_size = 4
+step_size=5</dd>
+</dl>
+<p>resulting task frames:</p>
+<ul class="simple">
+<li>task 0: <code class="docutils literal notranslate"><span class="pre">[1]</span></code></li>
+<li>task 1: <code class="docutils literal notranslate"><span class="pre">[3]</span></code></li>
+<li>task 2: <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">10,</span> <span class="pre">15,</span> <span class="pre">20]</span></code>, range conforms to step size (5)</li>
+<li>task 3: <code class="docutils literal notranslate"><span class="pre">[21]</span></code></li>
+<li>task 4: <code class="docutils literal notranslate"><span class="pre">[22]</span></code></li>
+<li>task 5: <code class="docutils literal notranslate"><span class="pre">[23]</span></code></li>
+<li>task 6: <code class="docutils literal notranslate"><span class="pre">[24]</span></code></li>
+<li>task 7: <code class="docutils literal notranslate"><span class="pre">[25,30]</span></code>, range conforms to step size (5)</li>
+<li>task 8: <code class="docutils literal notranslate"><span class="pre">[200]</span></code></li>
+<li>task 9: <code class="docutils literal notranslate"><span class="pre">[1000]</span></code></li>
+</ul>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.submitter.TaskFramesGenerator.get_padded_frame">
+<em class="property">classmethod </em><code class="descname">get_padded_frame</code><span class="sig-paren">(</span><em>frame_int</em>, <em>padding_int</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.TaskFramesGenerator.get_padded_frame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the given (frame) number as string with the given padding
+applied to it.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.submitter.TaskFramesGenerator.group_contiguous_frames">
+<em class="property">classmethod </em><code class="descname">group_contiguous_frames</code><span class="sig-paren">(</span><em>frames</em>, <em>ends_only=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.TaskFramesGenerator.group_contiguous_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Separate the given list of frames into groups(sublists) of
+contiguous frames/</p>
+<p>e.g. <code class="docutils literal notranslate"><span class="pre">[1,2,3,15,16,17,21,85]</span></code> to <code class="docutils literal notranslate"><span class="pre">[(1,2,3),(15,16,17),</span> <span class="pre">(21),</span> <span class="pre">(85)]</span></code></p>
+<p>if <code class="docutils literal notranslate"><span class="pre">ends_only==True</span></code>, return only first and last frames of each group
+(i.e. “bookends only”) e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">15</span><span class="p">,</span><span class="mi">17</span><span class="p">),</span> <span class="p">(</span><span class="mi">21</span><span class="p">),</span> <span class="p">(</span><span class="mi">85</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>taken from: <a class="reference external" href="http://stackoverflow.com/questions/2154249/identify-groups-of-continuous-numbers-in-a-list">http://stackoverflow.com/questions/2154249/identify-groups-of-continuous-numbers-in-a-list</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.submitter.TaskFramesGenerator.next">
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.submitter.TaskFramesGenerator.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Everytime the object is iterated on, return a tuple that contains
+two items:</p>
+<ul class="simple">
+<li>a new command (str) that is appropriate to be executed by a task.
+(unique from the prior ones)</li>
+<li>a list of corresponding frames (ints) that the command will render</li>
+</ul>
+<p>start_frame, end_frame, step, task_frames</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.submitter.TaskFramesGenerator.task_frames">
+<code class="descname">task_frames</code><em class="property"> = None</em><a class="headerlink" href="#conductor.submitter.TaskFramesGenerator.task_frames" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.submitter_maya.html" class="btn btn-neutral float-right" title="conductor.submitter_maya module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.tools.update.html" class="btn btn-neutral float-left" title="conductor.tools.update module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

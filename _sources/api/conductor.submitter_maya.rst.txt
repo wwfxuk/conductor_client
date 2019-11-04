@@ -1,0 +1,7 @@
+conductor.submitter\_maya module
+================================
+
+.. automodule:: conductor.submitter_maya
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,31 @@
+conductor package
+=================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    conductor.clarisse
+    conductor.lib
+    conductor.native
+    conductor.tools
+
+Submodules
+----------
+
+.. toctree::
+
+   conductor.submitter
+   conductor.submitter_maya
+   conductor.submitter_maya_resources
+   conductor.submitter_nuke
+   conductor.submitter_resources
+
+Module contents
+---------------
+
+.. automodule:: conductor
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+conductor.lib.pyside\_utils module
+==================================
+
+.. automodule:: conductor.lib.pyside_utils
+    :members:
+    :undoc-members:
+    :show-inheritance:

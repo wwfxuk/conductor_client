@@ -1,0 +1,509 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.lib.client_db module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.lib.common module" href="conductor.lib.common.html" />
+    <link rel="prev" title="conductor.lib.api_client module" href="conductor.lib.api_client.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.auth.html">conductor.lib.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.lsseq.html">conductor.lib.lsseq package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.wizard.html">conductor.lib.wizard package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.api_client.html">conductor.lib.api_client module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductor.lib.client_db module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.common.html">conductor.lib.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.conductor_submit.html">conductor.lib.conductor_submit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader.html">conductor.lib.downloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader2.html">conductor.lib.downloader2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.exceptions.html">conductor.lib.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.file_utils.html">conductor.lib.file_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.loggeria.html">conductor.lib.loggeria module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.maya_utils.html">conductor.lib.maya_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.nuke_utils.html">conductor.lib.nuke_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.package_utils.html">conductor.lib.package_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.pyside_utils.html">conductor.lib.pyside_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader.html">conductor.lib.uploader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader_v2.html">conductor.lib.uploader_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.version_check.html">conductor.lib.version_check module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.worker.html">conductor.lib.worker module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.lib.html">conductor.lib package</a> &raquo;</li>
+        
+      <li>conductor.lib.client_db module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.lib.client_db.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.lib.client_db">
+<span id="conductor-lib-client-db-module"></span><h1>conductor.lib.client_db module<a class="headerlink" href="#module-conductor.lib.client_db" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="conductor.lib.client_db.FilesDB">
+<em class="property">class </em><code class="descclassname">conductor.lib.client_db.</code><code class="descname">FilesDB</code><span class="sig-paren">(</span><em>db_filepath</em>, <em>thread_safe=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.FilesDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.client_db.TableDB" title="conductor.lib.client_db.TableDB"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.client_db.TableDB</span></code></a></p>
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.FilesDB.add_file">
+<em class="property">classmethod </em><code class="descname">add_file</code><span class="sig-paren">(</span><em>file_info</em>, <em>db_filepath=None</em>, <em>thread_safe=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.FilesDB.add_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the given file to the files table</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_info</strong> (<em>dict</em><em>[</em><em>str</em><em>]</em>) – <p>A dictionaries with the following keys:</p>
+<ul class="simple">
+<li>”filepath”,</li>
+<li>”modtime”,</li>
+<li>”filesize”</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.FilesDB.add_files">
+<em class="property">classmethod </em><code class="descname">add_files</code><span class="sig-paren">(</span><em>files_info</em>, <em>db_filepath=None</em>, <em>thread_safe=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.FilesDB.add_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the given list of files to the files db table.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>file_info</strong> (<em>dict</em><em>[</em><em>str</em><em>]</em>) – <p>A dictionaries with the following keys:</p>
+<ul class="simple">
+<li>”filepath”,</li>
+<li>”modtime”,</li>
+<li>”filesize”</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.client_db.FilesDB.columns">
+<code class="descname">columns</code><em class="property"> = ({'sqlite_type': 'TEXT', 'name': 'filepath', 'python_type': &lt;type 'str'&gt;, 'primary_key': True}, {'sqlite_type': 'TIMESTAMP', 'name': 'modtime', 'python_type': &lt;type 'datetime.datetime'&gt;}, {'sqlite_type': 'INTEGER', 'name': 'size', 'python_type': (&lt;type 'int'&gt;, &lt;type 'long'&gt;)}, {'sqlite_type': 'TEXT', 'name': 'md5', 'python_type': &lt;type 'str'&gt;})</em><a class="headerlink" href="#conductor.lib.client_db.FilesDB.columns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.FilesDB.get_cached_file">
+<em class="property">classmethod </em><code class="descname">get_cached_file</code><span class="sig-paren">(</span><em>file_info</em>, <em>db_filepath=None</em>, <em>thread_safe=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.FilesDB.get_cached_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given file (file_info), return it’s db entry if is not
+considered “stale”, otherwise return <code class="docutils literal notranslate"><span class="pre">None</span></code></p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.FilesDB.get_comparison_column_names">
+<em class="property">classmethod </em><code class="descname">get_comparison_column_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.FilesDB.get_comparison_column_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of column names whose data (for a given file row), should
+be used to compare against the data of a file from disk (e.g. to check
+whether a file on disk has stale cache or not).</p>
+<p>This should return names such as “filepath”, “modtime, and “size”, but
+not “md5” (bc the file on disk doesn’t have the md5 info available…which
+is the whole point of quering the db for it :) )</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.FilesDB.query_file">
+<em class="property">classmethod </em><code class="descname">query_file</code><span class="sig-paren">(</span><em>filepath</em>, <em>db_filepath=None</em>, <em>thread_safe=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.FilesDB.query_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the db for all files which match the given filepaths.</p>
+<p>Note that this achieved through chunked queries so not to breach
+sqlite’s maximum of 999 arguments</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.FilesDB.query_files">
+<em class="property">classmethod </em><code class="descname">query_files</code><span class="sig-paren">(</span><em>filepaths</em>, <em>return_dict=False</em>, <em>db_filepath=None</em>, <em>thread_safe=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.FilesDB.query_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query the db for all files which match the given filepaths.</p>
+<p>Note that this achieved through chunked queries so not to breach sqlite’s
+maximum of 999 arguments</p>
+<p>one: bool.  If True, treat th</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.client_db.FilesDB.table_name">
+<code class="descname">table_name</code><em class="property"> = 'files'</em><a class="headerlink" href="#conductor.lib.client_db.FilesDB.table_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.client_db.TableDB">
+<em class="property">class </em><code class="descclassname">conductor.lib.client_db.</code><code class="descname">TableDB</code><span class="sig-paren">(</span><em>db_filepath</em>, <em>thread_safe=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a single sql table to query/operate upon.
+This has admittedly limited functionality (as there can only be as single
+table to interact with).</p>
+<dl class="method">
+<dt id="conductor.lib.client_db.TableDB.close_connection">
+<code class="descname">close_connection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.close_connection" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.client_db.TableDB.column_parameters">
+<code class="descname">column_parameters</code><em class="property"> = ['name', 'sqlite_type']</em><a class="headerlink" href="#conductor.lib.client_db.TableDB.column_parameters" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.client_db.TableDB.columns">
+<code class="descname">columns</code><em class="property"> = []</em><a class="headerlink" href="#conductor.lib.client_db.TableDB.columns" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.TableDB.connnect_to_db">
+<em class="property">classmethod </em><code class="descname">connnect_to_db</code><span class="sig-paren">(</span><em>db_filepath</em>, <em>timeout=300</em>, <em>db_perms=438</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.connnect_to_db" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a connection to the database with the specified database
+filepath and return the connection object</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>timeout</strong> (<em>float</em>) – <p>The amount of seconds that a connection will wait to
+establish itself before it times out and raises an
+“OperationalError: database is locked” exception.</p>
+<p>This is important when threading because sqlite can’t handle
+that many concurrent connections and will quickly throw that
+exception unless the timeout is high enough.</p>
+<p>Honestly this is kind of a hack and may not work in all
+circumstances.  We should really just query the db in a
+single thread (IMO -lws)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.client_db.TableDB.create_table">
+<code class="descname">create_table</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.create_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>create the table (if it does not already exist in the db), with the
+self.columns</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.TableDB.dict_to_row_tuple">
+<em class="property">classmethod </em><code class="descname">dict_to_row_tuple</code><span class="sig-paren">(</span><em>input_dict</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.dict_to_row_tuple" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the the given dictionary of data into a tuple of data that is
+suitable to use for a db row insert.</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.TableDB.get_column_names">
+<em class="property">classmethod </em><code class="descname">get_column_names</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.get_column_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of all columns in the table</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.TableDB.get_table_sql">
+<em class="property">classmethod </em><code class="descname">get_table_sql</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.get_table_sql" title="Permalink to this definition">¶</a></dt>
+<dd><p>create a table with the columns defined in self.columns</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.client_db.TableDB.insert_row">
+<code class="descname">insert_row</code><span class="sig-paren">(</span><em>row_dict</em>, <em>replace=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.insert_row" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the given row data (dictionary) to the the db</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>row_data</strong> (<em>dict</em>) – Where the keys are the columns names.</li>
+<li><strong>replace</strong> (<em>bool</em>) – When True, will replace the the existing row in the db
+(if there is one) that matches the row’s Primary Key.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.client_db.TableDB.insert_rows">
+<code class="descname">insert_rows</code><span class="sig-paren">(</span><em>row_dicts</em>, <em>replace=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.insert_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the given list of of row data (dictionaries) to the the db</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>row_data</strong> (<em>dict</em>) – Where the keys are the columns names.</li>
+<li><strong>replace</strong> (<em>bool</em>) – When True, will replace the the existing row in the db
+(if there is one) that matches the row’s Primary Key.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.TableDB.row_to_dict">
+<em class="property">classmethod </em><code class="descname">row_to_dict</code><span class="sig-paren">(</span><em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.row_to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the give sqlite row object as a python dict</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.client_db.TableDB.sql_execute">
+<code class="descname">sql_execute</code><span class="sig-paren">(</span><em>sql</em>, <em>params=None</em>, <em>many=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.sql_execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the given sql command</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>new_connection</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, will instantiate a new sql connection
+object.  This is necessary when running this method
+across multiple threads.</li>
+<li><strong>many</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, will execute the given sql command in batch, using
+the given params as a list of variables for each call.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="conductor.lib.client_db.TableDB.sql_fetch">
+<code class="descname">sql_fetch</code><span class="sig-paren">(</span><em>sql</em>, <em>params=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.sql_fetch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch data from the db via the given sql string and paramaters</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.client_db.TableDB.sqlite_dict_factory">
+<em class="property">classmethod </em><code class="descname">sqlite_dict_factory</code><span class="sig-paren">(</span><em>cursor</em>, <em>row</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.TableDB.sqlite_dict_factory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.client_db.TableDB.table_name">
+<code class="descname">table_name</code><em class="property"> = None</em><a class="headerlink" href="#conductor.lib.client_db.TableDB.table_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.client_db.chunker">
+<code class="descclassname">conductor.lib.client_db.</code><code class="descname">chunker</code><span class="sig-paren">(</span><em>list_</em>, <em>chunk_size</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.chunker" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given list, return a tuple which breaks creates smaller lists of
+the given size (length), containing the contents of the the original list</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.client_db.get_default_db_filepath">
+<code class="descclassname">conductor.lib.client_db.</code><code class="descname">get_default_db_filepath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.client_db.get_default_db_filepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a default filepath to use for storing the sqlite.
+Depending on the platform, this will be located in some sort of temporary
+directory, such as:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">/usr/temp</span></code> for Linux</li>
+<li><code class="docutils literal notranslate"><span class="pre">c:\users\&lt;username&gt;ppdata\local</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">emp</span></code> for Windows</li>
+</ul>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.lib.common.html" class="btn btn-neutral float-right" title="conductor.lib.common module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.lib.api_client.html" class="btn btn-neutral float-left" title="conductor.lib.api_client module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

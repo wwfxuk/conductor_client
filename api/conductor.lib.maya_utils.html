@@ -1,0 +1,1330 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>conductor.lib.maya_utils module &mdash; conductor_client 2.11.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="conductor.lib.nuke_utils module" href="conductor.lib.nuke_utils.html" />
+    <link rel="prev" title="conductor.lib.loggeria module" href="conductor.lib.loggeria.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> conductor_client
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.11.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">APIs:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="conductor.html">conductor package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conductor.clarisse.html">conductor.clarisse package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="conductor.lib.html">conductor.lib package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.auth.html">conductor.lib.auth package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.lsseq.html">conductor.lib.lsseq package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.wizard.html">conductor.lib.wizard package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.api_client.html">conductor.lib.api_client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.client_db.html">conductor.lib.client_db module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.common.html">conductor.lib.common module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.conductor_submit.html">conductor.lib.conductor_submit module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader.html">conductor.lib.downloader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.downloader2.html">conductor.lib.downloader2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.exceptions.html">conductor.lib.exceptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.file_utils.html">conductor.lib.file_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.loggeria.html">conductor.lib.loggeria module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">conductor.lib.maya_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.nuke_utils.html">conductor.lib.nuke_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.package_utils.html">conductor.lib.package_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.pyside_utils.html">conductor.lib.pyside_utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader.html">conductor.lib.uploader module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.uploader_v2.html">conductor.lib.uploader_v2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.version_check.html">conductor.lib.version_check module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="conductor.lib.worker.html">conductor.lib.worker module</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.native.html">conductor.native package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.tools.html">conductor.tools package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter.html">conductor.submitter module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya.html">conductor.submitter_maya module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_maya_resources.html">conductor.submitter_maya_resources module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_nuke.html">conductor.submitter_nuke module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conductor.submitter_resources.html">conductor.submitter_resources module</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">conductor_client</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="conductor.html">conductor package</a> &raquo;</li>
+        
+          <li><a href="conductor.lib.html">conductor.lib package</a> &raquo;</li>
+        
+      <li>conductor.lib.maya_utils module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/conductor.lib.maya_utils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-conductor.lib.maya_utils">
+<span id="conductor-lib-maya-utils-module"></span><h1>conductor.lib.maya_utils module<a class="headerlink" href="#module-conductor.lib.maya_utils" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="conductor.lib.maya_utils.ArnoldInfo">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">ArnoldInfo</code><a class="headerlink" href="#conductor.lib.maya_utils.ArnoldInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.maya_utils.MayaPluginInfo" title="conductor.lib.maya_utils.MayaPluginInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.maya_utils.MayaPluginInfo</span></code></a></p>
+<p>A class for retrieving version information about the arnold plugin in maya</p>
+<p>Will ultimately produce something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="s1">&#39;mtoa&#39;</span><span class="p">,</span>
+<span class="s1">&#39;major_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;1&#39;</span><span class="p">,</span>
+<span class="s1">&#39;minor_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;2&#39;</span><span class="p">,</span>
+<span class="s1">&#39;release_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;6&#39;</span><span class="p">,</span>
+<span class="s1">&#39;build_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;1&#39;</span><span class="p">,</span>
+<span class="s1">&#39;plugin_host_product&#39;</span><span class="p">:</span> <span class="s1">&#39;maya&#39;</span><span class="p">,</span>
+<span class="s1">&#39;plugin_host_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;2015&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.ArnoldInfo.get_product">
+<em class="property">classmethod </em><code class="descname">get_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.ArnoldInfo.get_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the software package, e.g. “Maya” or “Vray for Maya”, or “Katana”</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.ArnoldInfo.get_regex">
+<em class="property">classmethod </em><code class="descname">get_regex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.ArnoldInfo.get_regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>‘1.2.6.1’</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.ArnoldInfo.plugin_name">
+<code class="descname">plugin_name</code><em class="property"> = 'mtoa'</em><a class="headerlink" href="#conductor.lib.maya_utils.ArnoldInfo.plugin_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.MayaInfo">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">MayaInfo</code><a class="headerlink" href="#conductor.lib.maya_utils.MayaInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="conductor.lib.package_utils.html#conductor.lib.package_utils.ProductInfo" title="conductor.lib.package_utils.ProductInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.package_utils.ProductInfo</span></code></a></p>
+<p>A class for retrieving version information about the current maya session.</p>
+<p>Will ultimately produce something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is package for Maya</span>
+<span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="s1">&#39;Maya&#39;</span>
+<span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s2">&quot;Autodesk Maya 2015 SP4&quot;</span>
+<span class="s1">&#39;host_product&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;host_version&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">},</span>
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaInfo.get_major_version">
+<em class="property">classmethod </em><code class="descname">get_major_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaInfo.get_major_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the major version of the product, e.g.</p>
+<blockquote>
+<div>“2015”</div></blockquote>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaInfo.get_minor_version">
+<em class="property">classmethod </em><code class="descname">get_minor_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaInfo.get_minor_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the minor version of the product, e.g.</p>
+<blockquote>
+<div>“SP4”</div></blockquote>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaInfo.get_product">
+<em class="property">classmethod </em><code class="descname">get_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaInfo.get_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the product, e.g.</p>
+<blockquote>
+<div>“Maya”</div></blockquote>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaInfo.get_regex">
+<em class="property">classmethod </em><code class="descname">get_regex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaInfo.get_regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Regex the Maya product version string</p>
+<p>Autodesk Maya 2014 x64 Service Pack 1
+Autodesk Maya 2014 Service Pack 2
+Autodesk Maya 2014 Service Pack 3
+Autodesk Maya 2015 SP1
+Autodesk Maya 2015 SP4
+Autodesk Maya 2016 SP4
+Autodesk Maya 2016 Extension 1 + SP5</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaInfo.get_vendor">
+<em class="property">classmethod </em><code class="descname">get_vendor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaInfo.get_vendor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the Product vendor name, e.g. “Autodesk”</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaInfo.get_version">
+<em class="property">classmethod </em><code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaInfo.get_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the product verion, e.g.</p>
+<blockquote>
+<div>“Autodesk Maya 2015 SP4”</div></blockquote>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.MayaInfo.product">
+<code class="descname">product</code><em class="property"> = 'maya'</em><a class="headerlink" href="#conductor.lib.maya_utils.MayaInfo.product" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.MayaPluginInfo">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">MayaPluginInfo</code><a class="headerlink" href="#conductor.lib.maya_utils.MayaPluginInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="conductor.lib.package_utils.html#conductor.lib.package_utils.ProductInfo" title="conductor.lib.package_utils.ProductInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.package_utils.ProductInfo</span></code></a></p>
+<p>A class for retrieving version information about a plugin in maya</p>
+<p>Will ultimately produce something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="s1">&#39;&lt;plugin name&gt;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;major_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;3&#39;</span><span class="p">,</span>
+<span class="s1">&#39;minor_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;00&#39;</span><span class="p">,</span>
+<span class="s1">&#39;release_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;01&#39;</span><span class="p">,</span>
+<span class="s1">&#39;build_version&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;plugin_host_product&#39;</span><span class="p">:</span> <span class="s1">&#39;maya&#39;</span><span class="p">,</span>
+<span class="s1">&#39;plugin_host_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;2015&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaPluginInfo.exists">
+<em class="property">classmethod </em><code class="descname">exists</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaPluginInfo.exists" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaPluginInfo.get_plugin_host_product">
+<em class="property">classmethod </em><code class="descname">get_plugin_host_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaPluginInfo.get_plugin_host_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the host software package, e.g. “Maya” or “Katana”</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaPluginInfo.get_plugin_host_version">
+<em class="property">classmethod </em><code class="descname">get_plugin_host_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaPluginInfo.get_plugin_host_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the host software package, e.g. “Autodesk Maya 2015 SP4”</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaPluginInfo.get_product">
+<em class="property">classmethod </em><code class="descname">get_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaPluginInfo.get_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the software package, e.g. “Maya” or “Vray for Maya”, or “Katana”</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaPluginInfo.get_regex">
+<em class="property">classmethod </em><code class="descname">get_regex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaPluginInfo.get_regex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MayaPluginInfo.get_version">
+<em class="property">classmethod </em><code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MayaPluginInfo.get_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the software package, e.g. “Autodesk Maya 2015 SP4”</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.MayaPluginInfo.plugin_name">
+<code class="descname">plugin_name</code><em class="property"> = None</em><a class="headerlink" href="#conductor.lib.maya_utils.MayaPluginInfo.plugin_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.MiarmyBaseInfo">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">MiarmyBaseInfo</code><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyBaseInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.maya_utils.MayaPluginInfo" title="conductor.lib.maya_utils.MayaPluginInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.maya_utils.MayaPluginInfo</span></code></a></p>
+<p>Base class for all Miarmy plugins.  This base class DOES NOT
+represent any one miarmy plugin. It must be subclassed.</p>
+<p>A class for retrieving version information about the Miarmy plugin in maya</p>
+<p>Will ultimately produce something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="s1">&#39;miarmy&#39;</span><span class="p">,</span>
+<span class="s1">&#39;major_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;5&#39;</span><span class="p">,</span>
+<span class="s1">&#39;minor_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;2&#39;</span><span class="p">,</span>
+<span class="s1">&#39;release_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;25&#39;</span><span class="p">,</span>
+<span class="s1">&#39;build_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;plugin_host_product&#39;</span><span class="p">:</span> <span class="s1">&#39;maya&#39;</span><span class="p">,</span>
+<span class="s1">&#39;plugin_host_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;2016&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MiarmyBaseInfo.get_product">
+<em class="property">classmethod </em><code class="descname">get_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyBaseInfo.get_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the software package, e.g. “Maya” or “Vray for Maya”, or “Katana”</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.MiarmyBaseInfo.get_regex">
+<em class="property">classmethod </em><code class="descname">get_regex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyBaseInfo.get_regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>‘1.2.6’</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.MiarmyExpressForMaya20165Info">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">MiarmyExpressForMaya20165Info</code><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyExpressForMaya20165Info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.maya_utils.MiarmyBaseInfo" title="conductor.lib.maya_utils.MiarmyBaseInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.maya_utils.MiarmyBaseInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.MiarmyExpressForMaya20165Info.plugin_name">
+<code class="descname">plugin_name</code><em class="property"> = 'MiarmyExpressForMaya20165'</em><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyExpressForMaya20165Info.plugin_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.MiarmyExpressForMaya2016Info">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">MiarmyExpressForMaya2016Info</code><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyExpressForMaya2016Info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.maya_utils.MiarmyBaseInfo" title="conductor.lib.maya_utils.MiarmyBaseInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.maya_utils.MiarmyBaseInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.MiarmyExpressForMaya2016Info.plugin_name">
+<code class="descname">plugin_name</code><em class="property"> = 'MiarmyExpressForMaya2016'</em><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyExpressForMaya2016Info.plugin_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.MiarmyExpressForMaya2017Info">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">MiarmyExpressForMaya2017Info</code><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyExpressForMaya2017Info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.maya_utils.MiarmyBaseInfo" title="conductor.lib.maya_utils.MiarmyBaseInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.maya_utils.MiarmyBaseInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.MiarmyExpressForMaya2017Info.plugin_name">
+<code class="descname">plugin_name</code><em class="property"> = 'MiarmyExpressForMaya2017'</em><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyExpressForMaya2017Info.plugin_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.MiarmyProForMaya20165Info">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">MiarmyProForMaya20165Info</code><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyProForMaya20165Info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.maya_utils.MiarmyBaseInfo" title="conductor.lib.maya_utils.MiarmyBaseInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.maya_utils.MiarmyBaseInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.MiarmyProForMaya20165Info.plugin_name">
+<code class="descname">plugin_name</code><em class="property"> = 'MiarmyProForMaya20165'</em><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyProForMaya20165Info.plugin_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.MiarmyProForMaya2016Info">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">MiarmyProForMaya2016Info</code><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyProForMaya2016Info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.maya_utils.MiarmyBaseInfo" title="conductor.lib.maya_utils.MiarmyBaseInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.maya_utils.MiarmyBaseInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.MiarmyProForMaya2016Info.plugin_name">
+<code class="descname">plugin_name</code><em class="property"> = 'MiarmyProForMaya2016'</em><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyProForMaya2016Info.plugin_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.MiarmyProForMaya2017Info">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">MiarmyProForMaya2017Info</code><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyProForMaya2017Info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.maya_utils.MiarmyBaseInfo" title="conductor.lib.maya_utils.MiarmyBaseInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.maya_utils.MiarmyBaseInfo</span></code></a></p>
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.MiarmyProForMaya2017Info.plugin_name">
+<code class="descname">plugin_name</code><em class="property"> = 'MiarmyProForMaya2017'</em><a class="headerlink" href="#conductor.lib.maya_utils.MiarmyProForMaya2017Info.plugin_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.RendermanInfo">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">RendermanInfo</code><a class="headerlink" href="#conductor.lib.maya_utils.RendermanInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.maya_utils.MayaPluginInfo" title="conductor.lib.maya_utils.MayaPluginInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.maya_utils.MayaPluginInfo</span></code></a></p>
+<p>A class for retrieving version information about the renderman plugin in maya</p>
+<p>Will ultimately produce something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="s1">&#39;mtoa&#39;</span><span class="p">,</span>
+<span class="s1">&#39;major_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;1&#39;</span><span class="p">,</span>
+<span class="s1">&#39;minor_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;2&#39;</span><span class="p">,</span>
+<span class="s1">&#39;release_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;6&#39;</span><span class="p">,</span>
+<span class="s1">&#39;build_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;1&#39;</span><span class="p">,</span>
+<span class="s1">&#39;plugin_host_product&#39;</span><span class="p">:</span> <span class="s1">&#39;maya&#39;</span><span class="p">,</span>
+<span class="s1">&#39;plugin_host_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;2015&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.RendermanInfo.get_product">
+<em class="property">classmethod </em><code class="descname">get_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.RendermanInfo.get_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the software package, e.g. “Maya” or “Vray for Maya”, or “Katana”</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.RendermanInfo.get_regex">
+<em class="property">classmethod </em><code class="descname">get_regex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.RendermanInfo.get_regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>‘21.5’</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.RendermanInfo.plugin_name">
+<code class="descname">plugin_name</code><em class="property"> = 'RenderMan_for_Maya'</em><a class="headerlink" href="#conductor.lib.maya_utils.RendermanInfo.plugin_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.VrayInfo">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">VrayInfo</code><a class="headerlink" href="#conductor.lib.maya_utils.VrayInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.maya_utils.MayaPluginInfo" title="conductor.lib.maya_utils.MayaPluginInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.maya_utils.MayaPluginInfo</span></code></a></p>
+<p>A class for retrieving version information about the vray plugin in maya</p>
+<p>Will ultimately produce something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;product&#39;</span><span class="p">:</span> <span class="s1">&#39;vrayformaya&#39;</span><span class="p">,</span>
+<span class="s1">&#39;major_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;3&#39;</span><span class="p">,</span>
+<span class="s1">&#39;minor_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;00&#39;</span><span class="p">,</span>
+<span class="s1">&#39;release_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;01&#39;</span><span class="p">,</span>
+<span class="s1">&#39;build_version&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="s1">&#39;plugin_host_product&#39;</span><span class="p">:</span> <span class="s1">&#39;maya&#39;</span><span class="p">,</span>
+<span class="s1">&#39;plugin_host_version&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;2015&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.VrayInfo.get_product">
+<em class="property">classmethod </em><code class="descname">get_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.VrayInfo.get_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the software package, e.g. “Maya” or “Vray for Maya”, or “Katana”</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.VrayInfo.get_regex">
+<em class="property">classmethod </em><code class="descname">get_regex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.VrayInfo.get_regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>3.00.01</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.VrayInfo.get_version">
+<em class="property">classmethod </em><code class="descname">get_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.VrayInfo.get_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starting with vray 4.x (“Next”), vray-for-maya changed the way it records/provides its
+version information.  Instead of returning a version string, e.g. “4.04.03”, it simply returns
+“Next”, which isn’t terribly specific.  We can find the specific version information  by
+querying maya’s FileInfo (“vrayBuild”), which will provide a string such as:</p>
+<blockquote>
+<div>‘4.04.03.00010 665a78e’</div></blockquote>
+<p>We’ll then parse that down to ‘4.04.03’</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.VrayInfo.plugin_name">
+<code class="descname">plugin_name</code><em class="property"> = 'vrayformaya'</em><a class="headerlink" href="#conductor.lib.maya_utils.VrayInfo.plugin_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="conductor.lib.maya_utils.YetiInfo">
+<em class="property">class </em><code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">YetiInfo</code><a class="headerlink" href="#conductor.lib.maya_utils.YetiInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#conductor.lib.maya_utils.MayaPluginInfo" title="conductor.lib.maya_utils.MayaPluginInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">conductor.lib.maya_utils.MayaPluginInfo</span></code></a></p>
+<p>A class for retrieving version information about the yeti plugin in maya</p>
+<p>Will ultimately produce something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;product&quot;</span><span class="p">:</span> <span class="s2">&quot;yeti&quot;</span><span class="p">,</span>
+<span class="s2">&quot;major_version&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+<span class="s2">&quot;minor_version&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+<span class="s2">&quot;release_version&quot;</span><span class="p">:</span> <span class="s2">&quot;9&quot;</span><span class="p">,</span>
+<span class="s2">&quot;build_version&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;plugin_host_product&quot;</span><span class="p">:</span> <span class="s2">&quot;maya&quot;</span><span class="p">,</span>
+<span class="s2">&quot;plugin_host_version&quot;</span><span class="p">:</span> <span class="s2">&quot;2016&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.YetiInfo.get_product">
+<em class="property">classmethod </em><code class="descname">get_product</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.YetiInfo.get_product" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the software package, e.g. “Maya” or “Vray for Maya”, or “Katana”</p>
+</dd></dl>
+
+<dl class="classmethod">
+<dt id="conductor.lib.maya_utils.YetiInfo.get_regex">
+<em class="property">classmethod </em><code class="descname">get_regex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.YetiInfo.get_regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>2.1.9</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="conductor.lib.maya_utils.YetiInfo.plugin_name">
+<code class="descname">plugin_name</code><em class="property"> = 'pgYetiMaya'</em><a class="headerlink" href="#conductor.lib.maya_utils.YetiInfo.plugin_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.collect_dependencies">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">collect_dependencies</code><span class="sig-paren">(</span><em>node_attrs</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.collect_dependencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of filepaths that the current maya scene has dependencies on.
+This is achieved by inspecting maya’s nodes.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">node_attrs</span></code> argument to pass in a dictionary</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.dec_undo">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">dec_undo</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.dec_undo" title="Permalink to this definition">¶</a></dt>
+<dd><p>DECORATOR - Wrap the decorated function in a Maya undo block.
+This is useful when wrapping functions which execute multiple maya commands,
+thereby altering maya’s state and undo stack with multiple operations.
+This allows the artist to simply execute one undo call to undo all of the
+calls that this wrapped function executed (as opposed to having the artist
+press undo undo undo undo..etc)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.derive_prefix_directory">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">derive_prefix_directory</code><span class="sig-paren">(</span><em>file_prefix</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.derive_prefix_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a super hack that makes many assumptions.  It’s purpose is to
+determine the top level render output directory.  Normally one could query
+the workspace’s “images” directory to get this information, but in cases
+where the render file prefix specifies an absolute path(thereby overriding
+the workspace’s specified directory), we must honor that prefix path.</p>
+<p>The problem is that prefix path can contain variables, such as <code class="docutils literal notranslate"><span class="pre">&lt;Scene&gt;</span></code>
+or <code class="docutils literal notranslate"><span class="pre">&lt;RenderLayer&gt;</span></code>, which could be specific to whichever render layer is
+currently being rendered. So we need to navigate to highest common
+directory across all render layers.</p>
+<p>So if this is the prefix:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;/shot_105/v076/&lt;Layer&gt;/105_light_&lt;RenderLayer&gt;_v076&quot;</span>
+</pre></div>
+</div>
+<p>…then this is directory we want to return:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;/shot_105/v076&quot;</span>
+</pre></div>
+</div>
+<p>However, there may not be <em>any</em> variables used. So if this is the prefix:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;/shot_105/v076/105_light_v076&quot;</span>
+</pre></div>
+</div>
+<p>…then this is directory we want to return (same as before):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;/shot_105/v076&quot;</span>
+</pre></div>
+</div>
+<p>Note that the provided <code class="docutils literal notranslate"><span class="pre">file_prefix</span></code> is expected to be absolute path</p>
+<p>variables are such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Scene</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">RenderLayer</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">Camera</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">RenderPassFileGroup</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">RenderPass</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">RenderPassType</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">Extension</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">Version</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">Layer</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_active_renderer">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_active_renderer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_active_renderer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the active renderer, e.g “vray” or “arnold</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_arnold_settings_node">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_arnold_settings_node</code><span class="sig-paren">(</span><em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_arnold_settings_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the aiOptions node in the maya scene.  If strict is True, and
+no node is found, raise an exception.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_current_renderer">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_current_renderer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_current_renderer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the current renderer for the maya scene.
+e.g. ‘vray’ or ‘arnold’, etc</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_frame_range">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_frame_range</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_frame_range" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current frame range for the current maya scene.</p>
+<p>This consists of both the “playback” start/end frames, as well as the
+“range” start/end frames.</p>
+<p>Note that only integers are currently support for frames</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List of two tuples, where the first tuple is the “playback”
+start/end frames and the second is the “range” start/end frames,
+e.g.:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">24.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">list[tuple]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_image_dirpath">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_image_dirpath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_image_dirpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is high level function that “figures out”  the proper “output directory”
+for the conductor job being submitted.</p>
+<dl class="docutils">
+<dt>To Do:</dt>
+<dd>(lws)  Need to break up the logic on a per-plugin/renderer basis.</dd>
+</dl>
+<p>As of now, the output directory is used for two separate purposes
+(which desperately need to be separated at some point).</p>
+<ol class="arabic simple">
+<li>Dictates the directory to search for rendered images on the render node
+when the render task completes.  If the rendered images cannot be found
+recursively within the given output path then the images will not get
+transferred to GCS, and therefore the task will have no frames to
+download.</li>
+<li>Dictates the default directory that the client downloader will download
+the task’s frames to.  Note that the client downloader can manually
+override the download directory when evoking the downloader command
+manually (as opposed to running it in daemon mode).</li>
+</ol>
+<p>On a simple level, the output directory should be the directory in which
+maya renders its images to. However, this is directory is not straight
+forward process to derive.</p>
+<p>For starters, the “output directory” is not necessarily flat; it may
+contain nested directories (such as for render layers, etc) that were
+created by the rendering process. This is not actually a problem, but
+something to consider.</p>
+<p>Those nested directories will be represented/recreated when the resulting
+images are downloaded by the client.  But the important piece to note is
+that the output directory should be the “lowest” (longest) directory
+possible, while encompassing all rendered images from that task.</p>
+<p>The other part of the complexity, is that there are multiple places in Maya
+to dictate where the “output directory” is (and I can’t pretend to know
+every possible way of achieving this). As of now, these are the known
+factors:</p>
+<ol class="arabic simple">
+<li>The Workspace’s “image” directory is the default location for renders.
+(I’m not sure if this is even true).</li>
+<li>However, this can be essentially overridden within the global render
+settings if one were to populate “File Name Prefix” field with an
+absolute path. (perhaps there’s another way to override the output
+directory but this is what I’ve observed thus far).</li>
+<li>Each renderer (such as vray or maya software) has a different
+node/attribute to set the File Name Prefix field.  So it’s important to
+know which renderer is active in order to query the proper node for its
+data. As other renderers are added/supported by conductor, those nodes
+will need to be considered when querying for data.</li>
+</ol>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_maya_image_dirpath">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_maya_image_dirpath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_maya_image_dirpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the “images” directory for the active maya workspace</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_maya_save_state">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_maya_save_state</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_maya_save_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if the current Maya scene has unsaved changes</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_maya_scene_filepath">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_maya_scene_filepath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_maya_scene_filepath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_maya_version">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_maya_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_maya_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the version string of the currently running maya session.
+e.g. “Autodesk Maya 2015 SP4”</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_mayasoftware_settings_node">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_mayasoftware_settings_node</code><span class="sig-paren">(</span><em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_mayasoftware_settings_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the renderGlobals node in the maya scene.  If strict is True, and
+no node is found, raise an exception.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_node_by_type">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_node_by_type</code><span class="sig-paren">(</span><em>node_type</em>, <em>must_exist=True</em>, <em>many=False</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_node_by_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given node type, return the one node found in the maya scene of that
+type. If many is True, allow more than one to be returned, otherwise raise
+an exception if more than one is found. If must_exist is True, raise an
+exception if no nodes are found in the maya scene.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_ocio_config_filepath">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_ocio_config_filepath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_ocio_config_filepath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the OCIO config filepath from maya settings.</p>
+<p>Only return the filepath if color managment is enabled and OCIO config is enabled.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_plugin_info">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_plugin_info</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_plugin_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the conductor package information for any supported plugins
+that are loaded.</p>
+<blockquote>
+<div><p>e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;arnold-maya&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;1.4.2.1&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;miarmy&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;5.2.25&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;v-ray-maya&#39;</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;3.40.02&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_plugin_info_class">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_plugin_info_class</code><span class="sig-paren">(</span><em>plugin_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_plugin_info_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_plugin_versions">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_plugin_versions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_plugin_versions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query maya for all of it’s plugins and their  versions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">such as:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;AbcExport&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;AbcImport&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;BifrostMain&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;HoldOut&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;MayaMuscle&#39;</span><span class="p">:</span> <span class="s1">&#39;2.00 (Build: 004)&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Mayatomr&#39;</span><span class="p">:</span> <span class="s1">&#39;2015.0 - 3.12.1.18 &#39;</span><span class="p">,</span>
+<span class="s1">&#39;Substance&#39;</span><span class="p">:</span> <span class="s1">&#39;1.11143&#39;</span><span class="p">,</span>
+<span class="s1">&#39;autoLoader&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;bifrostshellnode&#39;</span><span class="p">:</span> <span class="s1">&#39;2015&#39;</span><span class="p">,</span>
+<span class="s1">&#39;bifrostvisplugin&#39;</span><span class="p">:</span> <span class="s1">&#39;3.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;cgfxShader&#39;</span><span class="p">:</span> <span class="s1">&#39;cgfxShader 4.5 for Maya 2015.0 (Apr  9 2015)&#39;</span><span class="p">,</span>
+<span class="s1">&#39;fbxmaya&#39;</span><span class="p">:</span> <span class="s1">&#39;2015.1&#39;</span><span class="p">,</span>
+<span class="s1">&#39;glmCrowd&#39;</span><span class="p">:</span> <span class="s1">&#39;4.1.3[21f4d33]-2015/08/25&#39;</span><span class="p">,</span>
+<span class="s1">&#39;gpuCache&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;iDeform&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;ik2Bsolver&#39;</span><span class="p">:</span> <span class="s1">&#39;2.5&#39;</span><span class="p">,</span>
+<span class="s1">&#39;ikSpringSolver&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;matrixNodes&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;mayaCharacterization&#39;</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span>
+<span class="s1">&#39;mayaHIK&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0_HIK_2014.2&#39;</span><span class="p">,</span>
+<span class="s1">&#39;modelingToolkit&#39;</span><span class="p">:</span> <span class="s1">&#39;Unknown&#39;</span><span class="p">,</span>
+<span class="s1">&#39;modelingToolkitStd&#39;</span><span class="p">:</span> <span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;quatNodes&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;relax_node&#39;</span><span class="p">:</span> <span class="s1">&#39;Unknown&#39;</span><span class="p">,</span>
+<span class="s1">&#39;retargeterNodes&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;rotateHelper&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;sceneAssembly&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;shaderFXPlugin&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;skinningDecomposition&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;spReticleLoc&#39;</span><span class="p">:</span> <span class="s1">&#39;2.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;tiffFloatReader&#39;</span><span class="p">:</span> <span class="s1">&#39;8.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;vrayformaya&#39;</span><span class="p">:</span> <span class="s1">&#39;3.00.01&#39;</span><span class="p">,</span>
+<span class="s1">&#39;xgenMR&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">,</span>
+<span class="s1">&#39;xgenToolkit&#39;</span><span class="p">:</span> <span class="s1">&#39;1.0&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_render_file_prefix">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_render_file_prefix</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_render_file_prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the “File Name Prefix” from the global render settings. Note that this
+is a read from different node/attribute depending on which renderer is
+currently active.</p>
+<p>Note that as more renderers are supported by Conductor, this function may
+need to be updated to properly query those renderers’ information.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_render_layers_info">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_render_layers_info</code><span class="sig-paren">(</span><em>*a</em>, <em>**kw</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_render_layers_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of dictionaries where each dictionary represents data for
+a a render layer.</p>
+<p>Each dictionary provides the following information:</p>
+<ul class="simple">
+<li>render layer name</li>
+<li>whether the render layer is set to renderable</li>
+<li>the cameras that the render layer is set to render</li>
+</ul>
+<dl class="docutils">
+<dt>To Do:</dt>
+<dd><ul class="first last simple">
+<li>Does the default render layer name need to be augmented when passed
+to Maya’s rendering command?</li>
+<li>Should the default render layer be included at all?
+And should it be unselected by default?</li>
+</ul>
+</dd>
+</dl>
+<p>Note that this function is wrapped in an undo block because it actually changes
+the state of the maya session (unfortunately). There doesn’t appear to be
+an available api call to query maya for this information, without changing
+it’s state (switching the active render layer)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_render_settings_node">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_render_settings_node</code><span class="sig-paren">(</span><em>renderer_name</em>, <em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_render_settings_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the name of the renderer’s settings node.
+e.g. “defaultRenderGlobals” or “vraySettings” or “defaultArnoldRenderOptions”</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_renderer_globals_node">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_renderer_globals_node</code><span class="sig-paren">(</span><em>renderer_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_renderer_globals_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given renderer name, return the name of its renderer globals node.</p>
+<dl class="docutils">
+<dt>To Do:</dt>
+<dd>(lws) Note that if more than one node is found, raise an exception.
+This is to simplify things for now, but may need to support multiple
+nodes later.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>renderer_name</strong> (<em>str</em>) – e.g. “vray” or “arnold”</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">e.g. “defaultRenderGlobals”</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_renderer_info">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_renderer_info</code><span class="sig-paren">(</span><em>renderer_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_renderer_info" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>renderer_name</strong> (<em>str</em>) – e.g. “vray” or “arnold”</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">For example:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;renderer_name&quot;</span><span class="p">:</span> <span class="s2">&quot;vray&quot;</span><span class="p">,</span>
+<span class="s2">&quot;plugin_name&quot;</span><span class="p">:</span> <span class="s2">&quot;vrayformaya&quot;</span><span class="p">,</span>
+<span class="s2">&quot;plugin_version&quot;</span><span class="p">:</span> <span class="mf">3.00</span><span class="o">.</span><span class="mi">01</span><span class="s1">&#39;}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_renderer_plugin">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_renderer_plugin</code><span class="sig-paren">(</span><em>renderer_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_renderer_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given renderer name, return the renderer’s plugin name</p>
+<p>Attempt to find the correlation between the renderer name and the plugin
+name by asking maya for it’s active renderer’s global render settings node,
+and then asking what node type that is, and then asking which plugin
+provides the node type.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p><strong>THIS DOESN’T ALWAYS WORK!</strong></p>
+<p class="last">For some reason the “vraysettings” node isn’t always listed as one of
+the global render settings nodes. So we resort to a hard mapping.</p>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_short_name">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_short_name</code><span class="sig-paren">(</span><em>node</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_short_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the short name of a given maya node</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_transform">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_transform</code><span class="sig-paren">(</span><em>shape_node</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the transform node of a given shape node</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_vray_settings_node">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_vray_settings_node</code><span class="sig-paren">(</span><em>strict=True</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_vray_settings_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the VRaySettingsNode node in the maya scene.  If strict is True, and
+no node is found, raise an exception.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_workspace_dirpath">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_workspace_dirpath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_workspace_dirpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current Workspace directory</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.get_workspace_image_dirpath">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">get_workspace_image_dirpath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.get_workspace_image_dirpath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the current workspace’s image directory</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.is_arnold_renderer">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">is_arnold_renderer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.is_arnold_renderer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return boolean to indicat whether arnold is the current renderer for the maya
+scene</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.is_arnold_tx_enabled">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">is_arnold_tx_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.is_arnold_tx_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the “Use Existing .tx Textures” option is enabled in Arnolds
+render settings</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.is_renderman_renderer">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">is_renderman_renderer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.is_renderman_renderer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return boolean to indicat whether vray is the current renderer for the maya
+scene</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.is_vray_gpu_enabled">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">is_vray_gpu_enabled</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.is_vray_gpu_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if a GPU mode is selected in V-Ray’s render settings
+Current potential values set on V-Ray’s productionEngine attr are:</p>
+<ul class="simple">
+<li>0 = CPU mode (False)</li>
+<li>1 = OpenCL mode (False - not supported on Intel/NVIDIA hardware)</li>
+<li>2 = CUDA mode (True)</li>
+</ul>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.is_vray_renderer">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">is_vray_renderer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.is_vray_renderer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return boolean to indicat whether vray is the current renderer for the maya
+scene</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.parse_ocio_config_paths">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">parse_ocio_config_paths</code><span class="sig-paren">(</span><em>config_filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.parse_ocio_config_paths" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the given OCIO config file for any paths that we may be interested in (for uploads)</p>
+<p>For now, we’ll keep this simple and simply scrape the “search_path” value in the config file.
+However, it’s possible that additional attributes in the config will need to be queried.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.parse_rib_file">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">parse_rib_file</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.parse_rib_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the given rib filepath for file dependencies</p>
+<p>In leui of  python rib parser/api, we need need to resort to some awful hacks here.</p>
+<p>We use prman library to read the rib file.  The only benefit that this provides is that it can
+read a binary rib file and output it to ascii.  Aside from that, we’re doing crude regex matching
+from the content (no api for interfacing with ribs :( ).</p>
+<p>Regex for attributes such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span>
+<span class="n">fileTextureName</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.parse_vrscene_file">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">parse_vrscene_file</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.parse_vrscene_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the vrscene file paths…</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.parse_xgen_command">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">parse_xgen_command</code><span class="sig-paren">(</span><em>cmd_str</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.parse_xgen_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse xgen procedural command/args. Very crude with many assumptions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cmd_str</strong> (<em>str</em>) – <p>The string to parse, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="s1">&#39;-debug 1 -warning 1 -stats 1  -frame 1.000000 &#39;</span>
+    <span class="s1">&#39;-nameSpace cat_main -file /tmp/cat.xgen &#39;</span>
+    <span class="s1">&#39;-palette cat_xgen_coll -geom /tmp/cat_xgen_coll.abc &#39;</span>
+    <span class="s1">&#39;-patch Paw_R_emitter -description catcuff_xgen_desc &#39;</span>
+    <span class="s1">&#39;-fps 24.000000  -motionSamplesLookup -0.250000 0.250000 &#39;</span>
+    <span class="s1">&#39;-motionSamplesPlacement -0.250000 0.250000 &#39;</span>
+    <span class="s1">&#39;-world 1;0;0;0;0;1;0;0;0;0;1;0;0;0;0;1&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">e.g.:<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;debug&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+<span class="s1">&#39;description&#39;</span><span class="p">:</span> <span class="s1">&#39;catcuff_xgen_desc&#39;</span><span class="p">,</span>
+<span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="s1">&#39;/tmp/cat.xgen&#39;</span><span class="p">,</span>
+<span class="s1">&#39;fps&#39;</span><span class="p">:</span> <span class="s1">&#39;24.000000&#39;</span><span class="p">,</span>
+<span class="s1">&#39;frame&#39;</span><span class="p">:</span> <span class="s1">&#39;1.000000&#39;</span><span class="p">,</span>
+<span class="s1">&#39;geom&#39;</span><span class="p">:</span> <span class="s1">&#39;/tmp/cat_xgen_coll.abc&#39;</span><span class="p">,</span>
+<span class="s1">&#39;motionSamplesLookup&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;-0.250000&#39;</span><span class="p">,</span> <span class="s1">&#39;0.250000&#39;</span><span class="p">],</span>
+<span class="s1">&#39;motionSamplesPlacement&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;-0.250000&#39;</span><span class="p">,</span> <span class="s1">&#39;0.250000&#39;</span><span class="p">],</span>
+<span class="s1">&#39;nameSpace&#39;</span><span class="p">:</span> <span class="s1">&#39;cat_main&#39;</span><span class="p">,</span>
+<span class="s1">&#39;palette&#39;</span><span class="p">:</span> <span class="s1">&#39;cat_xgen_coll&#39;</span><span class="p">,</span>
+<span class="s1">&#39;patch&#39;</span><span class="p">:</span> <span class="s1">&#39;Paw_R_emitter&#39;</span><span class="p">,</span>
+<span class="s1">&#39;stats&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+<span class="s1">&#39;warning&#39;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+<span class="s1">&#39;world&#39;</span><span class="p">:</span> <span class="s1">&#39;1;0;0;0;0;1;0;0;0;0;1;0;0;0;0;1&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.parse_xgen_file">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">parse_xgen_file</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.parse_xgen_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crude <code class="docutils literal notranslate"><span class="pre">.xgen</span></code> file parser for reading palette files.</p>
+<p>Return a dictionary where the key is the module type, and the value is a
+list of modules of that type.  Each module is a dictionary of data,
+where the key is the property/attribute name, and the value is the raw
+value of the property.</p>
+<p>Example input file content:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Palette</span>
+    <span class="n">name</span>            <span class="n">robert_xgen_coll</span>
+    <span class="n">parent</span>
+    <span class="n">xgDataPath</span>        <span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">robert</span><span class="o">/</span><span class="n">collections</span><span class="o">/</span><span class="n">robert_xgen_coll</span>
+    <span class="n">xgProjectPath</span>        <span class="o">/</span><span class="n">test</span><span class="o">/</span><span class="n">shot_100</span><span class="o">/</span><span class="n">lighting</span><span class="o">/</span>
+    <span class="n">xgDogTag</span>
+    <span class="n">endAttrs</span>
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;Palette&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+       <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;robert_xgen_coll&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;parent&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;xgDataPath&#39;</span><span class="p">:</span> <span class="s1">&#39;/test/robert/collections/robert_xgen_coll&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;xgDogTag&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;xgProjectPath&#39;</span><span class="p">:</span> <span class="s1">&#39;/test/shot_100/lighting/&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;endAttrs&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+ <span class="p">]}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.renderer_exists">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">renderer_exists</code><span class="sig-paren">(</span><em>renderer_name</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.renderer_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the given renderer (name) can be found in the maya session</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>renderer_name</strong> (<em>str</em>) – e.g. “vray” or “arnold”</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.save_current_maya_scene">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">save_current_maya_scene</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.save_current_maya_scene" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves current Maya scene using standard save command</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.scrape_arnold_xgen_data_str">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">scrape_arnold_xgen_data_str</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.scrape_arnold_xgen_data_str" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse the given xgen_procedural.data string value into separate parts, and scrape each part
+for dependencies</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.scrape_ass_file">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">scrape_ass_file</code><span class="sig-paren">(</span><em>ass_filepath</em>, <em>node_attrs</em>, <em>plugin_paths=()</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.scrape_ass_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read/load the given arnold file with the arnold api, and seek out nodes that have filepaths
+of interest.</p>
+<dl class="docutils">
+<dt>To Do:</dt>
+<dd>(lws) Still need to investigate why this crashes in mayapy when
+arnold plugins are present (such as yeti or alshaders).</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>node_attrs</strong> (<em>dict</em>) – Key is the node type, value is a list of node attributes to query.</li>
+<li><strong>plugin_paths</strong> (<em>tuple</em><em>[</em><em>str</em><em>]</em>) – <p>This may be necessary when running outside of maya/interactive, so
+that nodes for arnold plugins (yeti, etc) can be properly
+loaded/used. e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="s2">&quot;/usr/anderslanglands/alshaders/alShaders-linux-2.0.0b2-ai5.0.1.0/bin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;/usr/peregrinelabs/yeti/Maya2017/Yeti-v2.2.6_Maya2017-linux64/bin&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.scrape_ass_files">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">scrape_ass_files</code><span class="sig-paren">(</span><em>ass_filepaths</em>, <em>node_attrs</em>, <em>plugin_paths=()</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.scrape_ass_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read/load the given arnold files with the arnold api, and seek out nodes that have filepaths
+of interest.</p>
+<dl class="docutils">
+<dt>To Do:</dt>
+<dd>(lws) Still need to investigate why this crashes in mayapy when
+arnold plugins are present (such as yeti or alshaders).</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>node_attrs</strong> (<em>dict</em>) – Key is the node type, value is a list of node attributes to query.</li>
+<li><strong>plugin_paths</strong> (<em>tuple</em><em>[</em><em>str</em><em>]</em>) – <p>This may be necessary when running outside of maya/interactive, so
+that nodes for arnold plugins (yeti, etc) can be properly
+loaded/used. e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span>
+    <span class="s2">&quot;/usr/anderslanglands/alshaders/alShaders-linux-2.0.0b2-ai5.0.1.0/bin&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;/usr/peregrinelabs/yeti/Maya2017/Yeti-v2.2.6_Maya2017-linux64/bin&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.scrape_ocio_dependencies">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">scrape_ocio_dependencies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.scrape_ocio_dependencies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the ocio config file (if it exists) and scrape it for external file dependencies</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.scrape_palette_node">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">scrape_palette_node</code><span class="sig-paren">(</span><em>palette_node</em>, <em>palette_filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.scrape_palette_node" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inspect/scrape the xgen palette node and parse it’s associated .xgen file for file dependencies
+named.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.scrape_xgen_file">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">scrape_xgen_file</code><span class="sig-paren">(</span><em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.scrape_xgen_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scrape the given .xgen file for file dependencies.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.scrape_yeti_graph">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">scrape_yeti_graph</code><span class="sig-paren">(</span><em>yeti_node</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.scrape_yeti_graph" title="Permalink to this definition">¶</a></dt>
+<dd><p>For the given pgYetiMaya node, scrape all of it’s external file dependencies.</p>
+<p>Note that this node not only contains typical string attributes which may
+contain filepaths, but it also is a “gateway” into yeti’s own internal dependency
+node system…. which must be queried for file dependencies as well.</p>
+<p>To further complicate things, these nodes allow paths to be defined relative/global
+(rather than absolute), so we’ll need to resolve them by reading the imageSearchPath
+attribute on the yeti node, as well as searching any search paths defined in PG_IMAGE_PATH
+environment variable.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="conductor.lib.maya_utils.scrape_yeti_node_type">
+<code class="descclassname">conductor.lib.maya_utils.</code><code class="descname">scrape_yeti_node_type</code><span class="sig-paren">(</span><em>yeti_node</em>, <em>node_type</em>, <em>attr_names</em>, <em>search_paths=()</em><span class="sig-paren">)</span><a class="headerlink" href="#conductor.lib.maya_utils.scrape_yeti_node_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scrape the given PgYetiMaya node for all yeti nodes of the given node_type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>yeti_node</strong> (<em>str</em>) – The name of the PyYetiNode to scrape for dependencies.</li>
+<li><strong>node_type</strong> (<em>str</em>) – The name of yeti node type to scrape for dependencies.</li>
+<li><strong>attr_names</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – The names of the yeti node’s attributes to read for dependencies.</li>
+<li><strong>search_paths</strong> (<em>list</em><em>[</em><em>str</em><em>]</em>) – an optional list of directories to resolved any relative/global
+files that are found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A list of filepaths</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">list[str]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="conductor.lib.nuke_utils.html" class="btn btn-neutral float-right" title="conductor.lib.nuke_utils module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conductor.lib.loggeria.html" class="btn btn-neutral float-left" title="conductor.lib.loggeria module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Atomic Conductor
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
