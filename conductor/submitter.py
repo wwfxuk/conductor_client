@@ -329,7 +329,7 @@ class ConductorSubmitter(QtWidgets.QMainWindow):
 
         In order to do so, subclass this class and override this method to
         return the desired widget object.  This widget will be inserted between
-        the Frame Range area and the  Submit button. See illustration below:
+        the Frame Range area and the  Submit button. See illustration below::
 
                  ____________________
                 |     Conductor      |
@@ -357,7 +357,7 @@ class ConductorSubmitter(QtWidgets.QMainWindow):
 
         In order to do so, subclass this class and override this method to
         return the desired widget object.  This widget will be inserted at the bottom
-        of the "Advanced" tab. See illustration below:
+        of the "Advanced" tab. See illustration below::
 
                  ____________________
                 |   Advanced <tab>   |
@@ -788,17 +788,20 @@ class ConductorSubmitter(QtWidgets.QMainWindow):
         """This gets called when the user pressed the "Submit" button in the
         UI.
 
-        -- Submission Control Flow ---
-        Below is the method calling order of when a user presses the "submit"
-        button in the UI:
-            1. self.runPreSubmission()         # Run any pre-submission processes.
-            2. self.runConductorSubmission()   # Run the submission process.
-            3. self.runPostSubmission()        # Run any post-submission processes.
+        Submission Control Flow:
 
-        Each one of these methods has the opportunity to return data, which in turn
-        will be available to the next method that is called.  If that mechanism
-        does not meet all pre/post submission needs, then overriding those methods
-        is also an available/appropriate methodology.
+            Below is the method calling order of when a user presses the
+            "submit" button in the UI:
+
+            1. ``self.runPreSubmission()``. Run any pre-submission processes.
+            2. ``self.runConductorSubmission()``. Run the submission process.
+            3. ``self.runPostSubmission()``. Run any post-submission processes.
+
+            Each one of these methods has the opportunity to return data, which
+            in turn will be available to the next method that is called.
+            If that mechanism does not meet all pre/post submission needs,
+            then overriding those methods is also an available/appropriate
+            methodology.
         """
         try:
             if not self.validateJobPackages():
@@ -998,13 +1001,15 @@ class ConductorSubmitter(QtWidgets.QMainWindow):
     def getDefaultScoutFrames(self):
         """Return the default scout frames for the open scene file.
 
-        This should
-        attempt to return the first, middle, and last frame
+        This should attempt to return the first, middle, and last frame.
+
         Logic order:
-            1. If the "start" and "end" fields are active/populated in the submitter UI
-               then use that range to determine first, middle, last scout frames
-            2. If the use has specified a custom frame range in the submitter UI,
-               Then return None
+
+        1. If the "start" and "end" fields are active/populated in the
+           submitter UI then use that range to determine first, middle,
+           last scout frames
+        2. If the use has specified a custom frame range in the submitter UI,
+           Then return None
         """
         try:
             if self.ui_start_end_rdbtn.isChecked():
@@ -1067,10 +1072,10 @@ class ConductorSubmitter(QtWidgets.QMainWindow):
         """
         Make sure the user is aware they are about submit a large job.
 
-        A large job has more tasks than a threshold. 
-        We first test the number of frames, because calculating 
+        A large job has more tasks than a threshold.
+        We first test the number of frames, because calculating
         the number of tasks is slow. If frames length is below the
-        threshold, then there can't possibly be too many tasks. If 
+        threshold, then there can't possibly be too many tasks. If
         there are too many tasks, then show the confirmation dialog.
 
         """
@@ -1331,7 +1336,7 @@ class ConductorSubmitter(QtWidgets.QMainWindow):
         expand/collpase that group.
 
 
-        Here is an example hierarchy:
+        Here is an example hierarchy::
 
             maya  # The group for all maya version packages
                 |
@@ -1357,7 +1362,7 @@ class ConductorSubmitter(QtWidgets.QMainWindow):
 
 
 
-        A package's data structure may look like this:
+        A package's data structure may look like this::
 
            {"package_id": "6b24ca0ea1085ebad536c18307192dce"
             "product": "maya",
@@ -1858,27 +1863,29 @@ class TaskFramesGenerator(object):
     etc).
 
     Because every rendering software has it's own rendering command with differing
-    arguments/syntax, this class is intendeded to be subclassed for each product.
+    arguments/syntax, this class is intended to be subclassed for each product.
 
     Specific problems that this class addresses:
 
-        1. Converting a job's "frame_range" argument into individual frames so
-           that each task is allocated unique frame(s) to render.
+    1. Converting a job's "frame_range" argument into individual frames so
+        that each task is allocated unique frame(s) to render.
 
-        2. Reading and applying those frames to the Task's render command
-           arguments. The render command syntax may be different for each product.
+    2. Reading and applying those frames to the Task's render command
+        arguments. The render command syntax may be different for each product.
 
-        3. Taking into consideration the job's "chunk_size" argument so that
-           a single Task can work on multiple frames.  This also includes interpreting
-           any "steps" that have been indicated in the job's "frame_range" argument.
+    3. Taking into consideration the job's "chunk_size" argument so that
+        a single Task can work on multiple frames.  This also includes interpreting
+        any "steps" that have been indicated in the job's "frame_range" argument.
 
     Note that this class is an iterator so that it can be iterated upon until
     a command for each task has been dispensed. It provides two items upon each
     iteration:
-        - A command that has been fully resolved for a task
-        - a list of frames (ints) that the task will be rendering
 
-    Example usage (using MayaTaskCommand child class):
+    - A command that has been fully resolved for a task
+    - a list of frames (ints) that the task will be rendering
+
+    Example usage (using MayaTaskCommand child class)::
+
         # Instantiate the class with proper args
         >>> cmd_generator = base_utils.MayaTaskCommand(command="Render <frame_args> deadpool.ma",
         ...                                            frame_range ="1-10x2",
@@ -1983,30 +1990,35 @@ class TaskFramesGenerator(object):
         """Return then "next" chunk of frames (that the task will render). This
         may be a list of one frame or several.
 
-        e.g. [1] # single frame
-             [1, 2 ,3]  # multiple frames
-             [1,2,3,40,100,101] # multiple frames (No common step. This can be problematic depending on the render command)
+        e.g. ::
 
-        uniform_chunk_step: bool. If True, will only return a chunk of frames
-                            that have a uniform step size between them.
+            [1] # single frame
+            [1, 2 ,3]  # multiple frames
+            [1,2,3,40,100,101] # multiple frames (No common step. This can be problematic depending on the render command)
+
+        Args:
+            uniform_chunk_step (bool):
+                If True, will only return a chunk of frames
+                that have a uniform step size between them.
 
 
-        more complicated example:
+        more complicated example::
             frame_range = "1-5x2,20-25,10-30x5,200,1000"
             chunk_size = 4
             step_size=5
 
-            resulting task frames:
-                task 0: [1]
-                task 1: [3]
-                task 2: [5, 10, 15, 20]  # range conforms to step size (5)
-                task 3: [21]
-                task 4: [22]
-                task 5: [23]
-                task 6: [24]
-                task 7: [25,30] # range conforms to step size (5)
-                task 8: [200]
-                task 9: [1000]
+        resulting task frames:
+
+        - task 0: ``[1]``
+        - task 1: ``[3]``
+        - task 2: ``[5, 10, 15, 20]``, range conforms to step size (5)
+        - task 3: ``[21]``
+        - task 4: ``[22]``
+        - task 5: ``[23]``
+        - task 6: ``[24]``
+        - task 7: ``[25,30]``, range conforms to step size (5)
+        - task 8: ``[200]``
+        - task 9: ``[1000]``
         """
         task_frames = ()
 
@@ -2045,12 +2057,15 @@ class TaskFramesGenerator(object):
         steps.
 
         e.g.
-             FRAMES                    STEPS
-             -------------------------------------------------
-             [1,2,3,4]         ->      [1]      # one step count between frames (1)
-             [-1,-3,-5,-7]     ->      [2]      # one step count between frames (2)
-             [1,3,5,17]        ->      [2, 12]  # multiple step counts between frames (2, 12)
-             [4]               ->      [1]      # if there isn't an actual step count, default to 1
+
+        ================= ============== =================================================
+          from FRAMES        to STEPS       Notes
+        ================= ============== =================================================
+        ``[1,2,3,4]``       ``[1]``      one step count between frames (1)
+        ``[-1,-3,-5,-7]``   ``[2]``      one step count between frames (2)
+        ``[1,3,5,17]``      ``[2, 12]``  multiple step counts between frames (2, 12)
+        ``[4]``             ``[1]``      if there isn't an actual step count, default to 1
+        ================= ============== =================================================
 
         The main functionality taken from: http://stackoverflow.com/questions/3428769/finding-the-largest-delta-between-two-integers-in-a-list-in-python
         """
@@ -2076,10 +2091,12 @@ class TaskFramesGenerator(object):
         """Separate the given list of frames into groups(sublists) of
         contiguous frames/
 
-        e.g. [1,2,3,15,16,17,21,85] --> [(1,2,3),(15,16,17), (21), (85)]
+        e.g. ``[1,2,3,15,16,17,21,85]`` to ``[(1,2,3),(15,16,17), (21), (85)]``
 
-        if ends_only==True, return only first and last frames of each group (i.e. "bookends only")
-            e.g. [(1,3),(15,17), (21), (85)]
+        if ``ends_only==True``, return only first and last frames of each group
+        (i.e. "bookends only") e.g. ::
+
+            [(1,3),(15,17), (21), (85)]
 
         taken from: http://stackoverflow.com/questions/2154249/identify-groups-of-continuous-numbers-in-a-list
         """

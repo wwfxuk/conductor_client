@@ -111,13 +111,17 @@ class ApiClient():
 
 def read_conductor_credentials(use_api_key=False):
     '''
-    Read the conductor credentials file, if it exists. This will contain a bearer token from either the user
-    or the API key (if that's desired). If the credentials file doesn't exist, try and fetch a new one in the
-    API key scenario or prompt the user to log in.
-    Args:
-        use_api_key: Whether or not to use the API key
+    Read the conductor credentials file, if it exists.
 
-    Returns: A Bearer token in the event of a success or None if things couldn't get figured out
+    This will contain a bearer token from either the user or the API key
+    (if that's desired). If the credentials file doesn't exist, try and fetch
+    a new one in the API key scenario or prompt the user to log in.
+
+    Args:
+        use_api_key (bool): Whether or not to use the API key.
+
+    Returns:
+        object: A Bearer token in the event of a success or None if things couldn't get figured out
 
     '''
 
@@ -212,7 +216,7 @@ def get_bearer_token(refresh=False):
 
 def account_id_from_jwt(token):
     """
-    Fetch the accounts id from a jwt token value.
+    Fetch the accounts id from a ``jwt`` token value.
     """
     payload = jwt.decode(token, verify=False)
     return payload.get("account")
@@ -220,7 +224,7 @@ def account_id_from_jwt(token):
 
 def account_name_from_jwt(token):
     """
-    Fetch the accounts name from a jwt token value.
+    Fetch the accounts name from a ``jwt`` token value.
     """
     account_id = account_id_from_jwt(token)
     if account_id:

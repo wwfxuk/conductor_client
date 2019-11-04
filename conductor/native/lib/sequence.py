@@ -2,9 +2,9 @@
 
 To create a sequence, use the create method and pass either:
 
-frame spec: e.g. string  "1-10, 14, 20-50x4"
-range: one, two, or three integers representing start, end, step.
-iterable: something that implements __iter__, e.g. a list.
+- frame spec: e.g. string  "1-10, 14, 20-50x4"
+- range: one, two, or three integers representing start, end, step.
+- iterable: something that implements __iter__, e.g. a list.
 
 If the input is valid, either a Sequence or a Progression will
 be created. A Progression is a Sequence that can be expressed
@@ -61,7 +61,7 @@ def _resolve_start_end_step(*args):
 def _to_frames(arg):
     """Convert frame spec to a sorted unique set of frames.
 
-    Logic, If the arg has __iter__ it is not a string, but is iterable.
+    Logic, If the arg has ``__iter__`` it is not a string, but is iterable.
     If it is a string break it up into ranges to build the list of
     frames.
     """
@@ -162,12 +162,16 @@ class Sequence(object):
     def _cycle_chunks(self):
         """Generate chunks with frame cycling.
 
-        Say we have 100 frames to render (1-100). With chunksize of 5,
-        there will be 20 instances. The first chunk will render 1, 21,
-        41, 61 81, the second chunk 2, 22, 42, 62, 82 and so on, which
-        means the artist will see frames 1,2,3,4...20 early on. This may
-        be useful to check for frame coherence artifacts without waiting
-        for a whole chunk to render on one machine.
+        Say we have 100 frames to render (1-100).
+
+        - With chunksize of 5, there will be 20 instances.
+
+          - The first chunk will render 1, 21, 41, 61 81
+          - The second chunk 2, 22, 42, 62, 82. And so on
+          - This means the artist will see frames 1,2,3,4...20 early on.
+
+        This may be useful to check for frame coherence artifacts without
+        waiting for a whole chunk to render on one machine.
         """
         num_chunks = self.chunk_count()
         result = [[] for i in range(num_chunks)]
@@ -191,19 +195,19 @@ class Sequence(object):
         Strategy can be linear, cycle, or progressions. Others
         may be added in future, such as binary.
 
-        "linear" will generate Sequences by simply walking
-        along the list of frames and grouping so that each
-        group has chunk_size frames. i.e. Fill chunk 1 then chunk 2 ...
+        - "linear" will generate Sequences by simply walking
+          along the list of frames and grouping so that each
+          group has chunk_size frames. i.e. Fill chunk 1 then chunk 2 ...
 
-        "cycle" will generate Sequences by distributing the
-        frames in each chunk in such a way that they get
-        filled in parallel group 1 gets frame 1, group 2 gets
-        frame 2 and we cycle around. See _cycle_chunks()
+        - "cycle" will generate Sequences by distributing the
+          frames in each chunk in such a way that they get
+          filled in parallel group 1 gets frame 1, group 2 gets
+          frame 2 and we cycle around. See _cycle_chunks()
 
-        "progressions" tries to walk along as in linear strategy, but
-        with the constraint that each Sequence is a Progression and
-        can be expressed with start, end, step. See
-        Progression.factory()
+        - "progressions" tries to walk along as in linear strategy, but
+          with the constraint that each Sequence is a Progression and
+          can be expressed with start, end, step. See
+          ``Progression.factory()``
         """
         if self._chunk_strategy == "cycle":
             return self._cycle_chunks()
@@ -268,10 +272,15 @@ class Sequence(object):
     def expand(self, template):
         """Expand a hash template with this sequence.
 
-        Example /some/directory_###/image.#####.exr. Sequence is invalid
-        if it contains no hashes. First we replace the hashes with a
-        template placeholder that specifies the padding as a number.
-        Then we use format to replace the placehoders with numbers.
+        For example::
+
+            /some/directory_###/image.#####.exr.
+
+        Sequence is invalid if it contains no hashes.
+
+        1. First we replace the hashes with a template placeholder that
+           specifies the padding as a number.
+        2. Then we use format to replace the placehoders with numbers.
         """
         if not re.compile("#+").search(template):
             raise ValueError("Template must contain hashes.")
@@ -353,8 +362,11 @@ class Sequence(object):
         For example, if chunk size is 70 and there are 100 frames, 2
         chunks will be generated with 70 and 30 frames. It would be
         better to have 50 frames per chunk and this method returns that
-        number. NOTE: It doesn't make sense to use the best chunk size
-        when chunk strategy is progressions.
+        number.
+
+        Note:
+            It doesn't make sense to use the best chunk size
+            when chunk strategy is progressions.
         """
         count = int(math.ceil(len(self._iterable) / float(self._chunk_size)))
         return int(math.ceil(len(self._iterable) / float(count)))

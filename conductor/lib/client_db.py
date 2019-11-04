@@ -16,9 +16,9 @@ def get_default_db_filepath():
     Return a default filepath to use for storing the sqlite.
     Depending on the platform, this will be located in some sort of temporary
     directory, such as:
-        - /usr/temp  (linux)
-        - c:\users\<username>\appdata\local\temp  (windows)
 
+    - ``/usr/temp`` for Linux
+    - ``c:\users\<username>\appdata\local\temp`` for Windows
     '''
     return os.path.join(tempfile.gettempdir(), DB_FILENAME)
 
@@ -56,17 +56,22 @@ class TableDB(object):
     @classmethod
     def connnect_to_db(cls, db_filepath, timeout=300, db_perms=0666):
         '''
-        Create a connection to the database with the specified database filepath and
-        return the connection object
+        Create a connection to the database with the specified database
+        filepath and return the connection object
 
-        timeout: float.  The amount of seconds that a connection will wait to
-                 establish itself before it times out and raises an
-                 "OperationalError: database is locked" exception.  This is important
-                 when threading bc sqlite can't handle that many concurrent
-                 connections and will quickly throw that exception unless the timeout
-                 is high enough. Honestly this is kind of a hack and may not
-                 work in all circumstances.  We should really just query the db
-                 in a single thread (IMO -lws)
+        Args:
+            timeout (float):
+                The amount of seconds that a connection will wait to
+                establish itself before it times out and raises an
+                "OperationalError: database is locked" exception.
+
+                This is important when threading because sqlite can't handle
+                that many concurrent connections and will quickly throw that
+                exception unless the timeout is high enough.
+
+                Honestly this is kind of a hack and may not work in all
+                circumstances.  We should really just query the db in a
+                single thread (IMO -lws)
         '''
         # If the db filepath does not exist, create one with open permissions
         if not os.path.exists(db_filepath):
@@ -87,16 +92,18 @@ class TableDB(object):
         '''
         Execute the given sql command
 
-        new_connection: bool.  If True, will instantiate a new sql connection
-                        object.  This is necessary when running this method
-                        across multiple threads.
-                        
-        many: bool. If True, will execute the given sql command in batch, using
-                    the given params as a list of variables for each call.
-                        
+        Args:
+            new_connection (bool):
+                If ``True``, will instantiate a new sql connection
+                object.  This is necessary when running this method
+                across multiple threads.
+
+            many (bool):
+                If ``True``, will execute the given sql command in batch, using
+                the given params as a list of variables for each call.
         '''
         params = params or []
-        
+
         if self.thread_safe:
             self.connection = self.connnect_to_db(self.db_filepath)
 
@@ -128,7 +135,6 @@ class TableDB(object):
 
     @classmethod
     def get_table_sql(cls):
-
         '''
         create a table with the columns defined in self.columns
         '''
@@ -184,11 +190,13 @@ class TableDB(object):
     def insert_row(self, row_dict, replace=True):
         '''
         Add the given row data (dictionary) to the the db
-        
-        row_data: dict, where the keys are the columns names
-        replace: bool. When True, will replace the the existing row in the db
-                 (if there is one) that matches the row's Primary Key.
-        
+
+        Args:
+            row_data (dict):
+                Where the keys are the columns names.
+            replace (bool):
+                When True, will replace the the existing row in the db
+                (if there is one) that matches the row's Primary Key.
         '''
         return self.insert_rows([row_dict], replace=replace)
 
@@ -196,11 +204,13 @@ class TableDB(object):
     def insert_rows(self, row_dicts, replace=True):
         '''
         Add the given list of of row data (dictionaries) to the the db
-        
-        row_data: dict, where the keys are the columns names
-        replace: bool. When True, will replace the the existing row in the db
-                 (if there is one) that matches the row's Primary Key.
-        
+
+        Args:
+            row_data (dict):
+                Where the keys are the columns names.
+            replace (bool):
+                When True, will replace the the existing row in the db
+                (if there is one) that matches the row's Primary Key.
         '''
 
         or_replace = "OR REPLACE" if replace else ""
@@ -258,13 +268,14 @@ class FilesDB(TableDB):
     def add_file(cls, file_info, db_filepath=None, thread_safe=True):
         '''
         Add the given file to the files table
-        
-        file_info: a dictionaries with the following keys:
-                "filepath",
-                "modtime"
-                "filesize"
-        
-        
+
+        Args:
+            file_info (dict[str]):
+                A dictionaries with the following keys:
+
+                - "filepath",
+                - "modtime",
+                - "filesize"
         '''
 #         logger.debug("file_info: %s", file_info)
         cls.add_files([file_info], db_filepath=db_filepath, thread_safe=thread_safe)
@@ -273,12 +284,14 @@ class FilesDB(TableDB):
     def add_files(cls, files_info, db_filepath=None, thread_safe=True):
         '''
         Add the given list of files to the files db table.
-        
-        files_info: a list of dictionaries, each with the following keys:
-                    "filepath",
-                    "modtime"
-                    "filesize"
-        
+
+        Args:
+            file_info (dict[str]):
+                A dictionaries with the following keys:
+
+                - "filepath",
+                - "modtime",
+                - "filesize"
         '''
         if not db_filepath:
             db_filepath = get_default_db_filepath()
@@ -295,13 +308,13 @@ class FilesDB(TableDB):
     def query_files(cls, filepaths, return_dict=False, db_filepath=None, thread_safe=True):
         '''
         Query the db for all files which match the given filepaths.
-        
+
         Note that this achieved through chunked queries so not to breach sqlite's
         maximum of 999 arguments
-        
+
         one: bool.  If True, treat th
-        
-        
+
+
         '''
         if not db_filepath:
             db_filepath = get_default_db_filepath()
@@ -335,10 +348,10 @@ class FilesDB(TableDB):
     def query_file(cls, filepath, db_filepath=None, thread_safe=True):
         '''
         Query the db for all files which match the given filepaths.
-        
-        Note that this achieved through chunked queries so not to breach sqlite's
-        maximum of 999 arguments
-        
+
+        Note that this achieved through chunked queries so not to breach
+        sqlite's maximum of 999 arguments
+
         '''
         filepaths = [filepath]
         files = cls.query_files(filepaths, return_dict=False, db_filepath=db_filepath,
@@ -356,6 +369,7 @@ class FilesDB(TableDB):
         Return a list of column names whose data (for a given file row), should
         be used to compare against the data of a file from disk (e.g. to check
         whether a file on disk has stale cache or not).
+
         This should return names such as "filepath", "modtime, and "size", but
         not "md5" (bc the file on disk doesn't have the md5 info available...which
         is the whole point of quering the db for it :) )
@@ -367,9 +381,8 @@ class FilesDB(TableDB):
     def get_cached_file(cls, file_info, db_filepath=None, thread_safe=True):
 
         '''
-        For the given file (file_info), return it's db entry if is not considered
-        "stale", otherwise return None
-           
+        For the given file (file_info), return it's db entry if is not
+        considered "stale", otherwise return ``None``
         '''
         filepath = file_info["filepath"]
         file_entry = cls.query_file(filepath, db_filepath=db_filepath, thread_safe=thread_safe)
@@ -386,15 +399,9 @@ class FilesDB(TableDB):
         return file_entry
 
 
-
-
 def chunker(list_, chunk_size):
     '''
-    For the given list, return a tuple which breaks creates smaller lists of the
-    given size (length), containing the contents of the the orginal list
-
+    For the given list, return a tuple which breaks creates smaller lists of
+    the given size (length), containing the contents of the the original list
     '''
     return (list_[pos:pos + chunk_size] for pos in xrange(0, len(list_), chunk_size))
-
-
-

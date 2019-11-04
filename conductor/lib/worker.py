@@ -56,7 +56,8 @@ class ThreadWorker(object):
 
     The class defines the basic function and data structures that all workers need.
 
-    TODO: move this into it's own lib
+    To Do:
+        Move this into it's own lib
     '''
 
     def __init__(self, **kwargs):

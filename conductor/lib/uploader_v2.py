@@ -80,7 +80,7 @@ class Uploader(object):
         """
         Start the downloader daemon. Create all child worker processes, start
         them, and join them. This is blocking function and will not exit until
-        all workers have exited their prococess.
+        all workers have exited their process.
 
         """
         LOGGER.info("starting uploader daemon")
@@ -136,8 +136,8 @@ class Uploader(object):
         run_state state object.
 
         WORKERS:
-            - DownloadWorker # Downloads files
-            - HistoryWorker  # logs out history of downloaded files
+        - ``DownloadWorker``, downloads files
+        - ``HistoryWorker``, logs out history of downloaded files
         """
 
         bearer = api_client.get_bearer_token()
@@ -235,9 +235,9 @@ class Uploader(object):
 
 class UploaderWorker(multiprocessing.Process):
     """
-    Worker process for uplpads.
+    Worker process for uploads.
 
-    It's job is to periodically ask the server for an upload object:
+    It's job is to periodically ask the server for an upload object::
 
         {u'account': u'testaccountdomain',
          u'bytes_transferred': 0,
@@ -253,9 +253,9 @@ class UploaderWorker(multiprocessing.Process):
          u'total_size': 12934,
          u'ulid': u'5273391011463168'}
 
-    It will then create an FileGenerator() object from the filepath,
-    registering the self.event_handler() method as the callback to be
-    fired for each chunk uploded to GCS.
+    It will then create an ``FileGenerator()`` object from the filepath,
+    registering the ``self.event_handler()`` method as the callback to be
+    fired for each chunk uploaded to GCS.
 
     It knows how to handle success and failure events from the upload stream.
 
@@ -564,7 +564,7 @@ class UploaderWorker(multiprocessing.Process):
 
     def wait(self):
         '''
-        sleep for WORKER_SLEEP_DURATION
+        sleep for ``WORKER_SLEEP_DURATION``
 
         Instead of doing one long sleep call, we make a loop of many
         short sleep calls. This gives the opportunity to check the
@@ -871,14 +871,15 @@ def resolve_args(args):
 def resolve_arg(arg_name, args, config):
     '''
     Helper function to resolve the value of an argument.
+
     The order of resolution is:
+
     1. Check whether the user explicitly specified the argument when calling/
        instantiating the class. If so, then use it, otherwise...
-    2. Attempt to read it from the config.yml. Note that the config also
+    2. Attempt to read it from the ``config.yml``. Note that the config also
        queries environment variables to populate itself with values.
        If the value is in the config then use it, otherwise...
-    3. return None
-
+    3. return ``None``
     '''
     # Attempt to read the value from the args
     value = args.get(arg_name)

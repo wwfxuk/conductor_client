@@ -1,0 +1,46 @@
+name: Documentations
+
+on: [push]
+
+jobs:
+  build:
+    name: Build API Docs
+    runs-on: ubuntu-latest
+    env:
+      IIDFILE: docs/docker/ImageID
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Docs generator image
+      run: docker build --iidfile="${IIDFILE}" --rm docs/docker
+
+    - name: Make API docs
+      run: docker run --rm -v $(pwd):/repo "$(cat ${IIDFILE})"
+
+    - uses: actions/upload-artifact@master
+      with:
+        name: html-docs
+        path: docs/_build
+
+  publish:
+    name: Publish API Docs
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+    - uses: actions/download-artifact@master
+      with:
+        name: html-docs
+        path: .
+    - name: Force push gh-pages
+      run: |
+        find -ls
+        git init .
+        git config user.name "https://www.github.com/${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}@${GITHUB_SHA}"
+        git remote add origin "https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}"
+        git checkout -B gh-pages
+        git add .
+        git commit -m "Generated from GitHub Action '${GITHUB_ACTION}'" -m "From '${GITHUB_REF}' (${GITHUB_SHA})"
+        git push --force origin gh-pages

@@ -50,15 +50,18 @@ class ExceptionAction(object):
     '''
     This is a base class to be used for constructing decorators that take a
     specific action when the decorated method/function raises an exception.
+
     For example, it can send a message or record data to a database before
     the exception is raised, and then (optionally) raise the exception.
-    Optionally specify particular exceptions (classes) to be omiited from taking
-    action on (though still raise the exception)
+    Optionally specify particular exceptions (classes) to be omitted from
+    taking action on (though still raise the exception)
 
-    disable_var: str. An environment variable name, which if found in the runtime
-                      environement will disable the action from being taken. This
-                      can be useful when a developer is activeky developing and
-                      does not want the decorator to take action.
+    Attributes:
+        disable_var (str):
+            An environment variable name, which if found in the runtime
+            environment will disable the action from being taken. This
+            can be useful when a developer is actively developing and
+            does not want the decorator to take action.
     '''
 
     def __init__(self, raise_=True, omitted_exceptions=(), disable_var=""):
@@ -70,7 +73,7 @@ class ExceptionAction(object):
         '''
         This gets called during python compile time (as all decorators do).
         It will always have only a single argument: the function this is being
-        decorated.  It's responsbility is to return a callable, e.g. the actual
+        decorated.  It's responsibility is to return a callable, e.g. the actual
         decorator function
         '''
         @functools.wraps(function)
@@ -109,7 +112,8 @@ class ExceptionAction(object):
         '''
         Overide this method to do something useful before raising the exception.
 
-        e.g.:
+        e.g.::
+
             print "sending error message to mom: %s" % traceback.format_exc()
         '''
         raise NotImplementedError
@@ -122,9 +126,9 @@ class ExceptionLogger(ExceptionAction):
     the exception and continue (suppressing the actual exception.  A message
     may be prepended to the exception message.
 
-    example output:
+    example output::
 
-        >> broken_function()
+        >>> broken_function()
         # Warning: conductor.lib.common : My prependend message
         Traceback (most recent call last):
           File "/usr/local/lschlosser/code/conductor_client/conductor/lib/common.py", line 85, in decorater_function
@@ -138,9 +142,14 @@ class ExceptionLogger(ExceptionAction):
     def __init__(self, message="", log_traceback=True, log_level=logging.WARNING,
                  raise_=False, omitted_exceptions=(), disable_var=""):
         '''
-        message: str. The prepended message
-        log_level: int. The log level to log the message as
-        raise_: bool.  Whether to raise (i.e. not supress) the exception after
+
+        Args:
+            message (str):
+                The prepended message.
+            log_level (int):
+                The log level to log the message as.
+            raise_ (bool):
+                Whether to raise (i.e. not supress) the exception after
                 it's been logged.
         '''
 
@@ -212,20 +221,27 @@ def dec_catch_exception(raise_=False):
 
 class DecRetry(object):
     '''
-    Decorator that retries the decorated function using an exponential backoff sleep.
+    Decorator that retries the decorated function using an exponential backoff
+    sleep.
 
-    retry_exceptions: An Exception class (or a tuple of Exception classes) that
-                    this decorator will catch/retry.  All other exceptions that
-                    occur will NOT be retried. By default, all exceptions are
-                    caught (due to the default arguemnt of Exception)
+    Attributes:
+        retry_exceptions (Class or tuple[Class]):
+            An Exception class (or a tuple of Exception classes) that
+            this decorator will catch/retry.  All other exceptions that
+            occur will NOT be retried. By default, all exceptions are
+            caught (due to the default arguemnt of Exception)
 
-    skip_exceptions:  An Exception class (or a tuple of Exception classes) that
-                     this decorator will NOT catch/retry.  This will take precedence
-                     over the retry_exceptions.
+        skip_exceptions (Class or tuple[Class]):
+            An Exception class (or a tuple of Exception classes) that
+            this decorator will NOT catch/retry.  This will take precedence
+            over the retry_exceptions.
 
-    tries: int. number of times to try (not retry) before raising
-    static_sleep: The amount of seconds to sleep before retrying. When set to
-                  None, the sleep time will use exponential backoff. See below.
+        tries (int):
+            Number of times to try (not retry) before raising
+
+        static_sleep:
+            The amount of seconds to sleep before retrying. When set to
+            None, the sleep time will use exponential backoff. See below.
 
     This retry function not only incorporates exponential backoff, but also
     "jitter".  see http://www.awsarchitectureblog.com/2015/03/backoff.html.
@@ -309,27 +325,26 @@ def generate_md5(filepath, base_64=False, blocksize=65536, poll_seconds=None,
     '''
     Generate and return md5 hash (base64) for the given filepath
 
-    filepath: str. The file path to generate an md5 hash for.
-
-    base_64: bool. whether or not to return a base64 string.
-
-    poll_seconds: int, the number of seconds to wait between logging out to the
-                   console when md5 hashing (particularly a large file which
-                   may take a while)
-    log_level: logging.level. The log level that should be used
-                when logging messages.
-
-   callback: A callable that is called during the md5 hashing process. It's called
-             every time a block of data has been hashed (see blocksize arg).The
-             callable receives the following arguments:
-
-             filepath: see above
-
-             file_size: the total size of the file (in bytes)
-
-             bytes_processed: the amount of bytes that has currently been hashed
-
-             log_level: see above
+    Args:
+        filepath (str):
+            The file path to generate an md5 hash for.
+        base_64 (bool):
+            whether or not to return a base64 string.
+        poll_seconds (int):
+            The number of seconds to wait between logging out to the
+            console when md5 hashing (particularly a large file which
+            may take a while)
+        log_level (logging.level):
+            The log level that should be used when logging messages.
+        callback (callable):
+            A callable that is called during the md5 hashing process.
+            It's called every time a block of data has been hashed
+            (see ``blocksize`` arg).
+            The callable receives the following arguments:
+            - ``filepath``: see above
+            - ``file_size``: the total size of the file (in bytes)
+            - ``bytes_processed``: the amount of bytes that has currently been hashed
+            - ``log_level``: see above
 
     '''
     file_size = os.path.getsize(filepath)
@@ -371,12 +386,14 @@ def generate_md5(filepath, base_64=False, blocksize=65536, poll_seconds=None,
 
 def base_dir():
     '''
-    Return the top level directory for the local Conductor repo. This is derived
-    by traversing up directories from this current script.
+    Return the top level directory for the local Conductor repository.
 
-    Note that due to symkinks, we can't use os.path.realpath on __file__ because
-    __file__ may be a symlinked path and would return the directory for the
-    "real" file (as opposed to the directory of the symlinked file (__file__))
+    This is derived by traversing up directories from this current script.
+
+    Note that due to symkinks, we can't use os.path.realpath on ``__file__``
+    because ``__file__`` may be a symlinked path and would return the directory
+    for the "real" file (as opposed to the directory of the symlinked file
+    (``__file__``))
     '''
     module_filepath = __file__
     if module_filepath.startswith(".%s" % os.sep):
@@ -434,11 +451,9 @@ class Config():
     def validate_api_key(config):
         """
         Load the API Key (if it exists)
+
         Args:
             config: client configuration object
-
-        Returns: None
-
         """
         if 'api_key_path' not in config:
             config['api_key_path'] = os.path.join(base_dir(), 'auth', 'conductor_api_key')
@@ -458,8 +473,9 @@ class Config():
 
     def get_environment_config(self):
         '''
-        Look for any environment settings that start with CONDUCTOR_
-        Cast any variables to bools if necessary
+        Look for any environment settings that start with ``CONDUCTOR_``.
+
+        Cast any variables to ``bool`` if necessary.
         '''
         prefix = 'CONDUCTOR_'
         skipped_variables = ['CONDUCTOR_CONFIG']
@@ -477,9 +493,10 @@ class Config():
     def _process_var_value(self, env_var):
         '''
         Read the given value (which was read from an environment variable, and
-        process it onto an appropriate value for the config.yml file.
-        1. cast integers strings to python ints
-        2. cast bool strings into actual python bools
+        process it onto an appropriate value for the ``config.yml`` file.
+
+        1. cast integers strings to python ``int``s
+        2. cast bool strings into actual python ``bool``s
         3. anything else?
         '''
         # Cast integers
@@ -552,14 +569,16 @@ def load_resources_file():
     '''
     Return the resource yaml file as a dict.
 
-    If the $CONDUCTOR_RESOURCES_PATH environment variable is set, then use it
-    to find load the resource file from. Otherwise look for it in the default
-    location.
+    If the ``$CONDUCTOR_RESOURCES_PATH`` environment variable is set,
+    then use it to find load the resource file from.
+    Otherwise look for it in the default location.
 
-    TODO:(lws) the resource filepath should also be able to be dictated in the config
-    But can't check that here because this module (common.py) should not
-    have any imports from the conductor package, i.e. this module creates the
-    config, and therefore cannot be reliant on the config.
+    To Do:
+        (lws) the resource filepath should also be able to be dictated in the
+        config But can't check that here because this module (``common.py``)
+        should not have any imports from the conductor package,
+        i.e. this module creates the config, and therefore cannot be reliant
+        on the config.
     '''
 
     resources_filepath = os.environ.get("CONDUCTOR_RESOURCES_PATH")
@@ -631,21 +650,32 @@ def load_yaml(filepath, safe=True, omit_tags=False):
     '''
     Helper class that loads the given yaml filepath into a python object.
 
-    safe: bool. When True, will use yaml's safe_loader.
+    This function is somewhat complex(and ugly) because it must create it's own
+    functions and classes.
 
-    omit_tags: bool. When True, will skip any yaml tags in the file. This can be
-                useful when you want to read a yaml file but don't have all
-                of the necessary yaml tag constructors to do so.  All tags in the file
-                will be given a value of u'<TAG OMITTED>'
+    The reason it must create it's own ``Loader`` class is because when adding
+    a custom constructor, that constructor remains loaded (and imbedded in the
+    PyYaml's native ``Loader`` class) for the duration of the python session.
 
-    This function is somewhat complex(and ugly) because it must create it's own functions and classes.
-    The reason it must create it's own Loader class is because when adding a custom constructor,
-    that constructor remains loaded (and imbedded in the PyYaml's native Loader class) for the
-    duration of the python session. This could lead to disastrous behavior for customers that may
-    be using the same session to do additional python work (think inside of Maya).  So instead
-    of using PyYaml's Loader classes directly, we subclass our own so that we can dispose of it when
-    we're done. This all could have been avoided if PyYaml also provided a "remove_multi_constructor"
-    function.
+    This could lead to disastrous behavior for customers that may be using the
+    same session to do additional python work (think inside of Maya).
+
+    So instead of using PyYaml's ``Loader`` classes directly, we subclass our
+    own so that we can dispose of it when we're done.
+
+    This all could have been avoided if PyYaml also provided a
+    "remove_multi_constructor" function.
+
+    Args:
+        safe (bool):
+            When ``True``, will use yaml's ``safe_loader``.
+
+        omit_tags (bool):
+            When ``True``, will skip any yaml tags in the file. This can be
+            useful when you want to read a yaml file but don't have all
+            of the necessary yaml tag constructors to do so.  All tags in the
+            file will be given a value of ``u'<TAG OMITTED>'``
+
     '''
 
     loader = yaml.SafeLoader if safe else yaml.Loader

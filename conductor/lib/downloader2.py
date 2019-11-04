@@ -52,7 +52,7 @@ def random_exeption(percentage_chance):
 def dec_random_exception(percentage_chance):
     '''
     DECORATOR for creating random exceptions for the wrapped function.
-    This is used for simluating errors to test downloader recovery behavior/robustness
+    This is used for simulating errors to test downloader recovery behavior/robustness
     '''
     def catch_decorator(func):
         @functools.wraps(func)
@@ -187,8 +187,8 @@ class Downloader(object):
     A Downloader daemon which downloads completed frames from finished tasks.
 
 
-    Each task has an associated Download entity that represents
-    all images/files that were produced from that task. A task may have more than
+    Each task has an associated Download entity that represents all
+    images/files that were produced from that task. A task may have more than
     file to download.
 
     1. Query the app for the "next" download to download.  The app will return
@@ -198,36 +198,25 @@ class Downloader(object):
        inheriting).  Note that there is cron job that resets Download entities
        that are in state of Downloading but have not "dialed home" after x amount
        of time.
+    2. Place this Download in the queue to be downloaded.
+    3. Spawn threads to actively take "work" (Downloads) from the queue.
+    4. Each thread is responsible for downloading the Download that it took
+       from the queue.
+    5. Each thread is responsible for updating the app of it's downloading
+       status: "downloading", etc
+    6. Each thread is responsible for catching their own exceptions and placing
+       the Download back into the queue
+    7. Because the downloader is threaded, it makes communication/tracking of
+       data more difficult.  In order to facilitate this, ThreadState objects
+       are shared across threads to read/write data to. This allows download
+       progress to be communicated from multiple threads into a single object,
+       which can then be read from a single process and "summarized".
 
-   2. Place this Download in the queue to be downloaded.
+    A ``TaskDownloadState.files`` = ``[FileDownloadState, FileDownloadState]``.
 
-   3. Spawn threads to actively take "work" (Downloads) from the queue.
-
-   4. Each thread is responsible for downloading the Download that it took from
-      the queue.
-
-  5. Each thread is responsible for updating the app of it's downloading status:
-      "downloading", etc
-
-  6. Each thread is responsible for catching their own exceptions and placing the
-     Download back into the queue
-
-  7.
-
-    Because the downloader is threaded, it makes communication/tracking of data
-    more difficult.  In order to facilitate this, ThreadState objects are shared
-    across threads to read/write data to. This allows download progress to
-    be communicated from multiple threads into a single object, which can then
-    be read from a single process and "summarized".
-
-    A TaskDownloadState
-       .files= [FileDownloadState, FileDownloadState]
-
-
-    To complicate matters further, if the downloader is killed (via keyboard, etc),
-    the it should clean up after itself.  So we need to catch the
-    SIGINT EXIT signal at any point in the code and handle it gracefully.
-
+    To complicate matters further, if the downloader is killed (via keyboard,
+    etc), the it should clean up after itself.  So we need to catch the
+    ``SIGINT EXIT`` signal at any point in the code and handle it gracefully.
     '''
 
     # The amount of time to "sleep" before querying the app for more downloads
@@ -464,30 +453,35 @@ class Downloader(object):
         This function is called in a new thread (and many threads may be
         executing this at a single time). This function is responsible for
         downloading a single Download (essentially an entity in Datastore which
-        represents the output data from a single Task).  This may consist of many
-        files.
+        represents the output data from a single Task).  This may consist of
+        many files.
 
         This function pulls one Download from the pending queue and attempts
         to download it.  If it fails, it places it back on the queue.
 
-        The function also spawns a child thread that is responsible for constantly
-        updating the app with the status of the Download, such as:
-            - status (e.g. "pending", "downloading", "downloaded")
-            - bytes transferred (the total amout of bytes that have been transferred
-              for the Download. Note that these bytes encompass all of the bytes
-              that have been transferred for ALL of the files that are part
-              of the Download (as opposed to only a single file)
+        The function also spawns a child thread that is responsible for
+        constantly updating the app with the status of the Download, such as:
 
+        - status (e.g. "pending", "downloading", "downloaded")
+        - bytes transferred (the total amount of bytes that have been
+          transferred for the Download).
 
-        task_download_state: a class, serving as global mutable object, which allows
-                        this thread to report data about its Download state,
-                        so that other threads can read and output that data.
-                        This object is persistant for each thread, and is used
-                        over and over again, everytime thime this  function is called,
-                        for each Task that a thread downloads
-                        It's important that the state information is wiped clean (reset) every time a new task begins.
-                        This is the resposnbility of this function
+          Note that these bytes encompass all of the bytes that have been
+          transferred for ALL of the files that are part of the Download
+          (as opposed to only a single file)
 
+        Args:
+            task_download_state:
+                A class, serving as global mutable object, which allows
+                this thread to report data about its Download state,
+                so that other threads can read and output that data.
+                This object is persistant for each thread, and is used
+                over and over again, everytime time this function is called,
+                for each Task that a thread downloads.
+
+                It's important that the state information is wiped clean
+                (reset) every time a new task begins.
+                This is the responsibility of this function
         '''
         task_download_state.thread_name = threading.currentThread().name
 
@@ -763,102 +757,101 @@ class Downloader(object):
                                             data=json.dumps(data), use_api_key=True)
 
     def print_summary(self, thread_states, interval):
-        '''
-        - total threads running
-        - thread names
-        - total download threads
+        '''Print summary of download threads.
 
-        Last 20 files downloaded
-        Last 20 tasks  downloaded
-        Last 20 Downlaods  downloaded
+        - Total threads running
+        - Thread names
+        - Total download threads
+        - Last 20 files downloaded
+        - Last 20 tasks downloaded
+        - Last 20 Downloads downloaded
+        - Currently downloading jobs
+        - Currently downloading files
+        - Currently downloading Downloads
 
-        Currently downloading jobs
-        Currenly downloading files
-        Currently downloading Downloads
+        For example::
 
+            ####### SUMMARY #########################
+            Active Thread Count: 14
 
-
-        ####### SUMMARY #########################
-        Active Thread Count: 14
-
-        Threads:
-              ErrorThread
-              MainThread
-              MetricStore
-              ProgressThread
-              ProgressThread
-              ProgressThread
-              ProgressThread
-              ProgressThread
-              ProgressThread
-              QueueThread
-              Thread-1
-              Thread-2
-              Thread-3
-              Thread-4
-              Thread-5
-
-
-        #### ACTIVE DOWNLOADS #####
-
-         Job 08285 Task 004 - 80% (200/234MB)  - Thread-1
-             /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/beauty/deep_lidar.deep.0005.exr  HASHING EXISTING FILE     80%
-             /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/data/deep_lidar.deep.0005.exr    DOWLOADING 20%
+            Threads:
+                ErrorThread
+                MainThread
+                MetricStore
+                ProgressThread
+                ProgressThread
+                ProgressThread
+                ProgressThread
+                ProgressThread
+                ProgressThread
+                QueueThread
+                Thread-1
+                Thread-2
+                Thread-3
+                Thread-4
+                Thread-5
 
 
+            #### ACTIVE DOWNLOADS #####
 
-         Job 08285 Task 003 - 20%  (20/234MB) - Thread-2
-             /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01142.exr
-             /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01074.exr
-
-
-        #### PENDING DOWNLOADS #####
-            Job 08285 Task 006
-            Job 08285 Task 007
-            Job 08285 Task 008
-            Job 08285 Task 009
+            Job 08285 Task 004 - 80% (200/234MB)  - Thread-1
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/beauty/deep_lidar.deep.0005.exr  HASHING EXISTING FILE     80%
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/data/deep_lidar.deep.0005.exr    DOWLOADING 20%
 
 
 
+            Job 08285 Task 003 - 20%  (20/234MB) - Thread-2
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01142.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01074.exr
 
-        #### HISTORY ####
 
-        Last 20 files downloaded:
+            #### PENDING DOWNLOADS #####
+                Job 08285 Task 006
+                Job 08285 Task 007
+                Job 08285 Task 008
+                Job 08285 Task 009
 
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01142.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01074.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01038.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01111.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01087.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01143.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01095.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01156.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01016.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01039.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01130.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01030.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01015.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01138.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01063.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01006.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01065.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01096.exr
-            /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01055.exr
 
-        Last 20 tasks downloaded
-            Job 08285 Task 004 (Download 3492394234)
-            Job 08285 Task 002 (Download 3492394234)
-            Job 08285 Task 003 (Download 3492394234)
-            Job 08285 Task 001 (Download 3492394234)
-            Job 08285 Task 000 (Download 3492394234)
-            Job 08284 Task 065 (Download 3492394234)
-            Job 08283 Task 064 (Download 3492394234)
-            Job 08283 Task 063 (Download 3492394234)
-            Job 08282 Task 032 (Download 3492394234)
-            Job 08282 Task 025 (Download 3492394234)
-            Job 08282 Task 001 (Download 3492394234)
 
-        ####################
+
+            #### HISTORY ####
+
+            Last 20 files downloaded:
+
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01142.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01074.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01038.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01111.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01087.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01143.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01095.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01156.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01016.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01039.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01130.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01030.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01015.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01138.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01063.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01006.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01065.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01096.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01055.exr
+
+            Last 20 tasks downloaded
+                Job 08285 Task 004 (Download 3492394234)
+                Job 08285 Task 002 (Download 3492394234)
+                Job 08285 Task 003 (Download 3492394234)
+                Job 08285 Task 001 (Download 3492394234)
+                Job 08285 Task 000 (Download 3492394234)
+                Job 08284 Task 065 (Download 3492394234)
+                Job 08283 Task 064 (Download 3492394234)
+                Job 08283 Task 063 (Download 3492394234)
+                Job 08282 Task 032 (Download 3492394234)
+                Job 08282 Task 025 (Download 3492394234)
+                Job 08282 Task 001 (Download 3492394234)
+
+            ####################
 
 
 
@@ -948,17 +941,19 @@ class Downloader(object):
 
     def construct_active_downloads_summary(self, task_download_states):
         '''
-        #### ACTIVE DOWNLOADS #####
+        For example::
 
-         Job 08285 Task 004 - 80% (200/234MB)  - Thread-1
-             /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/beauty/deep_lidar.deep.0005.exr
-             /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/data/deep_lidar.deep.0005.exr
+            #### ACTIVE DOWNLOADS #####
+
+            Job 08285 Task 004 - 80% (200/234MB)  - Thread-1
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/beauty/deep_lidar.deep.0005.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/data/deep_lidar.deep.0005.exr
 
 
 
-         Job 08285 Task 003 - 20%  (20/234MB) - Thread-2
-             /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01142.exr
-             /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01074.exr
+            Job 08285 Task 003 - 20%  (20/234MB) - Thread-2
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01142.exr
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/deep_lidar/deep_lidar.deep.01074.exr
 
         '''
         header = "##### ACTIVE DOWNLOADS #####"
@@ -975,9 +970,11 @@ class Downloader(object):
 
     def _contruct_active_download_summary(self, task_download_state):
         '''
-         Job 08285 Task 004 - 80% (200/234MB)  - Thread-1
-             /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/beauty/deep_lidar.deep.0005.exr  20MB    DOWNLOADING 20%
-             /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/data/deep_lidar.deep.0005.exr    30MB    HASHING EXISTING FILE 77%
+        For example::
+
+            Job 08285 Task 004 - 80% (200/234MB)  - Thread-1
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/beauty/deep_lidar.deep.0005.exr  20MB    DOWNLOADING 20%
+                /Volumes/af/show/wash/shots/MJ/MJ_0080/sandbox/jfunk/katana/renders/MJ_0080_light_v001/data/deep_lidar.deep.0005.exr    30MB    HASHING EXISTING FILE 77%
         '''
         thread_name = task_download_state.thread_name
         jid = task_download_state.task_download.get("job_id")
@@ -1012,12 +1009,14 @@ class Downloader(object):
 
     def construct_file_downloads_history_summary(self, file_download_history):
         '''
-        #### DOWNLOAD HISTORY #####
+        For example::
+
+            #### DOWNLOAD HISTORY #####
 
 
-        6227709558521856 Job 08285 Task 001 20MB  CACHED /work/renders/light_v001/beauty/deep_lidar.deep.0005.exr  <timestamp>
-        7095580349853434 Job 08285 Task 002 10MB  DL     /work/renders/spider_fly01/beauty/deep_lidar.deep.0005.exr  <timestamp>
-        5343402947290140 Job 08284 Task 001 5MB   DL     /work/renders/light_v002/data/light_002.deep.0005.exr  <timestamp>
+            6227709558521856 Job 08285 Task 001 20MB  CACHED /work/renders/light_v001/beauty/deep_lidar.deep.0005.exr  <timestamp>
+            7095580349853434 Job 08285 Task 002 10MB  DL     /work/renders/spider_fly01/beauty/deep_lidar.deep.0005.exr  <timestamp>
+            5343402947290140 Job 08284 Task 001 5MB   DL     /work/renders/light_v002/data/light_002.deep.0005.exr  <timestamp>
 
         '''
 
@@ -1102,11 +1101,14 @@ def _get_job_download(endpoint, client, jid, tid):
 def download_file(download_url, filepath, poll_rate=2, state=None):
     '''
 
-    state: class with .bytes_downloaded property. Reflects the amount of bytes that have currently
-                      been downloaded. This can be used by other threads to report
-                      "progress".  Note that this must be a mutable object (hence
-                      a class), so that this function, as well as other threads
-                      will read/write to the same object.
+    Args:
+        state (class):
+            A class with ``.bytes_downloaded`` property.
+            Reflects the amount of bytes that have currently
+            been downloaded. This can be used by other threads to report
+            "progress".  Note that this must be a mutable object (hence
+            a class), so that this function, as well as other threads
+            will read/write to the same object.
     '''
     logger.info('Downloading: %s', filepath)
     response = requests.get(download_url, stream=True)

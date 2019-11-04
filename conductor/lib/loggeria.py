@@ -73,24 +73,40 @@ def setup_conductor_logging(logger_level=DEFAULT_LEVEL_LOGGER,
                             multiproc=False):
     """The is convenience function to help set up logging.
 
-    THIS SHOULD ONLY BE CALLED ONCE within an execution environment.
+    **THIS SHOULD ONLY BE CALLED ONCE** within an execution environment.
 
     This function does the following:
 
     1. Creates/retrieves the logger object for the "conductor" package
-    2. Sets that logger's  log level to the given logger_level (optional)
-    3. Creates two console handlers (stderr and stdout) and attaches them to the logger object.
-    3a. Optionally sets that console handler's formatter to the the given console_formatter
+    2. Sets that logger's log level to the given ``logger_level`` (optional)
+    3. Creates two console handlers (stderr and stdout) and attaches them to
+       the logger object.
+
+        a. Optionally sets that console handler's log level to the given
+           ``console_level``
+        b. Optionally sets that console handler's formatter to the the given
+           ``console_formatter``
+
     4.  Optionally creates a file handler (if a log filepath is given)
-    4a. Optionally sets that file handler's log level to the given file_level
-    4b. Optionally sets that file handler's formatter to the the given file_formatter
 
-    console_formatter & file_formatter:
-    Formatters are the formatter objects. Not just a string such as "DEBUG".
-    This is because you may need more than just a string to define a formatter object.
+        a. Optionally sets that file handler's log level to the given
+           ``file_level``
+        b. Optionally sets that file handler's formatter to the the given
+           ``file_formatter``
 
-    multiproc: bool. If True, a custom file handler will be used that handles multiprocess
-               logging correctly. This file handler creates an additional Process.
+
+    Notes:
+        ``console_formatter`` and ``file_formatter`` formatters are the
+        ``logging.Formatter`` objects, not just a string such as "DEBUG".
+
+        This is because you may need more than just a string to define a
+        formatter object.
+
+    Args:
+        multiproc (bool):
+            If ``True``, a custom file handler will be used that handles
+            multiprocess logging correctly.
+            This file handler creates an additional Process.
     """
     # Get the top/parent conductor logger
     logger = get_conductor_logger()
@@ -261,17 +277,16 @@ class MPFileHandler(logging.Handler):
 
 
 class TableStr(object):
-    '''
-    A class to help log/print tables of data
-    
-    ############## DOWNLOAD HISTORY #################
-    COMPLETED AT         DOWNLOAD ID       JOB    TASK       SIZE  ACTION  DURATION  THREAD     FILEPATH
-    2016-01-16 01:12:46  5228833175240704  00208  010    137.51MB  DL      0:00:57   Thread-12  /tmp/conductor_daemon_dl/04/cental/cental.010.exr
-    2016-01-16 01:12:42  6032237141164032  00208  004    145.48MB  DL      0:02:24   Thread-2   /tmp/conductor_daemon_dl/04/cental/cental.004.exr
-    2016-01-16 01:12:40  5273802288136192  00208  012    140.86MB  DL      0:02:02   Thread-16  /tmp/conductor_daemon_dl/04/cental/cental.012.exr
-    '''
+    """A class to help log/print tables of data::
 
-    # A dict which contains callable functions that can be used 
+        ############## DOWNLOAD HISTORY #################
+        COMPLETED AT         DOWNLOAD ID       JOB    TASK       SIZE  ACTION  DURATION  THREAD     FILEPATH
+        2016-01-16 01:12:46  5228833175240704  00208  010    137.51MB  DL      0:00:57   Thread-12  /tmp/conductor_daemon_dl/04/cental/cental.010.exr
+        2016-01-16 01:12:42  6032237141164032  00208  004    145.48MB  DL      0:02:24   Thread-2   /tmp/conductor_daemon_dl/04/cental/cental.004.exr
+        2016-01-16 01:12:40  5273802288136192  00208  012    140.86MB  DL      0:02:02   Thread-16  /tmp/conductor_daemon_dl/04/cental/cental.012.exr
+
+    """
+    # A dict which contains callable functions that can be used
     # to condition each column entry of the table
     header_modifiers = {}
 
@@ -290,19 +305,24 @@ class TableStr(object):
             footer="",
             upper_headers=True):
         '''
-        args:
-            data: list of dicts. Each dict represents a row, where the key is the
-                  column name, and the value is the...value
+        Args:
+            data (list[dict]):
+                Each dict represents a row, where the key is the
+                column name, and the value is the...value
 
-            column_names: list of str. The columns of data to show (and the order
-                          in which they are shown)
+            column_names (list[str]):
+                The columns of data to show (and the order
+                in which they are shown)
 
-            title: str. if provided, will be printed above the table
+            title (str):
+                If provided, will be printed above the table
 
-            footer: str. if provided, will be printed below the table
+            footer (str):
+                If provided, will be printed below the table
 
-            upper_headers: bool. If True, will automatically uppercase the column
-                           header names
+            upper_headers (bool):
+                If ``True``, will automatically uppercase the column
+                header names
         '''
         self.data = data
         self.column_names = column_names
